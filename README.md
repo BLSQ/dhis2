@@ -1,8 +1,6 @@
 # Dhis2
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dhis2`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Basic DHIS2 API client for Ruby.
 
 ## Installation
 
@@ -22,7 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The functionalities are available as a module. First thing you need to do is to connect to the instance:
+
+    Dhis2.connect(url: "https://play.dhis2.org/demo", user: "admin", password: "district")
+
+All subsequent calls are going to use the provided url and credentials
+
+    org_unit_levels = Dhis2.org_unit_levels
+
+The various methods are taking an optional hash parameter to be used for ´filter´ and ´fields´ values:
+
+    org_units = Dhis2.org_units(filter: "level:eq:2", fields: %w(id level displayName parent))
 
 ## Development
 
@@ -32,8 +40,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dhis2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/BLSQ/dhis2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
