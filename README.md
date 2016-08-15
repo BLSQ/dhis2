@@ -7,7 +7,7 @@ Basic DHIS2 API client for Ruby.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dhis2'
+gem 'dhis2', :github => 'BLSQ/dhis2' # not published yet, so get it from github
 ```
 
 And then execute:
