@@ -1,8 +1,11 @@
+require "base"
+
 module Dhis2
-  class OrgUnit
+  class OrgUnit < Base
     attr_reader :id, :display_name, :level, :parent_id, :children_ids
 
     def initialize(params)
+      super(params)
       @id = params["id"]
       @display_name = params["displayName"]
       @level = params["level"]
