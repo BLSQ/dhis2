@@ -3,6 +3,7 @@ require "rest-client"
 require "json"
 require "org_unit"
 require "org_unit_level"
+require "paginated_array"
 
 module Dhis2
   class << self
@@ -21,13 +22,16 @@ module Dhis2
     def org_units(options = {})
       response = get_resource("organisationUnits", options).get
       json_response = JSON.parse(response)
-      json_response["organisationUnits"].map { |raw_org_unit| Dhis2::OrgUnit.new(raw_org_unit) }
+      PaginatedArray.new(json_response["organisationUnits"].map { |raw_org_unit| Dhis2::OrgUnit.new(raw_org_unit) }, json_response["pager"])
     end
 
     def org_unit_levels
       response = get_resource("organisationUnitLevels", fields: %w(id name level)).get
       json_response = JSON.parse(response)
-      json_response["organisationUnitLevels"].map { |raw_org_unit_level| Dhis2::OrgUnitLevel.new(raw_org_unit_level) }
+      PaginatedArray.new(
+        json_response["organisationUnitLevels"].map { |raw_org_unit_level| Dhis2::OrgUnitLevel.new(raw_org_unit_level) }, 
+        json_response["pager"]
+      )
     end
 
     def org_unit(id)
