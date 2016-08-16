@@ -34,6 +34,13 @@ The various methods are taking an optional hash parameter to be used for ´filte
 
 Notes that any field found in the resulting JSON will be accessible from the object.
 
+Following the DHIS2 API, all calls are paginated - you can access the page info using the `pager` property on the returned list:
+
+    org_units = Dhis2.org_units(filter: "level:eq:2", fields: %w(id level displayName parent))
+    org_units.pager.page       # current page
+    org_units.pager.page_count # number of pages 
+    org_units.pager.total      # number of records 
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
