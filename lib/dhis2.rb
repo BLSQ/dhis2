@@ -51,6 +51,7 @@ module Dhis2
       arguments << "fields=" + options[:fields].join(",") if options[:fields]
       arguments << "filter=" + options[:filter] if options[:filter]
       arguments << "pageSize=#{options[:page_size]}" if options[:page_size]
+      arguments << "page=#{options[:page]}" if options[:page]
 
       path = "#{name}?#{arguments.join('&')}"
       resource[path]

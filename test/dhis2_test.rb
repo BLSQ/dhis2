@@ -15,10 +15,10 @@ class Dhis2Test < Minitest::Test
   end
 
   def test_get_org_units_pagination
-    org_units = Dhis2.org_units(fields: %w(parent children level id displayName)) 
+    org_units = Dhis2.org_units(fields: %w(parent children level id displayName), page: 6)
     assert_equal 50, org_units.size
     refute_nil org_units.pager
-    assert_equal 1, org_units.pager.page
+    assert_equal 6, org_units.pager.page
   end
 
   def test_get_org_units_fields
