@@ -14,8 +14,19 @@ class Dhis2Test < Minitest::Test
     assert_equal 50, org_units.size
   end
 
+  def test_get_org_units_all_fields
+    org_units = Dhis2.org_units(fields: [":all"], page_size: 1)
+    assert_equal 1, org_units.size
+    org_unit = org_units.first
+
+    refute_nil org_unit.level
+    refute_nil org_unit.shortName
+    refute_nil org_unit.shortName
+    refute_nil org_unit.lastUpdated
+  end
+
   def test_get_data_elements
-    data_elements = Dhis2.data_elements(fields: %w(id displayName code), page_size: 1 )
+    data_elements = Dhis2.data_elements(fields: %w(id displayName code), page_size: 1)
     assert_equal 1, data_elements.size
 
     data_element = data_elements.first
@@ -44,7 +55,6 @@ class Dhis2Test < Minitest::Test
     refute_nil data_element.display_name
     refute_nil data_element.id
     refute_nil data_element.code
-    refute_nil data_element.shortName
   end
 
   def test_get_org_units_pagination
