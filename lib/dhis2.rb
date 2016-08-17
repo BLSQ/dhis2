@@ -2,7 +2,9 @@ require "dhis2/version"
 require "rest-client"
 require "json"
 require "org_unit"
+require "data_element"
 require "org_unit_level"
+require "status"
 require "paginated_array"
 
 module Dhis2
@@ -25,6 +27,12 @@ module Dhis2
       PaginatedArray.new(json_response["organisationUnits"].map { |raw_org_unit| Dhis2::OrgUnit.new(raw_org_unit) }, json_response["pager"])
     end
 
+    def data_elements(options = {})
+      response = get_resource("dataElements", options).get
+      json_response = JSON.parse(response)
+      PaginatedArray.new(json_response["dataElements"].map { |raw_data_element| Dhis2::DataElement.new(raw_data_element) }, json_response["pager"])
+    end
+
     def org_unit_levels
       response = get_resource("organisationUnitLevels", fields: %w(id name level)).get
       json_response = JSON.parse(response)
@@ -38,6 +46,32 @@ module Dhis2
       response = resource["organisationUnits/#{id}"].get
       json_response = JSON.parse(response)
       Dhis2::OrgUnit.new(json_response)
+    end
+
+    def data_element(id)
+      response = resource["dataElements/#{id}"].get
+      json_response = JSON.parse(response)
+      Dhis2::DataElement.new(json_response)
+    end
+
+    def create_data_elements(elements)
+      category_combo_id = JSON.parse(resource["categoryCombos"].get)["categoryCombos"].first["id"]
+      data_element = {
+        dataElements: elements.map do |element|
+          {
+            name: element[:name],
+            shortName: element[:short_name],
+            domainType: element[:domain_type] || "AGGREGATE",
+            valueType: element[:value_type] || "INTEGER_POSITIVE",
+            aggregationType: element[:aggregation_type] || "SUM",
+            categoryCombo: { id: category_combo_id }
+          }
+        end
+      }
+      json_response = resource["metadata"].post(JSON.generate(data_element), content_type: "application/json")
+      response = JSON.parse(json_response)
+
+      Dhis2::Status.new(response)
     end
 
     private

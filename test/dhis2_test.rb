@@ -14,6 +14,39 @@ class Dhis2Test < Minitest::Test
     assert_equal 50, org_units.size
   end
 
+  def test_get_data_elements
+    data_elements = Dhis2.data_elements(fields: %w(id displayName code), page_size: 1 )
+    assert_equal 1, data_elements.size
+
+    data_element = data_elements.first
+
+    refute_nil data_element.display_name
+    refute_nil data_element.id
+    refute_nil data_element.code
+  end
+
+  def test_create_data_elements
+    elements = [
+      { name: "TesTesT1", short_name: "TTT1" },
+      { name: "TesTesT2", short_name: "TTT2" }
+    ]
+    status = Dhis2.create_data_elements(elements)
+    assert_equal true, status.success?
+    assert_equal 2, status.total_imported
+  end
+
+  def test_get_data_element
+    data_elements = Dhis2.data_elements(fields: %w(id displayName code), page_size: 1 )
+    assert_equal 1, data_elements.size
+
+    data_element = Dhis2.data_element(data_elements.first.id)
+
+    refute_nil data_element.display_name
+    refute_nil data_element.id
+    refute_nil data_element.code
+    refute_nil data_element.shortName
+  end
+
   def test_get_org_units_pagination
     org_units = Dhis2.org_units(fields: %w(parent children level id displayName), page: 6)
     assert_equal 50, org_units.size
