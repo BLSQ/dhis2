@@ -82,7 +82,10 @@ module Dhis2
 
     def get_resource(name, options = {})
       arguments = []
-      arguments << "fields=" + options[:fields].join(",") if options[:fields]
+      if options[:fields]
+        arguments << "fields=" + options[:fields].join(",") if options[:fields].respond_to?(:join)
+        arguments << "fields=:#{options[:fields]}" if options[:fields].class == Symbol
+      end
       arguments << "filter=" + options[:filter] if options[:filter]
       arguments << "pageSize=#{options[:page_size]}" if options[:page_size]
       arguments << "page=#{options[:page]}" if options[:page]

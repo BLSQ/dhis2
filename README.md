@@ -32,6 +32,10 @@ The various methods are taking an optional hash parameter to be used for ´filte
 
     org_units = Dhis2.org_units(filter: "level:eq:2", fields: %w(id level displayName parent))
 
+If you want all fields, simply specify ´:all´
+
+    org_units = Dhis2.org_units(filter: "level:eq:2", fields: :all)
+
 Notes that any field found in the resulting JSON will be accessible from the object.
 
 Following the DHIS2 API, all calls are paginated - you can access the page info using the `pager` property on the returned list:
@@ -39,7 +43,11 @@ Following the DHIS2 API, all calls are paginated - you can access the page info 
     org_units = Dhis2.org_units(filter: "level:eq:2", fields: %w(id level displayName parent))
     org_units.pager.page       # current page
     org_units.pager.page_count # number of pages 
-    org_units.pager.total      # number of records 
+    org_units.pager.total      # number of records
+
+You can also retreive a single element (in this case, all fields are returned by default):
+
+    ou = Dhis2.org_unit(id)
 
 ## Supported features
 

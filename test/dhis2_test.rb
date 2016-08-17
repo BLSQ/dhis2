@@ -15,7 +15,7 @@ class Dhis2Test < Minitest::Test
   end
 
   def test_get_org_units_all_fields
-    org_units = Dhis2.org_units(fields: [":all"], page_size: 1)
+    org_units = Dhis2.org_units(fields: :all, page_size: 1)
     assert_equal 1, org_units.size
     org_unit = org_units.first
 
