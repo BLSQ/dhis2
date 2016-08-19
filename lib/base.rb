@@ -8,5 +8,13 @@ module Dhis2
       return @raw_data[m.to_s] if @raw_data[m.to_s]
       super
     end
+
+    def print_class
+      self.class
+    end
+
+    def print_self
+      self
+    end
   end
 end

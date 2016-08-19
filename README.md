@@ -24,34 +24,34 @@ The functionalities are available as a module. First thing you need to do is to 
 
     Dhis2.connect(url: "https://play.dhis2.org/demo", user: "admin", password: "district")
 
-All subsequent calls are going to use the provided url and credentials
+All subsequent calls can be done on the object themselves and are going to use the provided url and credentials
 
-    org_unit_levels = Dhis2.org_unit_levels
+    org_unit_levels = Dhis2::OrgUnitLevel.list
 
 The various methods are taking an optional hash parameter to be used for ´filter´ and ´fields´ values:
 
-    org_units = Dhis2.org_units(filter: "level:eq:2", fields: %w(id level displayName parent))
+    org_units = Dhis2::OrgUnit.list(filter: "level:eq:2", fields: %w(id level displayName parent))
 
-If you want all fields, simply specify ´:all´
+If you want all fields, simply specify `:all`
 
-    org_units = Dhis2.org_units(filter: "level:eq:2", fields: :all)
+    org_units = Dhis2::OrgUnit.list(filter: "level:eq:2", fields: :all)
 
 Notes that any field found in the resulting JSON will be accessible from the object.
 
 Following the DHIS2 API, all calls are paginated - you can access the page info using the `pager` property on the returned list:
 
-    org_units = Dhis2.org_units(filter: "level:eq:2", fields: %w(id level displayName parent))
+    org_units = Dhis2::OrgUnit.list(filter: "level:eq:2", fields: %w(id level displayName parent))
     org_units.pager.page       # current page
     org_units.pager.page_count # number of pages 
     org_units.pager.total      # number of records
 
-You can also retreive a single element (in this case, all fields are returned by default):
+You can also retreive a single element using `find`(in this case, all fields are returned by default):
 
-    ou = Dhis2.org_unit(id)
+    ou = Dhis2.Dhis2::OrgUnit.find(id)
 
 ## Supported features
 
-The API is currently limited to **read only** actions on the following elements:
+The API is currently limited to **read** actions on the following elements:
 
 * Organisation Units
 * Organisation Units Levels
@@ -63,7 +63,7 @@ A very basic **write** use case exists for Data Elements:
           { name: "TesTesT1", short_name: "TTT1" },
           { name: "TesTesT2", short_name: "TTT2" }
         ]
-    status = Dhis2.create_data_elements(elements)
+    status = Dhis2:DataElement.create(elements)
     status.success? # => true
     status.total_imported # => 2
 
