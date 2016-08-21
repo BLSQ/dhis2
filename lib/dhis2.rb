@@ -1,9 +1,10 @@
 require "dhis2/version"
 require "rest-client"
 require "json"
-require "org_unit"
+require "organisation_unit"
 require "data_element"
-require "org_unit_level"
+require "data_set"
+require "organisation_unit_level"
 require "status"
 require "paginated_array"
 
@@ -34,9 +35,13 @@ module Dhis2
       path = "#{name}?#{arguments.join('&')}"
       resource[path]
     end
-    
+
     def resource
       @resource ||= RestClient::Resource.new("#{@url}/api", headers: { accept: "application/json" }, user: @user, password: @password)
+    end
+
+    def camelize(str)
+      str.gsub(/\_([a-z])/, "")
     end
   end
 end
