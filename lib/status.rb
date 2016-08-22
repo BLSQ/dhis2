@@ -19,5 +19,9 @@ module Dhis2
       end
       total
     end
+
+    def last_imported_ids
+      @raw_status["importTypeSummaries"].map { |summary| summary["lastImported"] }
+    end
   end
 end

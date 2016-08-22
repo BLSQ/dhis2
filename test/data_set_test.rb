@@ -28,6 +28,7 @@ class DataSetTest < Minitest::Test
       {
         name:                  "FullTestT",
         short_name:            "FTT",
+        code:                  "FTT",
         organisation_unit_ids: org_units.map(&:id),
         data_element_ids:      data_elements.map(&:id)
       }
@@ -36,7 +37,9 @@ class DataSetTest < Minitest::Test
     assert_equal true, status.success?
     assert_equal 1, status.total_imported
 
-    created_set = Dhis2::DataSet.list(filter: "name:eq:FullTestT", fields: :all).first
+    id = status.last_imported_ids.first
+
+    created_set = Dhis2::DataSet.find(id)
 
     refute_empty created_set.dataElements
     refute_empty created_set.organisationUnits
