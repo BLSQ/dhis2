@@ -11,17 +11,18 @@ module Dhis2
     class << self
       def create(elements)
         elements = [elements].flatten
-        category_combo_id = JSON.parse(Dhis2.resource["categoryCombos"].get)["categoryCombos"].first["id"]
+        category_combo_id = JSON.parse(Dhis2.resource["categoryCombos"].get)["categoryCombos"]
+                            .first["id"]
         data_element = {
           dataElements: elements.map do |element|
             {
-              name: element[:name],
-              shortName: element[:short_name],
-              code: element[:code] || element[:short_name],
-              domainType: element[:domain_type] || "AGGREGATE",
-              valueType: element[:value_type] || "INTEGER_POSITIVE",
+              name:            element[:name],
+              shortName:       element[:short_name],
+              code:            element[:code] || element[:short_name],
+              domainType:      element[:domain_type] || "AGGREGATE",
+              valueType:       element[:value_type] || "INTEGER_POSITIVE",
               aggregationType: element[:aggregation_type] || "SUM",
-              categoryCombo: { id: category_combo_id }
+              categoryCombo:   { id: category_combo_id }
             }
           end
         }
