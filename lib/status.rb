@@ -1,5 +1,7 @@
 module Dhis2
   class Status
+    attr_reader :raw_status
+
     def initialize(raw_status)
       @raw_status = raw_status
     end
@@ -25,3 +27,27 @@ module Dhis2
     end
   end
 end
+
+# {
+#   "importCount"=>{
+#     "imported"=>1, 
+#     "updated"=>0, 
+#     "ignored"=>0, 
+#     "deleted"=>0
+#   }, 
+#   "importTypeSummaries"=>[
+#     {
+#       "responseType"=>"ImportTypeSummary", 
+#       "status"=>"SUCCESS", 
+#       "importCount"=>
+#       {
+#         "imported"=>1, 
+#         "updated"=>0, 
+#         "ignored"=>0, 
+#         "deleted"=>0
+#       }, 
+#       "type"=>"DataElement", 
+#       "lastImported"=>"lMadHjxdo5q"
+#     }
+#   ]
+# }

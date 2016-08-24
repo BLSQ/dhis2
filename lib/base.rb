@@ -18,6 +18,14 @@ module Dhis2
         new(json_response)
       end
 
+      def find_by(clauses)
+        filter = []
+        clauses.each do |field, value|
+          filter << "#{field}:eq:#{value}"
+        end
+        list(fields: :all, filter: filter.join("&")).first
+      end
+
       def list(options = {})
         options[:fields] = default_fields if default_fields && !options[:fields]
         response = Dhis2.get_resource(resource_name, options).get

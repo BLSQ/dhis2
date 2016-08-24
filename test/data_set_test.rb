@@ -13,12 +13,17 @@ class DataSetTest < Minitest::Test
 
   def test_create_data_sets
     sets = [
-      { name: "TesTesT1", short_name: "TTT1" },
-      { name: "TesTesT2", short_name: "TTT2" }
+      { name: "TesTesT1", short_name: "TTT1", code: "TTT1" },
+      { name: "TesTesT2", short_name: "TTT2", code: "TTT2"  }
     ]
     status = Dhis2::DataSet.create(sets)
     assert_equal true, status.success?
     assert_equal 2, status.total_imported
+
+    data_set_1 = Dhis2::DataSet.list(fields: :all, filter: "code:eq:TTT1").first
+
+    assert_equal "TTT1", data_set_1.code
+    assert_equal "TTT1", data_set_1.shortName
   end
 
   def test_create_data_sets_with_links
@@ -37,9 +42,7 @@ class DataSetTest < Minitest::Test
     assert_equal true, status.success?
     assert_equal 1, status.total_imported
 
-    id = status.last_imported_ids.first
-
-    created_set = Dhis2::DataSet.find(id)
+    created_set = Dhis2::DataSet.find_by(code: "FTT")
 
     refute_empty created_set.dataElements
     refute_empty created_set.organisationUnits

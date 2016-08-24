@@ -15,6 +15,7 @@ module Dhis2
             {
               name:              set[:name],
               shortName:         set[:short_name],
+              code:              set[:code],
               periodType:        "Monthly",
               dataElements:      set[:data_element_ids] ? set[:data_element_ids].map { |id| { id: id } } : [],
               organisationUnits: set[:organisation_unit_ids] ? set[:organisation_unit_ids].map { |id| { id: id } } : []

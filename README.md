@@ -20,9 +20,13 @@ Or install it yourself as:
 
 ## Usage
 
+### Connection
+
 The functionalities are available as a module. First thing you need to do is to connect to the instance:
 
     Dhis2.connect(url: "https://play.dhis2.org/demo", user: "admin", password: "district")
+
+### Search for elements
 
 All subsequent calls can be done on the object themselves and are going to use the provided url and credentials
 
@@ -38,6 +42,8 @@ If you want all fields, simply specify `:all`
 
 Notes that any field found in the resulting JSON will be accessible from the object.
 
+### Pagination
+
 Following the DHIS2 API, all calls are paginated - you can access the page info using the `pager` property on the returned list:
 
     org_units = Dhis2::OrganisationUnit.list(filter: "level:eq:2", fields: %w(id level displayName parent))
@@ -45,9 +51,19 @@ Following the DHIS2 API, all calls are paginated - you can access the page info 
     org_units.pager.page_count # number of pages 
     org_units.pager.total      # number of records
 
-You can also retreive a single element using `find`(in this case, all fields are returned by default):
+### Retreive a single element
+
+You can also retreive a single element using its id with `find`(in this case, all fields are returned by default):
 
     ou = Dhis2.Dhis2::OrganisationUnit.find(id)
+
+If you have an equality condition or set of equality conditions that should return a single element, you can use `find_by` instead of the longer list option:
+
+    # Instead of this:
+    data_element = Dhis2::DataElement.list(filter: "code:eq:C27", fields: :all).first
+
+    # Just do:
+    data_element = Dhis2::DataElement.find_by(code: "C27")
 
 ## Supported features
 
@@ -58,7 +74,7 @@ The API is currently limited to **read** actions on the following elements:
 * Data Elements
 * Data Sets
 
-A very basic **write** use case exists for Data Elements:
+A very basic **write** use case exists for Data Elements and Data Sets:
 
     elements = [
           { name: "TesTesT1", short_name: "TTT1" },
@@ -68,7 +84,7 @@ A very basic **write** use case exists for Data Elements:
     status.success? # => true
     status.total_imported # => 2
 
-DHIS2 API does not return the ids of the created elements, but you can retreive them with their (unique) name.
+DHIS2 API does not return the ids of the created elements, but you can retreive them with their (unique) name or code.
 
 ## Development
 
@@ -86,3 +102,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/BLSQ/d
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+z
