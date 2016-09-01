@@ -32,4 +32,13 @@ class DataElementTest < Minitest::Test
     refute_nil data_element.id
     refute_nil data_element.shortName
   end
+
+  def test_delete_data_element
+    element = { name: "test_one", short_name: "tone" }
+    status = Dhis2::DataElement.create(element)
+
+    data_element = Dhis2::DataElement.find(status.last_imported_ids.first)
+    assert_equal true, data_element.delete 
+  end 
+
 end
