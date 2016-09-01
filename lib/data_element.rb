@@ -34,6 +34,12 @@ module Dhis2
 
         Dhis2::Status.new(response)
       end
+
     end
+
+      def delete
+          puts "deleting #{@id}"
+          Dhis2.resource["dataElements/#{@id}"].delete {|response, request, result| response.code == 204 }
+      end 
   end
 end
