@@ -32,8 +32,7 @@ module Dhis2
         json_response = JSON.parse(response)
         PaginatedArray.new(
           json_response[resource_name].map { |raw_org_unit| new(raw_org_unit) },
-          json_response["pager"]
-        )
+          json_response["pager"])
       end
 
       def resource_name
@@ -44,6 +43,11 @@ module Dhis2
       def default_fields
         nil
       end
+    end
+
+    def delete
+      Dhis2.resource["#{self.class.resource_name}/#{@id}"]
+           .delete {|response, request, result| response.code == 204 }
     end
   end
 end
