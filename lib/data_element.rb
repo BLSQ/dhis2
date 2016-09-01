@@ -11,8 +11,10 @@ module Dhis2
     class << self
       def create(elements)
         elements = [elements].flatten
-        category_combo_id = JSON.parse(Dhis2.resource["categoryCombos"].get)["categoryCombos"]
-                            .find{ |categoryCombo| categoryCombo["displayName"] == 'default'}["id"]
+        category_combo_id = JSON.parse(Dhis2
+                                .resource["categoryCombos"]
+                                .get(params: { filter: "name:eq:default" }))["categoryCombos"]
+                                .first["id"]
 
         data_element = {
           dataElements: elements.map do |element|
@@ -28,11 +30,10 @@ module Dhis2
           end
         }
         json_response = Dhis2.resource["metadata"].post(
-         JSON.generate(data_element),
-         content_type: "application/json"
+          JSON.generate(data_element),
+          content_type: "application/json"
         )
         response = JSON.parse(json_response)
-
         Dhis2::Status.new(response)
       end
     end
