@@ -29,7 +29,7 @@ The functionalities are available as a module. First thing you need to do is to 
 
 ### Search for elements
 
-All subsequent calls can be done on the object themselves and are going to use the provided url and credentials
+All subsequent calls can be done on the objects themselves and are going to use the provided url and credentials
 
     org_unit_levels = Dhis2::OrganisationUnitLevel.list
 
@@ -56,7 +56,11 @@ Following the DHIS2 API, all calls are paginated - you can access the page info 
 
 You can also retreive a single element using its id with `find`(in this case, all fields are returned by default):
 
-    ou = Dhis2.Dhis2::OrganisationUnit.find(id)
+    ou = Dhis2::OrganisationUnit.find(id)
+
+`find` also accepts multiple ids - query will not be paginated and will return all fields for the given objects:
+
+    ous = Dhis2::OrganisationUnit.find([id1, id2, id3])
 
 If you have an equality condition or set of equality conditions that should return a single element, you can use `find_by` instead of the longer list option:
 
@@ -68,14 +72,15 @@ If you have an equality condition or set of equality conditions that should retu
 
 ## Supported features
 
-The API is currently limited to **read** actions on the following elements:
+The API is currently limited to **read** actions on the following elements/classes:
 
-* Organisation Units
-* Organisation Units Levels
-* Data Elements
-* Data Sets
+* `OrganisationUnit`
+* `OrganisationUnitLevels`
+* `DataElement`
+* `DataSet`
+* `CategoryCombo`
 
-A very basic **write** use case exists for Data Elements and Data Sets:
+A very basic **write** use case exists for `DataElement` and `DataSet`:
 
     elements = [
           { name: "TesTesT1", short_name: "TTT1" },
@@ -86,6 +91,12 @@ A very basic **write** use case exists for Data Elements and Data Sets:
     status.total_imported # => 2
 
 DHIS2 API does not return the ids of the created elements, but you can retreive them with their (unique) name or code.
+
+    elements = [
+          { name: "TesTesT2", short_name: "TTT2" }
+        ]
+    status = Dhis2:DataElement.create(elements)
+    element = Dhis2::DataElement.find_by(name: "TesTesT2")
 
 ## Development
 
