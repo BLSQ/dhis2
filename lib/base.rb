@@ -11,11 +11,19 @@ module Dhis2
       super
     end
 
+    def ==(other)
+      self.class == other.class && id == other.id
+    end
+
     class << self
       def find(id)
-        response = Dhis2.get_resource("#{resource_name}/#{id}").get
-        json_response = JSON.parse(response)
-        new(json_response)
+        if id.class == Array
+          list(filter: "id:in:[#{id.join(',')}]", fields: :all, page_size: 10000)
+        else
+          response = Dhis2.get_resource("#{resource_name}/#{id}").get
+          json_response = JSON.parse(response)
+          new(json_response)
+        end
       end
 
       def find_by(clauses)

@@ -11,10 +11,7 @@ module Dhis2
     class << self
       def create(elements)
         elements = [elements].flatten
-        category_combo_id = JSON.parse(Dhis2
-                                .resource["categoryCombos"]
-                                .get(params: { filter: "name:eq:default" }))["categoryCombos"]
-                                .first["id"]
+        category_combo_id = CategoryCombo.find_by(name: "default").id
 
         data_element = {
           dataElements: elements.map do |element|

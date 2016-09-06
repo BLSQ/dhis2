@@ -18,6 +18,19 @@ class OrganisationUnitTest < Minitest::Test
     refute_nil org_unit.lastUpdated
   end
 
+  def test_find_org_units
+    org_units_by_list = Dhis2::OrganisationUnit.list(fields: %w(id), page_size: 9)
+    ids = org_units_by_list.map(&:id)
+
+    org_units = Dhis2::OrganisationUnit.find(ids)
+
+    assert_equal org_units_by_list.size, org_units.size
+
+    org_units_by_list.each do |ou|
+      assert org_units.include?(ou)
+    end
+  end
+
   def test_list_org_units_all_fields
     org_units = Dhis2::OrganisationUnit.list(fields: :all, page_size: 1)
     assert_equal 1, org_units.size
