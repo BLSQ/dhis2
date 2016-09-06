@@ -1,11 +1,5 @@
-require "base"
-
 module Dhis2
   class CategoryCombo < Base
-    def initialize(params)
-      super(params)
-    end
-
     class << self
       def defaut
         find_by(name: "default")

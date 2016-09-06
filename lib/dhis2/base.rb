@@ -2,6 +2,8 @@ module Dhis2
   class Base < OpenStruct
     class << self
       def find(id)
+        raise "Missing id" if id.nil?
+
         if id.class == Array
           list(filter: "id:in:[#{id.join(',')}]", fields: :all, page_size: id.size)
         else
@@ -67,8 +69,8 @@ module Dhis2
     end
 
     def delete
-      puts "#{self.class.resource_name}/#{id}"
       Dhis2.client.delete("#{self.class.resource_name}/#{id}")
+      true
     end
 
     def ==(other)

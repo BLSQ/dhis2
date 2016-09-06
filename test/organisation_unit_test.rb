@@ -14,7 +14,6 @@ class OrganisationUnitTest < Minitest::Test
     assert_equal id, org_unit.id
     refute_nil org_unit.level
     refute_nil org_unit.shortName
-    refute_nil org_unit.shortName
     refute_nil org_unit.lastUpdated
   end
 
@@ -37,7 +36,6 @@ class OrganisationUnitTest < Minitest::Test
     org_unit = org_units.first
 
     refute_nil org_unit.level
-    refute_nil org_unit.shortName
     refute_nil org_unit.shortName
     refute_nil org_unit.lastUpdated
   end
