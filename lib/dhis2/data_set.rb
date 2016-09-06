@@ -1,5 +1,3 @@
-require "base"
-
 module Dhis2
   class DataSet < Base
     def initialize(params)
@@ -8,8 +6,7 @@ module Dhis2
 
     class << self
       def create(sets)
-        sets = [sets].flatten
-
+        sets     = [sets].flatten
         data_set = {
           dataSets: sets.map do |set|
             {
@@ -22,12 +19,7 @@ module Dhis2
             }
           end
         }
-        json_response = Dhis2.resource["metadata"].post(
-          JSON.generate(data_set),
-          content_type: "application/json"
-        )
-        response = JSON.parse(json_response)
-
+        response = Dhis2.client.post("metadata", data_set)
         Dhis2::Status.new(response)
       end
     end

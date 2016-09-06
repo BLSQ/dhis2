@@ -1,6 +1,3 @@
-require "delegate"
-require "pager"
-
 class PaginatedArray < DelegateClass(Array)
   attr_reader :pager
 

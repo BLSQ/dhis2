@@ -1,13 +1,21 @@
-require "dhis2/version"
 require "rest-client"
 require "json"
-require "organisation_unit"
-require "data_element"
-require "data_set"
-require "category_combo"
-require "organisation_unit_level"
-require "status"
-require "paginated_array"
+require "ostruct"
+require "uri"
+require "delegate"
+
+require "dhis2/category_combo"
+require "dhis2/pager"
+require "dhis2/version"
+require "dhis2/base"
+require "dhis2/organisation_unit"
+require "dhis2/data_element"
+require "dhis2/data_set"
+require "dhis2/organisation_unit_level"
+require "dhis2/status"
+require "dhis2/paginated_array"
+require "dhis2/client"
+require "dhis2/import_error"
 
 module Dhis2
   class << self
@@ -18,27 +26,13 @@ module Dhis2
       raise "Missing #{user}" unless options[:user]
       raise "Missing #{password}" unless options[:password]
 
-      @url = options[:url]
-      @user = options[:user]
+      @url      = options[:url]
+      @user     = options[:user]
       @password = options[:password]
     end
 
-    def get_resource(name, options = {})
-      arguments = []
-      if options[:fields]
-        arguments << "fields=" + options[:fields].join(",") if options[:fields].respond_to?(:join)
-        arguments << "fields=:#{options[:fields]}" if options[:fields].class == Symbol
-      end
-      arguments << "filter=" + options[:filter] if options[:filter]
-      arguments << "pageSize=#{options[:page_size]}" if options[:page_size]
-      arguments << "page=#{options[:page]}" if options[:page]
-
-      path = "#{name}?#{arguments.join('&')}"
-      resource[path]
-    end
-
-    def resource
-      @resource ||= RestClient::Resource.new("#{@url}/api", headers: { accept: "application/json" }, user: @user, password: @password)
+    def client
+      @client ||= Dhis2::Client.new(@url, @user, @password)
     end
 
     def camelize(str)
