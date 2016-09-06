@@ -18,6 +18,7 @@ module Dhis2
           filter << "#{field}:eq:#{value}"
         end
         list(fields: :all, filter: filter).first
+
       end
 
       def list(options = {})
@@ -37,8 +38,9 @@ module Dhis2
         params = []
         params.push([:page, options[:page]])                   if options[:page]
         params.push([:pageSize, options[:page_size]])          if options[:page_size]
-        params.push([:fields, format_fields(options[:field])]) if options[:fields]
+        params.push([:fields, format_fields(options[:fields])]) if options[:fields]
         params.concat(format_filter(options[:filter]))         if options[:filter]
+
         RestClient::ParamsArray.new(params)
       end
 

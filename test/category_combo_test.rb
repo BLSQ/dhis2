@@ -2,8 +2,8 @@ require "test_helper"
 
 class CategoryComboTest < Minitest::Test
   def test_list_combos
-    combos = Dhis2::CategoryCombo.list(fields: :all)
-    assert_equal 20, combos.size
+    combos = Dhis2::CategoryCombo.list(fields: :all, page_size: 10)
+    assert_equal 10, combos.size
 
     combo = combos.first
 
