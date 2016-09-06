@@ -8,7 +8,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'dhis2' # get it from RubyGems
-gem 'dhis2, :github => 'BLSQ/dhis2' # OR get the bleeding edge version from github
+gem 'dhis2', github: 'BLSQ/dhis2' # OR get the bleeding edge version from github
 ```
 
 And then execute:
