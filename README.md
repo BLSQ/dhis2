@@ -86,7 +86,7 @@ A very basic **write** use case exists for `DataElement` and `DataSet`:
           { name: "TesTesT1", short_name: "TTT1" },
           { name: "TesTesT2", short_name: "TTT2" }
         ]
-    status = Dhis2:DataElement.create(elements)
+    status = Dhis2::DataElement.create(elements)
     status.success? # => true
     status.total_imported # => 2
 
@@ -113,5 +113,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/BLSQ/d
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-z
