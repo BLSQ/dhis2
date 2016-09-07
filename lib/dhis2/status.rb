@@ -27,27 +27,3 @@ module Dhis2
     end
   end
 end
-
-# {
-#   "importCount"=>{
-#     "imported"=>1, 
-#     "updated"=>0, 
-#     "ignored"=>0, 
-#     "deleted"=>0
-#   }, 
-#   "importTypeSummaries"=>[
-#     {
-#       "responseType"=>"ImportTypeSummary", 
-#       "status"=>"SUCCESS", 
-#       "importCount"=>
-#       {
-#         "imported"=>1, 
-#         "updated"=>0, 
-#         "ignored"=>0, 
-#         "deleted"=>0
-#       }, 
-#       "type"=>"DataElement", 
-#       "lastImported"=>"lMadHjxdo5q"
-#     }
-#   ]
-# }

@@ -1,13 +1,7 @@
-require "base"
-
 module Dhis2
   class OrganisationUnitLevel < Base
-    attr_reader :id, :name, :level
-
     def initialize(params)
       super(params)
-      @name = params["name"]
-      @level = params["level"]
     end
 
     class << self

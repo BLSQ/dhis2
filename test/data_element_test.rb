@@ -1,4 +1,5 @@
 require "test_helper"
+require "securerandom"
 
 class DataElementTest < Minitest::Test
   def test_list_data_elements
@@ -34,11 +35,10 @@ class DataElementTest < Minitest::Test
   end
 
   def test_delete_data_element
-    element = { name: "test_one", short_name: "tone" }
-    status = Dhis2::DataElement.create(element)
-
+    element      = { name: SecureRandom.hex, short_name: SecureRandom.hex }
+    status       = Dhis2::DataElement.create(element)
     data_element = Dhis2::DataElement.find(status.last_imported_ids.first)
-    assert_equal true, data_element.delete 
-  end 
+    assert_equal true, data_element.delete
+  end
 
 end

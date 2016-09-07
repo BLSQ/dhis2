@@ -1,16 +1,8 @@
-require "base"
-
 module Dhis2
   class DataElement < Base
-    attr_reader :id, :display_name
-
-    def initialize(params)
-      super(params)
-    end
-
     class << self
       def create(elements)
-        elements = [elements].flatten
+        elements          = [elements].flatten
         category_combo_id = CategoryCombo.find_by(name: "default").id
 
         data_element = {
@@ -26,11 +18,8 @@ module Dhis2
             }
           end
         }
-        json_response = Dhis2.resource["metadata"].post(
-          JSON.generate(data_element),
-          content_type: "application/json"
-        )
-        response = JSON.parse(json_response)
+
+        response = Dhis2.client.post("metadata", data_element)
         Dhis2::Status.new(response)
       end
     end
