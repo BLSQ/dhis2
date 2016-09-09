@@ -27,7 +27,7 @@ The functionalities are available as a module. First thing you need to do is to 
 
     Dhis2.connect(url: "https://play.dhis2.org/demo", user: "admin", password: "district")
 
-### Search for elements
+### Search for meta elements
 
 All subsequent calls can be done on the objects themselves and are going to use the provided url and credentials
 
@@ -69,6 +69,16 @@ If you have an equality condition or set of equality conditions that should retu
 
     # Just do:
     data_element = Dhis2::DataElement.find_by(code: "C27")
+
+### Values
+
+You can retreive data values this way:
+
+    ds = Dhis2::DataSet.find_by(name: "Child Health")
+    organisation_unit = Dhis2::OrganisationUnit.find_by(name: "Baoma")
+    period = "201512"
+
+    value_sets = Dhis2::DataValueSets.list(data_sets: [ds.id], organisation_unit: organisation_unit.id, periods: [period])
 
 ## Supported features
 
