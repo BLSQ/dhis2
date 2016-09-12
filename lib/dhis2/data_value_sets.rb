@@ -7,7 +7,8 @@ module Dhis2
     class << self
       def create(tuples)
         body = { dataValues: tuples }
-        Dhis2.get_resource("dataValueSets").post(JSON.generate(body), content_type: "application/json")
+        response = Dhis2.client.post("dataValueSets", body)
+        Dhis2::Status.new(response)
       end
 
       def list(options)

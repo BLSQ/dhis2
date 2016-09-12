@@ -20,4 +20,13 @@ class DataValueSetsTest < Minitest::Test
     refute_nil value.period
     refute_nil value.orgUnit
   end
+
+  def test_create_values
+    org_units = Dhis2::OrganisationUnit.list(page_size: 2)
+    data_elements = Dhis2::DataElement.list(page_size: 2)
+
+    tuple = [{dataElement: data_elements.first.id, orgUnit: org_units.first.id, period: "201601", value: 36}]
+    status = Dhis2::DataValueSets.create(tuple)
+    assert_equal true, status.success?
+  end
 end

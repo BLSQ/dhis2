@@ -7,7 +7,8 @@ module Dhis2
     end
 
     def success?
-      @raw_status["importTypeSummaries"].all? { |summary| summary["status"] == "SUCCESS" }
+      return @raw_status["importTypeSummaries"].all? { |summary| summary["status"] == "SUCCESS" } if @raw_status["importTypeSummaries"]
+      @raw_status["status"] == "SUCCESS"
     end
 
     def import_count
