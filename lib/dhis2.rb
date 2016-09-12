@@ -3,6 +3,7 @@ require "json"
 require "ostruct"
 require "uri"
 require "delegate"
+require "cgi"
 
 require "dhis2/pager"
 require "dhis2/version"

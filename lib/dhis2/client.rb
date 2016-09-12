@@ -2,8 +2,8 @@ module Dhis2
   class Client
     def initialize(base_url, user, password)
       url          = URI.parse(base_url)
-      url.user     = user
-      url.password = password
+      url.user     = CGI.escape(user)
+      url.password = CGI.escape(password)
       @base_url    = url.to_s
     end
 
