@@ -36,7 +36,7 @@ module Dhis2
       raw_response = RestClient::Request.execute(query)
       response     = raw_response.nil? || raw_response == "" ? {} : JSON.parse(raw_response)
 
-      if  response["importTypeSummaries"] &&
+      if  response.class == Hash && response["importTypeSummaries"] &&
           response["importTypeSummaries"][0] &&
           response["importTypeSummaries"][0]["importConflicts"] &&
           !response["importTypeSummaries"].first["importConflicts"].empty?
