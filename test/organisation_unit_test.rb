@@ -47,6 +47,13 @@ class OrganisationUnitTest < Minitest::Test
      assert_equal 125, org_units_with_children.select { |ou| ou.level == 4 }.size
   end
 
+  def test_org_unit_last_level_descendants
+    org_unit_id = Dhis2::OrganisationUnit.find_by(name: "Bo").id
+    org_units = Dhis2::OrganisationUnit.last_level_descendants(org_unit_id)
+    assert_equal 125, org_units.size
+    assert_equal [4], org_units.map(&:level).uniq
+  end
+
   def test_list_org_units_all_fields
     org_units = Dhis2::OrganisationUnit.list(fields: :all, page_size: 1)
     assert_equal 1, org_units.size
