@@ -1,6 +1,24 @@
 require "test_helper"
 
 class DataValueSetsTest < Minitest::Test
+  def test_list_values_multiple_units
+    ds = Dhis2::DataSet.find_by(name: "Child Health")
+    parent_organisation_unit = Dhis2::OrganisationUnit.find_by(name: "Baoma")
+  
+    units = parent_organisation_unit.children[0..4].map { |ou| ou["id"] }
+
+    period = "201512"
+
+    value_sets = Dhis2::DataValueSets.list(
+      data_sets:         [ds.id],
+      organisation_unit: units,
+      periods:           [period]
+    )
+
+    assert_equal 137, value_sets.values.size
+    assert_equal units.sort, value_sets.values.map { |v| v["orgUnit"] }.uniq.sort
+  end
+  
   def test_list_values
     ds = Dhis2::DataSet.find_by(name: "Child Health")
     organisation_unit = Dhis2::OrganisationUnit.find_by(name: "Baoma")

@@ -13,11 +13,18 @@ module Dhis2
 
       def list(options)
         data_set_ids = options[:data_sets]
-        organisation_unit_id = options[:organisation_unit]
         periods = options[:periods]
+
+        organisation_unit_id = options[:organisation_unit]
         children = options[:children] || true
+        
+        if organisation_unit_id.class == Array
+          ou_url = organisation_unit_id.map { |ou_id| "orgUnit=#{ou_id}" }.join("&") + "&children=#{children}"
+        else
+          ou_url = "orgUnit=#{organisation_unit_id}&children=#{children}"
+        end
+
         data_sets_url = data_set_ids.map { |ds| "dataSet=#{ds}" }.join("&")
-        ou_url = "orgUnit=#{organisation_unit_id}&children=#{children}"
         periods = periods.map { |period| "period=#{period}" }.join("&")
 
         params = [data_sets_url, periods, ou_url].join("&")
