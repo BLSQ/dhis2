@@ -30,6 +30,23 @@ class OrganisationUnitTest < Minitest::Test
     end
   end
 
+  def test_org_units_children
+     org_unit_id = Dhis2::OrganisationUnit.find_by(name: "Bo").id
+
+     org_units_with_children = Dhis2::OrganisationUnit.find(org_unit_id, includeChildren: true)
+     assert_equal 16, org_units_with_children.size
+  end
+
+  def test_org_units_descendants
+     org_unit_id = Dhis2::OrganisationUnit.find_by(name: "Bo").id
+
+     org_units_with_children = Dhis2::OrganisationUnit.find(org_unit_id, includeDescendants: true)
+
+     assert_equal 141, org_units_with_children.size
+
+     assert_equal 125, org_units_with_children.select { |ou| ou.level == 4 }.size
+  end
+
   def test_list_org_units_all_fields
     org_units = Dhis2::OrganisationUnit.list(fields: :all, page_size: 1)
     assert_equal 1, org_units.size

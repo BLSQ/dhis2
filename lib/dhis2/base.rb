@@ -1,11 +1,21 @@
 module Dhis2
   class Base < OpenStruct
     class << self
-      def find(id)
+      def find(id, options = {})
         raise "Missing id" if id.nil?
 
         if id.class == Array
           list(filter: "id:in:[#{id.join(',')}]", fields: :all, page_size: id.size)
+        elsif options.any?
+          params = []
+          options.each do |name, value|
+            params << [name, value]
+          end
+          json_response = Dhis2.client.get("#{resource_name}/#{id}", RestClient::ParamsArray.new(params))
+          PaginatedArray.new(
+            json_response[resource_name].map { |raw_resource| new(raw_resource) },
+            json_response["pager"]
+          )
         else
           response = Dhis2.client.get("#{resource_name}/#{id}")
           new(response)
@@ -39,6 +49,7 @@ module Dhis2
         params.push([:page, options[:page]])                   if options[:page]
         params.push([:pageSize, options[:page_size]])          if options[:page_size]
         params.push([:fields, format_fields(options[:fields])]) if options[:fields]
+        
         params.concat(format_filter(options[:filter]))         if options[:filter]
 
         RestClient::ParamsArray.new(params)
