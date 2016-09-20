@@ -2,7 +2,7 @@ require "test_helper"
 
 class OrganisationUnitLevelTest < Minitest::Test
   def test_get_org_unit_levels
-    org_unit_levels = Dhis2::OrganisationUnitLevel.list(fields: :all)
+    org_unit_levels = Dhis2.client.organisation_unit_levels.list(fields: :all)
 
     assert_equal 4, org_unit_levels.size
 

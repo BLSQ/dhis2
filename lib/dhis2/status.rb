@@ -7,12 +7,16 @@ module Dhis2
     end
 
     def success?
-      return @raw_status["importTypeSummaries"].all? { |summary| summary["status"] == "SUCCESS" } if @raw_status["importTypeSummaries"]
+      if @raw_status["import_type_summaries"]
+        return @raw_status["import_type_summaries"].all? do |summary|
+          summary["status"] == "SUCCESS"
+        end
+      end
       @raw_status["status"] == "SUCCESS"
     end
 
     def import_count
-      @raw_status["importCount"]
+      @raw_status["import_count"]
     end
 
     def total_imported
@@ -24,7 +28,7 @@ module Dhis2
     end
 
     def last_imported_ids
-      @raw_status["importTypeSummaries"].map { |summary| summary["lastImported"] }
+      @raw_status["import_type_summaries"].map { |summary| summary["last_imported"] }
     end
   end
 end
