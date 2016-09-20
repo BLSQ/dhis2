@@ -31,9 +31,15 @@ The functionalities are available as a module. First thing you need to do is to 
 
   ```ruby 
   Dhis2.configure do |config|
-      config.url      = "https://play.dhis2.org/demo"
-      config.user     = "admin"
-      config.password = "district"
+    config.url      = "https://play.dhis2.org/demo"
+    config.user     = "admin"
+    config.password = "district"
+  end
+  Dhis2.client.data_elements.list # => Array[<DataElement>,..]
+
+  # Or alternatively
+  Dhis2.configure do |config|
+    config.url = "https://admin:district@play.dhis2.org/demo"
   end
   Dhis2.client.data_elements.list # => Array[<DataElement>,..]
   ```
@@ -42,6 +48,10 @@ The functionalities are available as a module. First thing you need to do is to 
   
   ```ruby 
   client = Dhis2::Client.new(url: "https://play.dhis2.org/demo", user: "admin", password: "district")
+  client.data_elements.list # => Array[<DataElement>,..]
+
+  # Or alternatively
+  client = Dhis2::Client.new("https://admin:district@play.dhis2.org/demo")
   client.data_elements.list # => Array[<DataElement>,..]
   ```
 
