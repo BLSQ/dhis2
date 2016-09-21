@@ -3,8 +3,8 @@ class Pager
 
   def initialize(hash)
     @page       = hash["page"]
-    @page_count = hash["pageCount"]
+    @page_count = hash["page_count"]
     @total      = hash["total"]
-    @next_page  = hash["nextPage"]
+    @next_page  = hash["next_page"]
   end
 end
