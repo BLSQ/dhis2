@@ -1,5 +1,4 @@
 require "test_helper"
-require "securerandom"
 
 class DataElementTest < Minitest::Test
   def test_list_data_elements

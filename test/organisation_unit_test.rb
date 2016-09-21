@@ -84,4 +84,21 @@ class OrganisationUnitTest < Minitest::Test
       assert_equal 2, org_unit.level
     end
   end
+
+  def test_create_org_units
+    org_unit_name_1 = SecureRandom.uuid
+    org_unit_name_2 = SecureRandom.uuid
+
+     org_units = [
+        { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01" },
+        { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01" }
+      ]
+      status = Dhis2.client.organisation_units.create(org_units)
+      assert_equal true, status.success?
+      assert_equal 2, status.total_imported
+
+      org_unit_1= Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name_1}").first
+
+      assert_equal org_unit_name_1, org_unit_1.short_name
+  end
 end

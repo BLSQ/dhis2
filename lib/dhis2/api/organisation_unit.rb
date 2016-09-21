@@ -40,12 +40,13 @@ module Dhis2
 
           payload = {
             organisationUnits: orgunits.map do |orgunit|
-              organisationUnit = {
+              organisation_unit = {
                 name:        orgunit[:name],
                 short_name:   orgunit[:short_name],
                 opening_date: orgunit[:opening_date]
               }
-              organisationUnit[:parent] = {id: orgunit[:parent_id]} if orgunit[:parent_id] 
+              organisation_unit[:parent] = {id: orgunit[:parent_id]} if orgunit[:parent_id] 
+              organisation_unit
             end
           }
 
