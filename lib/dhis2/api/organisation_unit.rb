@@ -35,6 +35,24 @@ module Dhis2
           end
         end
 
+        def create(client, orgunits)
+          orgunits = [orgunits].flatten
+
+          payload = {
+            organisationUnits: orgunits.map do |orgunit|
+              organisationUnit = {
+                name:        orgunit[:name],
+                short_name:   orgunit[:short_name],
+                opening_date: orgunit[:opening_date]
+              }
+              organisationUnit[:parent] = {id: orgunit[:parent_id]} if orgunit[:parent_id] 
+            end
+          }
+
+          response = client.post("metadata", payload)
+          Dhis2::Status.new(response)
+        end
+
         def last_level_descendants(client, id)
           levels     = client.organisation_unit_levels.list(fields: :all)
           last_level = levels.map(&:level).sort.last
