@@ -15,7 +15,8 @@ module Dhis2
                 domain_type:      element[:domain_type] || "AGGREGATE",
                 value_type:       element[:value_type] || "NUMBER",
                 aggregation_type: element[:aggregation_type] || "SUM",
-                aggregation_operator: element[:aggregation_type] || "SUM",
+                type:             element[:type] || "int", # for backward compatbility
+                aggregation_operator: element[:aggregation_type] || "SUM", # for backward compatbility
                 category_combo:   { id: category_combo_id }
               }
             end
