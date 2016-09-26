@@ -27,21 +27,47 @@ Or install it yourself as:
 
 The functionalities are available as a module. First thing you need to do is to connect to the instance:
 
-    Dhis2.connect(url: "https://play.dhis2.org/demo", user: "admin", password: "district")
+* Global configuration (to call a single Dhis2 instance):
+
+  ```ruby 
+  Dhis2.configure do |config|
+    config.url      = "https://play.dhis2.org/demo"
+    config.user     = "admin"
+    config.password = "district"
+  end
+  Dhis2.client.data_elements.list # => Array[<DataElement>,..]
+
+  # Or alternatively
+  Dhis2.configure do |config|
+    config.url = "https://admin:district@play.dhis2.org/demo"
+  end
+  Dhis2.client.data_elements.list # => Array[<DataElement>,..]
+  ```
+
+* Local configuration: (in case you need to access different Dhis2 instances inside a single project):
+  
+  ```ruby 
+  client = Dhis2::Client.new(url: "https://play.dhis2.org/demo", user: "admin", password: "district")
+  client.data_elements.list # => Array[<DataElement>,..]
+
+  # Or alternatively
+  client = Dhis2::Client.new("https://admin:district@play.dhis2.org/demo")
+  client.data_elements.list # => Array[<DataElement>,..]
+  ```
 
 ### Search for meta elements
 
 All subsequent calls can be done on the objects themselves and are going to use the provided url and credentials
 
-    org_unit_levels = Dhis2::OrganisationUnitLevel.list
+    org_unit_levels = Dhis2.client.organisation_unit_levels.list
 
 The various methods are taking an optional hash parameter to be used for ´filter´ and ´fields´ values:
 
-    org_units = Dhis2::OrganisationUnit.list(filter: "level:eq:2", fields: %w(id level displayName parent))
+    org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: %w(id level displayName parent))
 
 If you want all fields, simply specify `:all`
 
-    org_units = Dhis2::OrganisationUnit.list(filter: "level:eq:2", fields: :all)
+    org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: :all)
 
 Notes that any field found in the resulting JSON will be accessible from the object.
 
@@ -49,7 +75,7 @@ Notes that any field found in the resulting JSON will be accessible from the obj
 
 Following the DHIS2 API, all calls are paginated - you can access the page info using the `pager` property on the returned list:
 
-    org_units = Dhis2::OrganisationUnit.list(filter: "level:eq:2", fields: %w(id level displayName parent))
+    org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: %w(id level displayName parent))
     org_units.pager.page       # current page
     org_units.pager.page_count # number of pages 
     org_units.pager.total      # number of records
@@ -58,29 +84,31 @@ Following the DHIS2 API, all calls are paginated - you can access the page info 
 
 You can also retreive a single element using its id with `find`(in this case, all fields are returned by default):
 
-    ou = Dhis2::OrganisationUnit.find(id)
+    ou = Dhis2.client.organisation_units.find(id)
 
 `find` also accepts multiple ids - query will not be paginated and will return all fields for the given objects:
 
-    ous = Dhis2::OrganisationUnit.find([id1, id2, id3])
+    ous = Dhis2.client.organisation_units.find([id1, id2, id3])
 
 If you have an equality condition or set of equality conditions that should return a single element, you can use `find_by` instead of the longer list option:
 
     # Instead of this:
-    data_element = Dhis2::DataElement.list(filter: "code:eq:C27", fields: :all).first
+    data_element = Dhis2.client.data_elements.list(filter: "code:eq:C27", fields: :all).first
 
     # Just do:
-    data_element = Dhis2::DataElement.find_by(code: "C27")
+    data_element = Dhis2.client.data_elements.find_by(code: "C27")
 
 ### Values
 
 You can retreive data values this way:
 
-    ds = Dhis2::DataSet.find_by(name: "Child Health")
-    organisation_unit = Dhis2::OrganisationUnit.find_by(name: "Baoma")
-    period = "201512"
-
-    value_sets = Dhis2::DataValueSets.list(data_sets: [ds.id], organisation_unit: organisation_unit.id, periods: [period])
+    ds                = Dhis2.client.data_sets.find_by(name: "Child Health")
+    organisation_unit = Dhis2.client.organisation_units.find_by(name: "Baoma")
+    period            = "201512"
+    value_sets        = Dhis2.client.data_value_sets.list(
+      data_sets: [ds.id], 
+      organisation_unit: organisation_unit.id, periods: [period]
+    )
 
 ## Supported features
 
@@ -95,20 +123,20 @@ The API is currently limited to **read** actions on the following elements/class
 A very basic **write** use case exists for `DataElement` and `DataSet`:
 
     elements = [
-          { name: "TesTesT1", short_name: "TTT1" },
-          { name: "TesTesT2", short_name: "TTT2" }
-        ]
-    status = Dhis2::DataElement.create(elements)
+      { name: "TesTesT1", short_name: "TTT1" },
+      { name: "TesTesT2", short_name: "TTT2" }
+    ]
+    status = Dhis2.client.data_elements.create(elements)
     status.success? # => true
     status.total_imported # => 2
 
 DHIS2 API does not return the ids of the created elements, but you can retreive them with their (unique) name or code.
 
     elements = [
-          { name: "TesTesT2", short_name: "TTT2" }
-        ]
-    status = Dhis2:DataElement.create(elements)
-    element = Dhis2::DataElement.find_by(name: "TesTesT2")
+      { name: "TesTesT2", short_name: "TTT2" }
+    ]
+    status = Dhis2.client.data_elements.create(elements)
+    element = Dhis2.client.data_elements.find_by(name: "TesTesT2")
 
 ## Development
 

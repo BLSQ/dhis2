@@ -5,43 +5,50 @@ require "uri"
 require "delegate"
 require "cgi"
 
-require "dhis2/pager"
-require "dhis2/version"
-require "dhis2/base"
-require "dhis2/category_combo"
-require "dhis2/organisation_unit"
-require "dhis2/data_element"
-require "dhis2/data_element_group"
-require "dhis2/data_set"
-require "dhis2/data_value_sets"
-require "dhis2/data_value"
-require "dhis2/organisation_unit_level"
-require "dhis2/organisation_unit_group"
-require "dhis2/status"
-require "dhis2/paginated_array"
-require "dhis2/client"
-require "dhis2/import_error"
+require_relative "dhis2/version"
+require_relative "dhis2/configuration"
+require_relative "dhis2/collection_wrapper"
+require_relative "dhis2/pager"
+require_relative "dhis2/paginated_array"
+require_relative "dhis2/import_error"
+require_relative "dhis2/status"
+require_relative "dhis2/client"
+
+require_relative "dhis2/api/base"
+require_relative "dhis2/api/category_combo"
+require_relative "dhis2/api/organisation_unit"
+require_relative "dhis2/api/data_element"
+require_relative "dhis2/api/data_element_group"
+require_relative "dhis2/api/data_set"
+require_relative "dhis2/api/data_value_set"
+require_relative "dhis2/api/data_value"
+require_relative "dhis2/api/organisation_unit_level"
+require_relative "dhis2/api/organisation_unit_group"
 
 module Dhis2
   class << self
-    attr_reader :url
-
-    def connect(options)
-      raise "Missing #{url}" unless options[:url]
-      raise "Missing #{user}" unless options[:user]
-      raise "Missing #{password}" unless options[:password]
-
-      @url      = options[:url]
-      @user     = options[:user]
-      @password = options[:password]
-    end
-
     def client
-      @client ||= Dhis2::Client.new(@url, @user, @password)
+      if @client.nil?
+        if config.user.nil? && config.password.nil?
+          @client ||= Dhis2::Client.new(config.url)
+        else
+          @client ||= Dhis2::Client.new({
+            url:      config.url,
+            user:     config.user,
+            password: config.password
+          })
+        end
+      else
+        @client
+      end
     end
 
-    def camelize(str)
-      str.gsub(/\_([a-z])/, "")
+    def configure(&block)
+      yield config
+    end
+
+    def config
+      @configuration ||= Dhis2::Configuration.new
     end
   end
 end
