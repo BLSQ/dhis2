@@ -83,6 +83,14 @@ module Dhis2
         self.client = client
       end
 
+      def update_attributes(attributes)
+        client.patch("#{self.class.resource_name}/#{id}", attributes)
+        attributes.each do |key, value|
+          self[key] = value
+        end
+        self
+      end
+
       def delete
         client.delete("#{self.class.resource_name}/#{id}")
         true

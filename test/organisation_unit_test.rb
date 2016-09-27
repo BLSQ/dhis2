@@ -89,16 +89,29 @@ class OrganisationUnitTest < Minitest::Test
     org_unit_name_1 = SecureRandom.uuid
     org_unit_name_2 = SecureRandom.uuid
 
-     org_units = [
-        { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01" },
-        { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01" }
-      ]
-      status = Dhis2.client.organisation_units.create(org_units)
-      assert_equal true, status.success?
-      assert_equal 2, status.total_imported
+    org_units = [
+      { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01" },
+      { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01" }
+    ]
+    status = Dhis2.client.organisation_units.create(org_units)
+    assert_equal true, status.success?
+    assert_equal 2, status.total_imported
 
-      org_unit_1= Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name_1}").first
+    org_unit_1= Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name_1}").first
 
-      assert_equal org_unit_name_1, org_unit_1.short_name
+    assert_equal org_unit_name_1, org_unit_1.short_name
+  end
+
+  def test_update_org_units
+    org_unit_name   = SecureRandom.uuid
+    attributes      = { name: org_unit_name, short_name: org_unit_name, opening_date: "2013-01-01" }
+    Dhis2.client.organisation_units.create(attributes)
+    org_unit         = Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name}").first
+    new_attributes   = { name: SecureRandom.uuid }
+    org_unit.update_attributes(new_attributes)
+    updated_org_unit = Dhis2.client.organisation_units.find(org_unit.id)
+    assert_equal(org_unit.name, new_attributes[:name])
+    assert_equal(updated_org_unit.name, org_unit.name)
+
   end
 end

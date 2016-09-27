@@ -73,6 +73,10 @@ module Dhis2
       execute(:put, uri(path), headers, query_params, payload)
     end
 
+    def patch(path, payload, query_params = {})
+      execute(:patch, uri(path), headers, query_params, payload)
+    end
+
     private
 
     def execute(method, url, headers, query_params = {}, payload = nil)
