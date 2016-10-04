@@ -3,7 +3,11 @@ module Dhis2
     class Analytic < Base
       class << self
         def list(client, periods:, organisation_unit:, data_elements:)
-          params = "dimension=dx:#{data_elements}&dimension=ou:#{organisation_unit}&dimension=pe:#{periods}";
+          params = RestClient::ParamsArray.new([
+            [:dimension, "ou:#{organisation_unit}"],
+            [:dimension, "dx:#{data_elements}"],
+            [:dimension, "pe:#{periods}"]
+          ])
           client.get(self.resource_name, params)
         end
       end
