@@ -63,7 +63,7 @@ module Dhis2
 
     def get(path, query_params = {})
       if query_params.is_a?(String)
-        execute(:get, "#{uri(path)}?#{query_params}", headers)
+        return execute(:get, "#{uri(path)}?#{query_params}", headers)
       end
       execute(:get, uri(path), headers, query_params)
     end
