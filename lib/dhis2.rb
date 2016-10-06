@@ -23,6 +23,8 @@ require_relative "dhis2/api/data_set"
 require_relative "dhis2/api/data_value_set"
 require_relative "dhis2/api/data_value"
 require_relative "dhis2/api/organisation_unit_level"
+require_relative "dhis2/api/indicator"
+require_relative "dhis2/api/analytic"
 require_relative "dhis2/api/organisation_unit_group"
 
 module Dhis2
