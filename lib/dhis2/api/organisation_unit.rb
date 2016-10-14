@@ -45,7 +45,13 @@ module Dhis2
                 short_name:   orgunit[:short_name],
                 opening_date: orgunit[:opening_date]
               }
-              organisation_unit[:parent] = {id: orgunit[:parent_id]} if orgunit[:parent_id] 
+              organisation_unit[:parent] = {id: orgunit[:parent_id]} if orgunit[:parent_id]
+
+              organisation_unit[:contact_person] = {contact_person: orgunit[:contact_person]} if orgunit[:contact_person]
+              organisation_unit[:phone_number] = {phone_number: orgunit[:phone_number]} if orgunit[:phone_number]
+              organisation_unit[:email] = {email: orgunit[:email]} if orgunit[:email]
+              organisation_unit[:address] = {address: orgunit[:address]} if orgunit[:address]
+
               organisation_unit
             end
           }
