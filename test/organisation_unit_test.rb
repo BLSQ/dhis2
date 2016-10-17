@@ -90,9 +90,10 @@ class OrganisationUnitTest < Minitest::Test
     org_unit_name_2 = SecureRandom.uuid
 
     org_units = [
-      { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01" },
-      { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01" }
+      { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01", contact_person: "Zulumur Roland" , phone_number: "57401156", email: "test@gmail.com", address: "adresse de test" },
+      { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01", contact_person: "Koubaka Robert" , phone_number: "578451245", email: "robert@gmail.com", address: "adresse de Robert" }
     ]
+
     status = Dhis2.client.organisation_units.create(org_units)
     assert_equal true, status.success?
     assert_equal 2, status.total_imported
