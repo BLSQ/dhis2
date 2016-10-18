@@ -90,17 +90,22 @@ class OrganisationUnitTest < Minitest::Test
     org_unit_name_2 = SecureRandom.uuid
 
     org_units = [
-      { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01", contact_person: "Zulumur Roland" , phone_number: "57401156", email: "test@gmail.com", address: "adresse de test" },
+      { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01", contact_person: "Zulumur Roland" , phone_number: "57401156", email: "test@gmail.com"},
       { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01", contact_person: "Koubaka Robert" , phone_number: "578451245", email: "robert@gmail.com", address: "adresse de Robert" }
     ]
 
     status = Dhis2.client.organisation_units.create(org_units)
+
     assert_equal true, status.success?
     assert_equal 2, status.total_imported
 
-    org_unit_1= Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name_1}").first
+    org_unit_1 = Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name_1}").first
 
     assert_equal org_unit_name_1, org_unit_1.short_name
+    assert_equal "test@gmail.com", org_unit_1.email
+    assert_equal "57401156", org_unit_1.phone_number
+    assert_equal nil, org_unit_1.address
+    assert_equal "Zulumur Roland", org_unit_1.contact_person
   end
 
   def test_update_org_units
@@ -113,6 +118,5 @@ class OrganisationUnitTest < Minitest::Test
     updated_org_unit = Dhis2.client.organisation_units.find(org_unit.id)
     assert_equal(org_unit.name, new_attributes[:name])
     assert_equal(updated_org_unit.name, org_unit.name)
-
   end
 end
