@@ -34,9 +34,10 @@ class DataElementTest < Minitest::Test
   end
 
   def test_delete_data_element
-    element      = { name: SecureRandom.hex, short_name: SecureRandom.hex }
+    name = SecureRandom.hex
+    element      = { name: name, short_name: SecureRandom.hex }
     status       = Dhis2.client.data_elements.create(element)
-    data_element = Dhis2.client.data_elements.find(status.last_imported_ids.first)
+    data_element = Dhis2.client.data_elements.find_by(name: name)
     assert_equal true, data_element.delete
   end
 
