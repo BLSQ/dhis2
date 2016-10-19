@@ -110,13 +110,16 @@ class OrganisationUnitTest < Minitest::Test
 
   def test_update_org_units
     org_unit_name   = SecureRandom.uuid
-    attributes      = { name: org_unit_name, short_name: org_unit_name, opening_date: "2013-01-01" }
+    attributes      = { name: org_unit_name, short_name: org_unit_name, opening_date: "2013-01-01", coordinates: "[4.5555,5.66666]" }
     Dhis2.client.organisation_units.create(attributes)
     org_unit         = Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name}").first
-    new_attributes   = { name: SecureRandom.uuid }
+    new_attributes   = { name: SecureRandom.uuid,  coordinates: "[6.77777,5.66666]"}
     org_unit.update_attributes(new_attributes)
     updated_org_unit = Dhis2.client.organisation_units.find(org_unit.id)
+    puts updated_org_unit
     assert_equal(org_unit.name, new_attributes[:name])
+    assert_equal(org_unit.coordinates, new_attributes[:coordinates])
     assert_equal(updated_org_unit.name, org_unit.name)
+    assert_equal(updated_org_unit.coordinates, org_unit.coordinates)
   end
 end
