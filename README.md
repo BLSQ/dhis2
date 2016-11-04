@@ -55,6 +55,12 @@ The functionalities are available as a module. First thing you need to do is to 
   client.data_elements.list # => Array[<DataElement>,..]
   ```
 
+Regarding SSL, there is an option to disregard SSL error messages (such as bad certificates). USE THIS AT YOUR OWN RISK - it may allow you to access a server that would return in error without it... but you cannot trust the response.
+
+```ruby 
+  dangerous_client = Dhis2::Client.new(url: "https://play.dhis2.org/demo", user: "admin", password: "district", no_ssl_verification: true);
+```
+
 ### Search for meta elements
 
 All subsequent calls can be done on the objects themselves and are going to use the provided url and credentials
