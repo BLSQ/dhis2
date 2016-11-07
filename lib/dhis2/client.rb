@@ -54,6 +54,7 @@ module Dhis2
         url.user     = CGI.escape(options[:user])
         url.password = CGI.escape(options[:password])
         @base_url    = url.to_s
+        @verify_ssl = options[:no_ssl_verification] ? OpenSSL::SSL::VERIFY_NONE :  OpenSSL::SSL::VERIFY_PEER
       end
     end
 
@@ -84,7 +85,8 @@ module Dhis2
         method:  method,
         url:     url,
         headers: { params: query_params }.merge(headers),
-        payload: payload ? self.class.deep_change_case(payload, :camelize).to_json : nil
+        payload: payload ? self.class.deep_change_case(payload, :camelize).to_json : nil,
+        verify_ssl: @verify_ssl
       }
 
       raw_response = RestClient::Request.execute(query)
