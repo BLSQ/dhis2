@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "rest-client"
 require "json"
 require "ostruct"
@@ -26,6 +27,7 @@ require_relative "dhis2/api/organisation_unit_level"
 require_relative "dhis2/api/indicator"
 require_relative "dhis2/api/analytic"
 require_relative "dhis2/api/organisation_unit_group"
+require_relative "dhis2/api/system_info"
 
 module Dhis2
   class << self
@@ -34,18 +36,16 @@ module Dhis2
         if config.user.nil? && config.password.nil?
           @client ||= Dhis2::Client.new(config.url)
         else
-          @client ||= Dhis2::Client.new({
-            url:      config.url,
-            user:     config.user,
-            password: config.password
-          })
+          @client ||= Dhis2::Client.new(url:      config.url,
+                                        user:     config.user,
+                                        password: config.password)
         end
       else
         @client
       end
     end
 
-    def configure(&block)
+    def configure
       yield config
     end
 

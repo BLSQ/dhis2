@@ -29,7 +29,7 @@ The functionalities are available as a module. First thing you need to do is to 
 
 * Global configuration (to call a single Dhis2 instance):
 
-  ```ruby 
+  ```ruby
   Dhis2.configure do |config|
     config.url      = "https://play.dhis2.org/demo"
     config.user     = "admin"
@@ -45,8 +45,8 @@ The functionalities are available as a module. First thing you need to do is to 
   ```
 
 * Local configuration: (in case you need to access different Dhis2 instances inside a single project):
-  
-  ```ruby 
+
+  ```ruby
   client = Dhis2::Client.new(url: "https://play.dhis2.org/demo", user: "admin", password: "district")
   client.data_elements.list # => Array[<DataElement>,..]
 
@@ -57,7 +57,7 @@ The functionalities are available as a module. First thing you need to do is to 
 
 Regarding SSL, there is an option to disregard SSL error messages (such as bad certificates). USE THIS AT YOUR OWN RISK - it may allow you to access a server that would return in error without it... but you cannot trust the response.
 
-```ruby 
+```ruby
   dangerous_client = Dhis2::Client.new(url: "https://play.dhis2.org/demo", user: "admin", password: "district", no_ssl_verification: true);
 ```
 
@@ -83,7 +83,7 @@ Following the DHIS2 API, all calls are paginated - you can access the page info 
 
     org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: %w(id level displayName parent))
     org_units.pager.page       # current page
-    org_units.pager.page_count # number of pages 
+    org_units.pager.page_count # number of pages
     org_units.pager.total      # number of records
 
 ### Retreive a single element
@@ -112,7 +112,7 @@ You can retreive data values this way:
     organisation_unit = Dhis2.client.organisation_units.find_by(name: "Baoma")
     period            = "201512"
     value_sets        = Dhis2.client.data_value_sets.list(
-      data_sets: [ds.id], 
+      data_sets: [ds.id],
       organisation_unit: organisation_unit.id, periods: [period]
     )
 
@@ -125,6 +125,7 @@ The API is currently limited to **read** actions on the following elements/class
 * `DataElement`
 * `DataSet`
 * `CategoryCombo`
+* `SystemInfos`
 
 A very basic **write** use case exists for `DataElement` and `DataSet`:
 
