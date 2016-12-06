@@ -28,6 +28,7 @@ require_relative "dhis2/api/indicator"
 require_relative "dhis2/api/analytic"
 require_relative "dhis2/api/organisation_unit_group"
 require_relative "dhis2/api/system_info"
+require_relative "dhis2/api/attribute"
 
 module Dhis2
   class << self

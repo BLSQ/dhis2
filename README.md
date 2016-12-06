@@ -126,6 +126,7 @@ The API is currently limited to **read** actions on the following elements/class
 * `DataSet`
 * `CategoryCombo`
 * `SystemInfos`
+* `Attribute`
 
 A very basic **write** use case exists for `DataElement` and `DataSet`:
 
