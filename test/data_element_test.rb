@@ -13,9 +13,12 @@ class DataElementTest < Minitest::Test
   end
 
   def test_create_data_elements
+    random = Random.new
+    one = random.rand(10_000)
+    two = random.rand(10_000)
     elements = [
-      { name: "TesTesT1", short_name: "TTT1" },
-      { name: "TesTesT2", short_name: "TTT2" }
+      { name: "TesTesT#{one}", short_name: "TTT#{one}" },
+      { name: "TesTesT#{two}", short_name: "TTT#{two}" }
     ]
     status = Dhis2.client.data_elements.create(elements)
     assert_equal true, status.success?
