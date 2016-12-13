@@ -79,6 +79,7 @@ module Dhis2
       end
 
       def initialize(client, raw_data)
+        raw_data["display_name"] ||= raw_data["name"]  # for backward compatbility with v2.19
         super(raw_data)
         self.client = client
       end
