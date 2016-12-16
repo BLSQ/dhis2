@@ -21,12 +21,16 @@ class OrganisationUnitGroupTest < Minitest::Test
 
   def test_create_org_unit_groups
     org_unit_group_name_1 = SecureRandom.uuid
-    org_unit_groups = {name: org_unit_group_name_1, short_name: org_unit_group_name_1, code:"test", id:"Ysjldlkdsflksfs"}
+    # get the random string
+    string =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
+    radom_id  =  (0...11).map{ string[rand(string.length)]  }.join
+
+    org_unit_groups = {name: org_unit_group_name_1, short_name: org_unit_group_name_1, code:"test", id:radom_id}
     status = Dhis2.client.organisation_unit_groups.create(org_unit_groups)
-    assert_equal false, status.success?
+    assert_equal true, status.success?
     assert_equal 1, status.total_imported
     org_unit_group_1 = Dhis2.client.organisation_unit_groups.list(fields: :all, filter: "name:eq:#{org_unit_group_name_1}").first
     assert_equal org_unit_group_name_1, org_unit_group_1.short_name
-    assert_equal "Ysjldlkdsflksfs", org_unit_group_1.uid
+    assert_equal radom_id, org_unit_group_1.id
   end
 end
