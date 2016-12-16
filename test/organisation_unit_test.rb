@@ -1,5 +1,5 @@
 require "test_helper"
-
+require "faker"
 class OrganisationUnitTest < Minitest::Test
   def test_list_org_units
     org_units = Dhis2.client.organisation_units.list(fields: %w(parent children level id displayName))
@@ -88,10 +88,10 @@ class OrganisationUnitTest < Minitest::Test
   def test_create_org_units
     org_unit_name_1 = SecureRandom.uuid
     org_unit_name_2 = SecureRandom.uuid
-
+    random_id  = Faker::Lorem.characters(11)
     org_units = [
-      { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01", contact_person: "Zulumur Roland" , phone_number: "57401156", email: "test@gmail.com"},
-      { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01", contact_person: "Koubaka Robert" , phone_number: "578451245", email: "robert@gmail.com", address: "adresse de Robert" }
+      { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01", contact_person: "Zulumur Roland" , phone_number: "57401156", email: "test@gmail.com", id: random_id},
+      { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01", contact_person: "Koubaka Robert" , phone_number: "578451245", email: "robert@gmail.com", address: "adresse de Robert", id: random_id}
     ]
 
     status = Dhis2.client.organisation_units.create(org_units)
@@ -104,6 +104,7 @@ class OrganisationUnitTest < Minitest::Test
     assert_equal org_unit_name_1, org_unit_1.short_name
     assert_equal "test@gmail.com", org_unit_1.email
     assert_equal "57401156", org_unit_1.phone_number
+    assert_equal random_id, org_unit_1.id
     assert_equal nil, org_unit_1.address
     assert_equal "Zulumur Roland", org_unit_1.contact_person
   end
