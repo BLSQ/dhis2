@@ -41,6 +41,7 @@ module Dhis2
           payload = {
             organisationUnits: orgunits.map do |orgunit|
               orgunit[:parent] = { id: orgunit[:parent_id] } if orgunit[:parent_id]
+              orgunit[:id] = orgunit[:id] if orgunit[:id]
               orgunit
             end
           }
