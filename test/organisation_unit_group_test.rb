@@ -1,4 +1,5 @@
 require "test_helper"
+require "faker"
 
 class OrganisationUnitGroupTest < Minitest::Test
   def test_list_organisation_unit_groups
@@ -22,8 +23,7 @@ class OrganisationUnitGroupTest < Minitest::Test
   def test_create_org_unit_groups
     org_unit_group_name_1 = SecureRandom.uuid
     # get the random string
-    string =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
-    radom_id  =  (0...11).map{ string[rand(string.length)]  }.join
+    radom_id  =  Faker::Lorem.characters(11)
 
     org_unit_groups = {name: org_unit_group_name_1, short_name: org_unit_group_name_1, code:"test", id:radom_id}
     status = Dhis2.client.organisation_unit_groups.create(org_unit_groups)
