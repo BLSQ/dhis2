@@ -146,6 +146,14 @@ DHIS2 API does not return the ids of the created elements, but you can retreive 
     status = Dhis2.client.data_elements.create(elements)
     element = Dhis2.client.data_elements.find_by(name: "TesTesT2")
 
+## Update
+
+You can update a given organisation unit by retreiving it using it's id, making any modification on it then calling "update":
+
+    org_unit = Dhis2.client.organisation_units.find(id)
+    org_unit.short_name = "New Short Name"
+    org_unit.update
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. Note that the tests are using the DHIS2 demo server, which is reset every day but can be updated by anyone - so if someone change the password of the default user, the tests are going to fail.
