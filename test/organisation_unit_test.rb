@@ -6,6 +6,21 @@ class OrganisationUnitTest < Minitest::Test
     assert_equal 50, org_units.size
   end
 
+  def test_update_org_unit
+    org_units = Dhis2.client.organisation_units.list(fields: %w(id), page_size: 1)
+    id        = org_units.first.id
+    org_unit  = Dhis2.client.organisation_units.find(id)
+
+    new_name = "Test New Name #{rand(100)}"
+    org_unit.short_name = new_name
+
+    org_unit.update
+
+    ou = Dhis2.client.organisation_units.find(id)
+
+    assert_equal new_name, ou.short_name
+  end
+
   def test_find_org_unit
     org_units = Dhis2.client.organisation_units.list(fields: %w(id), page_size: 1)
     id        = org_units.first.id

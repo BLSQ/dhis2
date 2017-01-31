@@ -146,6 +146,28 @@ DHIS2 API does not return the ids of the created elements, but you can retreive 
     status = Dhis2.client.data_elements.create(elements)
     element = Dhis2.client.data_elements.find_by(name: "TesTesT2")
 
+## Update
+
+### Full update
+
+You can update a given item by retreiving it using it's id, making any modification on it then calling "update":
+
+    org_unit = Dhis2.client.organisation_units.find(id)
+    org_unit.short_name = "New Short Name"
+    org_unit.update
+
+This uses DHIS2 "full update" ('PUT') and not the "partial update" feature (see below), so it requires a fully formed object to work (get it either with `find` which takes all the fields or with the `fields: :all´ option).
+
+### Partial update
+
+You can update a single or more attributes via the "update_attributes" method:
+
+    org_unit         = Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name}").first
+    new_attributes   = { name: "New name" }
+    org_unit.update_attributes(new_attributes)
+
+Note that partial updates will no work with custom attributes at this time (while the full update will)
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. Note that the tests are using the DHIS2 demo server, which is reset every day but can be updated by anyone - so if someone change the password of the default user, the tests are going to fail.
