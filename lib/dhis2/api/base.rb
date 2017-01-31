@@ -100,6 +100,10 @@ module Dhis2
       def ==(other)
         self.class == other.class && id == other.id
       end
+
+      def update
+        client.put("#{self.class.resource_name}/#{id}", self.to_h)
+      end
     end
   end
 end

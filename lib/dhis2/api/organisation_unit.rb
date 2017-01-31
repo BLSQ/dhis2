@@ -7,10 +7,6 @@ module Dhis2
         self.children_ids = params["children"] ? params["children"].map { |raw| raw["id"] } : []
       end
 
-      def update
-        self.client.put("organisationUnits/#{id}", self.to_h)
-      end
-
       class << self
         def find(client, id, options = {})
           raise "Missing id" if id.nil?
