@@ -121,12 +121,19 @@ You can retreive data values this way:
 The API is currently limited to **read** actions on the following elements/classes:
 
 * `OrganisationUnit`
+* `OrganisationUnitGroup`
 * `OrganisationUnitLevels`
 * `DataElement`
 * `DataSet`
+* `DataValueSet`
+* `DataValue`
+* `Analytic`
 * `CategoryCombo`
 * `SystemInfos`
 * `Attribute`
+* `Indicator`
+* `DataElementGroup`
+
 
 A very basic **write** use case exists for `DataElement` and `DataSet`:
 
