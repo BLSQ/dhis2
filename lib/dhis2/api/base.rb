@@ -94,10 +94,12 @@ module Dhis2
 
       def add_relation(relation, relation_id)
         client.post("#{self.class.resource_name}/#{id}/#{relation}/#{relation_id}", attributes)
+        self
       end
 
       def remove_relation(relation, relation_id)
         client.delete("#{self.class.resource_name}/#{id}/#{relation}/#{relation_id}", attributes)
+        self
       end
 
       def delete
