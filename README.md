@@ -118,21 +118,23 @@ You can retreive data values this way:
 
 ## Supported features
 
-The API is currently limited to **read** actions on the following elements/classes:
+The API is currently limited to actions on the following elements:
 
 * `OrganisationUnit`
 * `OrganisationUnitGroup`
-* `OrganisationUnitLevels`
+* `OrganisationUnitLevel`
 * `DataElement`
 * `DataSet`
 * `DataValueSet`
 * `DataValue`
 * `Analytic`
 * `CategoryCombo`
-* `SystemInfos`
+* `CategoryOptionCombo`
+* `SystemInfo`
 * `Attribute`
 * `Indicator`
 * `DataElementGroup`
+* `User`
 
 
 A very basic **write** use case exists for `DataElement` and `DataSet`:
@@ -157,7 +159,7 @@ DHIS2 API does not return the ids of the created elements, but you can retreive 
 
 ### Full update
 
-You can update a given item by retreiving it using it's id, making any modification on it then calling "update":
+You can update a given item by retreiving it using its id, making any modification on it then calling "update":
 
     org_unit = Dhis2.client.organisation_units.find(id)
     org_unit.short_name = "New Short Name"
