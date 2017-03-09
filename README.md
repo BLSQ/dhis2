@@ -104,6 +104,16 @@ If you have an equality condition or set of equality conditions that should retu
     # Just do:
     data_element = Dhis2.client.data_elements.find_by(code: "C27")
 
+### Manage relations
+
+You can add or remove items in collections using `add_relation` and `remove_relation`:
+
+    data_set = Dhis2.client.data_sets.list(page_size:1).first
+    data_element = Dhis2.client.data_elements.list(page_size: 1).first
+    data_set.add_relation(:dataSetElements, data_element.id)
+    ...
+    data_set.remove_relation(:dataSetElements, data_element.id)
+
 ### Values
 
 You can retreive data values this way:
