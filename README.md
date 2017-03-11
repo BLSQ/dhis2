@@ -145,7 +145,8 @@ The API is currently limited to actions on the following elements:
 * `Indicator`
 * `DataElementGroup`
 * `User`
-
+* `Report`
+* `ReportTable`
 
 A very basic **write** use case exists for `DataElement` and `DataSet`:
 
