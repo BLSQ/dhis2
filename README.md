@@ -86,7 +86,7 @@ Following the DHIS2 API, all calls are paginated - you can access the page info 
     org_units.pager.page_count # number of pages
     org_units.pager.total      # number of records
 
-### Retreive a single element
+### Retrieve a single element
 
 You can also retreive a single element using its id with `find`(in this case, all fields are returned by default):
 
@@ -126,7 +126,7 @@ You can retreive data values this way:
       organisation_unit: organisation_unit.id, periods: [period]
     )
 
-## Supported features
+## Supported items
 
 The API is currently limited to actions on the following elements:
 
@@ -147,24 +147,6 @@ The API is currently limited to actions on the following elements:
 * `User`
 * `Report`
 * `ReportTable`
-
-A very basic **write** use case exists for `DataElement` and `DataSet`:
-
-    elements = [
-      { name: "TesTesT1", short_name: "TTT1" },
-      { name: "TesTesT2", short_name: "TTT2" }
-    ]
-    status = Dhis2.client.data_elements.create(elements)
-    status.success? # => true
-    status.total_imported # => 2
-
-DHIS2 API does not return the ids of the created elements, but you can retreive them with their (unique) name or code.
-
-    elements = [
-      { name: "TesTesT2", short_name: "TTT2" }
-    ]
-    status = Dhis2.client.data_elements.create(elements)
-    element = Dhis2.client.data_elements.find_by(name: "TesTesT2")
 
 ## Update
 
@@ -187,6 +169,26 @@ You can update a single or more attributes via the "update_attributes" method:
     org_unit.update_attributes(new_attributes)
 
 Note that partial updates will no work with custom attributes at this time (while the full update will)
+
+## Create
+
+A very basic **write** use case exists for `DataElement` and `DataSet`:
+
+    elements = [
+      { name: "TesTesT1", short_name: "TTT1" },
+      { name: "TesTesT2", short_name: "TTT2" }
+    ]
+    status = Dhis2.client.data_elements.create(elements)
+    status.success? # => true
+    status.total_imported # => 2
+
+DHIS2 API does not return the ids of the created elements, but you can retreive them with their (unique) name or code.
+
+    elements = [
+      { name: "TesTesT2", short_name: "TTT2" }
+    ]
+    status = Dhis2.client.data_elements.create(elements)
+    element = Dhis2.client.data_elements.find_by(name: "TesTesT2")
 
 ## Development
 
