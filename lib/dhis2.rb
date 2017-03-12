@@ -30,6 +30,8 @@ require_relative "dhis2/api/organisation_unit_group"
 require_relative "dhis2/api/system_info"
 require_relative "dhis2/api/attribute"
 require_relative "dhis2/api/user"
+require_relative "dhis2/api/report_table"
+require_relative "dhis2/api/report"
 
 module Dhis2
   class << self
