@@ -31,5 +31,10 @@ module Dhis2
       return [] unless @raw_status["import_type_summaries"]
       @raw_status["import_type_summaries"].map { |summary| summary["last_imported"] }
     end
+
+    def import_summaries
+      return [] unless @raw_status["response"]["import_summaries"]
+      @raw_status["response"]["import_summaries"].map {|it| OpenStruct.new(it) }
+    end
   end
 end
