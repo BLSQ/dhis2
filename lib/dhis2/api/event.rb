@@ -5,7 +5,7 @@ module Dhis2
       class << self
         def create(client, tuples)
           begin
-            body = { events: tuples }
+            body = { resource_name.to_sym => tuples }
             response = client.post(resource_name, body)
           rescue RestClient::Conflict => e
             response = Dhis2::Client.deep_change_case(JSON.parse(e.response.body), :underscore)
