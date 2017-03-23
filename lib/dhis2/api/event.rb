@@ -4,8 +4,12 @@ module Dhis2
     class Event < Base
       class << self
         def create(client, tuples)
-          body = { events: tuples }
-          response = client.post(resource_name, body)
+          begin
+            body = { events: tuples }
+            response = client.post(resource_name, body)
+          rescue RestClient::Conflict => e
+            response = Dhis2::Client.deep_change_case(JSON.parse(e.response.body), :underscore)
+          end
           Dhis2::Status.new(response)
         end
       end
