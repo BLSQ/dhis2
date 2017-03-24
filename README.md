@@ -147,6 +147,8 @@ The API is currently limited to actions on the following elements:
 * `User`
 * `Report`
 * `ReportTable`
+* `Program`
+* `Events`
 
 ## Update
 
