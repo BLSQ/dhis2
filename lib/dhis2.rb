@@ -17,6 +17,7 @@ require_relative "dhis2/client"
 
 require_relative "dhis2/api/base"
 require_relative "dhis2/api/category_combo"
+require_relative "dhis2/api/category_option_combo"
 require_relative "dhis2/api/organisation_unit"
 require_relative "dhis2/api/data_element"
 require_relative "dhis2/api/data_element_group"
