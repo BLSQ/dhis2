@@ -25,6 +25,11 @@ module Dhis2
           Dhis2::Status.new(response)
         end
       end
+
+      def add_org_unit org_unit
+          response = client.post("organisationUnitGroups/#{self.id}/organisationUnits/#{org_unit.id}",{})
+          Dhis2::Status.new(response)
+      end
     end
   end
 end
