@@ -25,6 +25,19 @@ class DataElementTest < Minitest::Test
     assert_equal 2, status.total_imported
   end
 
+  def test_create_data_elements_preheat_cache
+    random = Random.new
+    one = random.rand(10_000)
+    two = random.rand(10_000)
+    elements = [
+      { name: "TesTesT#{one}", short_name: "TTT#{one}" },
+      { name: "TesTesT#{two}", short_name: "TTT#{two}" }
+    ]
+    status = Dhis2.client.data_elements.create(elements, preheat_cache: true)
+    assert_equal true, status.success?
+    assert_equal 2, status.total_imported
+  end
+
   def test_get_data_element
     data_elements = Dhis2.client.data_elements.list(fields: %w(id displayName code), page_size: 1)
     assert_equal 1, data_elements.size

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dhis2
   class Client
     def self.register_resource(resource_class)
@@ -11,7 +13,7 @@ module Dhis2
     def self.deep_change_case(hash, type)
       case hash
       when Array
-        hash.map {|v| deep_change_case(v, type) }
+        hash.map { |v| deep_change_case(v, type) }
       when Hash
         new_hash = {}
         hash.each do |k, v|
@@ -25,19 +27,19 @@ module Dhis2
     end
 
     def self.camelize(string, uppercase_first_letter = true)
-      if uppercase_first_letter
-        string = string.sub(/^[a-z\d]*/) { $&.capitalize }
-      else
-        string = string.sub(/^(?:(?=\b|[A-Z_])|\w)/) { $&.downcase }
-      end
-      string.gsub(/(?:_|(\/))([a-z\d]*)/) { "#{$1}#{$2.capitalize}" }.gsub('/', '::')
+      string = if uppercase_first_letter
+                 string.sub(/^[a-z\d]*/) { $&.capitalize }
+               else
+                 string.sub(/^(?:(?=\b|[A-Z_])|\w)/) { $&.downcase }
+               end
+      string.gsub(/(?:_|(\/))([a-z\d]*)/) { "#{Regexp.last_match(1)}#{Regexp.last_match(2).capitalize}" }.gsub("/", "::")
     end
 
     def self.underscore(camel_cased_word)
       return camel_cased_word unless camel_cased_word =~ /[A-Z-]|::/
-      word = camel_cased_word.to_s.gsub(/::/, '/')
-      word.gsub!(/([A-Z\d]+)([A-Z][a-z])/,'\1_\2')
-      word.gsub!(/([a-z\d])([A-Z])/,'\1_\2')
+      word = camel_cased_word.to_s.gsub(/::/, "/")
+      word.gsub!(/([A-Z\d]+)([A-Z][a-z])/, '\1_\2')
+      word.gsub!(/([a-z\d])([A-Z])/, '\1_\2')
       word.tr!("-", "_")
       word.downcase!
       word
@@ -54,7 +56,8 @@ module Dhis2
         url.user     = CGI.escape(options[:user])
         url.password = CGI.escape(options[:password])
         @base_url    = url.to_s
-        @verify_ssl = options[:no_ssl_verification] ? OpenSSL::SSL::VERIFY_NONE :  OpenSSL::SSL::VERIFY_PEER
+        @verify_ssl = options[:no_ssl_verification] ? OpenSSL::SSL::VERIFY_NONE : OpenSSL::SSL::VERIFY_PEER
+        @timeout = options[:timeout] ? options[:timeout].to_i : 120
       end
     end
 
@@ -82,11 +85,12 @@ module Dhis2
 
     def execute(method, url, headers, query_params = {}, payload = nil)
       query = {
-        method:  method,
-        url:     url,
-        headers: { params: query_params }.merge(headers),
-        payload: payload ? self.class.deep_change_case(payload, :camelize).to_json : nil,
-        verify_ssl: @verify_ssl
+        method:     method,
+        url:        url,
+        headers:    { params: query_params }.merge(headers),
+        payload:    payload ? self.class.deep_change_case(payload, :camelize).to_json : nil,
+        verify_ssl: @verify_ssl,
+        timeout:    @timeout
       }
 
       raw_response = RestClient::Request.execute(query)
