@@ -24,7 +24,7 @@ module Dhis2
             end
           }
 
-          response = client.post("metadata", data_element, query_params)
+          response = client.post("metadata", data_element, client.class.deep_change_case(query_params, :camelize))
           Dhis2::Status.new(response)
         end
       end
