@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Dhis2
   module Api
     class DataElement < Base
       class << self
-        def create(client, elements)
+        def create(client, elements, query_params = { preheat_cache: false })
           elements = [elements].flatten
           category_combo = client.category_combos.find_by(name: "default")
 
@@ -22,7 +24,7 @@ module Dhis2
             end
           }
 
-          response = client.post("metadata", data_element)
+          response = client.post("metadata", data_element, client.class.deep_change_case(query_params, :camelize))
           Dhis2::Status.new(response)
         end
       end
