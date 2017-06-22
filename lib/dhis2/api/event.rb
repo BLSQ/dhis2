@@ -2,6 +2,9 @@
 module Dhis2
   module Api
     class Event < Base
+      def id
+        self.event
+      end
       class << self
         def create(client, tuples)
           begin
