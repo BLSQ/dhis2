@@ -1,6 +1,7 @@
 # Dhis2
 
 <a href="https://codeclimate.com/github/BLSQ/dhis2"><img src="https://codeclimate.com/github/BLSQ/dhis2/badges/gpa.svg" /></a>
+[![Gem Version](https://badge.fury.io/rb/dhis2.svg)](https://badge.fury.io/rb/dhis2)
 
 Basic DHIS2 API client for Ruby.
 
