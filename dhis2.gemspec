@@ -27,5 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest-reporters"
   spec.add_development_dependency "faker", "~> 1.6", ">= 1.6.3"
   spec.add_development_dependency "byebug"
-
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "webmock"
+  spec.add_development_dependency "simplecov"
 end

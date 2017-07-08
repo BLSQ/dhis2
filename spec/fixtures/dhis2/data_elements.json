@@ -1,0 +1,15 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 894,
+    "total": 894,
+    "pageSize": 1,
+    "nextPage": "https://play.dhis2.org/demo/api/dataElements?page=2&pageSize=1"
+  },
+  "dataElements": [{
+    "code": "DE_1148614",
+    "id": "FTRrcoaog83",
+    "shortName": "Accute Flaccid Paral (Deaths < 5 yrs)",
+    "displayName": "Accute Flaccid Paralysis (Deaths < 5 yrs)"
+  }]
+}

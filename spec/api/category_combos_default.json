@@ -1,0 +1,38 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 1,
+    "total": 1,
+    "pageSize": 50
+  },
+  "categoryCombos": [{
+    "created": "2011-12-24T12:24:25.203",
+    "lastUpdated": "2016-04-12T20:37:49.126",
+    "name": "default",
+    "href": "https://play.dhis2.org/demo/api/categoryCombos/p0KPaWEg3cf",
+    "id": "p0KPaWEg3cf",
+    "dataDimensionType": "DISAGGREGATION",
+    "displayName": "default",
+    "externalAccess": false,
+    "isDefault": true,
+    "skipTotal": false,
+    "access": {
+      "read": true,
+      "update": false,
+      "externalize": false,
+      "delete": false,
+      "write": false,
+      "manage": false
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "categoryOptionCombos": [{
+      "id": "bRowv6yZOF2"
+    }],
+    "translations": [],
+    "userAccesses": [],
+    "categories": [{
+      "id": "vGs6omsRekv"
+    }]
+  }]
+}
