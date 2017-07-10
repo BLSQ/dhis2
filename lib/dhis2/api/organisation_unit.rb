@@ -15,8 +15,8 @@ module Dhis2
           elsif options.any?
             params = []
             options.each do |name, value|
-              params << [name, value]
-            end
+              params << [client.class.camelize(name.to_s, false), value]
+            end            
             params        = client.class.deep_change_case(params, :camelize)
             json_response = client.get("#{resource_name}/#{id}", RestClient::ParamsArray.new(params))
             if options[:include_descendants] || options[:include_children]
