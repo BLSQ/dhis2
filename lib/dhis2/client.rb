@@ -9,7 +9,7 @@ module Dhis2
         CollectionWrapper.new(resource_class, self)
       end
     end
-    SUPPORTER_CASE_CHANGES = [:underscore, :camelize]
+    SUPPORTER_CASE_CHANGES = %i[underscore camelize].freeze
 
     def self.deep_change_case(hash, type)
       raise "unsupported case changes #{type} vs #{SUPPORTER_CASE_CHANGES}" unless SUPPORTER_CASE_CHANGES.include?(type)

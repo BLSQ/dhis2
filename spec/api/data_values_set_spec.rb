@@ -4,14 +4,13 @@
 require "spec_helper"
 
 RSpec.describe Dhis2::Api::DataValueSet do
-
   describe "#create" do
     it "should return import status" do
-      stub_request(:post, "https://play.dhis2.org/demo/api/dataValueSets").
-             with(body: "{\"dataValues\":{\"de\":\"de\"}}").
-             to_return(status: 200, body: "")
+      stub_request(:post, "https://play.dhis2.org/demo/api/dataValueSets")
+        .with(body: "{\"dataValues\":{\"de\":\"de\"}}")
+        .to_return(status: 200, body: "")
 
-      status = Dhis2.client.data_value_sets.create( {de: "de"})
+      status = Dhis2.client.data_value_sets.create(de: "de")
       expect(status).to be_a(Dhis2::Status)
     end
   end

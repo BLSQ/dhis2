@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Dhis2
   class Pager
     attr_reader :page, :page_count, :total, :next_page

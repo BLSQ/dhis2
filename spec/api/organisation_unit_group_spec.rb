@@ -6,7 +6,7 @@ RSpec.describe Dhis2::Api::Analytic do
       .to_return(status: 200, body: fixture_content(:dhis2, "organisation_unit_group.json"))
 
     group = Dhis2.client.organisation_unit_groups.find("id1")
-    
+
     expect(group.organisation_unit_ids).to eq %w[
       EURoFVjowXs NMcx2jmra3c p9KfD6eaRvu L5gENbBNNup E497Rk80ivZ
       scc4QyxenJd uFp0ztDOFbI W7ekX3gi0ut TEVtOFKcLAP yMCshbaVExv

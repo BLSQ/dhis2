@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 require "spec_helper"
 
 RSpec.describe Dhis2::VERSION do

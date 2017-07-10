@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Dhis2
   module Api
     class DataSet < Base
@@ -15,7 +16,7 @@ module Dhis2
                 short_name:         set[:short_name],
                 code:               set[:code],
                 period_type:        "Monthly",
-                data_elements:  set[:data_element_ids] ? set[:data_element_ids].map { |id| { id: id } } : [],
+                data_elements:      set[:data_element_ids] ? set[:data_element_ids].map { |id| { id: id } } : [],
                 organisation_units: set[:organisation_unit_ids] ? set[:organisation_unit_ids].map { |id| { id: id } } : [],
                 category_combo:     { id: category_combo.id, name: category_combo.name }
               }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dhis2
   module Api
     class OrganisationUnit < Base
@@ -16,7 +18,7 @@ module Dhis2
             params = []
             options.each do |name, value|
               params << [client.class.camelize(name.to_s, false), value]
-            end            
+            end
             params        = client.class.deep_change_case(params, :camelize)
             json_response = client.get("#{resource_name}/#{id}", RestClient::ParamsArray.new(params))
             if options[:include_descendants] || options[:include_children]

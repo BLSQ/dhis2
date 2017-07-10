@@ -26,22 +26,22 @@ RSpec.describe Dhis2::Api::OrganisationUnit do
 
   describe "#create" do
     it "should post to metadata imports" do
-      stub_request(:post, "https://play.dhis2.org/demo/api/metadata").
-          with(body: "{\"organisationUnits\":[{\"parentId\":1,\"parent\":{\"id\":1}}]}",
-               headers: {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Basic YWRtaW46ZGlzdHJpY3Q=', 'Content-Length'=>'56', 'Content-Type'=>'application/json', 'Host'=>'play.dhis2.org', 'User-Agent'=>'rest-client/2.0.2 (linux-gnu x86_64) ruby/2.3.0p0'}).
-          to_return(status: 200, body: "")
+      stub_request(:post, "https://play.dhis2.org/demo/api/metadata")
+        .with(body:    "{\"organisationUnits\":[{\"parentId\":1,\"parent\":{\"id\":1}}]}",
+              headers: { "Accept" => "application/json", "Accept-Encoding" => "gzip, deflate", "Authorization" => "Basic YWRtaW46ZGlzdHJpY3Q=", "Content-Length" => "56", "Content-Type" => "application/json", "Host" => "play.dhis2.org", "User-Agent" => "rest-client/2.0.2 (linux-gnu x86_64) ruby/2.3.0p0" })
+        .to_return(status: 200, body: "")
 
-      import_status = Dhis2.client.organisation_units.create({parent_id: 1})
+      import_status = Dhis2.client.organisation_units.create(parent_id: 1)
 
       expect(import_status).to be_a(Dhis2::Status)
     end
 
     it "should post to metadata imports and ensure backward compatibility for organisationUnits " do
-      stub_request(:post, "https://play.dhis2.org/demo/api/metadata").
-        with(body: "{\"organisationUnits\":[{\"parentId\":1,\"organisationUnits\":[{\"id\":4}],\"parent\":{\"id\":1}}]}")
+      stub_request(:post, "https://play.dhis2.org/demo/api/metadata")
+        .with(body: "{\"organisationUnits\":[{\"parentId\":1,\"organisationUnits\":[{\"id\":4}],\"parent\":{\"id\":1}}]}")
         .to_return(status: 200, body: "", headers: {})
 
-      import_status = Dhis2.client.organisation_units.create({parent_id: 1, organisationUnits:[{id: 4}]})
+      import_status = Dhis2.client.organisation_units.create(parent_id: 1, organisationUnits: [{ id: 4 }])
 
       expect(import_status).to be_a(Dhis2::Status)
     end
