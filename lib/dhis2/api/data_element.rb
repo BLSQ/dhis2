@@ -19,6 +19,7 @@ module Dhis2
                 aggregation_type:     element[:aggregation_type] || "SUM",
                 type:                 element[:type] || "int", # for backward compatbility
                 aggregation_operator: element[:aggregation_type] || "SUM", # for backward compatbility
+                zero_is_significant:  element[:zero_is_significant] || true,
                 category_combo:       { id: category_combo.id, name: category_combo.name }
               }
             end
