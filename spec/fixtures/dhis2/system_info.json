@@ -1,0 +1,24 @@
+{
+  "contextPath": "https://play.dhis2.org/demo",
+  "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.104 Safari/537.36",
+  "calendar": "iso8601",
+  "dateFormat": "yyyy-mm-dd",
+  "serverDate": "2017-07-08T20:15:46.796",
+  "lastAnalyticsTableSuccess": "2017-06-02T09:41:31.294",
+  "intervalSinceLastAnalyticsTableSuccess": "874 h, 34 m, 15 s",
+  "lastAnalyticsTableRuntime": "5 m, 16 s",
+  "version": "2.27",
+  "revision": "356bc92",
+  "buildTime": "2017-07-08T06:25:34.000",
+  "jasperReportsVersion": "6.3.1",
+  "environmentVariable": "DHIS2_HOME",
+  "databaseInfo": {
+    "type": "PostgreSQL",
+    "spatialSupport": true
+  },
+  "encryption": false,
+  "systemId": "eed3d451-4ff5-4193-b951-ffcc68954299",
+  "systemName": "DHIS 2 Demo - Sierra Leone",
+  "isMetadataVersionEnabled": true,
+  "isMetadataSyncEnabled": false
+}

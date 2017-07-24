@@ -1,0 +1,118 @@
+{
+  "response_type": "ImportSummary",
+  "status": "SUCCESS",
+  "description": "Import process completed successfully",
+  "import_count": {
+    "imported": 2,
+    "updated": 0,
+    "ignored": 0,
+    "deleted": 0
+  },
+  "conflicts": [{
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: rEvBimdgUfs"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: EY69o0koKt8"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: hrFHrVB5pTO"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: hxdVk2XI5Zu"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: zKV1D0nD70C"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: PJFANz2bHZW"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: ABQyoTMp1ke"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: ou0tlGAgTi3"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: i1CyxAjnvyq"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: myDuQyaRrh7"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: FRwIRYqwpIR"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: k50KoPLfN8B"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: ftYhUb1yUSc"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: j1brbx1tUsI"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: NoUxMgPTN7L"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: NZFnW496Wp1"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: XwegjqLFGk2"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: FM2uTmtC8x9"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: UpdArBtTrso"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: dSjdXo10zuD"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: KwB1SD2jtlf"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: fyUsyTfV2Gd"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: nglnLACf1ou"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: bs8ifEO4JVK"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: yM2Iju8sWSf"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: qJfKANBAPUZ"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: dzhIEBcrpJa"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: zIUwyAVwsQi"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: nbeZQJcAtIw"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: CGiL7QgPSAt"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: ugNT8zy3Tu9"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: lXpDI2bRPCF"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: AiIqk3Q0OOj"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: OPbqJZOm0Bd"
+  }, {
+    "object": "0",
+    "value": "Value is zero and not significant, must match data element: Ri1TKogyV2m"
+  }],
+  "data_set_complete": "false"
+}

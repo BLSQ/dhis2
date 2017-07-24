@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dhis2
   module Api
     class Analytic < Base
@@ -8,9 +10,9 @@ module Dhis2
             [:dimension, "dx:#{data_elements}"],
             [:dimension, "pe:#{periods}"]
           ]
-          params << [:filter, "#{filter}"] if filter
+          params << [:filter, filter.to_s] if filter
 
-          client.get(self.resource_name, RestClient::ParamsArray.new(params))
+          client.get(resource_name, RestClient::ParamsArray.new(params))
         end
       end
     end

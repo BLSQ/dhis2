@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "rest-client"
 require "json"
 require "ostruct"
@@ -41,13 +42,13 @@ module Dhis2
   class << self
     def client
       if @client.nil?
-        if config.user.nil? && config.password.nil?
-          @client ||= Dhis2::Client.new(config.url)
-        else
-          @client ||= Dhis2::Client.new(url:      config.url,
+        @client ||= if config.user.nil? && config.password.nil?
+                      Dhis2::Client.new(config.url)
+                    else
+                      Dhis2::Client.new(url:      config.url,
                                         user:     config.user,
                                         password: config.password)
-        end
+                    end
       else
         @client
       end

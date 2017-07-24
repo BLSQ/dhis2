@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dhis2
   class Status
     attr_reader :raw_status
@@ -12,7 +14,7 @@ module Dhis2
           summary["status"] == "SUCCESS"
         end
       end
-      ["SUCCESS", "OK"].include?(@raw_status["status"])
+      %w[SUCCESS OK].include?(@raw_status["status"])
     end
 
     def total_imported
@@ -34,7 +36,7 @@ module Dhis2
 
     def import_summaries
       return [] unless @raw_status["response"]["import_summaries"]
-      @raw_status["response"]["import_summaries"].map {|it| OpenStruct.new(it) }
+      @raw_status["response"]["import_summaries"].map { |it| OpenStruct.new(it) }
     end
   end
 end

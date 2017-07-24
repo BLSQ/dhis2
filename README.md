@@ -195,7 +195,7 @@ DHIS2 API does not return the ids of the created elements, but you can retreive 
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. Note that the tests are using the DHIS2 demo server, which is reset every day but can be updated by anyone - so if someone change the password of the default user, the tests are going to fail.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rake test` and `bundle exec rspec` to run the tests. Note that the tests are using the DHIS2 demo server, which is reset every day but can be updated by anyone - so if someone change the password of the default user, the tests are going to fail.
 
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 

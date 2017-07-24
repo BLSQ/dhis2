@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dhis2
   module Api
     class Base < OpenStruct
@@ -79,7 +81,7 @@ module Dhis2
       end
 
       def initialize(client, raw_data)
-        raw_data["display_name"] ||= raw_data["name"]  # for backward compatbility with v2.19
+        raw_data["display_name"] ||= raw_data["name"] # for backward compatbility with v2.19
         super(raw_data)
         self.client = client
       end
@@ -93,12 +95,12 @@ module Dhis2
       end
 
       def add_relation(relation, relation_id)
-        client.post("#{self.class.resource_name}/#{id}/#{relation}/#{relation_id}",{})
+        client.post("#{self.class.resource_name}/#{id}/#{relation}/#{relation_id}", {})
         self
       end
 
       def remove_relation(relation, relation_id)
-        client.delete("#{self.class.resource_name}/#{id}/#{relation}/#{relation_id}",{})
+        client.delete("#{self.class.resource_name}/#{id}/#{relation}/#{relation_id}", {})
         self
       end
 
@@ -112,7 +114,7 @@ module Dhis2
       end
 
       def update
-        client.put("#{self.class.resource_name}/#{id}", self.to_h)
+        client.put("#{self.class.resource_name}/#{id}", to_h)
       end
     end
   end
