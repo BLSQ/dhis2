@@ -26,6 +26,7 @@ RSpec.describe Dhis2::Api::DataElement do
         "aggregationType"     => "SUM",
         "type"                => "int",
         "aggregationOperator" => "SUM",
+        "zeroIsSignificant"   => true,
         "categoryCombo"       => {
           "id" => "p0KPaWEg3cf", "name" => "default"
         }
@@ -41,6 +42,7 @@ RSpec.describe Dhis2::Api::DataElement do
          "aggregationType" => "SUM",
          "type" => "int",
          "aggregationOperator" => "SUM",
+         "zeroIsSignificant"   => true,
          "categoryCombo" => {
            "id" => "p0KPaWEg3cf", "name" => "default"
          }

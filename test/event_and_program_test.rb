@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "test_helper"
 
 class EventAndProgramTest < Minitest::Test
@@ -30,5 +31,12 @@ class EventAndProgramTest < Minitest::Test
 
   def test_find_program
     assert_equal "Inpatient morbidity and mortality", Dhis2.client.programs.find("eBAyeGv0exc").name
+  end
+
+  def test_should_find_events
+    events = Dhis2.client.events.list(program: "eBAyeGv0exc")
+    event = events.first
+    refute_nil(event.id)
+    assert_equal(event.id, event.event)
   end
 end
