@@ -36,6 +36,7 @@ require_relative "dhis2/api/user"
 require_relative "dhis2/api/event"
 require_relative "dhis2/api/program"
 require_relative "dhis2/api/report_table"
+require_relative "dhis2/api/resource_table"
 require_relative "dhis2/api/report"
 
 module Dhis2
