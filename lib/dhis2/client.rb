@@ -63,7 +63,7 @@ module Dhis2
       end
     end
 
-    def post(path, payload, query_params = {})
+    def post(path, payload = nil, query_params = {})
       execute(:post, uri(path), headers, query_params, payload)
     end
 

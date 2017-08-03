@@ -150,6 +150,7 @@ The API is currently limited to actions on the following elements:
 * `ReportTable`
 * `Program`
 * `Events`
+* `ResourceTables`
 
 ## Update
 
@@ -192,6 +193,13 @@ DHIS2 API does not return the ids of the created elements, but you can retreive 
     ]
     status = Dhis2.client.data_elements.create(elements)
     element = Dhis2.client.data_elements.find_by(name: "TesTesT2")
+
+
+## Trigger analytics
+
+You can trigger Analytics with
+
+Dhis2.client.resource_tables.analytics
 
 ## Development
 
