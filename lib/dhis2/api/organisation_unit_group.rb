@@ -9,6 +9,12 @@ module Dhis2
         end
       end
 
+      def group_set_ids
+        [organisation_unit_group_set, group_sets].flatten.compact.map do |group_set|
+          group_set["id"]
+        end
+      end
+
       class << self
         def create(client, orgunit_groups)
           orgunit_groups = [orgunit_groups].flatten
