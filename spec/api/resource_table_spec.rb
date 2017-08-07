@@ -13,7 +13,7 @@ RSpec.describe Dhis2::Api::ResourceTable do
     end
 
   def stub_resource_tables
-    stub_request(:post, "https://play.dhis2.org/demo/api/resourceTables")
+    stub_request(:post, "https://play.dhis2.org/demo/api/resourceTables/analytics")
       .to_return(status: 200, body: fixture_content(:dhis2, "resource_tables.json"))
   end
 
