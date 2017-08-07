@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Dhis2::Api::Analytic do
-  it "shoud expose organisation_unit_ids for newer versions" do
+  it "shoud expose group_set_ids for newer versions" do
     stub_request(:get, "https://play.dhis2.org/demo/api/organisationUnitGroups/id1")
       .to_return(status: 200, body: fixture_content(:dhis2, "organisation_unit_group.json"))
 
@@ -9,12 +9,28 @@ RSpec.describe Dhis2::Api::Analytic do
     expect(group.group_set_ids).to eq ["J5jldMd8OHv"]
   end
 
-  it "shoud expose organisation_unit_ids for older versions" do
+  it "shoud expose group_set_ids for older versions" do
     stub_request(:get, "https://play.dhis2.org/demo/api/organisationUnitGroups/id1")
       .to_return(status: 200, body: fixture_content(:dhis2, "organisation_unit_group_old.json"))
 
     group = Dhis2.client.organisation_unit_groups.find("id1")
     expect(group.group_set_ids).to eq ["sdfsafsf"]
+  end
+
+  it "shoud expose group_set_ids for older versions when none" do
+    stub_request(:get, "https://play.dhis2.org/demo/api/organisationUnitGroups/id1")
+      .to_return(status: 200, body: fixture_content(:dhis2, "organisation_unit_group_old_without_groupset.json"))
+
+    group = Dhis2.client.organisation_unit_groups.find("id1")
+    expect(group.group_set_ids).to eq []
+  end
+
+  it "shoud expose group_set_ids for newer versions when none" do
+    stub_request(:get, "https://play.dhis2.org/demo/api/organisationUnitGroups/id1")
+      .to_return(status: 200, body: fixture_content(:dhis2, "organisation_unit_group_without_groupset.json"))
+
+    group = Dhis2.client.organisation_unit_groups.find("id1")
+    expect(group.group_set_ids).to eq []
   end
 
   it "shoud expose organisation_unit_ids" do
