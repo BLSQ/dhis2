@@ -3,6 +3,7 @@
 <a href="https://codeclimate.com/github/BLSQ/dhis2"><img src="https://codeclimate.com/github/BLSQ/dhis2/badges/gpa.svg" /></a>
 [![Gem Version](https://badge.fury.io/rb/dhis2.svg)](https://badge.fury.io/rb/dhis2)
 [![Build Status](https://travis-ci.org/BLSQ/dhis2.svg?branch=master)](https://travis-ci.org/BLSQ/dhis2)
+[![Test Coverage](https://codeclimate.com/github/BLSQ/dhis2/badges/coverage.svg)](https://codeclimate.com/github/BLSQ/dhis2/coverage)
 
 Basic DHIS2 API client for Ruby.
 
