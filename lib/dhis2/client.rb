@@ -60,6 +60,7 @@ module Dhis2
         @base_url    = url.to_s
         @verify_ssl = options[:no_ssl_verification] ? OpenSSL::SSL::VERIFY_NONE : OpenSSL::SSL::VERIFY_PEER
         @timeout = options[:timeout] ? options[:timeout].to_i : 120
+        @debug = options[:debug] && options[:debug] == true 
       end
     end
 
@@ -94,8 +95,10 @@ module Dhis2
         verify_ssl: @verify_ssl,
         timeout:    @timeout
       }
-
+      
       raw_response = RestClient::Request.execute(query)
+      
+      puts raw_response.request.url if @debug
       response     = raw_response.nil? || raw_response == "" ? {} : JSON.parse(raw_response)
       response     = self.class.deep_change_case(response, :underscore)
 
