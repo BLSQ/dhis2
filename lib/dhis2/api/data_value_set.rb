@@ -51,7 +51,7 @@ module Dhis2
         end
 
         def build_where_url(options)
-          children = options[:children] || true
+          children = options[:children].nil? ? true : options[:children]
           organisation_unit_id = options[:organisation_unit]
           organisation_unit_group = options[:organisation_unit_group]
           if organisation_unit_id

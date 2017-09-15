@@ -27,6 +27,18 @@ RSpec.describe Dhis2::Api::DataValueSet do
       )
     end
 
+    it "should support by data_sets, orgUnit, periods and children false" do
+      stub_request(:get, "https://play.dhis2.org/demo/api/dataValueSets?children=false&dataSet=ds1&orgUnit=ou1&period=2017Q1")
+        .to_return(status: 200, body: "", headers: {})
+
+      Dhis2.client.data_value_sets.list(
+        data_sets:         ["ds1"],
+        periods:           ["2017Q1"],
+        organisation_unit: "ou1",
+        children:          false
+      )
+    end
+
     it "should support by data_sets, orgUnit array, periods" do
       stub_request(:get, "https://play.dhis2.org/demo/api/dataValueSets?children=true&dataSet=ds1&orgUnit=ou1&period=2017Q1")
         .to_return(status: 200, body: "", headers: {})
