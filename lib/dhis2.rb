@@ -27,6 +27,7 @@ require_relative "dhis2/api/data_value_set"
 require_relative "dhis2/api/data_value"
 require_relative "dhis2/api/organisation_unit_level"
 require_relative "dhis2/api/indicator"
+require_relative "dhis2/api/indicator_group"
 require_relative "dhis2/api/analytic"
 require_relative "dhis2/api/organisation_unit_group"
 require_relative "dhis2/api/organisation_unit_group_set"
@@ -41,6 +42,15 @@ require_relative "dhis2/api/report"
 
 module Dhis2
   class << self
+    def play(debug = false)
+      Dhis2::Client.new(
+        url:      "https://play.dhis2.org/demo/",
+        user:     "admin",
+        password: "district",
+        debug:    debug
+      )
+    end
+
     def client
       if @client.nil?
         @client ||= if config.user.nil? && config.password.nil?
@@ -48,7 +58,8 @@ module Dhis2
                     else
                       Dhis2::Client.new(url:      config.url,
                                         user:     config.user,
-                                        password: config.password)
+                                        password: config.password,
+                                        debug:    config.debug)
                     end
       else
         @client
