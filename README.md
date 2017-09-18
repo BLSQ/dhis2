@@ -146,6 +146,7 @@ The API is currently limited to actions on the following elements:
 * `SystemInfo`
 * `Attribute`
 * `Indicator`
+* `IndicatorGroup`
 * `DataElementGroup`
 * `User`
 * `Report`
