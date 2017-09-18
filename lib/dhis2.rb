@@ -47,10 +47,10 @@ module Dhis2
         url:      "https://play.dhis2.org/demo/",
         user:     "admin",
         password: "district",
-        debug: debug
+        debug:    debug
       )
     end
-    
+
     def client
       if @client.nil?
         @client ||= if config.user.nil? && config.password.nil?
@@ -58,7 +58,8 @@ module Dhis2
                     else
                       Dhis2::Client.new(url:      config.url,
                                         user:     config.user,
-                                        password: config.password)
+                                        password: config.password,
+                                        debug:    config.debug)
                     end
       else
         @client

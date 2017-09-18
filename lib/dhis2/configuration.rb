@@ -2,6 +2,6 @@
 
 module Dhis2
   class Configuration
-    attr_accessor :url, :user, :password
+    attr_accessor :url, :user, :password, :debug
   end
 end
