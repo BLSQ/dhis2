@@ -1,0 +1,22 @@
+{
+  "pager": { "page": 1, "pageCount": 1, "total": 17, "pageSize": 50 },
+  "indicatorGroups": [
+    { "id": "oehv9EO3vP7", "displayName": "ANC" },
+    { "id": "Dcl7WiHIXp9", "displayName": "Commodities" },
+    { "id": "LWvy9lMdSlH", "displayName": "Deliveries" },
+    { "id": "r5HxQkux3GD", "displayName": "Diarrhoea" },
+    { "id": "PoTnGN0F2n5", "displayName": "Emergency Response" },
+    { "id": "pKHOV0uwPJk", "displayName": "Facility infrastructure" },
+    { "id": "RsvclmONCT3", "displayName": "HIV" },
+    { "id": "uFcn6Gs8rTC", "displayName": "HIV Care Data Export" },
+    { "id": "srxUNt2w5jn", "displayName": "Immunization" },
+    { "id": "VMAd8jORtWW", "displayName": "Malaria" },
+    { "id": "ZA6xQWZboe2", "displayName": "Nutrition" },
+    { "id": "iSzPwrNnKtX", "displayName": "PMTCT" },
+    { "id": "YTeRMLGtger", "displayName": "Reproductive Health" },
+    { "id": "LMJd5I0UgHN", "displayName": "Service burden" },
+    { "id": "EdDc97EJUdd", "displayName": "Staffing" },
+    { "id": "kjo39T5x7ie", "displayName": "Stock" },
+    { "id": "PoBSb42oRAw", "displayName": "VCCT" }
+  ]
+}
