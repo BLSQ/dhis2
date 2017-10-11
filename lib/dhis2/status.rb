@@ -14,7 +14,7 @@ module Dhis2
           summary["status"] == "SUCCESS"
         end
       end
-      %w[SUCCESS OK].include?(@raw_status["status"])
+      %w(SUCCESS OK).include?(@raw_status["status"])
     end
 
     def total_imported

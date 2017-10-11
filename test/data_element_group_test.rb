@@ -45,11 +45,11 @@ class DataElementGroupTest < Minitest::Test
     assert_equal 2, status.total_imported
 
     data_element_groups = Dhis2.client.data_element_groups.list(
-      fields: "id,displayName,code,dataElements",
+      fields:    "id,displayName,code,dataElements",
       page_size: 1,
-      filter: "name:eq:#{groups[1][:name]}"
+      filter:    "name:eq:#{groups[1][:name]}"
     )
-    assert_equal data_element_groups.first[:data_elements], [{"id"=>"HLPuaFB7Frw"}]
+    assert_equal data_element_groups.first[:data_elements], [{ "id"=>"HLPuaFB7Frw" }]
   end
 
   def test_get_data_element_group

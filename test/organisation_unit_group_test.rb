@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "test_helper"
 require "faker"
 
@@ -23,9 +24,9 @@ class OrganisationUnitGroupTest < Minitest::Test
   def test_create_org_unit_groups
     org_unit_group_name_1 = SecureRandom.uuid
     # get the random string
-    radom_id  =  Faker::Lorem.characters(11)
+    radom_id = Faker::Lorem.characters(11)
 
-    org_unit_groups = {name: org_unit_group_name_1, short_name: org_unit_group_name_1, code:"test", id:radom_id}
+    org_unit_groups = { name: org_unit_group_name_1, short_name: org_unit_group_name_1, code: "test", id: radom_id }
     status = Dhis2.client.organisation_unit_groups.create(org_unit_groups)
     assert_equal true, status.success?
     assert_equal 1, status.total_imported

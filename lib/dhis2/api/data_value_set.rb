@@ -3,7 +3,6 @@
 module Dhis2
   module Api
     class DataValueSet < Base
-
       def values
         data_values.map do |data_value|
           # I guess we'd rather instantiate DataValue here

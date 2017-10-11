@@ -1,7 +1,7 @@
+# frozen_string_literal: true
 require "test_helper"
 
 class ReportTest < Minitest::Test
-
   def test_get_report
     reports = Dhis2.client.reports.list(fields: %w(id displayName reportTable), page_size: 1)
     assert_equal 1, reports.size

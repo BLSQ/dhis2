@@ -8,8 +8,8 @@ describe Dhis2::Api::Analytic do
       .to_return(status: 200, body: "", headers: {})
 
     Dhis2.client.analytics.list(
-      periods:            %w[2016Q1 2016],
-      organisation_units: %w[123 456],
+      periods:            %w(2016Q1 2016),
+      organisation_units: %w(123 456),
       data_elements:      ["de-987"]
     )
   end
@@ -26,7 +26,7 @@ describe Dhis2::Api::Analytic do
       row = Dhis2.client.analytics.list(
         data_elements:      data_element_id,
         organisation_units: organisation_unit_id,
-        periods: period
+        periods:            period
       )["rows"].first
 
       expect(data_element_id).to      eq row[0]

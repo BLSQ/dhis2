@@ -8,14 +8,13 @@ module Dhis2
       end
       class << self
         def format_query_parameters(options)
-
           params = []
           params.push([:page, options[:page]])                    if options[:page]
           params.push([:pageSize, options[:page_size]])           if options[:page_size]
           params.push([:fields, format_fields(options[:fields])]) if options[:fields]
           params.concat(format_filter(options[:filter]))          if options[:filter]
-          params.push([:program, options[:program]])               if options[:program]
-          params.push([:orgUnit, options[:org_unit]])             if options[:org_unit]
+          params.push([:program, options[:program]]) if options[:program]
+          params.push([:orgUnit, options[:org_unit]]) if options[:org_unit]
           params.push([:trackedEntityInstance, options[:tracked_entity_instance]]) if options[:tracked_entity_instance]
 
           RestClient::ParamsArray.new(params)

@@ -17,7 +17,7 @@ describe Dhis2::Client do
       )
 
       expect { dhis2.post("path", { sample_payload: true }, query_param: "1") }.to output(
-          "https://admin:district@play.dhis2.org/demo/api/path?query_param=1	{\"samplePayload\":true}	{}\n"
+        "https://admin:district@play.dhis2.org/demo/api/path?query_param=1	{\"samplePayload\":true}	{}\n"
       ).to_stdout
     end
   end

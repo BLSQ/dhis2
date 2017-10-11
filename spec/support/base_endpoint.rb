@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.shared_examples "a DHIS2 listable resource" do
   let(:client) { Dhis2.client }
   let(:resource_name) { ::Dhis2::Client.underscore(described_class.resource_name) }
@@ -24,7 +25,7 @@ RSpec.shared_examples "a DHIS2 listable resource" do
       it "returns expected content" do
         response = action
         ::Dhis2::Client.deep_change_case(JSON.parse(json_response), :underscore).tap do |hash|
-          if hash.has_key?("pager")
+          if hash.key?("pager")
             expect(response.pager.page).to       eq hash["pager"]["page"]
             expect(response.pager.page_count).to eq hash["pager"]["page_count"]
             expect(response.pager.total).to      eq hash["pager"]["total"]
@@ -48,11 +49,11 @@ RSpec.shared_examples "a DHIS2 findable resource" do
 
   describe ".find" do
     context "find one id" do
-      def action(options = {})
+      def action(_options = {})
         described_class.find(client, fake_id)
       end
 
-      let(:fake_id) { 'fake_id' }
+      let(:fake_id) { "fake_id" }
       let(:json_response) { fixture_content("find", "#{resource_name}.json") }
 
       before do
@@ -76,7 +77,7 @@ end
 
 RSpec.shared_examples "a DHIS2 updatable resource" do |req_body: {}|
   let(:client) { Dhis2.client }
-  let(:object) { described_class.new(client, {id: 'fake_id'}) }
+  let(:object) { described_class.new(client, id: "fake_id") }
   let(:resource_name) { ::Dhis2::Client.underscore(described_class.resource_name) }
 
   describe "#update" do
@@ -84,8 +85,8 @@ RSpec.shared_examples "a DHIS2 updatable resource" do |req_body: {}|
 
     before do
       stub_request(:put, "https://play.dhis2.org/demo/api/#{Dhis2::Client.camelize(resource_name, false)}/#{object.id}")
-         .with(body: { id: "fake_id", displayName: nil }.merge(req_body).to_json)
-         .to_return(status: 200, body: json_response)
+        .with(body: { id: "fake_id", displayName: nil }.merge(req_body).to_json)
+        .to_return(status: 200, body: json_response)
     end
 
     it "triggers the expected request" do
@@ -94,7 +95,7 @@ RSpec.shared_examples "a DHIS2 updatable resource" do |req_body: {}|
   end
 
   describe "#update_attributes" do
-    let(:updates_hash) {{ name: 'updated name' }}
+    let(:updates_hash) { { name: "updated name" } }
     before do
       stub_request(:patch, "https://play.dhis2.org/demo/api/#{Dhis2::Client.camelize(resource_name, false)}/#{object.id}")
         .with(body: updates_hash.to_json)
@@ -112,14 +113,14 @@ end
 
 RSpec.shared_examples "a DHIS2 deletable resource" do
   let(:client) { Dhis2.client }
-  let(:object) { described_class.new(client, {id: 'fake_id'}) }
+  let(:object) { described_class.new(client, id: "fake_id") }
   let(:resource_name) { ::Dhis2::Client.underscore(described_class.resource_name) }
 
   describe "#delete" do
     context "success" do
       before do
         stub_request(:delete, "https://play.dhis2.org/demo/api/#{Dhis2::Client.camelize(resource_name, false)}/#{object.id}")
-           .to_return(status: 204)
+          .to_return(status: 204)
       end
 
       it "triggers the expected request" do
@@ -129,13 +130,13 @@ RSpec.shared_examples "a DHIS2 deletable resource" do
     context "error" do
       it "raises on 500" do
         stub_request(:delete, "https://play.dhis2.org/demo/api/#{Dhis2::Client.camelize(resource_name, false)}/#{object.id}")
-           .to_return(status: 500, body: "{\"httpStatus\":\"Internal Server Error\",\"httpStatusCode\":500,\"status\":\"ERROR\",\"message\":\"could not execute statement\"}")
+          .to_return(status: 500, body: "{\"httpStatus\":\"Internal Server Error\",\"httpStatusCode\":500,\"status\":\"ERROR\",\"message\":\"could not execute statement\"}")
         expect { object.delete }.to raise_error(RestClient::Exception)
       end
 
       it "raises on 409" do
         stub_request(:delete, "https://play.dhis2.org/demo/api/#{Dhis2::Client.camelize(resource_name, false)}/#{object.id}")
-           .to_return(status: 409, body: "{\"httpStatus\":\"Conflict\",\"httpStatusCode\":409,\"status\":\"ERROR\",\"message\":\"Could not delete due to association with another object\"}")
+          .to_return(status: 409, body: "{\"httpStatus\":\"Conflict\",\"httpStatusCode\":409,\"status\":\"ERROR\",\"message\":\"Could not delete due to association with another object\"}")
         expect { object.delete }.to raise_error(RestClient::Exception)
       end
     end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "test_helper"
 
 class DataElementTest < Minitest::Test
@@ -56,5 +57,4 @@ class DataElementTest < Minitest::Test
     data_element = Dhis2.client.data_elements.find_by(name: name)
     assert_equal true, data_element.delete
   end
-
 end

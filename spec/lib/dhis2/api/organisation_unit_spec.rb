@@ -5,7 +5,7 @@ require "spec_helper"
 describe Dhis2::Api::OrganisationUnit do
   it_behaves_like "a DHIS2 listable resource"
   it_behaves_like "a DHIS2 findable resource"
-  it_behaves_like "a DHIS2 updatable resource", req_body: {childrenIds: []}
+  it_behaves_like "a DHIS2 updatable resource", req_body: { childrenIds: [] }
   it_behaves_like "a DHIS2 deletable resource"
 
   describe "#initialize" do
@@ -25,7 +25,7 @@ describe Dhis2::Api::OrganisationUnit do
           { "id" => "2" }
         ]
       )
-      expect(org_unit.children_ids).to eq %w[1 2]
+      expect(org_unit.children_ids).to eq %w(1 2)
     end
   end
 

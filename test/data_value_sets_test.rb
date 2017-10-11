@@ -79,7 +79,7 @@ class DataValueSetsTest < Minitest::Test
     url = Dhis2.client.data_value_sets.build_list_url(
       data_sets:         ["oRVt7g429ZO"],
       periods:           ["oDkJh5Ddh7d"],
-      organisation_unit: ["123456","789456"]
+      organisation_unit: %w(123456 789456)
     )
 
     assert_equal url, "dataValueSets?dataSet=oRVt7g429ZO&period=oDkJh5Ddh7d&orgUnit=123456&orgUnit=789456&children=true"
