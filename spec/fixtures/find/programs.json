@@ -1,0 +1,98 @@
+{
+  "lastUpdated": "2017-10-10T14:46:41.655",
+  "id": "lxAQ7Zs9VYR",
+  "href": "https://play.dhis2.org/demo/api/programs/lxAQ7Zs9VYR",
+  "created": "2016-04-12T15:30:43.783",
+  "name": "Antenatal care visit yo",
+  "shortName": "Antenatal care",
+  "publicAccess": "rw------",
+  "ignoreOverdueEvents": false,
+  "skipOffline": false,
+  "captureCoordinates": false,
+  "enrollmentDateLabel": "Enrollment Date",
+  "onlyEnrollOnce": false,
+  "version": 4,
+  "selectIncidentDatesInFuture": false,
+  "incidentDateLabel": "Incident Date",
+  "selectEnrollmentDatesInFuture": false,
+  "registration": false,
+  "useFirstStageDuringRegistration": false,
+  "displayName": "Antenatal care visit yo",
+  "completeEventsExpiryDays": 0,
+  "displayShortName": "Antenatal care",
+  "externalAccess": false,
+  "withoutRegistration": true,
+  "displayFrontPageList": false,
+  "programType": "WITHOUT_REGISTRATION",
+  "relationshipFromA": false,
+  "displayIncidentDate": false,
+  "expiryDays": 0,
+  "categoryCombo": {
+    "id": "p0KPaWEg3cf"
+  },
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "user": {
+    "id": "xE7jOejl9FI"
+  },
+  "programIndicators": [],
+  "translations": [],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "validationCriterias": [],
+  "userRoles": [
+    {
+      "id": "UYXOT4A7JMI"
+    },
+    {
+      "id": "Ufph3mGRmMo"
+    },
+    {
+      "id": "LGWLyWNro4x"
+    }
+  ],
+  "userAccesses": [],
+  "programRuleVariables": [
+    {
+      "id": "omrL0gtPpDL"
+    },
+    {
+      "id": "Z92dJO9gIje"
+    }
+  ],
+  "programTrackedEntityAttributes": [],
+  "notificationTemplates": [],
+  "organisationUnits": [
+    {
+      "id": "bVZTNrnfn9G"
+    },
+    {
+      "id": "TAN6Q7vjvuk"
+    }
+  ],
+  "programStages": [
+    {
+      "id": "dBwrot7S420"
+    }
+  ],
+  "programRules": [
+    {
+      "id": "dahuKlP7jR2"
+    },
+    {
+      "id": "xOe5qCzRS0Y"
+    },
+    {
+      "id": "GC4gpdoSD4r"
+    }
+  ]
+}

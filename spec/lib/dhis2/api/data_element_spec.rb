@@ -1,19 +1,12 @@
 # frozen_string_literal: true
 
-RSpec.describe Dhis2::Api::DataElement do
-  it "should list data elements" do
-    stub_request(:get, "https://play.dhis2.org/demo/api/dataElements?fields=id,shortName,displayName,code&pageSize=1")
-      .to_return(status: 200, body: fixture_content(:dhis2, "data_elements.json"))
+require "spec_helper"
 
-    data_elements = Dhis2.client.data_elements.list(fields: %w[id shortName displayName code], page_size: 1)
-    expect(data_elements.size).to eq 1
-
-    data_element = data_elements.first
-
-    expect(data_element.display_name).to eq "Accute Flaccid Paralysis (Deaths < 5 yrs)"
-    expect(data_element.id).to eq "FTRrcoaog83"
-    expect(data_element.short_name).to eq "Accute Flaccid Paral (Deaths < 5 yrs)"
-  end
+describe Dhis2::Api::DataElement do
+  it_behaves_like "a DHIS2 listable resource"
+  it_behaves_like "a DHIS2 findable resource"
+  it_behaves_like "a DHIS2 updatable resource"
+  it_behaves_like "a DHIS2 deletable resource"
 
   describe "#create" do
     let(:data_element_1) do

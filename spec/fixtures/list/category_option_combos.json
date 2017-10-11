@@ -1,0 +1,19 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 1,
+    "total": 2,
+    "pageSize": 50,
+    "nextPage": "https://play.dhis2.org/demo/api/categoryOptionCombos?page=2"
+  },
+  "categoryOptionCombos": [
+    {
+      "id": "sqGRzCziswD",
+      "displayName": "0-11M"
+    },
+    {
+      "id": "S34ULMcHMca",
+      "displayName": "0-11m"
+    }
+  ]
+}

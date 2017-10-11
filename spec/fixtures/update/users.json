@@ -1,0 +1,41 @@
+{
+  "import_params": {
+    "import_mode": "COMMIT",
+    "identifier": "UID",
+    "preheat_mode": "REFERENCE",
+    "import_strategy": "UPDATE",
+    "atomic_mode": "ALL",
+    "merge_mode": "REPLACE",
+    "flush_mode": "AUTO",
+    "skip_sharing": false,
+    "skip_validation": false,
+    "username": "admin"
+  },
+  "status": "OK",
+  "type_reports": [
+    {
+      "klass": "org.hisp.dhis.user.User",
+      "stats": {
+        "created": 0,
+        "updated": 1,
+        "deleted": 0,
+        "ignored": 0,
+        "total": 1
+      },
+      "object_reports": [
+        {
+          "klass": "org.hisp.dhis.user.User",
+          "index": 0,
+          "uid": "aUSLpMW9XTk"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "created": 0,
+    "updated": 1,
+    "deleted": 0,
+    "ignored": 0,
+    "total": 1
+  }
+}

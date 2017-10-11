@@ -1,9 +1,8 @@
-
 # frozen_string_literal: true
 
 require "spec_helper"
 
-RSpec.describe Dhis2::Api::DataValueSet do
+describe Dhis2::Api::DataValueSet do
   describe "#create" do
     it "should return import status" do
       stub_request(:post, "https://play.dhis2.org/demo/api/dataValueSets")

@@ -1,0 +1,26 @@
+{
+  "level": 3,
+  "created": "2011-12-24T12:24:22.935",
+  "lastUpdated": "2017-10-10T19:44:46.196",
+  "name": "Chiefdom yo",
+  "href": "https://play.dhis2.org/demo/api/organisationUnitLevels/tTUf91fCytl",
+  "id": "tTUf91fCytl",
+  "offlineLevels": 3,
+  "displayName": "Chiefdom yo",
+  "externalAccess": false,
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "translations": [],
+  "userAccesses": []
+}

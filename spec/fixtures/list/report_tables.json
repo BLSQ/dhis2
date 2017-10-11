@@ -1,0 +1,27 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 4,
+    "total": 4,
+    "pageSize": 50,
+    "nextPage": "https://play.dhis2.org/demo/api/reportTables?page=2"
+  },
+  "reportTables": [
+    {
+      "id": "tWg9OiyV7mu",
+      "displayName": "ANC: ANC 1 Visits Cumulative Numbers"
+    },
+    {
+      "id": "JASHkk5dqXs",
+      "displayName": "ANC: ANC at facilities in Bo this month with hidden empty columns"
+    },
+    {
+      "id": "W5XngfmkRnr",
+      "displayName": "ANC: ANC by area last 12 months"
+    },
+    {
+      "id": "zuWbqiD6zWM",
+      "displayName": "ANC: ANC visits 1-3 last 12 months"
+    }
+  ]
+}

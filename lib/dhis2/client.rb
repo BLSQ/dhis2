@@ -65,30 +65,30 @@ module Dhis2
     end
 
     def post(path, payload = nil, query_params = {})
-      execute(:post, uri(path), headers, query_params, payload)
+      execute(:post, uri(path), query_params, payload)
     end
 
     def get(path, query_params = {})
-      execute(:get, uri(path), headers, query_params)
+      execute(:get, uri(path), query_params)
     end
 
     def delete(path, query_params = {})
-      execute(:delete, uri(path), headers, query_params)
+      execute(:delete, uri(path), query_params)
     end
 
     def put(path, payload, query_params = {})
-      execute(:put, uri(path), headers, query_params, payload)
+      execute(:put, uri(path), query_params, payload)
     end
 
     def patch(path, payload, query_params = {})
-      execute(:patch, uri(path), headers, query_params, payload)
+      execute(:patch, uri(path), query_params, payload)
     end
 
     private
 
-    def execute(method, url, headers, query_params = {}, payload = nil)
+    def execute(method_name, url, query_params = {}, payload = nil)
       query = {
-        method:     method,
+        method:     method_name,
         url:        url,
         headers:    { params: query_params }.merge(headers),
         payload:    payload ? self.class.deep_change_case(payload, :camelize).to_json : nil,

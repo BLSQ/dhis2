@@ -1,0 +1,48 @@
+{
+  "code": "CHC",
+  "lastUpdated": "2017-10-10T14:39:43.688",
+  "id": "CXw2yu5fodb",
+  "href": "https://play.dhis2.org/demo/api/organisationUnitGroups/CXw2yu5fodb",
+  "created": "2012-11-13T14:35:22.574",
+  "name": "CHC yo",
+  "shortName": "CHC",
+  "symbol": "16.png",
+  "displayName": "CHC yo",
+  "publicAccess": "rw------",
+  "displayShortName": "CHC",
+  "externalAccess": false,
+  "dimensionItem": "CXw2yu5fodb",
+  "dimensionItemType": "ORGANISATION_UNIT_GROUP",
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "translations": [],
+  "organisationUnits": [
+    {
+      "id": "NMcx2jmra3c"
+    },
+    {
+      "id": "p9KfD6eaRvu"
+    }
+  ],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "groupSets": [
+    {
+      "id": "J5jldMd8OHv"
+    }
+  ],
+  "userAccesses": [],
+  "legendSets": []
+}

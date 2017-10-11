@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Dhis2::Api::User do
+describe Dhis2::Api::Program do
   it_behaves_like "a DHIS2 listable resource"
   it_behaves_like "a DHIS2 findable resource"
   it_behaves_like "a DHIS2 updatable resource"

@@ -1,0 +1,125 @@
+{
+  "code": "BIRTHS",
+  "created": "2011-12-24T12:24:25.203",
+  "lastUpdated": "2017-10-10T13:18:15.883",
+  "name": "Birthz",
+  "href": "https://play.dhis2.org/demo/api/categoryCombos/m2jTvAj5kkm",
+  "id": "m2jTvAj5kkm",
+  "dataDimensionType": "DISAGGREGATION",
+  "displayName": "Birthz",
+  "publicAccess": "rw------",
+  "externalAccess": false,
+  "isDefault": false,
+  "skipTotal": false,
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "categoryOptionCombos": [
+    {
+      "id": "L4P9VSgHkF6"
+    },
+    {
+      "id": "xQbMVHxaUiW"
+    },
+    {
+      "id": "MaXD86iob3M"
+    },
+    {
+      "id": "YEmiuCcgNQI"
+    },
+    {
+      "id": "Gqs7snASTtF"
+    },
+    {
+      "id": "w0tNkmER8Lb"
+    },
+    {
+      "id": "AKQ15Z2uqit"
+    },
+    {
+      "id": "Tzg8I9KyEwd"
+    },
+    {
+      "id": "Gmbgme7z9BF"
+    },
+    {
+      "id": "quwbAxfBdQU"
+    },
+    {
+      "id": "HVFCn1yjoGx"
+    },
+    {
+      "id": "NZAKyj67WW2"
+    },
+    {
+      "id": "vP9xV78M67W"
+    },
+    {
+      "id": "PvFFIeF2J9x"
+    },
+    {
+      "id": "SeTGOtrbip1"
+    },
+    {
+      "id": "w3BcsdjOcfk"
+    },
+    {
+      "id": "RgrNGmlMOAJ"
+    },
+    {
+      "id": "R3oRRwMRfMT"
+    },
+    {
+      "id": "CYHGl18lR0W"
+    },
+    {
+      "id": "b19Ye0TWs1D"
+    },
+    {
+      "id": "mcwaItVPoeA"
+    },
+    {
+      "id": "Ifqide84xSh"
+    },
+    {
+      "id": "s3jlIgFCbUb"
+    },
+    {
+      "id": "Tk8loZNEo4E"
+    }
+  ],
+  "translations": [
+    {
+      "property": "NAME",
+      "locale": "fr",
+      "value": "French"
+    },
+    {
+      "property": "NAME",
+      "locale": "fr",
+      "value": "French"
+    }
+  ],
+  "userAccesses": [],
+  "categories": [
+    {
+      "id": "KfdsGBcoiCa"
+    },
+    {
+      "id": "cX5k9anHEHd"
+    }
+  ]
+}

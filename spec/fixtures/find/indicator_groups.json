@@ -1,0 +1,30 @@
+{
+  "created": "2014-03-03T17:57:40.717",
+  "lastUpdated": "2014-03-03T17:57:40.765",
+  "name": "Commodities",
+  "href": "https://play.dhis2.org/demo/api/indicatorGroups/Dcl7WiHIXp9",
+  "id": "Dcl7WiHIXp9",
+  "displayName": "Commodities",
+  "publicAccess": "rw------",
+  "externalAccess": false,
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "indicators": [
+    {
+      "id": "aRabHjSGuGK"
+    }
+  ],
+  "translations": [],
+  "userAccesses": []
+}

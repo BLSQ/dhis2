@@ -1,0 +1,67 @@
+{
+  "lastUpdated": "2017-10-10T18:03:35.011",
+  "id": "aUSLpMW9XTk",
+  "href": "https://play.dhis2.org/demo/api/users/aUSLpMW9XTk",
+  "created": "2017-10-10T18:03:35.010",
+  "name": "Kevin Smith",
+  "displayName": "Kevin Smith",
+  "externalAccess": false,
+  "surname": "Smith",
+  "employer": "N/A",
+  "email": "smitkev@umich.edu",
+  "firstName": "Kevin",
+  "phoneNumber": "2485059185",
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "userCredentials": {
+    "lastUpdated": "2017-10-10T18:03:35.127",
+    "id": "ACRSyK77g3K",
+    "created": "2017-10-10T18:03:34.800",
+    "name": "Kevin Smith",
+    "lastLogin": "2017-10-10T18:03:35.126",
+    "displayName": "Kevin Smith",
+    "externalAuth": false,
+    "externalAccess": false,
+    "disabled": false,
+    "passwordLastUpdated": "2017-10-10T18:03:34.801",
+    "invitation": false,
+    "selfRegistered": true,
+    "username": "smitkev",
+    "userInfo": {
+      "id": "aUSLpMW9XTk"
+    },
+    "cogsDimensionConstraints": [],
+    "catDimensionConstraints": [],
+    "translations": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "userRoles": [
+      {
+        "id": "XS0dNzuZmfH"
+      }
+    ],
+    "userAccesses": []
+  },
+  "teiSearchOrganisationUnits": [],
+  "translations": [],
+  "organisationUnits": [
+    {
+      "id": "ImspTQPwCqd"
+    }
+  ],
+  "dataViewOrganisationUnits": [
+    {
+      "id": "ImspTQPwCqd"
+    }
+  ],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "userGroups": [],
+  "userAccesses": []
+}

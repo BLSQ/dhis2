@@ -1,0 +1,30 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 1,
+    "total": 5,
+    "pageSize": 50
+  },
+  "organisationUnitGroupSets": [
+    {
+      "id": "uIuxlbV1vRT",
+      "displayName": "Area yo"
+    },
+    {
+      "id": "Bpx0589u8y0",
+      "displayName": "Facility Ownership"
+    },
+    {
+      "id": "J5jldMd8OHv",
+      "displayName": "Facility Type"
+    },
+    {
+      "id": "liIEpnnZBtP",
+      "displayName": "Facility TYPE by Payment  "
+    },
+    {
+      "id": "Cbuj0VCyDjL",
+      "displayName": "Location Rural/Urban"
+    }
+  ]
+}

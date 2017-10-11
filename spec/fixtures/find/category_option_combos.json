@@ -1,0 +1,37 @@
+{
+  "lastUpdated": "2017-10-10T13:22:50.303",
+  "id": "sqGRzCziswD",
+  "href": "https://play.dhis2.org/demo/api/categoryOptionCombos/sqGRzCziswD",
+  "created": "2016-10-10T16:17:05.669",
+  "name": "0-11M",
+  "shortName": "0-11M",
+  "displayName": "0-11M",
+  "displayShortName": "0-11M",
+  "externalAccess": false,
+  "ignoreApproval": false,
+  "dimensionItem": "sqGRzCziswD",
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "categoryCombo": {
+    "id": "pbvcDRasDav"
+  },
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "translations": [],
+  "categoryOptions": [
+    {
+      "id": "FbLZS3ueWbQ"
+    }
+  ],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "userAccesses": [],
+  "legendSets": []
+}

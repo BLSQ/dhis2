@@ -114,7 +114,7 @@ module Dhis2
       end
 
       def update
-        client.put("#{self.class.resource_name}/#{id}", to_h)
+        client.put("#{self.class.resource_name}/#{id}", to_h.reject{|k, v| k == :client })
       end
     end
   end

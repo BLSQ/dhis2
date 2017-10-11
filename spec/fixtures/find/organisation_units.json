@@ -1,0 +1,46 @@
+{
+  "code": "2",
+  "lastUpdated": "2017-10-10T12:47:52.377",
+  "id": "GQcR1DsLnZi",
+  "href": "https://play.dhis2.org/demo/api/organisationUnits/GQcR1DsLnZi",
+  "level": 1,
+  "created": "2017-10-10T12:47:52.200",
+  "leaf": true,
+  "name": "2",
+  "shortName": "2",
+  "displayName": "2",
+  "description": "Région 2",
+  "displayShortName": "2",
+  "externalAccess": false,
+  "path": "/GQcR1DsLnZi",
+  "featureType": "NONE",
+  "openingDate": "1970-01-01T00:00:00.000",
+  "displayDescription": "Région 2",
+  "dimensionItem": "GQcR1DsLnZi",
+  "dimensionItemType": "ORGANISATION_UNIT",
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "user": {
+    "id": "xE7jOejl9FI"
+  },
+  "children": [],
+  "translations": [],
+  "ancestors": [],
+  "organisationUnitGroups": [],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "users": [],
+  "userAccesses": [],
+  "dataSets": [],
+  "legendSets": [],
+  "programs": []
+}

@@ -1,0 +1,274 @@
+{
+  "lastUpdated": "2017-10-10T13:40:27.743",
+  "id": "lyLU2wR22tC",
+  "href": "https://play.dhis2.org/demo/api/dataSets/lyLU2wR22tC",
+  "created": "2012-06-10T00:36:10.036",
+  "name": "ART monthly summary yo ",
+  "shortName": "ART 2010",
+  "code": "DS_394131",
+  "validCompleteOnly": false,
+  "publicAccess": "rw------",
+  "skipOffline": false,
+  "formType": "CUSTOM",
+  "version": 25,
+  "timelyDays": 0,
+  "dimensionItemType": "REPORTING_RATE",
+  "dataElementDecoration": false,
+  "displayName": "ART monthly summary yo ",
+  "notifyCompletingUser": false,
+  "noValueRequiresComment": false,
+  "displayShortName": "ART 2010",
+  "externalAccess": false,
+  "fieldCombinationRequired": false,
+  "renderHorizontally": false,
+  "renderAsTabs": false,
+  "dimensionItem": "lyLU2wR22tC",
+  "mobile": false,
+  "periodType": "Monthly",
+  "openFuturePeriods": 0,
+  "expiryDays": 0,
+  "dataEntryForm": {
+    "id": "rV5Un1vizeD"
+  },
+  "categoryCombo": {
+    "id": "O4VaNks6tta"
+  },
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "legendSet": {
+    "id": "k1JHPfXsJND"
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "dataSetElements": [
+    {
+      "dataElement": {
+        "id": "o44j6gPqFlA"
+      },
+      "dataSet": {
+        "id": "lyLU2wR22tC"
+      }
+    },
+    {
+      "dataElement": {
+        "id": "ksGURIlASZB"
+      },
+      "dataSet": {
+        "id": "lyLU2wR22tC"
+      }
+    },
+    {
+      "dataElement": {
+        "id": "ZGKUt190yEn"
+      },
+      "dataSet": {
+        "id": "lyLU2wR22tC"
+      }
+    },
+    {
+      "dataElement": {
+        "id": "a7Pue4ht1n1"
+      },
+      "dataSet": {
+        "id": "lyLU2wR22tC"
+      }
+    },
+    {
+      "dataElement": {
+        "id": "BtXmKYNBc3k"
+      },
+      "dataSet": {
+        "id": "lyLU2wR22tC"
+      }
+    },
+    {
+      "dataElement": {
+        "id": "dAnZOL5kxlK"
+      },
+      "dataSet": {
+        "id": "lyLU2wR22tC"
+      }
+    },
+    {
+      "dataElement": {
+        "id": "DlZORv7kWSl"
+      },
+      "dataSet": {
+        "id": "lyLU2wR22tC"
+      }
+    },
+    {
+      "dataElement": {
+        "id": "obbSEvaKTyW"
+      },
+      "dataSet": {
+        "id": "lyLU2wR22tC"
+      }
+    },
+    {
+      "dataElement": {
+        "id": "PxT44IblPCq"
+      },
+      "dataSet": {
+        "id": "lyLU2wR22tC"
+      }
+    }
+  ],
+  "translations": [
+    {
+      "property": "NAME",
+      "locale": "en_GB",
+      "value": "ART monthly summary"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "en_GB",
+      "value": "ART 2010"
+    },
+    {
+      "property": "NAME",
+      "locale": "en_GB",
+      "value": "ART monthly summary"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "en_GB",
+      "value": "ART 2010"
+    }
+  ],
+  "dataInputPeriods": [],
+  "interpretations": [],
+  "userGroupAccesses": [
+    {
+      "access": "rw------",
+      "userGroupUid": "L4XTzgbdza3",
+      "displayName": "Wakiki",
+      "id": "L4XTzgbdza3"
+    }
+  ],
+  "attributeValues": [],
+  "indicators": [],
+  "sections": [],
+  "userAccesses": [],
+  "legendSets": [
+    {
+      "id": "k1JHPfXsJND"
+    }
+  ],
+  "compulsoryDataElementOperands": [
+    {
+      "lastUpdated": "2017-10-10T19:46:48.633",
+      "id": "NJnhOzjaLYk.qa0VqgYlgtN",
+      "href": "https://play.dhis2.org/demo/api/dataElementOperands/NJnhOzjaLYk.qa0VqgYlgtN",
+      "created": "2017-10-10T19:46:48.633",
+      "name": "ART clients with new adverse clinical event Female, 25-49y",
+      "shortName": "ART.CnewAdv.Clin.Ev. Female, 25-49y",
+      "displayName": "ART clients with new adverse clinical event Female, 25-49y",
+      "displayShortName": "ART.CnewAdv.Clin.Ev. Female, 25-49y",
+      "externalAccess": false,
+      "dimensionItem": "NJnhOzjaLYk.qa0VqgYlgtN",
+      "dimensionItemType": "DATA_ELEMENT_OPERAND",
+      "categoryOptionCombo": {
+        "id": "qa0VqgYlgtN"
+      },
+      "dataElement": {
+        "id": "NJnhOzjaLYk"
+      },
+      "translations": [],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": []
+    },
+    {
+      "lastUpdated": "2017-10-10T19:46:48.633",
+      "id": "NJnhOzjaLYk.qNCMOhkoQju",
+      "href": "https://play.dhis2.org/demo/api/dataElementOperands/NJnhOzjaLYk.qNCMOhkoQju",
+      "created": "2017-10-10T19:46:48.633",
+      "name": "ART clients with new adverse clinical event Female, <15y",
+      "shortName": "ART.CnewAdv.Clin.Ev. Female, <15y",
+      "displayName": "ART clients with new adverse clinical event Female, <15y",
+      "displayShortName": "ART.CnewAdv.Clin.Ev. Female, <15y",
+      "externalAccess": false,
+      "dimensionItem": "NJnhOzjaLYk.qNCMOhkoQju",
+      "dimensionItemType": "DATA_ELEMENT_OPERAND",
+      "categoryOptionCombo": {
+        "id": "qNCMOhkoQju"
+      },
+      "dataElement": {
+        "id": "NJnhOzjaLYk"
+      },
+      "translations": [],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": []
+    },
+    {
+      "lastUpdated": "2017-10-10T19:46:48.633",
+      "id": "NJnhOzjaLYk.LbeIlyHEhKr",
+      "href": "https://play.dhis2.org/demo/api/dataElementOperands/NJnhOzjaLYk.LbeIlyHEhKr",
+      "created": "2017-10-10T19:46:48.633",
+      "name": "ART clients with new adverse clinical event Female, 15-24y",
+      "shortName": "ART.CnewAdv.Clin.Ev. Female, 15-24y",
+      "displayName": "ART clients with new adverse clinical event Female, 15-24y",
+      "displayShortName": "ART.CnewAdv.Clin.Ev. Female, 15-24y",
+      "externalAccess": false,
+      "dimensionItem": "NJnhOzjaLYk.LbeIlyHEhKr",
+      "dimensionItemType": "DATA_ELEMENT_OPERAND",
+      "categoryOptionCombo": {
+        "id": "LbeIlyHEhKr"
+      },
+      "dataElement": {
+        "id": "NJnhOzjaLYk"
+      },
+      "translations": [],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": []
+    },
+    {
+      "lastUpdated": "2017-10-10T19:46:48.633",
+      "id": "NJnhOzjaLYk.rCMUTmcreqP",
+      "href": "https://play.dhis2.org/demo/api/dataElementOperands/NJnhOzjaLYk.rCMUTmcreqP",
+      "created": "2017-10-10T19:46:48.633",
+      "name": "ART clients with new adverse clinical event Female, >49y",
+      "shortName": "ART.CnewAdv.Clin.Ev. Female, >49y",
+      "displayName": "ART clients with new adverse clinical event Female, >49y",
+      "displayShortName": "ART.CnewAdv.Clin.Ev. Female, >49y",
+      "externalAccess": false,
+      "dimensionItem": "NJnhOzjaLYk.rCMUTmcreqP",
+      "dimensionItemType": "DATA_ELEMENT_OPERAND",
+      "categoryOptionCombo": {
+        "id": "rCMUTmcreqP"
+      },
+      "dataElement": {
+        "id": "NJnhOzjaLYk"
+      },
+      "translations": [],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": []
+    }
+  ],
+  "organisationUnits": [
+    {
+      "id": "bVZTNrnfn9G"
+    },
+    {
+      "id": "TAN6Q7vjvuk"
+    }
+  ]
+}

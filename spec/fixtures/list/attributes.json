@@ -1,0 +1,50 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 1,
+    "total": 10,
+    "pageSize": 50
+  },
+  "attributes": [
+    {
+      "id": "DnrLSdo4hMl",
+      "displayName": "Alternative name"
+    },
+    {
+      "id": "Z4X3J7jMLYV",
+      "displayName": "Classification"
+    },
+    {
+      "id": "qXS2NDUEAOS",
+      "displayName": "Collection method"
+    },
+    {
+      "id": "UKNKz1H10EE",
+      "displayName": "HR identifier"
+    },
+    {
+      "id": "l1VmqIHKk6t",
+      "displayName": "KE code"
+    },
+    {
+      "id": "n2xYlNbsfko",
+      "displayName": "NGO ID"
+    },
+    {
+      "id": "dLHLR5O4YFI",
+      "displayName": "PEPFAR ID"
+    },
+    {
+      "id": "AhsCAtM3L0g",
+      "displayName": "Rationale"
+    },
+    {
+      "id": "xqWyz9jNCA5",
+      "displayName": "TZ code"
+    },
+    {
+      "id": "Y1LUDU8sWBR",
+      "displayName": "Unit of measure"
+    }
+  ]
+}
