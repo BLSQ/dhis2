@@ -1,0 +1,34 @@
+{
+  "http_status": "OK",
+  "http_status_code": 200,
+  "status": "OK",
+  "message": "Import was successful.",
+  "response": {
+    "response_type": "ImportSummary",
+    "status": "SUCCESS",
+    "import_options": {
+      "id_schemes": {},
+      "dry_run": false,
+      "async": false,
+      "import_strategy": "CREATE_AND_UPDATE",
+      "merge_mode": "REPLACE",
+      "skip_existing_check": false,
+      "sharing": false,
+      "skip_notifications": false,
+      "dataset_allows_periods": false,
+      "strict_periods": false,
+      "strict_category_option_combos": false,
+      "strict_attribute_option_combos": false,
+      "strict_organisation_units": false,
+      "require_category_option_combo": false,
+      "require_attribute_option_combo": false
+    },
+    "import_count": {
+      "imported": 0,
+      "updated": 0,
+      "ignored": 0,
+      "deleted": 0
+    },
+    "reference": "GLzj6nka7Ae"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "code": "DE_1148614",
+  "lastUpdated": "2017-10-10T13:25:39.242",
+  "id": "FTRrcoaog83",
+  "href": "https://play.dhis2.org/demo/api/dataElements/FTRrcoaog83",
+  "created": "2011-04-20T17:54:58.775",
+  "name": "Accute Flaccid Paralysis (Deaths < 5 yrs) yo",
+  "shortName": "Accute Flaccid Paral (Deaths < 5 yrs)",
+  "aggregationType": "SUM",
+  "domainType": "AGGREGATE",
+  "displayName": "Accute Flaccid Paralysis (Deaths < 5 yrs) yo",
+  "publicAccess": "rw------",
+  "displayShortName": "Accute Flaccid Paral (Deaths < 5 yrs)",
+  "externalAccess": false,
+  "valueType": "NUMBER",
+  "dimensionItem": "FTRrcoaog83",
+  "displayFormName": "Accute Flaccid Paralysis (Deaths < 5 yrs) yo",
+  "zeroIsSignificant": false,
+  "optionSetValue": false,
+  "dimensionItemType": "DATA_ELEMENT",
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "categoryCombo": {
+    "id": "p0KPaWEg3cf"
+  },
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "dataSetElements": [
+    {
+      "dataElement": {
+        "id": "FTRrcoaog83"
+      },
+      "dataSet": {
+        "id": "pBOMPrpg1QX"
+      }
+    },
+    {
+      "categoryCombo": {
+        "id": "pbvcDRasDav"
+      },
+      "dataElement": {
+        "id": "FTRrcoaog83"
+      },
+      "dataSet": {
+        "id": "ce7DSxx5H2I"
+      }
+    },
+    {
+      "dataElement": {
+        "id": "FTRrcoaog83"
+      },
+      "dataSet": {
+        "id": "krVdBOFYwIg"
+      }
+    },
+    {
+      "categoryCombo": {
+        "id": "dPmavA0qloX"
+      },
+      "dataElement": {
+        "id": "FTRrcoaog83"
+      },
+      "dataSet": {
+        "id": "YFTk3VdO9av"
+      }
+    }
+  ],
+  "translations": [
+    {
+      "property": "NAME",
+      "locale": "en_GB",
+      "value": "Accute Flaccid Paralysis (Deaths < 5 yrs)"
+    },
+    {
+      "property": "FORM_NAME",
+      "locale": "en_FK",
+      "value": "aa"
+    },
+    {
+      "property": "NAME",
+      "locale": "en_FK",
+      "value": "aa"
+    },
+    {
+      "property": "DESCRIPTION",
+      "locale": "en_FK",
+      "value": "aa"
+    },
+    {
+      "property": "NAME",
+      "locale": "fr",
+      "value": "Accute French"
+    },
+    {
+      "property": "FORM_NAME",
+      "locale": "en_FK",
+      "value": "aa"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "en_GB",
+      "value": "Accute Flaccid Paral"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "en_FK",
+      "value": "aa"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "en_GB",
+      "value": "Accute Flaccid Paral"
+    },
+    {
+      "property": "NAME",
+      "locale": "fr",
+      "value": "Accute French"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "fr",
+      "value": "Accute French"
+    },
+    {
+      "property": "DESCRIPTION",
+      "locale": "en_FK",
+      "value": "aa"
+    },
+    {
+      "property": "NAME",
+      "locale": "en_GB",
+      "value": "Accute Flaccid Paralysis (Deaths < 5 yrs)"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "fr",
+      "value": "Accute French"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "en_FK",
+      "value": "aa"
+    },
+    {
+      "property": "NAME",
+      "locale": "en_FK",
+      "value": "aa"
+    }
+  ],
+  "userGroupAccesses": [],
+  "dataElementGroups": [
+    {
+      "id": "idD1wcvBISQ"
+    },
+    {
+      "id": "rPGfUFYbcfJ"
+    },
+    {
+      "id": "QAc5FhbeFwl"
+    }
+  ],
+  "attributeValues": [
+    {
+      "lastUpdated": "2016-08-01T15:00:59.398",
+      "created": "2016-08-01T15:00:59.398",
+      "value": "AFP",
+      "attribute": {
+        "id": "n2xYlNbsfko"
+      }
+    }
+  ],
+  "userAccesses": [],
+  "legendSets": [],
+  "aggregationLevels": []
+}

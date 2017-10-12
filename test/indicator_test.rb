@@ -1,7 +1,7 @@
+# frozen_string_literal: true
 require "test_helper"
 
 class IndicatorTest < Minitest::Test
-
   def test_get_indicator
     indicators = Dhis2.client.indicators.list(fields: %w(id displayName code), page_size: 1)
     assert_equal 1, indicators.size

@@ -1,0 +1,73 @@
+{
+  "lastUpdated": "2017-10-10T13:38:52.614",
+  "id": "oDkJh5Ddh7d",
+  "href": "https://play.dhis2.org/demo/api/dataElementGroups/oDkJh5Ddh7d",
+  "created": "2011-12-24T12:24:24.298",
+  "name": "Acute Flaccid Paralysis (AFP) yo",
+  "shortName": "Acute Flaccid Paralysis (AFP) ",
+  "aggregationType": "SUM",
+  "displayName": "Acute Flaccid Paralysis (AFP) yo",
+  "publicAccess": "rw------",
+  "displayShortName": "Acute Flaccid Paralysis (AFP) ",
+  "externalAccess": false,
+  "dimensionItem": "oDkJh5Ddh7d",
+  "dimensionItemType": "DATA_ELEMENT_GROUP",
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "translations": [
+    {
+      "property": "NAME",
+      "locale": "en_GB",
+      "value": "Acute Flaccid Paralysis (AFP) "
+    },
+    {
+      "property": "NAME",
+      "locale": "en_GB",
+      "value": "Acute Flaccid Paralysis (AFP) "
+    }
+  ],
+  "dataElements": [
+    {
+      "id": "HLPuaFB7Frw"
+    },
+    {
+      "id": "FQ2o8UBlcrS"
+    },
+    {
+      "id": "jmWyJFtE7Af"
+    },
+    {
+      "id": "eMyVanycQSC"
+    },
+    {
+      "id": "P3jJH5Tu5VC"
+    },
+    {
+      "id": "M62VHgYT2n0"
+    },
+    {
+      "id": "RUv0hqER0zV"
+    }
+  ],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "groupSets": [
+    {
+      "id": "jp826jAJHUc"
+    }
+  ],
+  "userAccesses": [],
+  "legendSets": []
+}

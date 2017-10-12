@@ -1,0 +1,95 @@
+{
+  "href": "https://play.dhis2.org/demo/api/events/GLzj6nka7Ae",
+  "event": "GLzj6nka7Ae",
+  "status": "ACTIVE",
+  "program": "eBAyeGv0exc",
+  "programStage": "Zj7UnCAulEk",
+  "enrollment": "RiLEKhWHlxZ",
+  "enrollmentStatus": "ACTIVE",
+  "orgUnit": "DiszpKrYNg8",
+  "orgUnitName": "Ngelehun CHC",
+  "eventDate": "2016-11-04T00:00:00.000",
+  "dueDate": "2017-08-03T17:59:10.083",
+  "storedBy": "system",
+  "dataValues": [
+    {
+      "created": "2014-11-15T14:55:22.851",
+      "lastUpdated": "2016-08-03T17:57:16.065",
+      "value": "Male",
+      "dataElement": "oZg33kd9taw",
+      "providedElsewhere": false,
+      "storedBy": "system"
+    },
+    {
+      "created": "2014-11-15T14:55:22.851",
+      "lastUpdated": "2016-08-03T17:57:16.070",
+      "value": "25",
+      "dataElement": "qrur9Dvnyt5",
+      "providedElsewhere": false,
+      "storedBy": "system"
+    },
+    {
+      "created": "2014-11-15T14:55:22.851",
+      "lastUpdated": "2016-08-03T17:57:16.073",
+      "value": "138",
+      "dataElement": "GieVkTxp4HH",
+      "providedElsewhere": false,
+      "storedBy": "system"
+    },
+    {
+      "created": "2014-11-15T14:55:22.851",
+      "lastUpdated": "2016-08-03T17:57:16.077",
+      "value": "50",
+      "dataElement": "vV9UWAZohSf",
+      "providedElsewhere": false,
+      "storedBy": "system"
+    },
+    {
+      "created": "2014-11-15T14:55:22.851",
+      "lastUpdated": "2016-08-03T17:57:16.080",
+      "value": "2014-11-04",
+      "dataElement": "eMyVanycQSC",
+      "providedElsewhere": false,
+      "storedBy": "system"
+    },
+    {
+      "created": "2014-11-15T14:55:22.851",
+      "lastUpdated": "2016-08-03T17:57:16.082",
+      "value": "2014-11-05",
+      "dataElement": "msodh3rEMJa",
+      "providedElsewhere": false,
+      "storedBy": "system"
+    },
+    {
+      "created": "2014-11-15T14:55:22.851",
+      "lastUpdated": "2016-08-03T17:57:16.085",
+      "value": "MODDISCH",
+      "dataElement": "fWIAEtYVEGk",
+      "providedElsewhere": false,
+      "storedBy": "system"
+    },
+    {
+      "created": "2014-11-15T14:55:22.851",
+      "lastUpdated": "2016-08-03T17:57:16.088",
+      "value": "B54",
+      "dataElement": "K6uUAvq500H",
+      "providedElsewhere": false,
+      "storedBy": "system"
+    },
+    {
+      "created": "2016-08-03T17:59:10.087",
+      "lastUpdated": "2016-08-03T17:59:10.087",
+      "value": "FVveAXpChfQ",
+      "dataElement": "ulD2zW0TIy2",
+      "providedElsewhere": false,
+      "storedBy": "system"
+    }
+  ],
+  "followup": false,
+  "deleted": false,
+  "created": "2016-11-07T15:21:36.387",
+  "lastUpdated": "2017-08-03T17:59:10.084",
+  "createdAtClient": "2016-11-07T15:21:36.387",
+  "attributeOptionCombo": "bRowv6yZOF2",
+  "attributeCategoryOptions": "as6ygGvUGNg"
+}

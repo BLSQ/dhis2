@@ -1,0 +1,158 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 27,
+    "total": 1332,
+    "pageSize": 50,
+    "nextPage": "https://play.dhis2.org/demo/api/organisationUnits?page=2"
+  },
+  "organisationUnits": [
+    {
+      "code": "OU_651071",
+      "lastUpdated": "2017-05-22T15:21:48.515",
+      "id": "Rp268JB6Ne4",
+      "href": "https://play.dhis2.org/demo/api/organisationUnits/Rp268JB6Ne4",
+      "level": 4,
+      "created": "2012-02-17T15:54:39.987",
+      "leaf": true,
+      "name": "Adonkia CHP",
+      "shortName": "Adonkia CHP",
+      "displayName": "Adonkia CHP",
+      "displayShortName": "Adonkia CHP",
+      "externalAccess": false,
+      "path": "/ImspTQPwCqd/at6UHUQatSo/qtr8GGlm4gg/Rp268JB6Ne4",
+      "featureType": "NONE",
+      "openingDate": "2010-01-01T00:00:00.000",
+      "dimensionItem": "Rp268JB6Ne4",
+      "dimensionItemType": "ORGANISATION_UNIT",
+      "parent": {
+        "id": "qtr8GGlm4gg"
+      },
+      "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+      },
+      "children": [],
+      "translations": [],
+      "ancestors": [
+        {
+          "id": "ImspTQPwCqd"
+        },
+        {
+          "id": "at6UHUQatSo"
+        },
+        {
+          "id": "qtr8GGlm4gg"
+        }
+      ],
+      "organisationUnitGroups": [
+        {
+          "id": "f25dqv3Y7Z0"
+        }
+      ],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "users": [],
+      "userAccesses": [],
+      "dataSets": [
+        {
+          "id": "aLpVgfXiz0f"
+        },
+        {
+          "id": "pBOMPrpg1QX"
+        },
+        {
+          "id": "EKWVBc5C0ms"
+        },
+        {
+          "id": "ULowA8V3ucd"
+        },
+        {
+          "id": "QX4ZTUbOt3a"
+        },
+        {
+          "id": "YFTk3VdO9av"
+        },
+        {
+          "id": "eZDhcZi6FLP"
+        },
+        {
+          "id": "YZhd4nu3mzY"
+        },
+        {
+          "id": "Nyh6laLdBEJ"
+        },
+        {
+          "id": "Y8gAn9DfAGU"
+        },
+        {
+          "id": "V8MHeZHIrcP"
+        },
+        {
+          "id": "Lpw6GcnTrmS"
+        },
+        {
+          "id": "VTdjfLXXmoi"
+        },
+        {
+          "id": "j38YW1Am7he"
+        },
+        {
+          "id": "ce7DSxx5H2I"
+        },
+        {
+          "id": "N4fIX1HL3TQ"
+        },
+        {
+          "id": "SF8FDSqw30D"
+        },
+        {
+          "id": "BfMAe6Itzgt"
+        },
+        {
+          "id": "PLq9sJluXvc"
+        },
+        {
+          "id": "TuL8IOPzpHh"
+        }
+      ],
+      "legendSets": [],
+      "programs": [
+        {
+          "id": "q04UBOqq3rp"
+        },
+        {
+          "id": "kla3mAPgvCH"
+        },
+        {
+          "id": "uy2gU8kT1jF"
+        },
+        {
+          "id": "VBqh0ynB2wv"
+        },
+        {
+          "id": "eBAyeGv0exc"
+        },
+        {
+          "id": "lxAQ7Zs9VYR"
+        },
+        {
+          "id": "IpHINAT79UW"
+        },
+        {
+          "id": "bMcwwoVnbSR"
+        },
+        {
+          "id": "ur1Edk5Oe2n"
+        },
+        {
+          "id": "WSGAb5XwJ3Y"
+        }
+      ]
+    }
+  ]
+}

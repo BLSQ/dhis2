@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "test_helper"
 require "faker"
 class OrganisationUnitTest < Minitest::Test
@@ -45,18 +46,18 @@ class OrganisationUnitTest < Minitest::Test
   end
 
   def test_org_units_children
-     org_unit_id             = Dhis2.client.organisation_units.find_by(name: "Bo").id
-     org_units_with_children = Dhis2.client.organisation_units.find(org_unit_id, include_children: true)
-     assert_equal 16, org_units_with_children.size
+    org_unit_id             = Dhis2.client.organisation_units.find_by(name: "Bo").id
+    org_units_with_children = Dhis2.client.organisation_units.find(org_unit_id, include_children: true)
+    assert_equal 16, org_units_with_children.size
   end
 
   def test_org_units_descendants
-     org_unit_id             = Dhis2.client.organisation_units.find_by(name: "Bo").id
-     org_units_with_children = Dhis2.client.organisation_units.find(org_unit_id, include_descendants: true)
+    org_unit_id             = Dhis2.client.organisation_units.find_by(name: "Bo").id
+    org_units_with_children = Dhis2.client.organisation_units.find(org_unit_id, include_descendants: true)
 
-     assert_equal 141, org_units_with_children.pager.total
+    assert_equal 141, org_units_with_children.pager.total
 
-     assert_equal 125, org_units_with_children.select { |ou| ou.level == 4 }.size
+    assert_equal 125, org_units_with_children.select { |ou| ou.level == 4 }.size
   end
 
   def test_org_unit_last_level_descendants
@@ -77,7 +78,7 @@ class OrganisationUnitTest < Minitest::Test
   end
 
   def test_list_org_units_pagination
-    org_units =Dhis2.client.organisation_units.list(fields: %w(parent children level id displayName), page: 6)
+    org_units = Dhis2.client.organisation_units.list(fields: %w(parent children level id displayName), page: 6)
     assert_equal 50, org_units.size
     refute_nil org_units.pager
     assert_equal 6, org_units.pager.page
@@ -103,10 +104,10 @@ class OrganisationUnitTest < Minitest::Test
   def test_create_org_units
     org_unit_name_1 = SecureRandom.uuid
     org_unit_name_2 = SecureRandom.uuid
-    random_id  = Faker::Lorem.characters(11)
+    random_id = Faker::Lorem.characters(11)
     org_units = [
-      { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01", contact_person: "Zulumur Roland" , phone_number: "57401156", email: "test@gmail.com", id: random_id},
-      { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01", contact_person: "Koubaka Robert" , phone_number: "578451245", email: "robert@gmail.com", address: "adresse de Robert", id: random_id}
+      { name: org_unit_name_1, short_name: org_unit_name_1, opening_date: "2013-01-01", contact_person: "Zulumur Roland", phone_number: "57401156", email: "test@gmail.com", id: random_id },
+      { name: org_unit_name_2, short_name: org_unit_name_2, opening_date: "2013-01-01", contact_person: "Koubaka Robert", phone_number: "578451245", email: "robert@gmail.com", address: "adresse de Robert", id: random_id }
     ]
 
     status = Dhis2.client.organisation_units.create(org_units)

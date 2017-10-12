@@ -1,0 +1,10 @@
+{
+  "http_status": "OK",
+  "http_status_code": 200,
+  "status": "OK",
+  "response": {
+    "response_type": "ObjectReport",
+    "klass": "org.hisp.dhis.attribute.Attribute",
+    "uid": "Z4X3J7jMLYV"
+  }
+}

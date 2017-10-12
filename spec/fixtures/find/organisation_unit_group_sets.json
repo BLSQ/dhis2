@@ -1,0 +1,65 @@
+{
+  "code": "Area",
+  "lastUpdated": "2017-10-10T14:43:38.488",
+  "id": "uIuxlbV1vRT",
+  "href": "https://play.dhis2.org/demo/api/organisationUnitGroupSets/uIuxlbV1vRT",
+  "created": "2017-01-26T17:45:53.259",
+  "name": "Area yo",
+  "shortName": "Area yo",
+  "dimensionType": "ORGANISATION_UNIT_GROUP_SET",
+  "displayName": "Area yo",
+  "publicAccess": "rw------",
+  "displayShortName": "Area yo",
+  "externalAccess": false,
+  "dimension": "uIuxlbV1vRT",
+  "allItems": false,
+  "compulsory": false,
+  "includeSubhierarchyInAnalytics": true,
+  "dataDimension": true,
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "translations": [],
+  "organisationUnitGroups": [
+    {
+      "id": "nlX2VoouN63"
+    },
+    {
+      "id": "jqBqIXoXpfy"
+    },
+    {
+      "id": "J40PpdN4Wkk"
+    },
+    {
+      "id": "b0EsAxm8Nge"
+    }
+  ],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "userAccesses": [],
+  "items": [
+    {
+      "id": "nlX2VoouN63"
+    },
+    {
+      "id": "jqBqIXoXpfy"
+    },
+    {
+      "id": "J40PpdN4Wkk"
+    },
+    {
+      "id": "b0EsAxm8Nge"
+    }
+  ]
+}

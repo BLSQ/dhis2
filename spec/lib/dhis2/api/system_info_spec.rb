@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Dhis2::Api::SystemInfo do
-  it "should fetch system_infos" do
+  it "fetches system_infos" do
     stub_system_infos
 
     system_info = Dhis2.client.system_infos.get

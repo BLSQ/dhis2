@@ -1,0 +1,85 @@
+{
+  "created": "2012-11-13T14:49:45.007",
+  "lastUpdated": "2017-10-10T14:47:56.426",
+  "name": "ANC: 1st Visit Cumulative Chart yo",
+  "href": "https://play.dhis2.org/demo/api/reports/Kvg1AhYHM8Q",
+  "id": "Kvg1AhYHM8Q",
+  "designContent": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<jasperReport xmlns=\"http://jasperreports.sourceforge.net/jasperreports\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd\" name=\"dpt\" pageWidth=\"595\" pageHeight=\"842\" columnWidth=\"555\" leftMargin=\"20\" rightMargin=\"20\" topMargin=\"20\" bottomMargin=\"20\">\n\t<property name=\"ireport.zoom\" value=\"1.6105100000000008\"/>\n\t<property name=\"ireport.x\" value=\"0\"/>\n\t<property name=\"ireport.y\" value=\"143\"/>\n\t<parameter name=\"orgunit_groupset_type\" class=\"java.util.HashMap\"/>\n\t<parameter name=\"orgunit_groupset_ownership\" class=\"java.util.HashMap\"/>\n\t<field name=\"periodid\" class=\"java.lang.Integer\"/>\n\t<field name=\"organisationunitid\" class=\"java.lang.Integer\"/>\n\t<field name=\"perioduid\" class=\"java.lang.String\"/>\n\t<field name=\"organisationunituid\" class=\"java.lang.String\"/>\n\t<field name=\"periodname\" class=\"java.lang.String\"/>\n\t<field name=\"organisationunitname\" class=\"java.lang.String\"/>\n\t<field name=\"periodcode\" class=\"java.lang.String\"/>\n\t<field name=\"organisationunitcode\" class=\"java.lang.String\"/>\n\t<field name=\"perioddescription\" class=\"java.lang.String\"/>\n\t<field name=\"organisationunitdescription\" class=\"java.lang.String\"/>\n\t<field name=\"reporting_month_name\" class=\"java.lang.String\"/>\n\t<field name=\"param_organisationunit_name\" class=\"java.lang.String\"/>\n\t<field name=\"organisation_unit_is_parent\" class=\"java.lang.String\"/>\n\t<field name=\"anc 1st visit\" class=\"java.lang.Double\"/>\n\t<field name=\"anc 1st visit_cumulative\" class=\"java.lang.Double\"/>\n\t<background>\n\t\t<band splitType=\"Stretch\"/>\n\t</background>\n\t<title>\n\t\t<band height=\"420\" splitType=\"Stretch\">\n\t\t\t<staticText>\n\t\t\t\t<reportElement x=\"12\" y=\"15\" width=\"532\" height=\"41\" forecolor=\"#184F73\"/>\n\t\t\t\t<textElement textAlignment=\"Center\">\n\t\t\t\t\t<font size=\"24\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<text><![CDATA[ANC 1 Visits Cumulative Numbers]]></text>\n\t\t\t</staticText>\n\t\t\t<textField>\n\t\t\t\t<reportElement x=\"12\" y=\"67\" width=\"253\" height=\"20\"/>\n\t\t\t\t<textElement textAlignment=\"Right\">\n\t\t\t\t\t<font size=\"14\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<textFieldExpression><![CDATA[$F{reporting_month_name}]]></textFieldExpression>\n\t\t\t</textField>\n\t\t\t<textField>\n\t\t\t\t<reportElement x=\"289\" y=\"67\" width=\"255\" height=\"20\"/>\n\t\t\t\t<textElement>\n\t\t\t\t\t<font size=\"14\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<textFieldExpression><![CDATA[$F{param_organisationunit_name}]]></textFieldExpression>\n\t\t\t</textField>\n\t\t\t<staticText>\n\t\t\t\t<reportElement x=\"265\" y=\"67\" width=\"24\" height=\"20\"/>\n\t\t\t\t<textElement textAlignment=\"Center\">\n\t\t\t\t\t<font size=\"14\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<text><![CDATA[-]]></text>\n\t\t\t</staticText>\n\t\t\t<bar3DChart>\n\t\t\t\t<chart evaluationTime=\"Report\">\n\t\t\t\t\t<reportElement x=\"0\" y=\"98\" width=\"555\" height=\"306\"/>\n\t\t\t\t\t<chartTitle/>\n\t\t\t\t\t<chartSubtitle/>\n\t\t\t\t\t<chartLegend/>\n\t\t\t\t</chart>\n\t\t\t\t<categoryDataset>\n\t\t\t\t\t<categorySeries>\n\t\t\t\t\t\t<seriesExpression><![CDATA[\"ANC 1st visit\"]]></seriesExpression>\n\t\t\t\t\t\t<categoryExpression><![CDATA[$F{periodname}]]></categoryExpression>\n\t\t\t\t\t\t<valueExpression><![CDATA[$F{anc 1st visit_cumulative}]]></valueExpression>\n\t\t\t\t\t</categorySeries>\n\t\t\t\t</categoryDataset>\n\t\t\t\t<bar3DPlot isShowLabels=\"true\">\n\t\t\t\t\t<plot labelRotation=\"45.0\"/>\n\t\t\t\t\t<itemLabel color=\"#000000\" backgroundColor=\"#FFFFFF\"/>\n\t\t\t\t</bar3DPlot>\n\t\t\t</bar3DChart>\n\t\t</band>\n\t</title>\n\t<pageHeader>\n\t\t<band splitType=\"Stretch\"/>\n\t</pageHeader>\n\t<columnHeader>\n\t\t<band height=\"51\" splitType=\"Stretch\">\n\t\t\t<staticText>\n\t\t\t\t<reportElement x=\"107\" y=\"26\" width=\"121\" height=\"20\"/>\n\t\t\t\t<textElement>\n\t\t\t\t\t<font size=\"12\" isBold=\"true\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<text><![CDATA[Period]]></text>\n\t\t\t</staticText>\n\t\t\t<staticText>\n\t\t\t\t<reportElement x=\"246\" y=\"26\" width=\"85\" height=\"20\"/>\n\t\t\t\t<textElement textAlignment=\"Center\">\n\t\t\t\t\t<font size=\"12\" isBold=\"true\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<text><![CDATA[ANC 1 visits]]></text>\n\t\t\t</staticText>\n\t\t\t<staticText>\n\t\t\t\t<reportElement x=\"333\" y=\"26\" width=\"85\" height=\"20\"/>\n\t\t\t\t<textElement textAlignment=\"Center\">\n\t\t\t\t\t<font size=\"12\" isBold=\"true\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<text><![CDATA[Cumulative]]></text>\n\t\t\t</staticText>\n\t\t\t<line>\n\t\t\t\t<reportElement x=\"90\" y=\"44\" width=\"340\" height=\"1\"/>\n\t\t\t</line>\n\t\t</band>\n\t</columnHeader>\n\t<detail>\n\t\t<band height=\"21\" splitType=\"Stretch\">\n\t\t\t<textField isBlankWhenNull=\"true\">\n\t\t\t\t<reportElement x=\"107\" y=\"0\" width=\"121\" height=\"20\"/>\n\t\t\t\t<textElement>\n\t\t\t\t\t<font size=\"9\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<textFieldExpression><![CDATA[$F{periodname}]]></textFieldExpression>\n\t\t\t</textField>\n\t\t\t<textField pattern=\"###0\" isBlankWhenNull=\"true\">\n\t\t\t\t<reportElement x=\"246\" y=\"0\" width=\"85\" height=\"20\"/>\n\t\t\t\t<textElement textAlignment=\"Center\">\n\t\t\t\t\t<font size=\"9\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<textFieldExpression><![CDATA[$F{anc 1st visit}]]></textFieldExpression>\n\t\t\t</textField>\n\t\t\t<textField pattern=\"###0\" isBlankWhenNull=\"true\">\n\t\t\t\t<reportElement x=\"333\" y=\"0\" width=\"85\" height=\"20\"/>\n\t\t\t\t<textElement textAlignment=\"Center\">\n\t\t\t\t\t<font size=\"9\"/>\n\t\t\t\t</textElement>\n\t\t\t\t<textFieldExpression><![CDATA[$F{anc 1st visit_cumulative}]]></textFieldExpression>\n\t\t\t</textField>\n\t\t</band>\n\t</detail>\n\t<columnFooter>\n\t\t<band height=\"10\" splitType=\"Stretch\"/>\n\t</columnFooter>\n\t<pageFooter>\n\t\t<band height=\"11\" splitType=\"Stretch\"/>\n\t</pageFooter>\n\t<summary>\n\t\t<band height=\"8\" splitType=\"Stretch\"/>\n\t</summary>\n</jasperReport>\n",
+  "displayName": "ANC: 1st Visit Cumulative Chart yo",
+  "publicAccess": "--------",
+  "type": "JASPER_REPORT_TABLE",
+  "externalAccess": true,
+  "cacheStrategy": "RESPECT_SYSTEM_SETTING",
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": true,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "reportTable": {
+    "id": "tWg9OiyV7mu"
+  },
+  "relativePeriods": {
+    "thisYear": false,
+    "quartersLastYear": false,
+    "last52Weeks": false,
+    "thisWeek": false,
+    "lastMonth": false,
+    "last14Days": false,
+    "biMonthsThisYear": false,
+    "monthsThisYear": false,
+    "last2SixMonths": false,
+    "yesterday": false,
+    "thisQuarter": false,
+    "last12Months": false,
+    "last5FinancialYears": false,
+    "thisSixMonth": false,
+    "lastQuarter": false,
+    "thisFinancialYear": false,
+    "last4Weeks": false,
+    "last3Months": false,
+    "thisDay": false,
+    "thisMonth": false,
+    "last5Years": false,
+    "last6BiMonths": false,
+    "lastFinancialYear": false,
+    "weeksThisYear": false,
+    "last6Months": false,
+    "last3Days": false,
+    "quartersThisYear": false,
+    "monthsLastYear": false,
+    "lastWeek": false,
+    "last7Days": false,
+    "thisBimonth": false,
+    "lastBimonth": false,
+    "lastSixMonth": false,
+    "lastYear": false,
+    "last12Weeks": false,
+    "last4Quarters": false
+  },
+  "reportParams": {
+    "paramGrandParentOrganisationUnit": false,
+    "paramReportingPeriod": false,
+    "paramOrganisationUnit": false,
+    "paramParentOrganisationUnit": false
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "userGroupAccesses": [
+    {
+      "access": "rw------",
+      "userGroupUid": "lFHP5lLkzVr",
+      "displayName": "System administrators",
+      "id": "lFHP5lLkzVr"
+    }
+  ],
+  "attributeValues": [],
+  "translations": [],
+  "userAccesses": []
+}

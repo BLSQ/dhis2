@@ -1,0 +1,85 @@
+{
+  "headers": [
+    {
+      "name": "dx",
+      "column": "Data",
+      "valueType": "TEXT",
+      "type": "java.lang.String",
+      "hidden": false,
+      "meta": true
+    },
+    {
+      "name": "ou",
+      "column": "Organisation unit",
+      "valueType": "TEXT",
+      "type": "java.lang.String",
+      "hidden": false,
+      "meta": true
+    },
+    {
+      "name": "pe",
+      "column": "Period",
+      "valueType": "TEXT",
+      "type": "java.lang.String",
+      "hidden": false,
+      "meta": true
+    },
+    {
+      "name": "value",
+      "column": "Value",
+      "valueType": "NUMBER",
+      "type": "java.lang.Double",
+      "hidden": false,
+      "meta": false
+    }
+  ],
+  "metaData": {
+    "items": {
+      "bRowv6yZOF2": {
+        "name": "default"
+      },
+      "dx": {
+        "name": "Data"
+      },
+      "2016": {
+        "name": "2016"
+      },
+      "pe": {
+        "name": "Period"
+      },
+      "h0xKKjijTdI": {
+        "name": "Expected pregnancies"
+      },
+      "ou": {
+        "name": "Organisation unit"
+      },
+      "vWbkYPRmKyS": {
+        "name": "Baoma"
+      }
+    },
+    "dimensions": {
+      "dx": [
+        "h0xKKjijTdI"
+      ],
+      "pe": [
+        "2016"
+      ],
+      "ou": [
+        "vWbkYPRmKyS"
+      ],
+      "co": [
+        "bRowv6yZOF2"
+      ]
+    }
+  },
+  "rows": [
+    [
+      "h0xKKjijTdI",
+      "vWbkYPRmKyS",
+      "2016",
+      "3583.0"
+    ]
+  ],
+  "width": 4,
+  "height": 1
+}

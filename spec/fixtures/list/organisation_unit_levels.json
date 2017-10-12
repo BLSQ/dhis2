@@ -1,0 +1,98 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 1,
+    "total": 4,
+    "pageSize": 50
+  },
+  "organisationUnitLevels": [
+    {
+      "level": 3,
+      "created": "2011-12-24T12:24:22.935",
+      "lastUpdated": "2015-08-09T12:58:05.001",
+      "name": "Chiefdom",
+      "href": "https://play.dhis2.org/demo/api/organisationUnitLevels/tTUf91fCytl",
+      "id": "tTUf91fCytl",
+      "displayName": "Chiefdom",
+      "externalAccess": false,
+      "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+      },
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
+    },
+    {
+      "level": 2,
+      "created": "2011-12-24T12:24:22.935",
+      "lastUpdated": "2015-08-09T12:58:04.997",
+      "name": "District",
+      "href": "https://play.dhis2.org/demo/api/organisationUnitLevels/wjP19dkFeIk",
+      "id": "wjP19dkFeIk",
+      "displayName": "District",
+      "externalAccess": false,
+      "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+      },
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
+    },
+    {
+      "level": 4,
+      "created": "2011-12-24T12:24:22.935",
+      "lastUpdated": "2015-08-09T12:58:05.005",
+      "name": "Facility",
+      "href": "https://play.dhis2.org/demo/api/organisationUnitLevels/m9lBJogzE95",
+      "id": "m9lBJogzE95",
+      "displayName": "Facility",
+      "externalAccess": false,
+      "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+      },
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
+    },
+    {
+      "level": 1,
+      "created": "2011-12-24T12:24:22.935",
+      "lastUpdated": "2015-08-09T12:58:05.003",
+      "name": "National",
+      "href": "https://play.dhis2.org/demo/api/organisationUnitLevels/H1KlN4QIauv",
+      "id": "H1KlN4QIauv",
+      "displayName": "National",
+      "externalAccess": false,
+      "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+      },
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
+    }
+  ]
+}

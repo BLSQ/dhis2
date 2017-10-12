@@ -1,7 +1,8 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'dhis2/version'
+require "dhis2/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "dhis2"
@@ -9,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Martin Van Aken"]
   spec.email         = ["mvanaken@bluesquare.org"]
 
-  spec.summary       = %q{Simple Ruby wrapper on DHIS2 API.}
-  spec.description   = %q{Allows to retreive items from a DHIS2 server in a more "Ruby way".}
+  spec.summary       = "Simple Ruby wrapper on DHIS2 API."
+  spec.description   = 'Allows to retreive items from a DHIS2 server in a more "Ruby way".'
   spec.homepage      = "http://github.com/blsq/dhis2"
   spec.license       = "MIT"
 
@@ -19,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'rest-client'
+  spec.add_dependency "rest-client"
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"

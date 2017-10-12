@@ -2,7 +2,12 @@
 
 require "spec_helper"
 
-RSpec.describe Dhis2::Api::OrganisationUnit do
+describe Dhis2::Api::OrganisationUnit do
+  it_behaves_like "a DHIS2 listable resource"
+  it_behaves_like "a DHIS2 findable resource"
+  it_behaves_like "a DHIS2 updatable resource", req_body: { childrenIds: [] }
+  it_behaves_like "a DHIS2 deletable resource"
+
   describe "#initialize" do
     it "should ensure backward compatibility for parent id" do
       org_unit = Dhis2::Api::OrganisationUnit.new(
@@ -20,7 +25,7 @@ RSpec.describe Dhis2::Api::OrganisationUnit do
           { "id" => "2" }
         ]
       )
-      expect(org_unit.children_ids).to eq %w[1 2]
+      expect(org_unit.children_ids).to eq %w(1 2)
     end
   end
 
@@ -55,34 +60,6 @@ RSpec.describe Dhis2::Api::OrganisationUnit do
       stub_request(:get, "https://play.dhis2.org/demo/api/organisationUnits")
         .to_return(status: 200, body: fixture_content(:dhis2, "organisation_units.json"))
       Dhis2.client.organisation_units.last_level_descendants(123)
-    end
-  end
-
-  describe "#find" do
-    it "should find by id" do
-      stub_request(:get, "https://play.dhis2.org/demo/api/organisationUnits/123")
-        .to_return(status: 200, body: "", headers: {})
-
-      Dhis2.client.organisation_units.find(123)
-    end
-
-    it "should find for array of ids" do
-      stub_request(:get, "https://play.dhis2.org/demo/api/organisationUnits?fields=:all&filter=id:in:%5B123,456%5D&pageSize=2")
-        .to_return(status: 200, body: fixture_content(:dhis2, "organisation_units.json"))
-
-      Dhis2.client.organisation_units.find(%w[123 456], ignore: :option)
-    end
-
-    it "should support include descendants option" do
-      stub_request(:get, "https://play.dhis2.org/demo/api/organisationUnits/123?includeDescendants=true")
-        .to_return(status: 200, body: fixture_content(:dhis2, "organisation_units_with_descendants.json"))
-
-      stub_request(:get, "https://play.dhis2.org/demo/api/organisationUnits")
-        .to_return(status: 200, body: fixture_content(:dhis2, "organisation_units.json"))
-
-      orgs = Dhis2.client.organisation_units.find(123, include_descendants: true)
-      expect(orgs).to be_an(Dhis2::PaginatedArray)
-      expect(orgs.size).to eq 50
     end
   end
 end

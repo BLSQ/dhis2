@@ -1,0 +1,19 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 2,
+    "total": 2,
+    "pageSize": 50,
+    "nextPage": "https://play.dhis2.org/demo/api/indicators?page=2"
+  },
+  "indicators": [
+    {
+      "id": "ReUHfIn0pTQ",
+      "displayName": "ANC 1-3 Dropout Rate 90"
+    },
+    {
+      "id": "Uvn6LCg7dVU",
+      "displayName": "ANC 1 Coverage"
+    }
+  ]
+}

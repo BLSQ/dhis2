@@ -1,0 +1,95 @@
+{
+  "code": "IN_52462",
+  "lastUpdated": "2017-10-10T14:12:57.232",
+  "id": "ReUHfIn0pTQ",
+  "href": "https://play.dhis2.org/demo/api/indicators/ReUHfIn0pTQ",
+  "created": "2012-11-05T09:16:29.054",
+  "name": "ANC 1-3 Dropout Rate 90",
+  "shortName": "ANC 1-3 Dropout Rate",
+  "displayName": "ANC 1-3 Dropout Rate 90",
+  "publicAccess": "rw------",
+  "description": "Indicates the percentage of clients dropping out between the 1st and the 3rd ANC visit. Calculated as the difference between ANC1 and ANC3 by the ANC 1 visits.",
+  "displayShortName": "ANC 1-3 Dropout Rate",
+  "externalAccess": false,
+  "denominatorDescription": "Total 1st ANC visits - edited 1",
+  "numeratorDescription": "ANC1-ANC3",
+  "displayDescription": "Indicates the percentage of clients dropping out between the 1st and the 3rd ANC visit. Calculated as the difference between ANC1 and ANC3 by the ANC 1 visits.",
+  "dimensionItem": "ReUHfIn0pTQ",
+  "numerator": "{fbfJHSPpUQD.pq2XI5kz2BY}+{fbfJHSPpUQD.PT59n8BQbqM}-{Jtf34kNZhzP.pq2XI5kz2BY}-{Jtf34kNZhzP.PT59n8BQbqM}",
+  "denominator": "{fbfJHSPpUQD.pq2XI5kz2BY}+{fbfJHSPpUQD.PT59n8BQbqM}",
+  "annualized": false,
+  "dimensionItemType": "INDICATOR",
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "indicatorType": {
+    "id": "bWuNrMHEoZ0"
+  },
+  "lastUpdatedBy": {
+    "id": "xE7jOejl9FI"
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "translations": [
+    {
+      "property": "NAME",
+      "locale": "en_GB",
+      "value": "ANC Dropout Rate"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "fr",
+      "value": " Taux d'abandon d'ANC 1-3"
+    },
+    {
+      "property": "DESCRIPTION",
+      "locale": "en_GB",
+      "value": "Indicates the percentage of clients dropping out between the 1st and the 3rd ANC visit. Calculated as the difference between ANC1 and ANC3 by the ANC 1 visits."
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "en_GB",
+      "value": "ANC Dropout Rate"
+    },
+    {
+      "property": "NAME",
+      "locale": "fr",
+      "value": " Taux d'abandon d'ANC 1-3"
+    },
+    {
+      "property": "NAME",
+      "locale": "en_GB",
+      "value": "ANC Dropout Rate"
+    },
+    {
+      "property": "SHORT_NAME",
+      "locale": "en_GB",
+      "value": "ANC Dropout Rate"
+    },
+    {
+      "property": "DESCRIPTION",
+      "locale": "en_GB",
+      "value": "Indicates the percentage of clients dropping out between the 1st and the 3rd ANC visit. Calculated as the difference between ANC1 and ANC3 by the ANC 1 visits."
+    }
+  ],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "indicatorGroups": [
+    {
+      "id": "YTeRMLGtger"
+    }
+  ],
+  "userAccesses": [],
+  "dataSets": [
+    {
+      "id": "ze3COY54c2e"
+    }
+  ],
+  "legendSets": []
+}

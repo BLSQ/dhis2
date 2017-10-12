@@ -1,0 +1,19 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 1,
+    "total": 2,
+    "pageSize": 50,
+    "nextPage": "https://play.dhis2.org/demo/api/dataElementGroups?page=2"
+  },
+  "dataElementGroups": [
+    {
+      "id": "oDkJh5Ddh7d",
+      "displayName": "Acute Flaccid Paralysis (AFP) yo"
+    },
+    {
+      "id": "GBHN1a1Jddh",
+      "displayName": "All Others"
+    }
+  ]
+}

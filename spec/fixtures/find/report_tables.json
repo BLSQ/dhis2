@@ -1,0 +1,166 @@
+{
+  "lastUpdated": "2017-05-16T16:02:20.929",
+  "id": "tWg9OiyV7mu",
+  "href": "https://play.dhis2.org/demo/api/reportTables/tWg9OiyV7mu",
+  "created": "2012-11-13T18:33:17.032",
+  "name": "ANC: ANC 1 Visits Cumulative Numbers",
+  "publicAccess": "rw------",
+  "userOrganisationUnitChildren": false,
+  "legendDisplayStyle": "FILL",
+  "hideEmptyColumns": false,
+  "hideEmptyRows": false,
+  "parentGraphMap": {
+    "ImspTQPwCqd": ""
+  },
+  "userOrganisationUnit": false,
+  "rowSubTotals": false,
+  "displayDensity": "NORMAL",
+  "completedOnly": false,
+  "colTotals": true,
+  "showDimensionLabels": false,
+  "sortOrder": 0,
+  "fontSize": "NORMAL",
+  "topLimit": 0,
+  "aggregationType": "DEFAULT",
+  "userOrganisationUnitGrandChildren": false,
+  "displayName": "ANC: ANC 1 Visits Cumulative Numbers",
+  "hideSubtitle": false,
+  "externalAccess": false,
+  "legendDisplayStrategy": "FIXED",
+  "colSubTotals": false,
+  "showHierarchy": false,
+  "rowTotals": true,
+  "cumulative": true,
+  "digitGroupSeparator": "SPACE",
+  "hideTitle": false,
+  "regression": false,
+  "skipRounding": false,
+  "reportParams": {
+    "paramGrandParentOrganisationUnit": false,
+    "paramReportingPeriod": false,
+    "paramOrganisationUnit": true,
+    "paramParentOrganisationUnit": false
+  },
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": true,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "relativePeriods": {
+    "thisYear": false,
+    "quartersLastYear": false,
+    "last52Weeks": false,
+    "thisWeek": false,
+    "lastMonth": false,
+    "last14Days": false,
+    "biMonthsThisYear": false,
+    "monthsThisYear": false,
+    "last2SixMonths": false,
+    "yesterday": false,
+    "thisQuarter": false,
+    "last12Months": true,
+    "last5FinancialYears": false,
+    "thisSixMonth": false,
+    "lastQuarter": false,
+    "thisFinancialYear": false,
+    "last4Weeks": false,
+    "last3Months": false,
+    "thisDay": false,
+    "thisMonth": false,
+    "last5Years": false,
+    "last6BiMonths": false,
+    "lastFinancialYear": false,
+    "weeksThisYear": false,
+    "last6Months": false,
+    "last3Days": false,
+    "quartersThisYear": false,
+    "monthsLastYear": false,
+    "lastWeek": false,
+    "last7Days": false,
+    "thisBimonth": false,
+    "lastBimonth": false,
+    "lastSixMonth": false,
+    "lastYear": false,
+    "last12Weeks": false,
+    "last4Quarters": false
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "dataElementGroupSetDimensions": [],
+  "attributeDimensions": [],
+  "translations": [],
+  "filterDimensions": [],
+  "interpretations": [],
+  "itemOrganisationUnitGroups": [],
+  "userGroupAccesses": [],
+  "programIndicatorDimensions": [],
+  "attributeValues": [],
+  "columnDimensions": [
+    "dx"
+  ],
+  "userAccesses": [],
+  "dataDimensionItems": [
+    {
+      "dataDimensionItemType": "DATA_ELEMENT",
+      "dataElement": {
+        "id": "fbfJHSPpUQD"
+      }
+    }
+  ],
+  "categoryOptionGroupSetDimensions": [],
+  "columns": [
+    {
+      "id": "dx"
+    }
+  ],
+  "organisationUnitGroupSetDimensions": [
+    {
+      "organisationUnitGroupSet": {
+        "id": "J5jldMd8OHv"
+      },
+      "organisationUnitGroups": [
+        {
+          "id": "uYxK4wmcPqA"
+        },
+        {
+          "id": "tDZVQ1WtwpA"
+        },
+        {
+          "id": "EYbopBOJWsW"
+        },
+        {
+          "id": "RXL3lPSK8oG"
+        },
+        {
+          "id": "CXw2yu5fodb"
+        }
+      ]
+    }
+  ],
+  "organisationUnitLevels": [],
+  "dataElementDimensions": [],
+  "periods": [],
+  "organisationUnits": [
+    {
+      "id": "ImspTQPwCqd"
+    }
+  ],
+  "categoryDimensions": [],
+  "filters": [],
+  "rows": [
+    {
+      "id": "pe"
+    },
+    {
+      "id": "ou"
+    }
+  ],
+  "rowDimensions": [
+    "pe",
+    "ou"
+  ]
+}

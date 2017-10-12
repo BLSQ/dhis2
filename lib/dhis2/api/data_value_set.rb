@@ -5,6 +5,7 @@ module Dhis2
     class DataValueSet < Base
       def values
         data_values.map do |data_value|
+          # I guess we'd rather instantiate DataValue here
           OpenStruct.new(data_value)
         end
       end

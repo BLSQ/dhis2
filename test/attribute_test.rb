@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "test_helper"
 
 class AttributeTest < Minitest::Test
@@ -10,5 +11,4 @@ class AttributeTest < Minitest::Test
     assert_equal "DnrLSdo4hMl", first_attribute.id
     assert_equal "Alternative name", first_attribute.display_name
   end
-
 end

@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 require "test_helper"
 
 class AnalyticTest < Minitest::Test
   def test_list
     row = Dhis2.client.analytics.list(
-      data_elements: de.id,
+      data_elements:      de.id,
       organisation_units: organisation_unit.id,
-      periods: period
+      periods:            period
     )["rows"].first
 
     assert_equal de.id, row[0]
@@ -16,10 +17,10 @@ class AnalyticTest < Minitest::Test
 
   def test_list_with_filter
     row = Dhis2.client.analytics.list(
-      data_elements: de.id,
+      data_elements:      de.id,
       organisation_units: organisation_unit.id,
-      periods: period,
-      filter: "#{organisation_unit_group.organisation_unit_group_set['id']}:#{organisation_unit_group.id}"
+      periods:            period,
+      filter:             "#{organisation_unit_group.organisation_unit_group_set['id']}:#{organisation_unit_group.id}"
     )["rows"].first
 
     assert_equal de.id, row[0]
@@ -50,16 +51,14 @@ class AnalyticTest < Minitest::Test
   end
 
   def values_set
-    begin
-      @values_set ||= Dhis2.client.data_value_sets.list(
-        data_element_groups:  [de_group.id],
-        organisation_unit:    [organisation_unit.id],
-        periods:              [period]
-      )
-    rescue => e
-      p e.response.request
-      p e.response.body
-    end
+    @values_set ||= Dhis2.client.data_value_sets.list(
+      data_element_groups: [de_group.id],
+      organisation_unit:   [organisation_unit.id],
+      periods:             [period]
+    )
+  rescue => e
+    p e.response.request
+    p e.response.body
   end
 
   def value
