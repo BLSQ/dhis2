@@ -20,7 +20,7 @@ module Dhis2
     def total_imported
       if raw_status["import_count"]
         raw_status["import_count"].inject(0) do |total, (_, count)|
-          total += count
+          total + count
         end
       elsif raw_status["type_reports"]
         raw_status["type_reports"].first["stats"]["total"]

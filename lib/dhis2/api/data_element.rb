@@ -16,8 +16,8 @@ module Dhis2
                 domain_type:          element.fetch(:domain_type, "AGGREGATE"),
                 value_type:           element.fetch(:value_type, "NUMBER"),
                 aggregation_type:     element.fetch(:aggregation_type, "SUM"),
-                type:                 element.fetch(:type, "int"), # for backward compatbility
-                aggregation_operator: element.fetch(:aggregation_type, "SUM"), # for backward compatbility
+                type:                 element.fetch(:type, "int"), # for backward compat
+                aggregation_operator: element.fetch(:aggregation_type, "SUM"), # for backward compat
                 zero_is_significant:  element.fetch(:zero_is_significant, true),
                 category_combo:       { id: category_combo.id, name: category_combo.name }
               }

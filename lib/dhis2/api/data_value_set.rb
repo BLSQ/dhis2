@@ -51,9 +51,12 @@ module Dhis2
 
         def build_where_url(options)
           children = options[:children].nil? ? true : options[:children]
-          if organisation_unit_id = options[:organisation_unit]
+          organisation_unit_id = options[:organisation_unit]
+          if organisation_unit_id
             if organisation_unit_id.class == Array
-              organisation_unit_id.map { |ou_id| "orgUnit=#{ou_id}" }.join("&") + "&children=#{children}"
+              organisation_unit_id
+                .map { |ou_id| "orgUnit=#{ou_id}" }
+                .join("&") + "&children=#{children}"
             else
               "orgUnit=#{organisation_unit_id}&children=#{children}"
             end

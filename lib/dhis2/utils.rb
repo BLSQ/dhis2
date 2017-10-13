@@ -5,17 +5,15 @@ module Dhis2
     SUPPORTER_CASE_CHANGES = %i(underscore camelize).freeze
 
     def self.deep_change_case(hash, type)
-      raise "unsupported case changes #{type} vs #{SUPPORTER_CASE_CHANGES}" unless SUPPORTER_CASE_CHANGES.include?(type)
+      raise deep_change_case_error(type) unless SUPPORTER_CASE_CHANGES.include?(type)
       case hash
-      when Array
-        hash.map { |v| deep_change_case(v, type) }
+      when Array then hash.map { |v| deep_change_case(v, type) }
       when Hash
         hash.each_with_object({}) do |(k, v), new_hash|
           new_key = type == :underscore ? underscore(k.to_s) : camelize(k.to_s, false)
           new_hash[new_key] = deep_change_case(v, type)
         end
-      else
-        hash
+      else hash
       end
     end
 
@@ -25,7 +23,11 @@ module Dhis2
                else
                  string.sub(/^(?:(?=\b|[A-Z_])|\w)/) { $&.downcase }
                end
-      string.gsub(/(?:_|(\/))([a-z\d]*)/) { "#{Regexp.last_match(1)}#{Regexp.last_match(2).capitalize}" }.gsub("/", "::")
+      string
+        .gsub(/(?:_|(\/))([a-z\d]*)/) do
+          "#{Regexp.last_match(1)}#{Regexp.last_match(2).capitalize}"
+        end
+        .gsub("/", "::")
     end
 
     def self.underscore(camel_cased_word)
@@ -35,6 +37,10 @@ module Dhis2
                       .gsub(/([a-z\d])([A-Z])/, '\1_\2')
                       .tr("-", "_")
                       .downcase
+    end
+
+    def deep_change_case_error(type)
+      "unsupported case changes #{type} vs #{SUPPORTER_CASE_CHANGES}"
     end
   end
 end
