@@ -22,7 +22,6 @@ module Dhis2
             json_response = client.get("#{resource_name}/#{id}", RestClient::ParamsArray.new(params))
             if options[:include_descendants] || options[:include_children]
               json_response = client.get(resource_name, format_query_parameters(options))
-              resource_key  = Dhis2::Case.underscore(resource_name)
               PaginatedArray.new(
                 json_response[resource_key].map { |raw_resource| new(client, raw_resource) },
                 json_response["pager"]
