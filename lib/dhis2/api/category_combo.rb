@@ -4,8 +4,8 @@ module Dhis2
   module Api
     class CategoryCombo < Base
       class << self
-        def defaut
-          find_by(name: "default")
+        def default(client = Dhis2.client)
+          find_by(client, name: "default")
         end
 
         def create(client, combos)

@@ -7,17 +7,13 @@ module Dhis2
         def create(client, elements, query_params = { preheat_cache: false })
           response = client.post(
             "metadata",
-            format_data_elements(elements, default_category_combo(client)),
+            format_data_elements(elements, ::Dhis2::Api::CategoryCombo.default(client)),
             Dhis2::Utils.deep_change_case(query_params, :camelize)
           )
           Dhis2::Status.new(response)
         end
 
         private
-
-        def default_category_combo(client)
-          client.category_combos.find_by(name: "default")
-        end
 
         def format_data_elements(elements, category_combo)
           {
