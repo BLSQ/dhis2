@@ -18,7 +18,7 @@ module Dhis2
             json_response = client.get("#{resource_name}/#{id}", RestClient::ParamsArray.new(params))
             new(client, json_response)
           else
-            new(client.get("#{resource_name}/#{id}"), response)
+            new(client, client.get("#{resource_name}/#{id}"))
           end
         end
 
@@ -78,6 +78,10 @@ module Dhis2
             [[:filter, filter]]
           end
         end
+
+        def ensure_array(obj)
+          obj.is_a?(Array) ? obj : [obj]
+        end
       end
 
       def initialize(client, raw_data)
@@ -115,10 +119,6 @@ module Dhis2
 
       def update
         client.put("#{self.class.resource_name}/#{id}", to_h.reject { |k, _| k == :client })
-      end
-
-      def ensure_array(obj)
-        obj.is_a?(Array) ? obj : [obj]
       end
     end
   end
