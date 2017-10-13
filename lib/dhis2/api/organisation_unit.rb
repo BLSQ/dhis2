@@ -52,7 +52,8 @@ module Dhis2
           last_level = client.organisation_unit_levels
                              .list(fields: :all)
                              .map(&:level)
-                             .sort.last
+                             .sort
+                             .last
 
           client.organisation_units.find(id, include_descendants: true).select do |ou|
             ou.level == last_level
