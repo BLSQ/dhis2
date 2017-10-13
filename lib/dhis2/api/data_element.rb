@@ -8,7 +8,7 @@ module Dhis2
           response = client.post(
             "metadata",
             format_data_elements(elements, ::Dhis2::Api::CategoryCombo.default(client)),
-            Dhis2::Utils.deep_change_case(query_params, :camelize)
+            Dhis2::Case.deep_change(query_params, :camelize)
           )
           Dhis2::Status.new(response)
         end

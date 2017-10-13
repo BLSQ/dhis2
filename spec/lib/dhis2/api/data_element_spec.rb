@@ -60,7 +60,7 @@ describe Dhis2::Api::DataElement do
 
     def stub_data_elements_create_on_meta
       stub_request(:post, "https://play.dhis2.org/demo/api/metadata?preheatCache=false")
-        .with(body: JSON.generate("dataElements" => Dhis2::Utils.deep_change_case(elements, :camelize)))
+        .with(body: JSON.generate("dataElements" => Dhis2::Case.deep_change(elements, :camelize)))
         .to_return(status: 200, body: fixture_content(:dhis2, "data_element_create_status.json"))
     end
   end

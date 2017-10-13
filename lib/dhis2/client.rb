@@ -51,13 +51,13 @@ module Dhis2
         method:     method_name,
         url:        url,
         headers:    headers(method_name, query_params),
-        payload:    payload ? Dhis2::Utils.deep_change_case(payload, :camelize).to_json : nil,
+        payload:    payload ? Dhis2::Case.deep_change(payload, :camelize).to_json : nil,
         verify_ssl: @verify_ssl,
         timeout:    @timeout
       )
       response = [nil, ""].include?(raw_response) ? {} : JSON.parse(raw_response)
       log(raw_response.request, response)
-      Dhis2::Utils.deep_change_case(response, :underscore).tap do |underscore_response|
+      Dhis2::Case.deep_change(response, :underscore).tap do |underscore_response|
         if any_conflict?(underscore_response)
           raise Dhis2::ImportError, extract_conflict_message(underscore_response)
         end

@@ -16,13 +16,13 @@ module Dhis2
             list(client, filter: "id:in:[#{id.join(',')}]", fields: :all, page_size: id.size)
           elsif options.any?
             params = options.map do |name, value|
-              [Dhis2::Utils.camelize(name.to_s, false), value]
+              [Dhis2::Case.camelize(name.to_s, false), value]
             end
-            params        = Dhis2::Utils.deep_change_case(params, :camelize)
+            params        = Dhis2::Case.deep_change(params, :camelize)
             json_response = client.get("#{resource_name}/#{id}", RestClient::ParamsArray.new(params))
             if options[:include_descendants] || options[:include_children]
               json_response = client.get(resource_name, format_query_parameters(options))
-              resource_key  = Dhis2::Utils.underscore(resource_name)
+              resource_key  = Dhis2::Case.underscore(resource_name)
               PaginatedArray.new(
                 json_response[resource_key].map { |raw_resource| new(client, raw_resource) },
                 json_response["pager"]

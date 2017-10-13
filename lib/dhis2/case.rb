@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 module Dhis2
-  module Utils
+  module Case
     SUPPORTER_CASE_CHANGES = %i(underscore camelize).freeze
 
-    def self.deep_change_case(hash, type)
-      raise deep_change_case_error(type) unless SUPPORTER_CASE_CHANGES.include?(type)
+    def self.deep_change(hash, type)
+      raise deep_change_error(type) unless SUPPORTER_CASE_CHANGES.include?(type)
       case hash
-      when Array then hash.map { |v| deep_change_case(v, type) }
+      when Array then hash.map { |v| deep_change(v, type) }
       when Hash
         hash.each_with_object({}) do |(k, v), new_hash|
           new_key = type == :underscore ? underscore(k.to_s) : camelize(k.to_s, false)
-          new_hash[new_key] = deep_change_case(v, type)
+          new_hash[new_key] = deep_change(v, type)
         end
       else hash
       end
@@ -39,7 +39,7 @@ module Dhis2
                       .downcase
     end
 
-    def deep_change_case_error(type)
+    def deep_change_error(type)
       "unsupported case changes #{type} vs #{SUPPORTER_CASE_CHANGES}"
     end
   end

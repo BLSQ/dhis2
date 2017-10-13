@@ -14,7 +14,7 @@ module Dhis2
           if id.is_a? Array
             list(client, filter: "id:in:[#{id.join(',')}]", fields: :all, page_size: id.size)
           elsif options.any?
-            params        = Dhis2::Utils.deep_change_case(options.to_a, :camelize)
+            params        = Dhis2::Case.deep_change(options.to_a, :camelize)
             json_response = client.get("#{resource_name}/#{id}", RestClient::ParamsArray.new(params))
             new(client, json_response)
           else
@@ -39,7 +39,7 @@ module Dhis2
         end
 
         def resource_key
-          Dhis2::Utils.underscore(resource_name)
+          Dhis2::Case.underscore(resource_name)
         end
 
         def resource_name
