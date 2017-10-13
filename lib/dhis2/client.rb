@@ -11,7 +11,7 @@ module Dhis2
     def initialize(options)
       if options.is_a?(String)
         @base_url = options
-        set_connection_options
+        connection_options
       else
         raise "Missing :url attribute"      unless options[:url]
         raise "Missing :user attribute"     unless options[:user]
@@ -20,7 +20,7 @@ module Dhis2
         url.user     = CGI.escape(options[:user])
         url.password = CGI.escape(options[:password])
         @base_url    = url.to_s
-        set_connection_options(options)
+        connection_options(options)
       end
     end
 
@@ -59,7 +59,7 @@ module Dhis2
       log(raw_response.request, response)
       Dhis2::Utils.deep_change_case(response, :underscore).tap do |underscore_response|
         if any_conflict?(underscore_response)
-          raise Dhis2::ImportError, underscore_response["import_type_summaries"].first["import_conflicts"].first["value"].inspect
+          raise Dhis2::ImportError, extract_conflict_message(underscore_response)
         end
       end
     end
@@ -74,15 +74,23 @@ module Dhis2
       end
     end
 
-    def any_conflict?(response)
-      response.class == Hash && response["import_type_summaries"] &&
-        response["import_type_summaries"][0] &&
-        response["import_type_summaries"][0]["import_conflicts"] &&
-        !response["import_type_summaries"].first["import_conflicts"].empty?
+    def any_conflict?(hash)
+      hash.class == Hash && hash["import_type_summaries"] &&
+        hash["import_type_summaries"][0] &&
+        hash["import_type_summaries"][0]["import_conflicts"] &&
+        !hash["import_type_summaries"].first["import_conflicts"].empty?
     end
 
-    def set_connection_options(options = {})
-      @verify_ssl = options[:no_ssl_verification] ? OpenSSL::SSL::VERIFY_NONE : OpenSSL::SSL::VERIFY_PEER
+    def extract_conflict_message(hash)
+      hash["import_type_summaries"].first["import_conflicts"].first["value"].inspect
+    end
+
+    def connection_options(options = {})
+      @verify_ssl = if options[:no_ssl_verification]
+                      OpenSSL::SSL::VERIFY_NONE
+                    else
+                      OpenSSL::SSL::VERIFY_PEER
+                    end
       @timeout    = options[:timeout] ? options[:timeout].to_i : 120
       @debug      = options.fetch(:debug, true)
     end
