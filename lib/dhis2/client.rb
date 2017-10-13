@@ -47,35 +47,30 @@ module Dhis2
     private
 
     def execute(method_name, url, query_params = {}, payload = nil)
-      query = {
+      RestClient::Request.execute(
         method:     method_name,
         url:        url,
-        headers:    { params: query_params }.merge(headers(method_name)),
+        headers:    headers(method_name, query_params),
         payload:    payload ? Dhis2::Utils.deep_change_case(payload, :camelize).to_json : nil,
         verify_ssl: @verify_ssl,
         timeout:    @timeout
-      }
-
-      raw_response = RestClient::Request.execute(query)
-
-      response = raw_response.nil? || raw_response == "" ? {} : JSON.parse(raw_response)
-
-      puts [raw_response.request.url, query[:payload], response].join("\t") if @debug
-
-      response = Dhis2::Utils.deep_change_case(response, :underscore)
-
-      if any_conflict?(response)
-        raise Dhis2::ImportError, response["import_type_summaries"].first["import_conflicts"].first["value"].inspect
+      ) do |resp, request|
+        response = [nil, ""].include?(resp.body) ? {} : JSON.parse(resp.body)
+        log(request.url, response, request.args[:payload])
+        Dhis2::Utils.deep_change_case(response, :underscore).tap do |underscore_response|
+          if any_conflict?(underscore_response)
+            raise Dhis2::ImportError, underscore_response["import_type_summaries"].first["import_conflicts"].first["value"].inspect
+          end
+        end
       end
-      response
     end
 
     def uri(path)
       File.join(@base_url, "api", path)
     end
 
-    def headers(method_name)
-      { accept: :json }.tap do |hash|
+    def headers(method_name, query_params)
+      { params: query_params, accept: :json }.tap do |hash|
         hash[:content_type] = :json unless method_name == :get
       end
     end
@@ -91,6 +86,10 @@ module Dhis2
       @verify_ssl = options[:no_ssl_verification] ? OpenSSL::SSL::VERIFY_NONE : OpenSSL::SSL::VERIFY_PEER
       @timeout    = options[:timeout] ? options[:timeout].to_i : 120
       @debug      = options.fetch(:debug, true)
+    end
+
+    def log(url, response, payload)
+      puts [url, payload, response].join("\t") if @debug
     end
   end
 end
