@@ -4,16 +4,16 @@ module Dhis2
   module Case
     SUPPORTER_CASE_CHANGES = %i(underscore camelize).freeze
 
-    def self.deep_change(hash, type)
+    def self.deep_change(obj, type)
       raise deep_change_error(type) unless SUPPORTER_CASE_CHANGES.include?(type)
-      case hash
-      when Array then hash.map { |v| deep_change(v, type) }
+      case obj
+      when Array then obj.map { |v| deep_change(v, type) }
       when Hash
-        hash.each_with_object({}) do |(k, v), new_hash|
+        obj.each_with_object({}) do |(k, v), new_hash|
           new_key = type == :underscore ? underscore(k.to_s) : camelize(k.to_s, false)
           new_hash[new_key] = deep_change(v, type)
         end
-      else hash
+      else obj
       end
     end
 
