@@ -22,10 +22,9 @@ module Dhis2
 
         def create(client, tuples)
           begin
-            body = { resource_name.to_sym => tuples }
-            response = client.post(resource_name, body)
+            response = client.post(resource_name, resource_name.to_sym => tuples)
           rescue RestClient::Conflict => e
-            response = Dhis2::Client.deep_change_case(JSON.parse(e.response.body), :underscore)
+            response = Dhis2::Case.deep_change(JSON.parse(e.response.body), :underscore)
           end
           Dhis2::Status.new(response)
         end

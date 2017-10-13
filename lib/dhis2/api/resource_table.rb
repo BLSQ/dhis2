@@ -5,8 +5,7 @@ module Dhis2
     class ResourceTable < Base
       class << self
         def analytics(client)
-          response = client.post("resourceTables/analytics")
-          Dhis2::Status.new(response)
+          Dhis2::Status.new(client.post("resourceTables/analytics"))
         end
       end
     end

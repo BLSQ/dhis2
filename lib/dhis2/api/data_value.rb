@@ -5,9 +5,9 @@ module Dhis2
     class DataValue < Base
       class << self
         def find(client, period:, organisation_unit:, data_element:)
-          params = { pe: period, ou: organisation_unit, de: data_element }
-
-          client.get(resource_name, params).first
+          client.get(resource_name, pe: period,
+                                    ou: organisation_unit,
+                                    de: data_element).first
         end
       end
     end
