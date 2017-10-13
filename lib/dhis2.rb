@@ -8,6 +8,7 @@ require "delegate"
 require "cgi"
 
 require_relative "dhis2/version"
+require_relative "dhis2/utils"
 require_relative "dhis2/configuration"
 require_relative "dhis2/collection_wrapper"
 require_relative "dhis2/pager"
@@ -43,27 +44,11 @@ require_relative "dhis2/api/report"
 module Dhis2
   class << self
     def play(debug = false)
-      Dhis2::Client.new(
-        url:      "https://play.dhis2.org/demo/",
-        user:     "admin",
-        password: "district",
-        debug:    debug
-      )
+      Dhis2::Client.new(config.play_params(debug))
     end
 
     def client
-      if @client.nil?
-        @client ||= if config.user.nil? && config.password.nil?
-                      Dhis2::Client.new(config.url)
-                    else
-                      Dhis2::Client.new(url:      config.url,
-                                        user:     config.user,
-                                        password: config.password,
-                                        debug:    config.debug)
-                    end
-      else
-        @client
-      end
+      @client ||= Dhis2::Client.new(config.client_params)
     end
 
     def configure

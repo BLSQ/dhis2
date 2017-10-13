@@ -17,20 +17,18 @@ module Dhis2
 
       class << self
         def create(client, orgunit_groups)
-          orgunit_groups = [orgunit_groups].flatten
           ou_groups = {
-            organisation_unit_groups: orgunit_groups.map do |orgunit_group|
-              mapped_orgunit_group = {
+            organisation_unit_groups: ensure_array(orgunit_groups).map do |orgunit_group|
+              {
                 name:       orgunit_group[:name],
                 short_name: orgunit_group[:short_name],
                 code:       orgunit_group[:code] || orgunit_group[:short_name]
-              }
-              mapped_orgunit_group[:id] = orgunit_group[:id] if orgunit_group[:id]
-              mapped_orgunit_group
+              }.tap do |mapped_orgunit_group|
+                mapped_orgunit_group[:id] = orgunit_group[:id] if orgunit_group[:id]
+              end
             end
           }
-          response = client.post("metadata", ou_groups)
-          Dhis2::Status.new(response)
+          Dhis2::Status.new(client.post("metadata", ou_groups))
         end
       end
     end

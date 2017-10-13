@@ -3,53 +3,15 @@
 module Dhis2
   class Client
     def self.register_resource(resource_class)
-      class_name  = resource_class.name.split("::").last
-      method_name = underscore(class_name) + "s"
-      define_method(method_name) do
+      define_method(resource_class.resource_key) do
         CollectionWrapper.new(resource_class, self)
       end
-    end
-    SUPPORTER_CASE_CHANGES = %i(underscore camelize).freeze
-
-    def self.deep_change_case(hash, type)
-      raise "unsupported case changes #{type} vs #{SUPPORTER_CASE_CHANGES}" unless SUPPORTER_CASE_CHANGES.include?(type)
-      case hash
-      when Array
-        hash.map { |v| deep_change_case(v, type) }
-      when Hash
-        new_hash = {}
-        hash.each do |k, v|
-          new_key = type == :underscore ? underscore(k.to_s) : camelize(k.to_s, false)
-          new_hash[new_key] = deep_change_case(v, type)
-        end
-        new_hash
-      else
-        hash
-      end
-    end
-
-    def self.camelize(string, uppercase_first_letter = true)
-      string = if uppercase_first_letter
-                 string.sub(/^[a-z\d]*/) { $&.capitalize }
-               else
-                 string.sub(/^(?:(?=\b|[A-Z_])|\w)/) { $&.downcase }
-               end
-      string.gsub(/(?:_|(\/))([a-z\d]*)/) { "#{Regexp.last_match(1)}#{Regexp.last_match(2).capitalize}" }.gsub("/", "::")
-    end
-
-    def self.underscore(camel_cased_word)
-      return camel_cased_word unless camel_cased_word =~ /[A-Z-]|::/
-      word = camel_cased_word.to_s.gsub(/::/, "/")
-      word.gsub!(/([A-Z\d]+)([A-Z][a-z])/, '\1_\2')
-      word.gsub!(/([a-z\d])([A-Z])/, '\1_\2')
-      word.tr!("-", "_")
-      word.downcase!
-      word
     end
 
     def initialize(options)
       if options.is_a?(String)
         @base_url = options
+        set_connection_options
       else
         raise "Missing :url attribute"      unless options[:url]
         raise "Missing :user attribute"     unless options[:user]
@@ -58,9 +20,7 @@ module Dhis2
         url.user     = CGI.escape(options[:user])
         url.password = CGI.escape(options[:password])
         @base_url    = url.to_s
-        @verify_ssl = options[:no_ssl_verification] ? OpenSSL::SSL::VERIFY_NONE : OpenSSL::SSL::VERIFY_PEER
-        @timeout = options[:timeout] ? options[:timeout].to_i : 120
-        @debug = options[:debug] && options[:debug] == true
+        set_connection_options(options)
       end
     end
 
@@ -90,8 +50,8 @@ module Dhis2
       query = {
         method:     method_name,
         url:        url,
-        headers:    { params: query_params }.merge(headers),
-        payload:    payload ? self.class.deep_change_case(payload, :camelize).to_json : nil,
+        headers:    { params: query_params }.merge(headers(method_name)),
+        payload:    payload ? Dhis2::Utils.deep_change_case(payload, :camelize).to_json : nil,
         verify_ssl: @verify_ssl,
         timeout:    @timeout
       }
@@ -102,12 +62,9 @@ module Dhis2
 
       puts [raw_response.request.url, query[:payload], response].join("\t") if @debug
 
-      response = self.class.deep_change_case(response, :underscore)
+      response = Dhis2::Utils.deep_change_case(response, :underscore)
 
-      if  response.class == Hash && response["import_type_summaries"] &&
-          response["import_type_summaries"][0] &&
-          response["import_type_summaries"][0]["import_conflicts"] &&
-          !response["import_type_summaries"].first["import_conflicts"].empty?
+      if any_conflict?(response)
         raise Dhis2::ImportError, response["import_type_summaries"].first["import_conflicts"].first["value"].inspect
       end
       response
@@ -117,11 +74,23 @@ module Dhis2
       File.join(@base_url, "api", path)
     end
 
-    def headers
-      {
-        content_type: :json,
-        accept:       :json
-      }
+    def headers(method_name)
+      { accept: :json }.tap do |hash|
+        hash[:content_type] = :json unless method_name == :get
+      end
+    end
+
+    def any_conflict?(response)
+      response.class == Hash && response["import_type_summaries"] &&
+        response["import_type_summaries"][0] &&
+        response["import_type_summaries"][0]["import_conflicts"] &&
+        !response["import_type_summaries"].first["import_conflicts"].empty?
+    end
+
+    def set_connection_options(options = {})
+      @verify_ssl = options[:no_ssl_verification] ? OpenSSL::SSL::VERIFY_NONE : OpenSSL::SSL::VERIFY_PEER
+      @timeout    = options[:timeout] ? options[:timeout].to_i : 120
+      @debug      = options.fetch(:debug, true)
     end
   end
 end
