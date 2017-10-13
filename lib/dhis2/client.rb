@@ -47,20 +47,19 @@ module Dhis2
     private
 
     def execute(method_name, url, query_params = {}, payload = nil)
-      RestClient::Request.execute(
+      raw_response = RestClient::Request.execute(
         method:     method_name,
         url:        url,
         headers:    headers(method_name, query_params),
         payload:    payload ? Dhis2::Utils.deep_change_case(payload, :camelize).to_json : nil,
         verify_ssl: @verify_ssl,
         timeout:    @timeout
-      ) do |resp, request|
-        response = [nil, ""].include?(resp.body) ? {} : JSON.parse(resp.body)
-        log(request.url, response, request.args[:payload])
-        Dhis2::Utils.deep_change_case(response, :underscore).tap do |underscore_response|
-          if any_conflict?(underscore_response)
-            raise Dhis2::ImportError, underscore_response["import_type_summaries"].first["import_conflicts"].first["value"].inspect
-          end
+      )
+      response = [nil, ""].include?(raw_response) ? {} : JSON.parse(raw_response)
+      log(raw_response.request, response)
+      Dhis2::Utils.deep_change_case(response, :underscore).tap do |underscore_response|
+        if any_conflict?(underscore_response)
+          raise Dhis2::ImportError, underscore_response["import_type_summaries"].first["import_conflicts"].first["value"].inspect
         end
       end
     end
@@ -88,8 +87,8 @@ module Dhis2
       @debug      = options.fetch(:debug, true)
     end
 
-    def log(url, response, payload)
-      puts [url, payload, response].join("\t") if @debug
+    def log(request, response)
+      puts [request.url, request.args[:payload], response].join("\t") if @debug
     end
   end
 end

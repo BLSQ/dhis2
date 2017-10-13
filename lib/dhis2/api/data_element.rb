@@ -5,9 +5,22 @@ module Dhis2
     class DataElement < Base
       class << self
         def create(client, elements, query_params = { preheat_cache: false })
-          category_combo = client.category_combos.find_by(name: "default")
+          response = client.post(
+            "metadata",
+            format_data_elements(elements, default_category_combo(client)),
+            Dhis2::Utils.deep_change_case(query_params, :camelize)
+          )
+          Dhis2::Status.new(response)
+        end
 
-          data_element = {
+        private
+
+        def default_category_combo(client)
+          client.category_combos.find_by(name: "default")
+        end
+
+        def format_data_elements(elements, category_combo)
+          {
             data_elements: ensure_array(elements).map do |element|
               {
                 name:                 element[:name],
@@ -19,13 +32,13 @@ module Dhis2
                 type:                 element.fetch(:type, "int"), # for backward compat
                 aggregation_operator: element.fetch(:aggregation_type, "SUM"), # for backward compat
                 zero_is_significant:  element.fetch(:zero_is_significant, true),
-                category_combo:       { id: category_combo.id, name: category_combo.name }
+                category_combo:       {
+                  id:   category_combo.id,
+                  name: category_combo.name
+                }
               }
             end
           }
-
-          response = client.post("metadata", data_element, Dhis2::Utils.deep_change_case(query_params, :camelize))
-          Dhis2::Status.new(response)
         end
       end
     end
