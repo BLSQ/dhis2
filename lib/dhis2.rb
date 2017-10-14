@@ -43,8 +43,8 @@ require_relative "dhis2/api/report"
 
 module Dhis2
   class << self
-    def play(debug = false)
-      Dhis2::Client.new(config.play_params(debug))
+    def play(debug = false, path = "demo")
+      Dhis2::Client.new(config.play_params(debug, path))
     end
 
     def client

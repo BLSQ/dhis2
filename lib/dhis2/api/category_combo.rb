@@ -8,7 +8,7 @@ module Dhis2
           find_by(client, name: "default")
         end
 
-        def create(client, combos)
+        def create(client, combos, query_params = { preheat_cache: false })
           category_combo = {
             categoryCombos: ensure_array(combos).map do |combo|
               {
@@ -18,7 +18,7 @@ module Dhis2
             end
           }
 
-          Dhis2::Status.new(client.post("metadata", category_combo))
+          Dhis2::Status.new(client.post("metadata", category_combo, Dhis2::Case.deep_change(query_params, :camelize)))
         end
       end
     end
