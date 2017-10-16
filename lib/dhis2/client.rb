@@ -62,6 +62,14 @@ module Dhis2
           raise Dhis2::ImportError, extract_conflict_message(underscore_response)
         end
       end
+    rescue => e
+      raise Dhis2::ImportError, "Dhis2Error : was calling #{[method_name, safe_url(url), query_params, Dhis2::Case.deep_change(payload, :camelize)]} but got #{e.message} #{e.response.body}"
+    end
+
+    def safe_url(url)
+      uri = URI.parse(url)
+      uri.password = 'REDACTED'
+      uri.to_s
     end
 
     def uri(path)
@@ -96,7 +104,7 @@ module Dhis2
     end
 
     def log(request, response)
-      puts [request.url, request.args[:payload], response].join("\t") if @debug
+      puts [safe_url(request.url), request.args[:payload], response].join("\t") if @debug
     end
   end
 end
