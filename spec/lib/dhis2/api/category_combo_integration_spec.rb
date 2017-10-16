@@ -10,6 +10,7 @@ describe Dhis2::Api::CategoryCombo, type: :integration do
     def log_status(status)
       puts ""
       puts status.raw_status.to_json
+      puts status.success?
       puts ""
       puts "**********************"
     end
