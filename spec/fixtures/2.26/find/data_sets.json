@@ -1,0 +1,52 @@
+{
+    "lastUpdated": "2017-10-17T12:30:15.239",
+    "id": "KKyx4iezDsU",
+    "href": "http://127.0.0.1:8080/api/dataSets/KKyx4iezDsU",
+    "created": "2017-10-17T12:30:15.239",
+    "name": "data sets",
+    "validCompleteOnly": false,
+    "publicAccess": "rw------",
+    "skipOffline": false,
+    "formType": "DEFAULT",
+    "version": 0,
+    "timelyDays": 0,
+    "dimensionItemType": "REPORTING_RATE",
+    "dataElementDecoration": false,
+    "notifyCompletingUser": false,
+    "displayName": "data sets",
+    "noValueRequiresComment": false,
+    "externalAccess": false,
+    "fieldCombinationRequired": false,
+    "renderHorizontally": false,
+    "renderAsTabs": false,
+    "dimensionItem": "KKyx4iezDsU",
+    "mobile": false,
+    "periodType": "Yearly",
+    "openFuturePeriods": 0,
+    "expiryDays": 0,
+    "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+    },
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "dataSetElements": [],
+    "dataInputPeriods": [],
+    "translations": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "indicators": [],
+    "sections": [],
+    "userAccesses": [],
+    "legendSets": [],
+    "compulsoryDataElementOperands": [],
+    "organisationUnits": []
+}

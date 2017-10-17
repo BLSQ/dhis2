@@ -1,0 +1,22 @@
+{
+    "created": "2017-10-16T20:01:05.284",
+    "lastUpdated": "2017-10-16T20:01:05.288",
+    "name": "stup yo",
+    "href": "http://127.0.0.1:8080/api/indicatorTypes/KfS1BheyyM7",
+    "id": "KfS1BheyyM7",
+    "displayName": "stup yo",
+    "externalAccess": false,
+    "number": false,
+    "factor": 0,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": false
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "translations": []
+}

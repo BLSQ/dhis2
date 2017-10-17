@@ -10,7 +10,7 @@ RSpec.shared_examples "a DHIS2 listable resource" do
     end
 
     context "successful request" do
-      let(:json_response) { fixture_content("list", "#{resource_key}.json") }
+      let(:json_response) { fixture_content("2.28/list", "#{resource_key}.json") }
 
       before do
         stub_request(:get, "https://play.dhis2.org/demo/api/#{resource_name}")
@@ -56,7 +56,7 @@ RSpec.shared_examples "a DHIS2 findable resource" do
       end
 
       let(:fake_id) { "fake_id" }
-      let(:json_response) { fixture_content("find", "#{resource_key}.json") }
+      let(:json_response) { fixture_content("2.28/find", "#{resource_key}.json") }
 
       before do
         stub_request(:get, "https://play.dhis2.org/demo/api/#{resource_name}/#{fake_id}")
@@ -84,7 +84,7 @@ RSpec.shared_examples "a DHIS2 updatable resource" do |req_body: {}|
   let(:resource_name) { described_class.resource_name }
 
   describe "#update" do
-    let(:json_response) { fixture_content("update", "#{resource_key}.json") }
+    let(:json_response) { fixture_content("2.28/update", "#{resource_key}.json") }
 
     before do
       stub_request(:put, "https://play.dhis2.org/demo/api/#{resource_name}/#{object.id}")

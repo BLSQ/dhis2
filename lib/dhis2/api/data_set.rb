@@ -5,7 +5,7 @@ module Dhis2
     class DataSet < Base
       class << self
         def create(client, sets)
-          category_combo = client.category_combos.find_by(name: "default")
+          category_combo = client.category_combos.default
 
           data_set = {
             data_sets: ensure_array(sets).map do |set|

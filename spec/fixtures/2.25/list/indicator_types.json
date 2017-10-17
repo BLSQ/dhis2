@@ -1,0 +1,14 @@
+{
+    "pager": {
+        "page": 1,
+        "pageCount": 1,
+        "total": 1,
+        "pageSize": 50
+    },
+    "indicatorTypes": [
+        {
+            "id": "DvAYhH5cjb1",
+            "displayName": "idttp"
+        }
+    ]
+}

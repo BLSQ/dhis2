@@ -1,0 +1,38 @@
+{
+    "uuid": "327eda7a-3f5a-4f58-91c0-d5d782e0c685",
+    "lastUpdated": "2017-10-16T20:09:34.914",
+    "id": "hyAZBROiSX5",
+    "href": "http://127.0.0.1:8080/api/organisationUnits/hyAZBROiSX5",
+    "level": 1,
+    "created": "2017-10-16T20:09:34.863",
+    "name": "org unit",
+    "shortName": "ou",
+    "displayName": "org unit",
+    "displayShortName": "ou",
+    "externalAccess": false,
+    "path": "/hyAZBROiSX5",
+    "featureType": "NONE",
+    "openingDate": "2017-12-26T00:00:00.000",
+    "dimensionItem": "hyAZBROiSX5",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": false
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "children": [],
+    "translations": [],
+    "ancestors": [],
+    "organisationUnitGroups": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "users": [],
+    "dataSets": [],
+    "programs": []
+}

@@ -1,0 +1,15 @@
+{
+  "request": {
+    "name": "report test"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "jMVjJFP0THV",
+      "klass": "org.hisp.dhis.report.Report"
+    }
+  }
+}

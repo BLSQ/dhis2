@@ -1,0 +1,16 @@
+{
+  "request": {
+    "name": "attr foo",
+    "valueType": "TEXT"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "RAgWzkSzaDD",
+      "klass": "org.hisp.dhis.attribute.Attribute"
+    }
+  }
+}

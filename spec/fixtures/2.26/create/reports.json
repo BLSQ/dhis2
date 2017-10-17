@@ -1,0 +1,15 @@
+{
+  "request": {
+    "name": "rpt"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "wxD9eF6tNf0",
+      "klass": "org.hisp.dhis.report.Report"
+    }
+  }
+}

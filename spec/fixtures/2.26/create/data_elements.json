@@ -1,0 +1,19 @@
+{
+  "request": {
+    "name": "data element",
+    "aggregationType": "DEFAULT",
+    "domainType": "AGGREGATE",
+    "valueType": "TEXT",
+    "shortName": "dtlm"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "QNFmPeMEoFg",
+      "klass": "org.hisp.dhis.dataelement.DataElement"
+    }
+  }
+}

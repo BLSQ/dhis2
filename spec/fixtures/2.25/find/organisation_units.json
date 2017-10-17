@@ -1,0 +1,41 @@
+{
+    "lastUpdated": "2017-10-17T10:45:43.672",
+    "id": "H86XFNVErwb",
+    "href": "http://127.0.0.1:8080/api/organisationUnits/H86XFNVErwb",
+    "level": 1,
+    "created": "2017-10-17T10:45:43.584",
+    "name": "parent",
+    "shortName": "prnt",
+    "displayName": "parent",
+    "displayShortName": "prnt",
+    "externalAccess": false,
+    "path": "/H86XFNVErwb",
+    "featureType": "NONE",
+    "openingDate": "2015-12-30T00:00:00.000",
+    "dimensionItem": "H86XFNVErwb",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": false
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "children": [
+        {
+            "id": "mWfZ15Js5pa"
+        }
+    ],
+    "translations": [],
+    "ancestors": [],
+    "organisationUnitGroups": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "users": [],
+    "dataSets": [],
+    "programs": []
+}

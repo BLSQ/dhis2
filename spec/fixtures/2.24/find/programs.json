@@ -1,0 +1,48 @@
+{
+    "lastUpdated": "2017-10-17T08:14:29.827",
+    "id": "GhwMyQ0IzAB",
+    "href": "http://127.0.0.1:8080/api/programs/GhwMyQ0IzAB",
+    "created": "2017-10-17T08:14:29.822",
+    "name": "oul",
+    "publicAccess": "rw------",
+    "ignoreOverdueEvents": false,
+    "skipOffline": false,
+    "dataEntryMethod": false,
+    "onlyEnrollOnce": false,
+    "version": 0,
+    "selectIncidentDatesInFuture": false,
+    "selectEnrollmentDatesInFuture": false,
+    "registration": true,
+    "useFirstStageDuringRegistration": false,
+    "displayName": "oul",
+    "externalAccess": false,
+    "withoutRegistration": false,
+    "displayFrontPageList": false,
+    "programType": "WITH_REGISTRATION",
+    "relationshipFromA": false,
+    "displayIncidentDate": true,
+    "categoryCombo": {
+        "id": "D2i7GJrtCHb"
+    },
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "programIndicators": [],
+    "translations": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "trackedEntityInstanceReminders": [],
+    "validationCriterias": [],
+    "userRoles": [],
+    "programTrackedEntityAttributes": [],
+    "organisationUnits": [],
+    "programStages": []
+}

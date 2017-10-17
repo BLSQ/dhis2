@@ -1,0 +1,17 @@
+{
+  "request": {
+    "openingDate": "2015-12-30",
+    "name": "parent",
+    "shortName": "prnt"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "H86XFNVErwb",
+      "klass": "org.hisp.dhis.organisationunit.OrganisationUnit"
+    }
+  }
+}

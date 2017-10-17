@@ -1,0 +1,16 @@
+{
+  "request": {
+    "periodType": "Weekly",
+    "name": "dataSets"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "mVF04kkkja3",
+      "klass": "org.hisp.dhis.dataset.DataSet"
+    }
+  }
+}

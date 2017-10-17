@@ -1,0 +1,29 @@
+{
+    "created": "2017-10-16T19:02:48.477",
+    "lastUpdated": "2017-10-16T19:02:48.499",
+    "name": "categoryCombo name",
+    "href": "http://127.0.0.1:8080/api/categoryCombos/D2i7GJrtCHb",
+    "id": "D2i7GJrtCHb",
+    "dataDimensionType": "DISAGGREGATION",
+    "displayName": "categoryCombo name",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "isDefault": false,
+    "skipTotal": false,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "categoryOptionCombos": [],
+    "translations": [],
+    "categories": []
+}

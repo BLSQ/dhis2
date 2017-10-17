@@ -1,0 +1,21 @@
+{
+  "requestMethod": "PUT",
+  "request": {
+    "name": "org unit blue",
+    "shortName": "blue",
+    "openingDate": "2013-12-13",
+    "parent": {
+      "id": "Rp268JB6Ne4"
+    }
+  },
+  "response": {
+    "httpStatus": "OK",
+    "httpStatusCode": 200,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "CMx3g7hjb5y",
+      "klass": "org.hisp.dhis.organisationunit.OrganisationUnit"
+    }
+  }
+}

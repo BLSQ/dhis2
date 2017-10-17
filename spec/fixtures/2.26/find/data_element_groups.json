@@ -1,0 +1,29 @@
+{
+    "lastUpdated": "2017-10-17T12:29:20.590",
+    "id": "hlpAamDgTRB",
+    "href": "http://127.0.0.1:8080/api/dataElementGroups/hlpAamDgTRB",
+    "created": "2017-10-17T12:29:20.590",
+    "name": "data element group",
+    "displayName": "data element group",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "dimensionItem": "hlpAamDgTRB",
+    "dimensionItemType": "DATA_ELEMENT_GROUP",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "translations": [],
+    "dataElements": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "userAccesses": [],
+    "legendSets": []
+}

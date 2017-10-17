@@ -1,0 +1,19 @@
+{
+    "httpStatus": "Conflict",
+    "httpStatusCode": 409,
+    "status": "ERROR",
+    "message": "One more more errors occurred, please see full details in import report.",
+    "response": {
+        "responseType": "ObjectReport",
+        "errorReports": [
+            {
+                "message": "Property `name` with value `rpt` on object rpt [Mk70VM4kqYp] (Attribute) already exists on object aA1kqVqMsgC.",
+                "mainKlass": "org.hisp.dhis.attribute.Attribute",
+                "mainId": "aA1kqVqMsgC",
+                "errorProperty": "name",
+                "errorCode": "E5003"
+            }
+        ],
+        "klass": "org.hisp.dhis.attribute.Attribute"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "created": "2017-10-17T12:44:32.082",
+    "lastUpdated": "2017-10-17T12:44:32.082",
+    "name": "rpt",
+    "href": "http://127.0.0.1:8080/api/reports/wxD9eF6tNf0",
+    "id": "wxD9eF6tNf0",
+    "displayName": "rpt",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "cacheStrategy": "RESPECT_SYSTEM_SETTING",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": true,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "translations": [],
+    "userAccesses": []
+}

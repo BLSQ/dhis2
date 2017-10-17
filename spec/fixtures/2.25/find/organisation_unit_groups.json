@@ -1,0 +1,27 @@
+{
+    "lastUpdated": "2017-10-17T11:38:48.163",
+    "href": "http://127.0.0.1:8080/api/organisationUnitGroups/TRC4rJwW09V",
+    "id": "TRC4rJwW09V",
+    "created": "2017-10-17T11:38:48.163",
+    "name": "oug",
+    "displayName": "oug",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "dimensionItem": "TRC4rJwW09V",
+    "dimensionItemType": "ORGANISATION_UNIT_GROUP",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "translations": [],
+    "organisationUnits": [],
+    "userGroupAccesses": [],
+    "attributeValues": []
+}

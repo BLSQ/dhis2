@@ -1,0 +1,30 @@
+{
+  "request": {
+    "name": "name",
+    "shortName": "short",
+    "valueType": "TEXT",
+    "aggregationType": "DEFAULT",
+    "domainType": "AGGREGATE",
+    "categoryCombo": {
+      "id": "D2i7GJrtCHb"
+    }
+  },
+  "response": {
+    "httpStatus": "OK",
+    "httpStatusCode": 200,
+    "status": "OK",
+    "message": "Import was successful.",
+    "response": {
+      "responseType": "ImportTypeSummary",
+      "status": "SUCCESS",
+      "importCount": {
+        "imported": 1,
+        "updated": 0,
+        "ignored": 0,
+        "deleted": 0
+      },
+      "type": "DataElement",
+      "lastImported": "kNCv2FSHCRo"
+    }
+  }
+}

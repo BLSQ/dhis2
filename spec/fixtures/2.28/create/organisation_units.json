@@ -1,0 +1,17 @@
+{
+  "request": {
+    "name": "org unit blue",
+    "shortName": "blue",
+    "openingDate": "2013-12-13"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "CMx3g7hjb5y",
+      "klass": "org.hisp.dhis.organisationunit.OrganisationUnit"
+    }
+  }
+}

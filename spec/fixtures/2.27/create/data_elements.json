@@ -1,0 +1,19 @@
+{
+  "request": {
+    "aggregationType": "DEFAULT",
+    "domainType": "AGGREGATE",
+    "valueType": "UNIT_INTERVAL",
+    "name": "de",
+    "shortName": "daaaataaaaa"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "zvW5WYzd26u",
+      "klass": "org.hisp.dhis.dataelement.DataElement"
+    }
+  }
+}

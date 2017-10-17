@@ -1,0 +1,19 @@
+{
+    "httpStatus": "Conflict",
+    "httpStatusCode": 409,
+    "status": "ERROR",
+    "message": "One more more errors occurred, please see full details in import report.",
+    "response": {
+        "responseType": "ObjectReport",
+        "errorReports": [
+            {
+                "message": "Property `name` with value `attr` on object attr [GNTbNA3ILI0] (Attribute) already exists on object XOfA96wUJ3E.",
+                "mainKlass": "org.hisp.dhis.attribute.Attribute",
+                "mainId": "XOfA96wUJ3E",
+                "errorProperty": "name",
+                "errorCode": "E5003"
+            }
+        ],
+        "klass": "org.hisp.dhis.attribute.Attribute"
+    }
+}

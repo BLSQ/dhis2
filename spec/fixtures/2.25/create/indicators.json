@@ -1,0 +1,21 @@
+{
+  "request": {
+    "numerator": 1,
+    "denominator": 2,
+    "name": "idctr",
+    "shortName": "id",
+    "indicatorType": {
+      "id": "DvAYhH5cjb1"
+    }
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "fxtR2Ef0Ei2",
+      "klass": "org.hisp.dhis.indicator.Indicator"
+    }
+  }
+}

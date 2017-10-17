@@ -1,0 +1,17 @@
+{
+  "request": {
+    "categoryCombo": {
+      "id": "bjDvmb4bfuf"
+    }
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "vfJ88BN5C7c",
+      "klass": "org.hisp.dhis.dataelement.DataElementCategoryOptionCombo"
+    }
+  }
+}

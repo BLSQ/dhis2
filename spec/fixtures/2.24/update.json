@@ -1,0 +1,18 @@
+{
+    "httpStatus": "OK",
+    "httpStatusCode": 200,
+    "status": "OK",
+    "message": "Import was successful.",
+    "response": {
+        "responseType": "ImportTypeSummary",
+        "status": "SUCCESS",
+        "importCount": {
+            "imported": 0,
+            "updated": 1,
+            "ignored": 0,
+            "deleted": 0
+        },
+        "type": "Attribute",
+        "lastImported": "abhCphW9lBs"
+    }
+}

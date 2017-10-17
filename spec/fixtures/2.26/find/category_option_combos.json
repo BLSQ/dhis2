@@ -1,0 +1,35 @@
+{
+    "code": "default",
+    "lastUpdated": "2017-10-17T12:21:54.246",
+    "id": "HllvX50cXC0",
+    "href": "http://127.0.0.1:8080/api/categoryOptionCombos/HllvX50cXC0",
+    "created": "2017-10-17T12:21:54.246",
+    "name": "default",
+    "shortName": "default",
+    "displayName": "default",
+    "displayShortName": "default",
+    "externalAccess": false,
+    "ignoreApproval": false,
+    "dimensionItem": "HllvX50cXC0",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": false
+    },
+    "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+    },
+    "translations": [],
+    "categoryOptions": [
+        {
+            "id": "xYerKDKCefk"
+        }
+    ],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "userAccesses": [],
+    "legendSets": []
+}

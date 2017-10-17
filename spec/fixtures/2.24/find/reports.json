@@ -1,0 +1,25 @@
+{
+    "created": "2017-10-17T08:15:27.176",
+    "lastUpdated": "2017-10-17T08:15:27.181",
+    "name": "rprt",
+    "href": "http://127.0.0.1:8080/api/reports/KRkuxJxIMf6",
+    "id": "KRkuxJxIMf6",
+    "displayName": "rprt",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "cacheStrategy": "RESPECT_SYSTEM_SETTING",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": true,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "translations": []
+}

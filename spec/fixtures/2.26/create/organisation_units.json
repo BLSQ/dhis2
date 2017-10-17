@@ -1,0 +1,17 @@
+{
+  "request": {
+    "name": "ou",
+    "openingDate": "2014-12-13",
+    "shortName": "short!"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "BPI80vYzDQB",
+      "klass": "org.hisp.dhis.organisationunit.OrganisationUnit"
+    }
+  }
+}

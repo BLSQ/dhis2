@@ -21,6 +21,10 @@ module Dhis2
           Dhis2::Status.new(client.post("metadata", category_combo))
         end
       end
+
+      def default
+        self.class.default(client)
+      end
     end
   end
 end

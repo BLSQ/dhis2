@@ -1,0 +1,25 @@
+{
+  "request": {
+    "openingDate": "2017-12-26",
+    "name": "org unit",
+    "shortName": "ou"
+  },
+  "response": {
+    "httpStatus": "OK",
+    "httpStatusCode": 200,
+    "status": "OK",
+    "message": "Import was successful.",
+    "response": {
+      "responseType": "ImportTypeSummary",
+      "status": "SUCCESS",
+      "importCount": {
+        "imported": 1,
+        "updated": 0,
+        "ignored": 0,
+        "deleted": 0
+      },
+      "type": "OrganisationUnit",
+      "lastImported": "hyAZBROiSX5"
+    }
+  }
+}

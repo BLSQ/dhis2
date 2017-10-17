@@ -1,0 +1,17 @@
+{
+  "request": {
+    "name": "program",
+    "shortName": "prgrm",
+    "programType": "WITH_REGISTRATION"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "zEC9uTm5zjm",
+      "klass": "org.hisp.dhis.program.Program"
+    }
+  }
+}

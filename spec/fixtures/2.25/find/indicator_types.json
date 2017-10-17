@@ -1,0 +1,22 @@
+{
+    "created": "2017-10-17T10:43:20.839",
+    "lastUpdated": "2017-10-17T10:43:20.839",
+    "name": "idttp",
+    "href": "http://127.0.0.1:8080/api/indicatorTypes/DvAYhH5cjb1",
+    "id": "DvAYhH5cjb1",
+    "displayName": "idttp",
+    "externalAccess": false,
+    "number": false,
+    "factor": 0,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": false
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "translations": []
+}

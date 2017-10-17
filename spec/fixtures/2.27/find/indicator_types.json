@@ -1,0 +1,26 @@
+{
+    "created": "2017-10-17T13:26:19.841",
+    "lastUpdated": "2017-10-17T13:26:19.841",
+    "name": "idctp",
+    "href": "http://127.0.0.1:8080/api/indicatorTypes/bSKbFgZGzDA",
+    "id": "bSKbFgZGzDA",
+    "displayName": "idctp",
+    "externalAccess": false,
+    "number": false,
+    "factor": 0,
+    "lastUpdatedBy": {
+        "id": "M5zQapPyTZI"
+    },
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": true,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "translations": [],
+    "userAccesses": []
+}

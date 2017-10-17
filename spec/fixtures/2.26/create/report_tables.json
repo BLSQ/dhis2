@@ -1,0 +1,15 @@
+{
+  "request": {
+    "name": "rptbl"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "LJHEEniWAUz",
+      "klass": "org.hisp.dhis.reporttable.ReportTable"
+    }
+  }
+}

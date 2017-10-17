@@ -1,0 +1,21 @@
+{
+  "requestMethod": "PUT",
+  "request": {
+    "name": "child",
+    "shortName": "child!",
+    "openingDate": "2014-12-13",
+    "parent": {
+      "id": "BPI80vYzDQB"
+    }
+  },
+  "response": {
+    "httpStatus": "OK",
+    "httpStatusCode": 200,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "mEXmnhA0ejC",
+      "klass": "org.hisp.dhis.organisationunit.OrganisationUnit"
+    }
+  }
+}

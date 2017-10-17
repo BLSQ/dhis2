@@ -13,7 +13,7 @@ class CategoryComboTest < Minitest::Test
   end
 
   def test_get_default_combo
-    default = Dhis2.client.category_combos.find_by(name: "default")
+    default = Dhis2.client.category_combos.default
     refute_nil default
 
     assert_equal "default", default.name

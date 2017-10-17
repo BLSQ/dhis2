@@ -1,0 +1,27 @@
+{
+    "lastUpdated": "2017-10-17T08:09:51.404",
+    "href": "http://127.0.0.1:8080/api/organisationUnitGroups/k1Es0xTzm5O",
+    "id": "k1Es0xTzm5O",
+    "created": "2017-10-17T08:09:51.391",
+    "name": "oug",
+    "displayName": "oug",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "dimensionItem": "k1Es0xTzm5O",
+    "dimensionItemType": "ORGANISATION_UNIT_GROUP",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "translations": [],
+    "organisationUnits": [],
+    "userGroupAccesses": [],
+    "attributeValues": []
+}

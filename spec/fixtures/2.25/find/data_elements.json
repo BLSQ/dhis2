@@ -1,0 +1,40 @@
+{
+    "lastUpdated": "2017-10-17T10:39:33.528",
+    "id": "jjhfyJ0q5np",
+    "href": "http://127.0.0.1:8080/api/dataElements/jjhfyJ0q5np",
+    "created": "2017-10-17T10:39:33.528",
+    "name": "deg",
+    "shortName": "desn",
+    "aggregationType": "SUM",
+    "domainType": "AGGREGATE",
+    "displayName": "deg",
+    "publicAccess": "rw------",
+    "displayShortName": "desn",
+    "externalAccess": false,
+    "valueType": "NUMBER",
+    "dimensionItem": "jjhfyJ0q5np",
+    "displayFormName": "deg",
+    "zeroIsSignificant": false,
+    "optionSetValue": false,
+    "dimensionItemType": "DATA_ELEMENT",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "categoryCombo": {
+        "id": "YU6hmd5U9Z2"
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "dataSetElements": [],
+    "translations": [],
+    "userGroupAccesses": [],
+    "dataElementGroups": [],
+    "attributeValues": [],
+    "aggregationLevels": []
+}

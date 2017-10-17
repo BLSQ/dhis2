@@ -1,0 +1,39 @@
+{
+    "code": "default",
+    "created": "2017-10-17T13:14:49.744",
+    "lastUpdated": "2017-10-17T13:14:49.771",
+    "name": "default",
+    "href": "http://127.0.0.1:8080/api/categoryCombos/bjDvmb4bfuf",
+    "id": "bjDvmb4bfuf",
+    "dataDimensionType": "DISAGGREGATION",
+    "displayName": "default",
+    "publicAccess": "--------",
+    "externalAccess": false,
+    "isDefault": true,
+    "skipTotal": false,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": true,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "categoryOptionCombos": [
+        {
+            "id": "vfJ88BN5C7c"
+        },
+        {
+            "id": "HllvX50cXC0"
+        }
+    ],
+    "translations": [],
+    "userAccesses": [],
+    "categories": [
+        {
+            "id": "GLevLNI9wkl"
+        }
+    ]
+}

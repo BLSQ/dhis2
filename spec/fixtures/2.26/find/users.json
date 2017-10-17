@@ -1,0 +1,58 @@
+{
+    "code": "admin",
+    "lastUpdated": "2017-10-17T12:22:03.333",
+    "id": "M5zQapPyTZI",
+    "href": "http://127.0.0.1:8080/api/users/M5zQapPyTZI",
+    "created": "2017-10-17T12:22:03.333",
+    "name": "admin admin",
+    "displayName": "admin admin",
+    "externalAccess": false,
+    "surname": "admin",
+    "firstName": "admin",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": false
+    },
+    "userCredentials": {
+        "code": "admin",
+        "lastUpdated": "2017-10-17T12:22:03.459",
+        "id": "KvMx6c1eoYo",
+        "created": "2017-10-17T12:22:03.353",
+        "name": "admin admin",
+        "lastLogin": "2017-10-17T12:22:03.353",
+        "displayName": "admin admin",
+        "externalAuth": false,
+        "externalAccess": false,
+        "disabled": false,
+        "passwordLastUpdated": "2017-10-17T12:22:03.355",
+        "invitation": false,
+        "selfRegistered": false,
+        "username": "admin",
+        "userInfo": {
+            "id": "M5zQapPyTZI"
+        },
+        "cogsDimensionConstraints": [],
+        "catDimensionConstraints": [],
+        "translations": [],
+        "userGroupAccesses": [],
+        "attributeValues": [],
+        "userRoles": [
+            {
+                "id": "yrB6vc5Ip3r"
+            }
+        ],
+        "userAccesses": []
+    },
+    "teiSearchOrganisationUnits": [],
+    "translations": [],
+    "organisationUnits": [],
+    "dataViewOrganisationUnits": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "userGroups": [],
+    "userAccesses": []
+}

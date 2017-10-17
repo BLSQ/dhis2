@@ -1,0 +1,27 @@
+{
+    "lastUpdated": "2017-10-17T10:37:45.776",
+    "href": "http://127.0.0.1:8080/api/dataElementGroups/tZeF43j8c5i",
+    "id": "tZeF43j8c5i",
+    "created": "2017-10-17T10:37:45.776",
+    "name": "deg",
+    "displayName": "deg",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "dimensionItem": "tZeF43j8c5i",
+    "dimensionItemType": "DATA_ELEMENT_GROUP",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "translations": [],
+    "dataElements": [],
+    "userGroupAccesses": [],
+    "attributeValues": []
+}
