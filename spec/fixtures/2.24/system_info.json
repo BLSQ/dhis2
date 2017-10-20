@@ -1,0 +1,16 @@
+{
+    "contextPath": "http://127.0.0.1:8080",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
+    "calendar": "iso8601",
+    "dateFormat": "yyyy-mm-dd",
+    "serverDate": "2017-10-17T16:15:18.143+0000",
+    "version": "2.24",
+    "revision": "b18ea3a",
+    "buildTime": "2017-05-18T06:20:47.000+0000",
+    "jasperReportsVersion": "6.1.0",
+    "environmentVariable": "DHIS2_HOME",
+    "databaseInfo": {
+        "type": "H2",
+        "spatialSupport": false
+    }
+}

@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rest-client"
+  spec.add_dependency "dry-validation", "0.11.1"
 
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "minitest-reporters"
@@ -28,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "byebug"
 
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "webmock"
+  spec.add_development_dependency "webmock", "3.1.0"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "rest-client-logger"
 end

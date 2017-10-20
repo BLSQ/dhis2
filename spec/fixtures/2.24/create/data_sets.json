@@ -1,7 +1,7 @@
 {
   "request": {
-    "name": "ds2",
-    "periodType": "SixMonthlyApril"
+    "periodType": "Monthly",
+    "name": "ds2"
   },
   "response": {
     "httpStatus": "OK",

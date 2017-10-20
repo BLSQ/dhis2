@@ -1,5 +1,5 @@
 {
-  "response": {
+  "request": {
     "name": "foo",
     "valueType": "TEXT"
   },

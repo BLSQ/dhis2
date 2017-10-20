@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-Dhis2.configure do |config|
-  config.url      = "https://play.dhis2.org/demo"
-  config.user     = "admin"
-  config.password = "district"
-  config.debug    = ENV["DEBUG"] == "true"
+def build_client(version)
+  Dhis2::Client.new({
+    url: "https://play.dhis2.org/demo",
+    user: "admin",
+    password: "district",
+    debug: ENV["DEBUG"] == "true",
+    version: version
+  })
 end

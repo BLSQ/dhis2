@@ -3,9 +3,6 @@
     "name": "delmt",
     "aggregationType": "CUSTOM",
     "domainType": "TRACKER",
-    "categoryCombo": {
-      "id": "C30hsQFnESx"
-    },
     "valueType": "LETTER",
     "shortName": "Do not be long, it is supposed to be short"
   },

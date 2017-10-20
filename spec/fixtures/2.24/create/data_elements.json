@@ -1,10 +1,14 @@
 {
   "request": {
+    "aggregationOperator": "SUM",
+    "aggregationType": "DEFAULT",
+    "code": "short",
+    "domainType": "AGGREGATE",
+    "type": "int",
+    "valueType": "TEXT",
+    "zeroIsSignificant": true,
     "name": "name",
     "shortName": "short",
-    "valueType": "TEXT",
-    "aggregationType": "DEFAULT",
-    "domainType": "AGGREGATE",
     "categoryCombo": {
       "id": "D2i7GJrtCHb"
     }
