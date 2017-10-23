@@ -11,7 +11,7 @@ module Dhis2
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Version224::SaveValidator
 
-        class DataElementAdditionError < StandardError; end
+        class DataElementAdditionError < Dhis2::Error; end
 
         Schema = Dry::Validation.Schema do
           required(:name).filled

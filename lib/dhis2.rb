@@ -10,6 +10,7 @@ require "dry-validation"
 
 require_relative "dhis2/version"
 require_relative "dhis2/case"
+require_relative "dhis2/error"
 require_relative "dhis2/configuration"
 require_relative "dhis2/collection_wrapper"
 require_relative "dhis2/pager"

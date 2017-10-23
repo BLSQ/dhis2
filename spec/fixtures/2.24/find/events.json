@@ -1,0 +1,25 @@
+{
+    "href": "http://127.0.0.1:8080/api/events/ZSYErdiseHU",
+    "event": "ZSYErdiseHU",
+    "status": "ACTIVE",
+    "program": "wPesF1Izc46",
+    "programStage": "A1zL5XFoX8S",
+    "enrollment": "Awkm8GVeFbq",
+    "enrollmentStatus": "ACTIVE",
+    "orgUnit": "LxXSSlg9u5l",
+    "eventDate": "2017-04-10T00:00:00",
+    "dueDate": "2017-10-23T21:42:05",
+    "dataValues": [
+        {
+            "created": "2017-10-23T21:42:05.441+0000",
+            "lastUpdated": "2017-10-23T21:42:05.441+0000",
+            "value": "12",
+            "dataElement": "UV92YUGobwL",
+            "providedElsewhere": false,
+            "storedBy": "admin"
+        }
+    ],
+    "followup": false,
+    "created": "2017-10-23T21:42:05",
+    "lastUpdated": "2017-10-23T21:42:05"
+}

@@ -4,7 +4,7 @@ module Dhis2
   module Api
     module Creatable
 
-      class Error < StandardError; end
+      class Error < Dhis2::Error; end
       def self.included(base)
         base.extend(ClassMethods)
       end

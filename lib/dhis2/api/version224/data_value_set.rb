@@ -10,10 +10,12 @@ module Dhis2
 
         Schema = Dry::Validation.Schema do
           required(:data_values).each do
-            required(:value).filled
-            required(:period).filled
-            required(:org_unit).filled
-            required(:data_element).filled
+            schema do
+              required(:value).filled
+              required(:period).filled
+              required(:org_unit).filled
+              required(:data_element).filled
+            end
           end
         end
 
