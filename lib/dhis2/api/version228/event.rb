@@ -4,7 +4,6 @@ module Dhis2
   module Api
     module Version228
       class Event < ::Dhis2::Api::Base
-        class InvalidRequestError < Dhis2::Error; end
         include ::Dhis2::Api::Listable
         include ::Dhis2::Api::Findable
         include ::Dhis2::Api::Creatable

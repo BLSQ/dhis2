@@ -9,7 +9,7 @@ module Dhis2
 
       module ClassMethods
         def find(client, id)
-          raise "Missing id" if id.nil?
+          raise Dhis2::PrimaryKeyMissingError if id.nil?
 
           if id.is_a? Array
             list(client, filter: "id:in:[#{id.join(',')}]", fields: :all, page_size: id.size)

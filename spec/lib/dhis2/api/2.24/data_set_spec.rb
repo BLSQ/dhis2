@@ -49,7 +49,7 @@ describe Dhis2::Api::Version224::DataSet do
 
         expect(described_class).to receive(:find).with(client, "ds_id").and_return(data_set)
 
-        expect { data_set.add_data_elements(["345"]) }.to raise_error(described_class::DataElementAdditionError)
+        expect { data_set.add_data_elements(["345"]) }.to raise_error(Dhis2::DataElementAdditionError)
       end
     end
   end

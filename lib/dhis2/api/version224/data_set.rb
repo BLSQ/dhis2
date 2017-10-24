@@ -11,8 +11,6 @@ module Dhis2
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Version224::SaveValidator
 
-        class DataElementAdditionError < Dhis2::Error; end
-
         Schema = Dry::Validation.Schema do
           required(:name).filled
           required(:period_type).value(
@@ -34,7 +32,7 @@ module Dhis2
           if updated_set.data_element_ids.include?(data_element_id)
             self.data_elements = updated_set.data_elements
           else
-            raise DataElementAdditionError.new("Could not add dataElement #{data_element_id}")
+            raise Dhis2::DataElementAdditionError.new("Could not add dataElement #{data_element_id}")
           end
         end
 

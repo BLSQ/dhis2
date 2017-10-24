@@ -25,7 +25,7 @@ module Dhis2
     end
 
     def version=(version)
-      raise "Invalid version #{version}" unless ALLOWED_VERSIONS.include?(version)
+      raise Dhis2::InvalidVersionError.new("#{version}") unless ALLOWED_VERSIONS.include?(version)
       @version = version
     end
 

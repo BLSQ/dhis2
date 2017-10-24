@@ -13,7 +13,7 @@ module Dhis2
 
         def validate_instance_update(response)
           unless instance_update_success?(response)
-            raise "Update error. #{ response }"
+            raise Dhis2::UpdateError.new "Update error. #{ response }"
           end
         end
 
@@ -25,7 +25,7 @@ module Dhis2
         module ClassMethods
           def validate_instance_creation(response)
             unless instance_creation_success?(response)
-              raise "Creation error. #{ response }"
+              raise Dhis2::CreationError.new "Creation error. #{ response }"
             end
           end
 
