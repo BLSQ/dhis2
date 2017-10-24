@@ -1,8 +1,11 @@
 {
   "request": {
     "aggregationType": "DEFAULT",
+    "code": "daaaataaaaa",
     "domainType": "AGGREGATE",
+    "type": "int",
     "valueType": "UNIT_INTERVAL",
+    "zeroIsSignificant": true,
     "name": "de",
     "shortName": "daaaataaaaa"
   },

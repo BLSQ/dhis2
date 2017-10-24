@@ -24,7 +24,10 @@ module Dhis2
 
     MAPPING = {
       "2.24" => "Version224",
-      "2.25" => "Version225"
+      "2.25" => "Version225",
+      "2.26" => "Version226",
+      "2.27" => "Version227",
+      "2.28" => "Version228"
     }
   end
 end

@@ -1,0 +1,19 @@
+{
+    "dataSet": "tDkSHennaHw",
+    "period": "201601",
+    "orgUnit": "MPaD6Amk26x",
+    "dataValues": [
+        {
+            "dataElement": "Bf1erRTa7wH",
+            "period": "201601",
+            "orgUnit": "MPaD6Amk26x",
+            "categoryOptionCombo": "HllvX50cXC0",
+            "attributeOptionCombo": "HllvX50cXC0",
+            "value": "36",
+            "storedBy": "admin",
+            "created": "2017-10-24T12:07:32.000+0000",
+            "lastUpdated": "2017-10-24T12:07:32.000+0000",
+            "followUp": false
+        }
+    ]
+}

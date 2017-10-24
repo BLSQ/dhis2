@@ -1,7 +1,7 @@
 {
   "request": {
-    "name": "cc",
-    "dataDimensionType": "ATTRIBUTE"
+    "dataDimensionType": "ATTRIBUTE",
+    "name": "cc"
   },
   "response": {
     "httpStatus": "Created",

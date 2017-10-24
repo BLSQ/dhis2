@@ -1,7 +1,6 @@
 {
   "request": {
-    "periodType": "Yearly",
-    "name": "data sets"
+    "name": "idctrgrpe"
   },
   "response": {
     "httpStatus": "Created",
@@ -9,8 +8,8 @@
     "status": "OK",
     "response": {
       "responseType": "ObjectReport",
-      "uid": "KKyx4iezDsU",
-      "klass": "org.hisp.dhis.dataset.DataSet"
+      "uid": "CjGa2kgyE51",
+      "klass": "org.hisp.dhis.indicator.IndicatorGroup"
     }
   }
 }
