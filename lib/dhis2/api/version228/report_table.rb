@@ -9,25 +9,11 @@ module Dhis2
         include ::Dhis2::Api::Creatable
         include ::Dhis2::Api::Updatable
         include ::Dhis2::Api::Deletable
-        include ::Dhis2::Api::Version228::SaveValidator
+        include ::Dhis2::Api::Shared::SaveValidator
+        include ::Dhis2::Api::Shared::ReportTables
 
         Schema = Dry::Validation.Schema do
           required(:name).filled
-        end
-
-        private
-
-        def instance_update_success?(response)
-          # response is empty so...
-          true
-        end
-
-        def self.created_instance_id(response)
-          nil
-        end
-
-        def self.instance_creation_success?(response)
-          response["status"] == "OK"
         end
       end
     end

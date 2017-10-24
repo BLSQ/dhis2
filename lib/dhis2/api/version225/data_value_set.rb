@@ -6,7 +6,8 @@ module Dhis2
       class DataValueSet < ::Dhis2::Api::Base
         include ::Dhis2::Api::Creatable
         include ::Dhis2::Api::Listable
-        include ::Dhis2::Api::Version225::SaveValidator
+        include ::Dhis2::Api::Shared::SaveValidator
+        include ::Dhis2::Api::Shared::DataValueSet
 
         Schema = Dry::Validation.Schema do
           required(:data_values).each do
@@ -17,27 +18,6 @@ module Dhis2
               required(:data_element).filled
             end
           end
-        end
-
-        private
-
-        def self.instance_creation_success?(response)
-          Dhis2::Api::ImportSummary.new(response).creation_success?
-        end
-
-        def self.created_instance_id(response)
-          nil
-        end
-
-        def self.paginated
-          false
-        end
-
-        def self.additional_query_parameters
-          [
-            :data_set, :data_element_group, :period, :start_date, :end_date,
-            :org_unit, :children, :org_unit_group
-          ]
         end
       end
     end

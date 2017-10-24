@@ -8,7 +8,7 @@ module Dhis2
         include ::Dhis2::Api::Findable
         include ::Dhis2::Api::Updatable
         include ::Dhis2::Api::Deletable
-        include ::Dhis2::Api::Version226::SaveValidator
+        include ::Dhis2::Api::Shared::SaveValidator
       end
     end
   end

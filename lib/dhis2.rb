@@ -28,6 +28,12 @@ require_relative "dhis2/api/updatable"
 require_relative "dhis2/api/query_parameters_formatter"
 
 require_relative "dhis2/api/shared/analytic"
+require_relative "dhis2/api/shared/constants"
+require_relative "dhis2/api/shared/data_set"
+require_relative "dhis2/api/shared/data_value_set"
+require_relative "dhis2/api/shared/event"
+require_relative "dhis2/api/shared/report_tables"
+require_relative "dhis2/api/shared/save_validator"
 
 require_relative "dhis2/api/version224/index"
 require_relative "dhis2/api/version225/index"

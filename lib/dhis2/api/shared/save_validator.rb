@@ -2,7 +2,7 @@
 
 module Dhis2
   module Api
-    module Version228
+    module Shared
       module SaveValidator
         def self.included(base)
           base.extend(ClassMethods)
