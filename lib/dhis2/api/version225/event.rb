@@ -2,14 +2,14 @@
 
 module Dhis2
   module Api
-    module Version224
+    module Version225
       class Event < ::Dhis2::Api::Base
         class InvalidRequestError < Dhis2::Error; end
         include ::Dhis2::Api::Listable
         include ::Dhis2::Api::Findable
         include ::Dhis2::Api::Creatable
         include ::Dhis2::Api::Deletable
-        include ::Dhis2::Api::Version224::SaveValidator
+        include ::Dhis2::Api::Version225::SaveValidator
 
         # args for a program without registration
         # and a  program with a program_stage

@@ -2,11 +2,11 @@
 
 module Dhis2
   module Api
-    module Version224
+    module Version225
       class DataValueSet < ::Dhis2::Api::Base
         include ::Dhis2::Api::Creatable
         include ::Dhis2::Api::Listable
-        include ::Dhis2::Api::Version224::SaveValidator
+        include ::Dhis2::Api::Version225::SaveValidator
 
         Schema = Dry::Validation.Schema do
           required(:data_values).each do

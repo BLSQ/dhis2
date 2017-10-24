@@ -1,12 +1,15 @@
 {
   "request": {
-    "name": "deg",
     "aggregationType": "SUM",
+    "code": "desn",
     "domainType": "AGGREGATE",
+    "type": "int",
+    "valueType": "NUMBER",
+    "zeroIsSignificant": true,
+    "name": "deg",
     "categoryCombo": {
       "id": "YU6hmd5U9Z2"
     },
-    "valueType": "NUMBER",
     "shortName": "desn"
   },
   "response": {

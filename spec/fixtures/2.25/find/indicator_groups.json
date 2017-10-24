@@ -1,0 +1,25 @@
+{
+    "created": "2017-10-24T10:09:16.845",
+    "lastUpdated": "2017-10-24T10:09:16.845",
+    "name": "idctgrp",
+    "href": "http://127.0.0.1:8080/api/indicatorGroups/jNSxV0GbCJS",
+    "id": "jNSxV0GbCJS",
+    "displayName": "idctgrp",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "indicators": [],
+    "translations": []
+}

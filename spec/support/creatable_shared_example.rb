@@ -34,7 +34,7 @@ RSpec.shared_examples "a DHIS2 creatable resource" do |version:, nil_id: false|
 
     context "error" do
       it "raises on invalid params" do
-        expect { action({}) }.to raise_error(Dhis2::Api::Creatable::Error)
+        expect { action({}) }.to raise_error(Dhis2::CreationError)
       end
 
       it "raises on 409" do

@@ -1,10 +1,6 @@
 {
   "request": {
-    "periodType": "Weekly",
-    "name": "dsn",
-    "categoryCombo": {
-      "id": "YU6hmd5U9Z2"
-    }
+    "name": "idctrgrpe"
   },
   "response": {
     "httpStatus": "Created",
@@ -12,8 +8,8 @@
     "status": "OK",
     "response": {
       "responseType": "ObjectReport",
-      "uid": "B9vQ1dpKpAo",
-      "klass": "org.hisp.dhis.dataset.DataSet"
+      "uid": "jNSxV0GbCJS",
+      "klass": "org.hisp.dhis.indicator.IndicatorGroup"
     }
   }
 }

@@ -1,6 +1,5 @@
 {
   "request": {
-    "aggregationOperator": "SUM",
     "aggregationType": "DEFAULT",
     "code": "short",
     "domainType": "AGGREGATE",

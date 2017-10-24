@@ -3,8 +3,6 @@
 module Dhis2
   module Api
     module Creatable
-
-      class Error < Dhis2::Error; end
       def self.included(base)
         base.extend(ClassMethods)
       end
@@ -34,7 +32,7 @@ module Dhis2
           if validator.success?
             yield
           else
-            raise Error.new("Validation Error: #{ validator.messages }")
+            raise Dhis2::CreationError.new("Validation Error: #{ validator.messages }")
           end
         end
       end
