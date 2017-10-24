@@ -1,13 +1,6 @@
 {
   "request": {
-    "httpStatus": "Created",
-    "httpStatusCode": 201,
-    "status": "OK",
-    "response": {
-      "responseType": "ObjectReport",
-      "uid": "rRQeOyV9gpj",
-      "klass": "org.hisp.dhis.indicator.Indicator"
-    }
+    "name": "CHC yo"
   },
   "response": {
     "httpStatus": "Created",

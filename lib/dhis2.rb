@@ -33,7 +33,7 @@ require_relative "dhis2/api/version224/index"
 require_relative "dhis2/api/version225/index"
 require_relative "dhis2/api/version226/index"
 require_relative "dhis2/api/version227/index"
-
+require_relative "dhis2/api/version228/index"
 
 module Dhis2
   class << self

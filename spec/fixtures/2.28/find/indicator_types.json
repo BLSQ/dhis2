@@ -1,0 +1,29 @@
+{
+    "created": "2012-11-05T20:00:33.126",
+    "lastUpdated": "2014-04-22T18:41:57.387",
+    "name": "Number (Factor 1)",
+    "href": "https://play.dhis2.org/demo/api/indicatorTypes/JkWynlWMjJR",
+    "id": "JkWynlWMjJR",
+    "displayName": "Number (Factor 1)",
+    "externalAccess": false,
+    "number": true,
+    "factor": 1,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "translations": [
+        {
+            "property": "NAME",
+            "locale": "en_GB",
+            "value": "Number"
+        }
+    ],
+    "userAccesses": []
+}

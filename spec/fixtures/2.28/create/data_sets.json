@@ -1,7 +1,7 @@
 {
   "request": {
-    "name": "dataset",
-    "periodType": "Monthly"
+    "periodType": "Monthly",
+    "name": "dataset"
   },
   "response": {
     "httpStatus": "Created",

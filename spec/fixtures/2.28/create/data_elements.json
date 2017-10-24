@@ -1,9 +1,12 @@
 {
   "request": {
-    "name": "delmt",
     "aggregationType": "CUSTOM",
+    "code": "Do not be long, it is supposed to be short",
     "domainType": "TRACKER",
+    "type": "int",
     "valueType": "LETTER",
+    "zeroIsSignificant": true,
+    "name": "delmt",
     "shortName": "Do not be long, it is supposed to be short"
   },
   "response": {
