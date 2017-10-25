@@ -10,7 +10,7 @@ module Dhis2
         include ::Dhis2::Api::Updatable
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Version224::SaveValidator
-        include ::Dhis2::Api::Shared::ReportTables
+        include ::Dhis2::Api::Shared::ReportTable
 
         Schema = Dry::Validation.Schema do
           required(:name).filled

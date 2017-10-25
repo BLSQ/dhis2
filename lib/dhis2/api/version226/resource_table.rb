@@ -4,9 +4,7 @@ module Dhis2
   module Api
     module Version226
       class ResourceTable
-        def self.analytics(client)
-          client.post("resourceTables/analytics")
-        end
+        include ::Dhis2::Api::Shared::ResourceTable
       end
     end
   end

@@ -3,7 +3,7 @@
 module Dhis2
   module Api
     module Shared
-      module ReportTables
+      module ReportTable
         def self.included(base)
           base.extend(ClassMethods)
         end

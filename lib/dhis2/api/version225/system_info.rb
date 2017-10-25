@@ -4,9 +4,7 @@ module Dhis2
   module Api
     module Version225
       class SystemInfo
-        def self.get(client)
-          client.get("/system/info")
-        end
+        include ::Dhis2::Api::Shared::SystemInfo
       end
     end
   end
