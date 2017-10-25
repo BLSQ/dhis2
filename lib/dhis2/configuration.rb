@@ -14,7 +14,7 @@ module Dhis2
         timeout:    timeout,
         verify_ssl: verify_ssl
       }
-  end
+    end
 
     def play_params(with_debug)
       {
