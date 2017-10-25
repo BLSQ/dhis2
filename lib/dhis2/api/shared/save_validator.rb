@@ -12,25 +12,25 @@ module Dhis2
 
         def validate_instance_update(response)
           unless instance_update_success?(response)
-            raise Dhis2::UpdateError.new "Update error. #{ response }"
+            raise Dhis2::UpdateError, "Update error. #{response}"
           end
         end
 
         def instance_update_success?(response)
           self.class.base_response_check(response) &&
-          response["http_status"] == "OK"
+            response["http_status"] == "OK"
         end
 
         module ClassMethods
           def validate_instance_creation(response)
             unless instance_creation_success?(response)
-              raise Dhis2::CreationError.new "Creation error. #{ response }"
+              raise Dhis2::CreationError, "Creation error. #{response}"
             end
           end
 
           def instance_creation_success?(response)
             base_response_check(response) &&
-            response["http_status"] == "Created"
+              response["http_status"] == "Created"
           end
 
           def created_instance_id(response)

@@ -15,7 +15,7 @@ module Dhis2
             Dhis2::Api::ImportSummary.new(response).creation_success?
           end
 
-          def created_instance_id(response)
+          def created_instance_id(_response)
             nil
           end
 

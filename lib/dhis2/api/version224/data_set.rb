@@ -32,7 +32,7 @@ module Dhis2
           if updated_set.data_element_ids.include?(data_element_id)
             self.data_elements = updated_set.data_elements
           else
-            raise Dhis2::DataElementAdditionError.new("Could not add dataElement #{data_element_id}")
+            raise Dhis2::DataElementAdditionError, "Could not add dataElement #{data_element_id}"
           end
         end
 
@@ -44,7 +44,7 @@ module Dhis2
 
         def self.creation_defaults(args)
           {
-            code: args[:short_name],
+            code:        args[:short_name],
             period_type: "Monthly"
           }
         end

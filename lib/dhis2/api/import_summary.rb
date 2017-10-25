@@ -25,8 +25,8 @@ module Dhis2
 
       def base_success?
         %w(ImportSummary ImportTypeSummary).include?(hash["response_type"]) &&
-        hash["status"] == "SUCCESS" &&
-        import_count
+          hash["status"] == "SUCCESS" &&
+          import_count
       end
     end
   end

@@ -28,7 +28,7 @@ module Dhis2
 
         def format_query_parameters(options)
           ::Dhis2::QueryParametersFormatter.new(
-            options: options,
+            options:          options,
             query_parameters: query_parameters
           ).call
         end

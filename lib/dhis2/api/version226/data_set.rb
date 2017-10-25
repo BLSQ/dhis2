@@ -23,7 +23,7 @@ module Dhis2
 
         def self.creation_defaults(args)
           {
-            code: args[:short_name],
+            code:        args[:short_name],
             period_type: "Monthly"
           }
         end

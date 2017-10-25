@@ -2,30 +2,30 @@
 
 module Dhis2
   class Configuration
-    ALLOWED_VERSIONS = %w(2.24 2.25 2.26 2.27 2.28)
+    ALLOWED_VERSIONS = %w(2.24 2.25 2.26 2.27 2.28).freeze
 
     attr_accessor :url, :user, :password, :debug, :no_ssl_verification, :timeout
 
     def client_params
       {
-        url:      no_credentials? ? url : build_url,
-        debug:    debug,
-        version:  version,
-        timeout:  timeout,
+        url:        no_credentials? ? url : build_url,
+        debug:      debug,
+        version:    version,
+        timeout:    timeout,
         verify_ssl: verify_ssl
       }
   end
 
     def play_params(with_debug)
       {
-        url:        "https://admin:district@play.dhis2.org/demo/",
-        debug:      with_debug,
-        version:    "2.28"
+        url:     "https://admin:district@play.dhis2.org/demo/",
+        debug:   with_debug,
+        version: "2.28"
       }
     end
 
     def version=(version)
-      raise Dhis2::InvalidVersionError.new("#{version}") unless ALLOWED_VERSIONS.include?(version)
+      raise Dhis2::InvalidVersionError, version.to_s unless ALLOWED_VERSIONS.include?(version)
       @version = version
     end
 
@@ -47,7 +47,7 @@ module Dhis2
       user.nil? && password.nil?
     end
 
-    def build_url()
+    def build_url
       URI.parse(url).tap do |url|
         url.user     = CGI.escape(user)
         url.password = CGI.escape(password)

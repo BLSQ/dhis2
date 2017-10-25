@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe Dhis2::Api::Version226::DataValue do
-
   let(:client) { build_client("2.26") }
 
   it "can be found" do

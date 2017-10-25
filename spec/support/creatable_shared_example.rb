@@ -6,7 +6,6 @@ RSpec.shared_examples "a DHIS2 creatable resource" do |version:, nil_id: false|
   let(:resource_name) { described_class.resource_name }
 
   describe "#create" do
-
     let(:fixture)  { JSON.parse(fixture_content(version, "create", "#{resource_key}.json")) }
     let(:request)  { fixture["request"]  }
     let(:response) { fixture["response"] }
@@ -26,9 +25,7 @@ RSpec.shared_examples "a DHIS2 creatable resource" do |version:, nil_id: false|
       it "triggers the expected request" do
         instance = action(args)
         expect(instance).to be_a described_class
-        unless nil_id
-          expect(instance.id).to_not be nil
-        end
+        expect(instance.id).to_not be nil unless nil_id
       end
     end
 

@@ -28,6 +28,6 @@ module Dhis2
       "2.26" => "Version226",
       "2.27" => "Version227",
       "2.28" => "Version228"
-    }
+    }.freeze
   end
 end

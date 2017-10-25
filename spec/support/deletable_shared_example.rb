@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.shared_examples "a DHIS2 deletable resource" do |version:|
   let(:client) { build_client(version) }
   let(:object) { described_class.new(client, id: "fake_id") }

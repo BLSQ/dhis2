@@ -15,9 +15,7 @@ module Dhis2
 
         module ClassMethods
           def list(client, options = {})
-            if invalid_list_arguments?(options)
-              raise InvalidRequestError,new(list_error_message)
-            end
+            raise InvalidRequestError, new(list_error_message) if invalid_list_arguments?(options)
             super(client, options)
           end
 
@@ -29,10 +27,10 @@ module Dhis2
 
           def instance_creation_success?(response)
             response["status"] == "OK" &&
-            response["response"] &&
-            response["response"]["status"] == "SUCCESS" &&
-            response["response"]["imported"] == 1 &&
-            response["response"]["import_summaries"]
+              response["response"] &&
+              response["response"]["status"] == "SUCCESS" &&
+              response["response"]["imported"] == 1 &&
+              response["response"]["import_summaries"]
           end
 
           def created_instance_id(response)

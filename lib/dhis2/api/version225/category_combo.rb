@@ -28,7 +28,7 @@ module Dhis2
 
         private
 
-        def self.creation_defaults(args)
+        def self.creation_defaults(_args)
           { data_dimension_type: "DISAGGREGATION" }
         end
       end

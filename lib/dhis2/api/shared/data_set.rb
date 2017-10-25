@@ -7,7 +7,7 @@ module Dhis2
         def add_data_elements(new_data_element_ids)
           (new_data_element_ids - data_element_ids).tap do |additions|
             (new_data_element_ids - data_element_ids).each do |data_element_id|
-              data_set_elements.push({ "data_element" => { "id" => data_element_id } })
+              data_set_elements.push("data_element" => { "id" => data_element_id })
             end
             update if additions.any?
           end

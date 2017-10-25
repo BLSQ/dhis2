@@ -14,7 +14,7 @@ module Dhis2
         # args for a program without registration
         # and a  program with a program_stage
         Schema = Dry::Validation.Schema do
-          required(:program).filled  # program must be linked to the org unit
+          required(:program).filled # program must be linked to the org unit
           required(:org_unit).filled
           required(:event_date).filled
           required(:data_values).each do

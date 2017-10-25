@@ -20,7 +20,7 @@ module Dhis2
           required(:domain_type).value(
             included_in?: ::Dhis2::Api::Version224::Constants.domain_types
           )
-         required(:value_type).value(
+          required(:value_type).value(
             included_in?: ::Dhis2::Api::Version224::Constants.value_types
           )
           required(:category_combo).schema do
@@ -32,12 +32,12 @@ module Dhis2
 
         def self.creation_defaults(args)
           {
-            aggregation_type:     "SUM",
-            code:                 args[:short_name],
-            domain_type:          "AGGREGATE",
-            type:                 "int",
-            value_type:           "NUMBER",
-            zero_is_significant:  true
+            aggregation_type:    "SUM",
+            code:                args[:short_name],
+            domain_type:         "AGGREGATE",
+            type:                "int",
+            value_type:          "NUMBER",
+            zero_is_significant: true
           }
         end
       end

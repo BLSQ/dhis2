@@ -2,9 +2,9 @@
 
 module Dhis2
   class QueryParametersFormatter
-
     def initialize(options:, query_parameters:)
-      @options, @query_parameters = options, query_parameters
+      @options = options
+      @query_parameters = query_parameters
     end
 
     def call

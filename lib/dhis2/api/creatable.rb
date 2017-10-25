@@ -13,18 +13,18 @@ module Dhis2
           with_valid_args(args) do
             response = client.post(resource_name, args)
             validate_instance_creation(response)
-            new(client, args.merge({ id: created_instance_id(response) }))
+            new(client, args.merge(id: created_instance_id(response)))
           end
         end
 
         private
 
-        def creation_defaults(args)
-          { }
+        def creation_defaults(_args)
+          {}
         end
 
         def creation_args(args)
-          creation_defaults(args).merge(args).keep_if { |_,v| !v.nil? }
+          creation_defaults(args).merge(args).keep_if { |_, v| !v.nil? }
         end
 
         def with_valid_args(args)
@@ -32,7 +32,7 @@ module Dhis2
           if validator.success?
             yield
           else
-            raise Dhis2::CreationError.new("Validation Error: #{ validator.messages }")
+            raise Dhis2::CreationError, "Validation Error: #{validator.messages}"
           end
         end
       end

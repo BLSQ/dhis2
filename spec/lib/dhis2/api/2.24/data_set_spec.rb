@@ -12,7 +12,7 @@ describe Dhis2::Api::Version224::DataSet do
   describe "#add_data_elements" do
     let(:client) { build_client("2.24") }
     let(:data_set) do
-      described_class.new(client, { id: "ds_id", data_elements: [{ "id" => "123" }] })
+      described_class.new(client, id: "ds_id", data_elements: [{ "id" => "123" }])
     end
 
     context "success" do
@@ -25,7 +25,7 @@ describe Dhis2::Api::Version224::DataSet do
 
       context "non existing" do
         let(:updated_set) do
-          described_class.new(client, { id: "ds_id", data_elements: [{ "id" => "123" }, { "id" => "345" }] })
+          described_class.new(client, id: "ds_id", data_elements: [{ "id" => "123" }, { "id" => "345" }])
         end
 
         it "creates it" do

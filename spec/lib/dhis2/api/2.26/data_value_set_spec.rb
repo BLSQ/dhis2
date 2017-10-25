@@ -17,8 +17,8 @@ describe Dhis2::Api::Version226::DataValueSet do
 
     it "returns expected json" do
       result = client.data_value_sets.list(
-        org_unit: "eYcb2MlHGhk",
-        period:   "201601",
+        org_unit:           "eYcb2MlHGhk",
+        period:             "201601",
         data_element_group: "UJabOSRvwHI"
       )
       expect(result["data_values"]).to be_an Array

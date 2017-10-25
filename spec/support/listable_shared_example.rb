@@ -5,14 +5,13 @@ RSpec.shared_examples "a DHIS2 listable resource" do |version:, query: {}|
   let(:resource_name) { described_class.resource_name }
 
   describe ".list" do
-
     def action(query)
       described_class.list(client, query)
     end
 
     def query_string(query)
       if query.any?
-        "?" + query.map { |k,v| "#{Dhis2::Case.camelize(k.to_s, false)}=#{v}" }.join("&")
+        "?" + query.map { |k, v| "#{Dhis2::Case.camelize(k.to_s, false)}=#{v}" }.join("&")
       else
         ""
       end

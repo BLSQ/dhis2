@@ -2,7 +2,6 @@
 
 module Dhis2
   class Client
-
     attr_reader :version
 
     def initialize(options)
