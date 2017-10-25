@@ -28,8 +28,6 @@ module Dhis2
           end
         end
 
-        private
-
         def self.creation_defaults(args)
           {
             aggregation_type:    "SUM",

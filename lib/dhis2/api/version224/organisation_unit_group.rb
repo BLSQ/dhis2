@@ -10,21 +10,10 @@ module Dhis2
         include ::Dhis2::Api::Updatable
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Version224::SaveValidator
+        include ::Dhis2::Api::Shared::OrganisationUnitGroup
 
         Schema = Dry::Validation.Schema do
           required(:name).filled
-        end
-
-        def organisation_unit_ids
-          organisation_units.map do |organisation_unit|
-            organisation_unit["id"]
-          end
-        end
-
-        def group_set_ids
-          [organisation_unit_group_set, group_sets].flatten.compact.map do |group_set|
-            group_set["id"]
-          end
         end
       end
     end

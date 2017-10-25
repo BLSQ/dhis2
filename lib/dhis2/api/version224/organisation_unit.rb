@@ -10,19 +10,12 @@ module Dhis2
         include ::Dhis2::Api::Updatable
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Version224::SaveValidator
+        include ::Dhis2::Api::Shared::OrganisationUnit
 
         Schema = Dry::Validation.Schema do
           required(:name).filled
           required(:short_name).filled
           required(:opening_date).filled
-        end
-
-        def parent_id
-          parent ? parent["id"] : nil
-        end
-
-        def children_ids
-          children ? children.map { |elt| elt["id"] } : []
         end
       end
     end

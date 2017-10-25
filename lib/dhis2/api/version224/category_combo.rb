@@ -10,26 +10,13 @@ module Dhis2
         include ::Dhis2::Api::Updatable
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Version224::SaveValidator
+        include ::Dhis2::Api::Shared::CategoryCombo
 
         Schema = Dry::Validation.Schema do
           required(:name).filled
           required(:data_dimension_type).value(
             included_in?: ::Dhis2::Api::Version224::Constants.data_dimension_types
           )
-        end
-
-        def default
-          self.class.default(client)
-        end
-
-        def self.default(client)
-          find_by(client, name: "default")
-        end
-
-        private
-
-        def self.creation_defaults(_args)
-          { data_dimension_type: "DISAGGREGATION" }
         end
       end
     end

@@ -15,8 +15,6 @@ module Dhis2
           required(:name).filled
         end
 
-        private
-
         def self.creation_defaults(args)
           {
             code: args[:short_name]

@@ -40,8 +40,6 @@ module Dhis2
           data_elements.map { |de| de["id"] }
         end
 
-        private
-
         def self.creation_defaults(args)
           {
             code:        args[:short_name],
