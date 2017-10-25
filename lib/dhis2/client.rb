@@ -80,6 +80,10 @@ module Dhis2
       @indicator_groups ||= CollectionWrapper.new("IndicatorGroup", self)
     end
 
+    def indicator_types
+      @indicator_types ||= CollectionWrapper.new("IndicatorType", self)
+    end
+
     def organisation_units
       @organisation_units ||= CollectionWrapper.new("OrganisationUnit", self)
     end
