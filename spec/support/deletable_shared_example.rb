@@ -20,13 +20,13 @@ RSpec.shared_examples "a DHIS2 deletable resource" do |version:|
       it "raises on 500" do
         stub_request(:delete, "https://play.dhis2.org/demo/api/#{resource_name}/#{object.id}")
           .to_return(status: 500, body: "{\"httpStatus\":\"Internal Server Error\",\"httpStatusCode\":500,\"status\":\"ERROR\",\"message\":\"could not execute statement\"}")
-        expect { object.delete }.to raise_error(RestClient::Exception)
+        expect { object.delete }.to raise_error(Dhis2::RequestError)
       end
 
       it "raises on 409" do
         stub_request(:delete, "https://play.dhis2.org/demo/api/#{resource_name}/#{object.id}")
           .to_return(status: 409, body: "{\"httpStatus\":\"Conflict\",\"httpStatusCode\":409,\"status\":\"ERROR\",\"message\":\"Could not delete due to association with another object\"}")
-        expect { object.delete }.to raise_error(RestClient::Exception)
+        expect { object.delete }.to raise_error(Dhis2::RequestError)
       end
     end
   end

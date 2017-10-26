@@ -42,7 +42,7 @@ describe Dhis2::Api::Version227::DataSet do
           .with(body: stubbed_body)
           .to_return(status: 500, body: "")
 
-        expect { data_set.add_data_elements ["345"] }.to raise_error(RestClient::Exception)
+        expect { data_set.add_data_elements ["345"] }.to raise_error(Dhis2::RequestError)
       end
     end
   end

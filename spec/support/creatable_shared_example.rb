@@ -37,7 +37,7 @@ RSpec.shared_examples "a DHIS2 creatable resource" do |version:, nil_id: false|
       it "raises on 409" do
         stub_request(:post, "https://play.dhis2.org/demo/api/#{resource_name}")
           .to_return(status: 409, body: "{\"httpStatus\":\"Conflict\",\"httpStatusCode\":409,\"status\":\"ERROR\",\"message\":\"One more more errors occurred, please see full details in import report.")
-        expect { action(args) }.to raise_error(RestClient::Exception)
+        expect { action(args) }.to raise_error(Dhis2::RequestError)
       end
     end
   end

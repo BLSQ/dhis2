@@ -138,6 +138,10 @@ module Dhis2
       response = [nil, ""].include?(raw_response) ? {} : JSON.parse(raw_response)
       log(raw_response.request, response)
       Dhis2::Case.deep_change(response, :underscore)
+    rescue RestClient::Exception => e
+      exception = ::Dhis2::RequestError.new(e.message)
+      exception.response = e.response
+      raise exception
     end
 
     def uri(path)
