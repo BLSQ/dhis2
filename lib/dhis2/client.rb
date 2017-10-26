@@ -9,7 +9,7 @@ module Dhis2
       @version    = options.fetch(:version)
       @verify_ssl = options.fetch(:verify_ssl, OpenSSL::SSL::VERIFY_PEER)
       @timeout    = options.fetch(:timeout, 120)
-      @debug      = options.fetch(:debug, true)
+      @debug      = options.fetch(:debug, false)
     end
 
     def post(path, payload = nil, query_params = {})
