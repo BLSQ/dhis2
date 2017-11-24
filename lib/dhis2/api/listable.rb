@@ -8,15 +8,36 @@ module Dhis2
       end
 
       module ClassMethods
-        def list(client, options = {})
+        def list(client, options = {}, raw = false)
           json_response = client.get(resource_name, format_query_parameters(options))
           if paginated
-            PaginatedArray.new(
-              json_response[resource_key].map { |raw_resource| new(client, raw_resource) },
-              json_response["pager"]
-            )
+            if raw
+              PaginatedArray.new(
+                json_response[resource_key],
+                json_response["pager"]
+              )
+            else
+              PaginatedArray.new(
+                json_response[resource_key].map { |raw_resource| new(client, raw_resource) },
+                json_response["pager"]
+              )
+            end
           else
             json_response
+          end
+        end
+
+        def fetch_paginated_data(client, options = {}, raw = false)
+          raise InvalidMethodError, "this collection is not paginated" unless paginated
+          Enumerator.new do |yielder|
+            options[:page] ||= 1
+
+            loop do
+              results = list(client, options, raw)
+              results.map { |item| yielder << item }
+              raise StopIteration if results.pager.last_page?
+              options[:page] += 1
+            end
           end
         end
 

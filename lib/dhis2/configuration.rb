@@ -40,7 +40,11 @@ module Dhis2
     end
 
     def version
-      @version || DEFAULT_VERSION
+      @version || default_version
+    end
+
+    def default_version
+      ALLOWED_VERSIONS.last
     end
 
     def no_credentials?

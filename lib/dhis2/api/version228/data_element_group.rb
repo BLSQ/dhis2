@@ -10,15 +10,10 @@ module Dhis2
         include ::Dhis2::Api::Updatable
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Shared::SaveValidator
+        include ::Dhis2::Api::Shared::DataElementGroup
 
         Schema = Dry::Validation.Schema do
           required(:name).filled
-        end
-
-        def self.creation_defaults(args)
-          {
-            code: args[:short_name]
-          }
         end
       end
     end

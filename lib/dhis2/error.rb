@@ -8,6 +8,7 @@ module Dhis2
   class InvalidRequestError < Error; end
   class CaseError < Error; end
   class InvalidVersionError < Error; end
+  class InvalidMethodError < Error; end
   class DataElementAdditionError < Error; end
   class RequestError < Error
     attr_accessor :response

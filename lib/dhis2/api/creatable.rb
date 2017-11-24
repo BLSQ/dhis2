@@ -17,6 +17,12 @@ module Dhis2
           end
         end
 
+        def bulk_create(client, args)
+          client.post("metadata", {
+            resource_name.to_sym => args
+          })
+        end
+
         private
 
         def creation_defaults(_args)

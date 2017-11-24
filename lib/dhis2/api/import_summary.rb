@@ -8,16 +8,21 @@ module Dhis2
       end
 
       def creation_success?
-        base_success? && import_count["imported"] == 1
+        base_success? && only_updates_and_imports?
       end
 
       def update_success?
-        base_success? && import_count["updated"] == 1
+        base_success? && only_updates_and_imports?
       end
 
       private
 
       attr_reader :hash
+
+      def only_updates_and_imports?
+        import_count["ignored"] == 0 &&
+          (import_count["updated"] > 0 || import_count["imported"] > 0)
+      end
 
       def import_count
         hash["import_count"]
