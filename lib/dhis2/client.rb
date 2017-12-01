@@ -124,6 +124,13 @@ module Dhis2
       @users ||= CollectionWrapper.new("User", self)
     end
 
+    def can_connect?
+      system_infos.get
+      true
+    rescue ::Dhis2::Error
+      false
+    end
+
     private
 
     def execute(method_name, url, query_params = {}, payload = nil)

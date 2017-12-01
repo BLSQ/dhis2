@@ -8,6 +8,7 @@ module Dhis2
       end
 
       module ClassMethods
+        # https://docs.dhis2.org/2.25/en/developer/html/webapi_metadata_object_filter.html
         def find(client, id, fields: :all)
           raise Dhis2::PrimaryKeyMissingError if id.nil?
 
