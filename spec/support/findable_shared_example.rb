@@ -6,7 +6,7 @@ RSpec.shared_examples "a DHIS2 findable resource" do |version:|
 
   describe ".find" do
     context "find one id" do
-      def action(_options = {})
+      def action
         described_class.find(client, fake_id)
       end
 
@@ -28,6 +28,22 @@ RSpec.shared_examples "a DHIS2 findable resource" do |version:|
           end
         end
       end
+    end
+  end
+
+  describe ".find_paginated" do
+
+    def action
+      described_class.find_paginated(client, ids, batch_size: 2)
+    end
+
+    let(:ids) { [1, 2, 3, 4] }
+
+    it "finds per batch" do
+      expect(described_class).to receive(:find).with(client, [1, 2], fields: :all).and_return ["a", "b"]
+      expect(described_class).to receive(:find).with(client, [3, 4], fields: :all).and_return ["c", "d"]
+
+      expect(action.to_a).to eq ["a", "b", "c", "d"]
     end
   end
 end

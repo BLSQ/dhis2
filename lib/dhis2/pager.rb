@@ -9,7 +9,7 @@ module Dhis2
       @page_count = hash["page_count"]
       @total      = hash["total"]
       @next_page  = hash["next_page"]
-      @page_size   = hash["page_size"]
+      @page_size  = hash["page_size"]
     end
 
     def last_page?

@@ -19,6 +19,21 @@ module Dhis2
           end
         end
 
+        # batch size is to prevent from sending get requests with uri too long
+        # max uri length is around 2000 chars, a dhis id is around 11 chars, 100 is a safe default
+        def find_paginated(client, ids, fields: :all, batch_size: 100)
+          Enumerator.new do |yielder|
+            loop do
+              ids.each_slice(batch_size) do |array|
+                find(client, array, fields: fields).map do |item|
+                  yielder << item
+                end
+              end
+              raise StopIteration
+            end
+          end
+        end
+
         def find_by(client, clauses, fields: :all)
           list(
             client,

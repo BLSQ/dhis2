@@ -14,9 +14,9 @@ module Dhis2
         end
 
         module ClassMethods
-          def list(client, options = {})
+          def list(client, options = {}, raw = false)
             raise InvalidRequestError, new(list_error_message) if invalid_list_arguments?(options)
-            super(client, options)
+            super
           end
 
           private

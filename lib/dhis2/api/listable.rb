@@ -31,21 +31,20 @@ module Dhis2
           raise InvalidMethodError, "this collection is not paginated" unless paginated
           Enumerator.new do |yielder|
             options[:page] ||= 1
-
             loop do
               results = list(client, options, raw)
-              results.map { |item| yielder << item }
+              results.map { |item| yielder << [item, results.pager] }
               raise StopIteration if results.pager.last_page?
               options[:page] += 1
             end
           end
         end
 
-        private
-
         def paginated
           true
         end
+
+        private
 
         def format_query_parameters(options)
           ::Dhis2::QueryParametersFormatter.new(
