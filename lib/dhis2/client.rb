@@ -129,6 +129,7 @@ module Dhis2
       true
     rescue ::Dhis2::Error
       false
+    rescue StandardError
     end
 
     private
