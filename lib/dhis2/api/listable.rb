@@ -62,7 +62,7 @@ module Dhis2
         end
 
         def default_query_parameters
-          [:page, :page_size]
+          [:page, :page_size, :root_junction]
         end
       end
     end
