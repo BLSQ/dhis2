@@ -4,7 +4,10 @@ module Dhis2
   module Api
     module Updatable
       def update_attributes(attributes)
-        client.patch("#{self.class.resource_name}/#{id}", attributes)
+        client.patch(
+          path: "#{self.class.resource_name}/#{id}",
+          payload: attributes
+        )
         attributes.each do |key, value|
           public_send("#{key}=", value)
         end
@@ -12,7 +15,10 @@ module Dhis2
       end
 
       def update
-        client.put("#{self.class.resource_name}/#{id}", update_args).tap do |response|
+        client.put(
+          path: "#{self.class.resource_name}/#{id}",
+          payload: update_args
+        ).tap do |response|
           validate_instance_update(response)
         end
       end

@@ -12,24 +12,24 @@ module Dhis2
       @debug      = options.fetch(:debug, false)
     end
 
-    def post(path, payload = nil, query_params = {})
-      execute(:post, uri(path), query_params, payload)
+    def post(path:, payload: nil, query_params: {}, raw: false)
+      execute(method_name: :post, url: uri(path), query_params: query_params, payload: payload, raw: raw)
     end
 
-    def get(path, query_params = {})
-      execute(:get, uri(path), query_params)
+    def get(path:, query_params: {}, raw: false)
+      execute(method_name: :get, url: uri(path), query_params: query_params, raw: raw)
     end
 
-    def delete(path, query_params = {})
-      execute(:delete, uri(path), query_params)
+    def delete(path:, query_params: {}, raw: false)
+      execute(method_name: :delete, url: uri(path), query_params: query_params, raw: raw)
     end
 
-    def put(path, payload, query_params = {})
-      execute(:put, uri(path), query_params, payload)
+    def put(path:, payload:, query_params: {}, raw: false)
+      execute(method_name: :put, url: uri(path), query_params: query_params, payload: payload, raw: raw)
     end
 
-    def patch(path, payload, query_params = {})
-      execute(:patch, uri(path), query_params, payload)
+    def patch(path:, payload:, query_params: {}, raw: false)
+      execute(method_name: :patch, url: uri(path), query_params: query_params, payload: payload, raw: raw)
     end
 
     def analytics
@@ -135,7 +135,11 @@ module Dhis2
 
     private
 
-    def execute(method_name, url, query_params = {}, payload = nil)
+    EMPTY_RESPONSES = [nil, ""]
+    API =  "api"
+    TAB = "\t"
+
+    def execute(method_name:, url:, query_params: {}, payload: nil, raw: false)
       raw_response = RestClient::Request.execute(
         method:     method_name,
         url:        url,
@@ -144,9 +148,13 @@ module Dhis2
         verify_ssl: @verify_ssl,
         timeout:    @timeout
       )
-      response = [nil, ""].include?(raw_response) ? {} : JSON.parse(raw_response)
+      response = EMPTY_RESPONSES.include?(raw_response) ? {} : JSON.parse(raw_response)
       log(raw_response.request, response)
-      Dhis2::Case.deep_change(response, :underscore)
+      if raw
+        response
+      else
+        Dhis2::Case.deep_change(response, :underscore)
+      end
     rescue RestClient::Exception => e
       exception = ::Dhis2::RequestError.new(e.message)
       exception.response = e.response
@@ -154,7 +162,7 @@ module Dhis2
     end
 
     def uri(path)
-      File.join(@base_url, "api", path)
+      File.join(@base_url, API, path)
     end
 
     def headers(method_name, query_params)
@@ -164,7 +172,7 @@ module Dhis2
     end
 
     def log(request, response)
-      puts [request.url, request.args[:payload], response].join("\t") if @debug
+      puts [request.url, request.args[:payload], response].join(TAB) if @debug
     end
   end
 end

@@ -10,7 +10,7 @@ module Dhis2
 
         module ClassMethods
           def get(client)
-            client.get("/system/info")
+            client.get(path: "/system/info")
           end
         end
       end

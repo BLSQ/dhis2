@@ -20,8 +20,8 @@ RSpec.shared_examples "a DHIS2 listable resource" do |version:, query: {}|
   end
 
   describe ".list" do
-    def action(query)
-      described_class.list(client, query)
+    def action(query, raw)
+      described_class.list(client, query, raw)
     end
 
     context "successful request" do
@@ -32,13 +32,28 @@ RSpec.shared_examples "a DHIS2 listable resource" do |version:, query: {}|
       end
 
       it "returns a PaginatedArray" do
-        response = action(query)
+        response = action(query, false)
         expect(response).to be_a Dhis2::PaginatedArray
         expect(response[0]).to be_a described_class
       end
 
-      it "returns expected content" do
-        response = action(query)
+      it "returns expected content raw" do
+        response = action(query, true)
+        if json_response.key?("pager")
+          expect(response.pager.page).to       eq json_response["pager"]["page"]
+          expect(response.pager.page_count).to eq json_response["pager"]["page_count"]
+          expect(response.pager.total).to      eq json_response["pager"]["total"]
+          expect(response.pager.next_page).to  eq json_response["pager"]["next_page"]
+        end
+        json_response.fetch(resource_key, []).each_with_index do |elt, index|
+          elt.each do |k, v|
+            expect(response[index][k]).to eq v
+          end
+        end
+      end
+
+      it "returns expected content not raw" do
+        response = action(query, false)
         Dhis2::Case.deep_change(json_response, :underscore).tap do |hash|
           if hash.key?("pager")
             expect(response.pager.page).to       eq hash["pager"]["page"]

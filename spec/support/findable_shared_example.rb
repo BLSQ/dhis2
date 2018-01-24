@@ -40,8 +40,8 @@ RSpec.shared_examples "a DHIS2 findable resource" do |version:|
     let(:ids) { [1, 2, 3, 4] }
 
     it "finds per batch" do
-      expect(described_class).to receive(:find).with(client, [1, 2], fields: :all).and_return ["a", "b"]
-      expect(described_class).to receive(:find).with(client, [3, 4], fields: :all).and_return ["c", "d"]
+      expect(described_class).to receive(:find).with(client, [1, 2], fields: :all, raw: false).and_return ["a", "b"]
+      expect(described_class).to receive(:find).with(client, [3, 4], fields: :all, raw: false).and_return ["c", "d"]
 
       expect(action.to_a).to eq ["a", "b", "c", "d"]
     end

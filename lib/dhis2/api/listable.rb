@@ -8,18 +8,21 @@ module Dhis2
       end
 
       module ClassMethods
+
+        PAGER_KEY = "pager"
+
         def list(client, options = {}, raw = false)
-          json_response = client.get(resource_name, format_query_parameters(options))
+          json_response = client.get(path: resource_name, query_params: format_query_parameters(options), raw: raw)
           if paginated
             if raw
               PaginatedArray.new(
                 json_response[resource_key],
-                json_response["pager"]
+                json_response[PAGER_KEY]
               )
             else
               PaginatedArray.new(
                 json_response[resource_key].map { |raw_resource| new(client, raw_resource) },
-                json_response["pager"]
+                json_response[PAGER_KEY]
               )
             end
           else

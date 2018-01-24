@@ -11,16 +11,19 @@ module Dhis2
         def create(client, args)
           args = creation_args(args)
           with_valid_args(args) do
-            response = client.post(resource_name, args)
+            response = client.post(path: resource_name, payload: args)
             validate_instance_creation(response)
             new(client, args.merge(id: created_instance_id(response)))
           end
         end
 
         def bulk_create(client, args)
-          client.post("metadata", {
-            resource_name.to_sym => args
-          })
+          client.post(
+            path: "metadata",
+            payload: {
+              resource_name.to_sym => args
+            }
+          )
         end
 
         private

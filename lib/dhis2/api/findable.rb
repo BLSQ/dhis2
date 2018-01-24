@@ -9,23 +9,23 @@ module Dhis2
 
       module ClassMethods
         # https://docs.dhis2.org/2.25/en/developer/html/webapi_metadata_object_filter.html
-        def find(client, id, fields: :all)
+        def find(client, id, fields: :all, raw: false)
           raise Dhis2::PrimaryKeyMissingError if id.nil?
 
           if id.is_a? Array
-            list(client, filter: "id:in:[#{id.join(',')}]", fields: fields, page_size: id.size)
+            list(client, filter: "id:in:[#{id.join(',')}]", fields: fields, page_size: id.size, raw: raw)
           else
-            new(client, client.get("#{resource_name}/#{id}"))
+            new(client, client.get(path: "#{resource_name}/#{id}", raw: raw))
           end
         end
 
         # batch size is to prevent from sending get requests with uri too long
         # max uri length is around 2000 chars, a dhis id is around 11 chars, 100 is a safe default
-        def find_paginated(client, ids, fields: :all, batch_size: 100)
+        def find_paginated(client, ids, fields: :all, batch_size: 100, raw: false)
           Enumerator.new do |yielder|
             loop do
               ids.each_slice(batch_size) do |array|
-                find(client, array, fields: fields).map do |item|
+                find(client, array, fields: fields, raw: raw).map do |item|
                   yielder << item
                 end
               end
@@ -34,11 +34,12 @@ module Dhis2
           end
         end
 
-        def find_by(client, clauses, fields: :all)
+        def find_by(client, clauses, fields: :all, raw: false)
           list(
             client,
             fields: fields,
-            filter: clauses.map { |field, value| "#{field}:eq:#{value}" }
+            filter: clauses.map { |field, value| "#{field}:eq:#{value}" },
+            raw: raw
           ).first
         end
       end

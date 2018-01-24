@@ -26,7 +26,7 @@ module Dhis2
 
         def add_data_element(data_element_id, check: true)
           # this returns 204 on success and failure...
-          client.post("dataSets/#{id}/dataElements/#{data_element_id}", {})
+          client.post(path: "dataSets/#{id}/dataElements/#{data_element_id}", payload: {})
           return unless check
           updated_set = self.class.find(client, id)
           if updated_set.data_element_ids.include?(data_element_id)

@@ -10,7 +10,7 @@ module Dhis2
 
         module ClassMethods
           def analytics(client)
-            client.post("resourceTables/analytics")
+            client.post(path: "resourceTables/analytics")
           end
         end
       end
