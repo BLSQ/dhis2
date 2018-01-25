@@ -12,8 +12,8 @@ module Dhis2
       @debug      = options.fetch(:debug, false)
     end
 
-    def post(path:, payload: nil, query_params: {}, raw: false)
-      execute(method_name: :post, url: uri(path), query_params: query_params, payload: payload, raw: raw)
+    def post(path:, payload: nil, query_params: {}, raw: false, raw_input: false)
+      execute(method_name: :post, url: uri(path), query_params: query_params, payload: payload, raw: raw, raw_input: raw_input)
     end
 
     def get(path:, query_params: {}, raw: false)
@@ -139,12 +139,12 @@ module Dhis2
     API =  "api"
     TAB = "\t"
 
-    def execute(method_name:, url:, query_params: {}, payload: nil, raw: false)
+    def execute(method_name:, url:, query_params: {}, payload: nil, raw: false, raw_input: false)
       raw_response = RestClient::Request.execute(
         method:     method_name,
         url:        url,
         headers:    headers(method_name, query_params),
-        payload:    payload ? Dhis2::Case.deep_change(payload, :camelize).to_json : nil,
+        payload:    compute_payload(payload, raw_input),
         verify_ssl: @verify_ssl,
         timeout:    @timeout
       )
@@ -159,6 +159,12 @@ module Dhis2
       exception = ::Dhis2::RequestError.new(e.message)
       exception.response = e.response
       raise exception
+    end
+
+    def compute_payload(payload, raw_input)
+      return nil unless payload
+      return payload.to_json if raw_input
+      Dhis2::Case.deep_change(payload, :camelize).to_json
     end
 
     def uri(path)

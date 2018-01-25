@@ -8,12 +8,17 @@ module Dhis2
       end
 
       module ClassMethods
-        def create(client, args)
-          args = creation_args(args)
-          with_valid_args(args) do
-            response = client.post(path: resource_name, payload: args)
+        def create(client, args, raw_input: false)
+          if raw_input
+            response = client.post(path: resource_name, payload: args, raw_input: true)
             validate_instance_creation(response)
-            new(client, args.merge(id: created_instance_id(response)))
+          else
+            args = creation_args(args)
+            with_valid_args(args) do
+              response = client.post(path: resource_name, payload: args)
+              validate_instance_creation(response)
+              new(client, args.merge(id: created_instance_id(response)))
+            end
           end
         end
 
