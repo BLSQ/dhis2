@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rest-client"
+require "typhoeus"
 require "json"
 require "ostruct"
 require "uri"

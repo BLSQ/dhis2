@@ -8,7 +8,9 @@ module Dhis2
     end
 
     def call
-      RestClient::ParamsArray.new(formatted_options)
+      # byebug
+      # RestClient::ParamsArray.new(formatted_options)
+      formatted_options.to_h
     end
 
     private

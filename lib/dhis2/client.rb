@@ -7,9 +7,10 @@ module Dhis2
     def initialize(options)
       @base_url   = options.fetch(:url)
       @version    = options.fetch(:version)
-      @verify_ssl = options.fetch(:verify_ssl, OpenSSL::SSL::VERIFY_PEER)
+      # @verify_ssl = options.fetch(:verify_ssl) #OpenSSL::SSL::VERIFY_PEER
       @timeout    = options.fetch(:timeout, 120)
       @debug      = options.fetch(:debug, false)
+      @user_pass  = options.fetch(:user_pass)
     end
 
     def post(path:, payload: nil, query_params: {}, raw: false, raw_input: false)
@@ -140,25 +141,37 @@ module Dhis2
     TAB = "\t"
 
     def execute(method_name:, url:, query_params: {}, payload: nil, raw: false, raw_input: false)
-      raw_response = RestClient::Request.execute(
-        method:     method_name,
-        url:        url,
-        headers:    headers(method_name, query_params),
-        payload:    compute_payload(payload, raw_input),
-        verify_ssl: @verify_ssl,
-        timeout:    @timeout
+      # raw_response = RestClient::Request.execute(
+      #   method:     method_name,
+      #   url:        url,
+      #   headers:    headers(method_name, query_params),
+      #   payload:    compute_payload(payload, raw_input),
+      #   verify_ssl: @verify_ssl,
+      #   timeout:    @timeout
+      # )
+      request = Typhoeus::Request.new(
+        url,
+        method: method_name,
+        body: compute_payload(payload, raw_input),
+        params: query_params,
+        headers: headers(method_name, query_params),
+        userpwd: @user_pass
       )
+      request.run
+
+      raw_response = request.response.body
+
       response = EMPTY_RESPONSES.include?(raw_response) ? {} : JSON.parse(raw_response)
-      log(raw_response.request, response)
+      # log(raw_response.request, response)
       if raw
         response
       else
         Dhis2::Case.deep_change(response, :underscore)
       end
-    rescue RestClient::Exception => e
-      exception = ::Dhis2::RequestError.new(e.message)
-      exception.response = e.response
-      raise exception
+    # rescue RestClient::Exception => e
+    #   exception = ::Dhis2::RequestError.new(e.message)
+    #   exception.response = e.response
+    #   raise exception
     end
 
     def compute_payload(payload, raw_input)
@@ -172,13 +185,14 @@ module Dhis2
     end
 
     def headers(method_name, query_params)
-      { params: query_params, accept: :json }.tap do |hash|
-        hash[:content_type] = :json unless method_name == :get
+      # { params: query_params, accept: :json }.tap do |hash|
+      { accept: 'application/json' }.tap do |hash|
+        hash[:content_type] = 'application/json' unless method_name == :get
       end
     end
 
     def log(request, response)
-      puts [request.url, request.args[:payload], response].join(TAB) if @debug
+      # puts [request.url, request.args[:payload], response].join(TAB) if @debug
     end
   end
 end

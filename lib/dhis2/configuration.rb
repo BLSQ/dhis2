@@ -8,19 +8,23 @@ module Dhis2
 
     def client_params
       {
-        url:        no_credentials? ? url : build_url,
+        url:        url,
         debug:      debug,
         version:    version,
         timeout:    timeout,
-        verify_ssl: verify_ssl
+        verify_ssl: verify_ssl,
+        user_pass:  "#{user}:#{password}"
       }
     end
 
     def play_params(with_debug)
       {
-        url:     "https://admin:district@play.dhis2.org/demo/",
+        # url:     "https://play.dhis2.org/demo/",
+        url:     "https://play.dhis2.org/2.28/",
         debug:   with_debug,
-        version: "2.28"
+        version: "2.28",
+        verify_ssl: verify_ssl,
+        user_pass:  "admin:district"
       }
     end
 
@@ -32,11 +36,11 @@ module Dhis2
     private
 
     def verify_ssl
-      if no_ssl_verification
-        OpenSSL::SSL::VERIFY_NONE
-      else
-        OpenSSL::SSL::VERIFY_PEER
-      end
+      # if no_ssl_verification
+      #   OpenSSL::SSL::VERIFY_NONE
+      # else
+      #   OpenSSL::SSL::VERIFY_PEER
+      # end
     end
 
     def version
