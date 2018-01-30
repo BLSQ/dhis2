@@ -22,12 +22,13 @@ module Dhis2
           end
         end
 
-        def bulk_create(client, args)
+        def bulk_create(client, args, raw_input: false)
           client.post(
             path: "metadata",
             payload: {
               resource_name.to_sym => args
-            }
+            },
+            raw_input: raw_input
           )
         end
 
