@@ -15,13 +15,28 @@ module Dhis2
         base_success? && only_updates_and_imports?
       end
 
+      def bulk_success?
+        base_success?
+      end
+
+      def imported_count
+        import_count["imported"]
+      end
+
+      def updated_count
+        import_count["updated"]
+      end
+
+      def ignored_count
+        import_count["ignored"]
+      end
+
       private
 
       attr_reader :hash
 
       def only_updates_and_imports?
-        import_count["ignored"] == 0 &&
-          (import_count["updated"] > 0 || import_count["imported"] > 0)
+        ignored_count == 0 && (updated_count > 0 || imported_count > 0)
       end
 
       def import_count
