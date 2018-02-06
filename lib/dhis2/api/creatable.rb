@@ -8,7 +8,7 @@ module Dhis2
       end
 
       module ClassMethods
-        def create(client, args, raw_input: false)
+        def create(client, args, raw_input = false)
           if raw_input
             response = client.post(path: resource_name, payload: args, raw_input: true)
             validate_instance_creation(response)
@@ -22,7 +22,7 @@ module Dhis2
           end
         end
 
-        def bulk_create(client, args, raw_input: false)
+        def bulk_create(client, args, raw_input = false)
           client.post(
             path: "metadata",
             payload: {

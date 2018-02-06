@@ -16,7 +16,7 @@ module Dhis2
           if paginated
             if raw
               PaginatedArray.new(
-                json_response[resource_key],
+                json_response[resource_name],
                 json_response[PAGER_KEY]
               )
             else
