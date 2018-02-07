@@ -296,16 +296,12 @@ To get raw data from Dhis2, ie no underscore case, no object, just plain json, y
 
 ```ruby
 client.data_elements.list({}, true)
+#returns a PaginatedArray which elements look like:
+{"id"=>"FTRrcoaog83", "displayName"=>"Accute Flaccid Paralysis (Deaths < 5 yrs)"}
 
 client.data_elements.fetch_paginated_data({}, true) do |data_element|
   # use data_element as hash
 end
-```
-
-It returns a PaginatedArray which elements look like:
-
-```ruby
-{"id"=>"FTRrcoaog83", "displayName"=>"Accute Flaccid Paralysis (Deaths < 5 yrs)"}
 ```
 
 ## Development
