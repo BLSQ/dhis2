@@ -32,102 +32,160 @@ The functionalities are available as a module. First thing you need to do is to 
 
 * Global configuration (to call a single Dhis2 instance):
 
-  ```ruby
-  Dhis2.configure do |config|
-    config.url      = "https://play.dhis2.org/demo"
-    config.user     = "admin"
-    config.password = "district"
-  end
-  Dhis2.client.data_elements.list # => Array[<DataElement>,..]
+```ruby
+Dhis2.configure do |config|
+  config.url      = "https://play.dhis2.org/2.28"
+  config.user     = "admin"
+  config.password = "district"
+  config.version  = "2.28"
+end
+::Dhis2.client.data_elements.list # => Array[<DataElement>,..]
 
-  # Or alternatively
-  Dhis2.configure do |config|
-    config.url = "https://admin:district@play.dhis2.org/demo"
-  end
-  Dhis2.client.data_elements.list # => Array[<DataElement>,..]
-  ```
+# Or alternatively
+::Dhis2.configure do |config|
+  url:     "https://admin:district@play.dhis2.org/2.28",
+  version: "2.28"
+)
+::Dhis2.clientt.data_elements.list # => Array[<DataElement>,..]
+```
 
 * Local configuration: (in case you need to access different Dhis2 instances inside a single project):
 
-  ```ruby
-  client = Dhis2::Client.new(url: "https://play.dhis2.org/demo", user: "admin", password: "district")
-  client.data_elements.list # => Array[<DataElement>,..]
+```ruby
+configuration = Dhis2::Configuration.new.tap do |config|
+  config.url      = "https://play.dhis2.org/2.28"
+  config.user     = "admin"
+  config.password = "district"
+  config.version  = "2.28"
+end
+client = ::Dhis2::Client.new(configuration.client_params)
+client.data_elements.list # => Array[<DataElement>,..]
 
-  # Or alternatively
-  client = Dhis2::Client.new("https://admin:district@play.dhis2.org/demo")
-  client.data_elements.list # => Array[<DataElement>,..]
-  ```
+# Or alternatively
+client = ::Dhis2::Client.new(
+  url:     "https://admin:district@play.dhis2.org/2.28",
+  version: "2.28"
+)
+client.data_elements.list # => Array[<DataElement>,..]
+```
 
 Regarding SSL, there is an option to disregard SSL error messages (such as bad certificates). USE THIS AT YOUR OWN RISK - it may allow you to access a server that would return in error without it... but you cannot trust the response.
 
 ```ruby
-  dangerous_client = Dhis2::Client.new(url: "https://play.dhis2.org/demo", user: "admin", password: "district", no_ssl_verification: true);
+dangerous_configuration = Dhis2::Configuration.new.tap do |config|
+  config.url      = "https://play.dhis2.org/2.28"
+  config.user     = "admin"
+  config.password = "district"
+  config.version  = "2.28"
+  config.no_ssl_verification = true
+end
 ```
 
 ### Search for meta elements
 
 All subsequent calls can be done on the objects themselves and are going to use the provided url and credentials
 
-    org_unit_levels = Dhis2.client.organisation_unit_levels.list
+```ruby
+org_unit_levels = Dhis2.client.organisation_unit_levels.list
+```
 
 The various methods are taking an optional hash parameter to be used for ´filter´ and ´fields´ values:
 
-    org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: %w(id level displayName parent))
+```ruby
+org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: %w(id level displayName parent))
+```
 
 If you want all fields, simply specify `:all`
 
-    org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: :all)
+```ruby
+org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: :all)
+```
 
 Notes that any field found in the resulting JSON will be accessible from the object.
+
+### Raw data
+
+By default, the gem transforms data from the api so you get underscore case. But this may not be needed and can hurt performance.
+
+If you simply need raw data from your Dhis2:
+
+```ruby
+org_units = Dhis2.client.organisation_units.list({}, true)
+```
 
 ### Pagination
 
 Following the DHIS2 API, all calls are paginated - you can access the page info using the `pager` property on the returned list:
 
-    org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: %w(id level displayName parent))
-    org_units.pager.page       # current page
-    org_units.pager.page_count # number of pages
-    org_units.pager.total      # number of records
+```ruby
+org_units = Dhis2.client.organisation_units.list(filter: "level:eq:2", fields: %w(id level displayName parent))
+org_units.pager.page       # current page
+org_units.pager.page_count # number of pages
+org_units.pager.total      # number of records
+```
+
+### Get all paginated elements
+
+It can be tedious to iterate over a paginated collection. Thus you can use `fetch_paginated_data` which will get all pages for you and yield each element automatically.
+
+```ruby
+Dhis2.client.organisation_units.fetch_paginated_data(
+  filter: "level:eq:2",
+  fields: %w(id level displayName parent)
+).each do |organisation_unit|
+  # do what you need here
+end
+```
 
 ### Retrieve a single element
 
 You can also retreive a single element using its id with `find`(in this case, all fields are returned by default):
 
-    ou = Dhis2.client.organisation_units.find(id)
+```ruby
+ou = Dhis2.client.organisation_units.find(id)
+```
 
 `find` also accepts multiple ids - query will not be paginated and will return all fields for the given objects:
 
-    ous = Dhis2.client.organisation_units.find([id1, id2, id3])
+```ruby
+ous = Dhis2.client.organisation_units.find([id1, id2, id3])
+```
 
 If you have an equality condition or set of equality conditions that should return a single element, you can use `find_by` instead of the longer list option:
 
-    # Instead of this:
-    data_element = Dhis2.client.data_elements.list(filter: "code:eq:C27", fields: :all).first
+```ruby
+# Instead of this:
+data_element = Dhis2.client.data_elements.list(filter: "code:eq:C27", fields: :all).first
 
-    # Just do:
-    data_element = Dhis2.client.data_elements.find_by(code: "C27")
+# Just do:
+data_element = Dhis2.client.data_elements.find_by(code: "C27")
+```
 
 ### Manage relations
 
 You can add or remove items in collections using `add_relation` and `remove_relation`:
 
-    data_set = Dhis2.client.data_sets.list(page_size:1).first
-    data_element = Dhis2.client.data_elements.list(page_size: 1).first
-    data_set.add_relation(:dataSetElements, data_element.id)
-    ...
-    data_set.remove_relation(:dataSetElements, data_element.id)
+```ruby
+data_set = Dhis2.client.data_sets.list(page_size:1).first
+data_element = Dhis2.client.data_elements.list(page_size: 1).first
+data_set.add_relation(:dataSetElements, data_element.id)
+...
+data_set.remove_relation(:dataSetElements, data_element.id)
+```
 
 ### Values
 
 You can retreive data values this way:
 
-    ds                = Dhis2.client.data_sets.find_by(name: "Child Health")
-    organisation_unit = Dhis2.client.organisation_units.find_by(name: "Baoma")
-    period            = "201512"
-    value_sets        = Dhis2.client.data_value_sets.list(
-      data_sets: [ds.id],
-      organisation_unit: organisation_unit.id, periods: [period]
-    )
+```ruby
+ds                = Dhis2.client.data_sets.find_by(name: "Child Health")
+organisation_unit = Dhis2.client.organisation_units.find_by(name: "Baoma")
+period            = "201512"
+value_sets        = Dhis2.client.data_value_sets.list(
+  data_sets: [ds.id],
+  organisation_unit: organisation_unit.id, periods: [period]
+)
+```
 
 ## Supported items
 
@@ -161,9 +219,11 @@ The API is currently limited to actions on the following elements:
 
 You can update a given item by retreiving it using its id, making any modification on it then calling "update":
 
-    org_unit = Dhis2.client.organisation_units.find(id)
-    org_unit.short_name = "New Short Name"
-    org_unit.update
+```ruby
+org_unit = Dhis2.client.organisation_units.find(id)
+org_unit.short_name = "New Short Name"
+org_unit.update
+```
 
 This uses DHIS2 "full update" ('PUT') and not the "partial update" feature (see below), so it requires a fully formed object to work (get it either with `find` which takes all the fields or with the `fields: :all´ option).
 
@@ -171,38 +231,82 @@ This uses DHIS2 "full update" ('PUT') and not the "partial update" feature (see 
 
 You can update a single or more attributes via the "update_attributes" method:
 
-    org_unit         = Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name}").first
-    new_attributes   = { name: "New name" }
-    org_unit.update_attributes(new_attributes)
+```ruby
+org_unit         = Dhis2.client.organisation_units.list(fields: :all, filter: "name:eq:#{org_unit_name}").first
+new_attributes   = { name: "New name" }
+org_unit.update_attributes(new_attributes)
+```
 
 Note that partial updates will no work with custom attributes at this time (while the full update will)
 
 ## Create
 
-A very basic **write** use case exists for `DataElement` and `DataSet`:
+A very basic **write** use case exists for `DataElement`:
 
-    elements = [
-      { name: "TesTesT1", short_name: "TTT1" },
-      { name: "TesTesT2", short_name: "TTT2" }
-    ]
-    status = Dhis2.client.data_elements.create(elements)
-    status.success? # => true
-    status.total_imported # => 2
+```ruby
+data_element = Dhis2.client.data_elements.create({
+  name: "TesTesT1",
+  short_name: "TTT1"
+})
+```
 
-DHIS2 API does not return the ids of the created elements, but you can retreive them with their (unique) name or code.
+We do validate arguments and the response status. `Dhis2::CreationError` exception is raised in case of error.
 
-    elements = [
-      { name: "TesTesT2", short_name: "TTT2" }
-    ]
-    status = Dhis2.client.data_elements.create(elements)
-    element = Dhis2.client.data_elements.find_by(name: "TesTesT2")
+### Bulk create
 
+Whenever you need to create many elements at the same time, you can use `bulk_create`:
+
+```ruby
+elements = [
+  { name: "TesTesT1", short_name: "TTT1" },
+  { name: "TesTesT2", short_name: "TTT2" }
+]
+summary = Dhis2.client.data_elements.bulk_create(elements)
+# would raise Dhis2::CreationError on error
+summary.imported_count # => 1
+summary.updated_count  # => 1
+summary.ignored_count  # => 0
+```
+
+### Raw input
+
+You might have data in camel case already and need to use it as is. In this case, we do not validate your input and do not create an object out of the response. Yet we validate the object has been properly created and return the plain response from the API.
+
+```ruby
+response = Dhis2.client.data_elements.create({
+  name: "TesTesT1",
+  shortName: "TTT1"
+}, true)
+
+summary = Dhis2.client.data_elements.bulk_create([{
+  name: "TesTesT1",
+  shortName: "TTT1"
+}], true)
+```
 
 ## Trigger analytics
 
 You can trigger Analytics with
 
 Dhis2.client.resource_tables.analytics
+
+## Raw output
+
+To get raw data from Dhis2, ie no underscore case, no object, just plain json, you can specify you want the raw output:
+
+```ruby
+client.data_elements.list({}, true)
+
+client.data_elements.fetch_paginated_data({}, true) do |data_element|
+  # use data_element as hash
+end
+```
+
+It returns a PaginatedArray which elements look like:
+
+```ruby
+{"id"=>"FTRrcoaog83", "displayName"=>"Accute Flaccid Paralysis (Deaths < 5 yrs)"}
+```
 
 ## Development
 
