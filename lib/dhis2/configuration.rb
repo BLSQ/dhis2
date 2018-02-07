@@ -18,7 +18,7 @@ module Dhis2
 
     def play_params(with_debug)
       {
-        url:     "https://admin:district@play.dhis2.org/demo/",
+        url:     "https://admin:district@play.dhis2.org/2.28/",
         debug:   with_debug,
         version: "2.28"
       }

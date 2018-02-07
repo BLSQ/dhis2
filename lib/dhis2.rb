@@ -66,5 +66,18 @@ module Dhis2
     def config
       @configuration ||= Dhis2::Configuration.new
     end
+
+    # params: { user: , password:, url: }
+    def get_version(params)
+      check_config = Dhis2::Configuration.new.tap do |conf|
+        conf.url      = params.fetch(:url)
+        conf.password = params.fetch(:password)
+        conf.user     = params.fetch(:user)
+      end
+      response = RestClient.get(
+        Dhis2::Client.uri(check_config.client_params[:url], "/system/info")
+      )
+      JSON.parse(response.body)["version"]
+    end
   end
 end

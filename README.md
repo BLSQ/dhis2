@@ -81,6 +81,13 @@ dangerous_configuration = Dhis2::Configuration.new.tap do |config|
 end
 ```
 
+* Not sure of your version? Check it
+
+```ruby
+Dhis2.get_version({ user: 'admin', password: 'district', url: 'https://play.dhis2.org/demo'})
+```
+
+
 ### Search for meta elements
 
 All subsequent calls can be done on the objects themselves and are going to use the provided url and credentials

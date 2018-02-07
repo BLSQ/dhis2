@@ -133,6 +133,10 @@ module Dhis2
       false
     end
 
+    def self.uri(base_url, path)
+      File.join(base_url, API, path)
+    end
+
     private
 
     EMPTY_RESPONSES = [nil, ""]
@@ -168,7 +172,7 @@ module Dhis2
     end
 
     def uri(path)
-      File.join(@base_url, API, path)
+      self.class.uri(@base_url, path)
     end
 
     def headers(method_name, query_params)
