@@ -142,6 +142,9 @@ Dhis2.client.organisation_units.fetch_paginated_data(
 ).each do |organisation_unit|
   # do what you need here
 end
+
+# Because Dhis2.client.organisation_units.fetch_paginated_data is an Enumerable, you can do:
+Dhis2.client.organisation_units.fetch_paginated_data.to_a
 ```
 
 ### Retrieve a single element
