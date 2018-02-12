@@ -20,6 +20,10 @@ module Dhis2
         self.client = client
       end
 
+      def to_json(*args)
+        to_h.tap {|h| h.delete(:client) }.to_json(*args)
+      end
+
       def ==(other)
         self.class == other.class && id == other.id
       end
