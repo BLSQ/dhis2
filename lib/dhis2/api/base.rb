@@ -20,8 +20,8 @@ module Dhis2
         self.client = client
       end
 
-      def to_json(*args)
-        to_h.tap {|h| h.delete(:client) }.to_json(*args)
+      def to_h
+        super.tap {|h| h.delete(:client) }
       end
 
       def ==(other)
