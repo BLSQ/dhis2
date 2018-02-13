@@ -38,6 +38,7 @@ module Dhis2
   class Program < Versioned; end
   class Report < Versioned; end
   class ReportTable < Versioned; end
+  class ResourceTable < Versioned; end
   class SystemInfo < Versioned; end
   class User < Versioned; end
 end
