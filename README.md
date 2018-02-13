@@ -170,6 +170,16 @@ ou = Dhis2.client.organisation_units.find(id)
 ous = Dhis2.client.organisation_units.find([id1, id2, id3])
 ```
 
+An issue could arise if you try to get too many elements at once.
+
+```ruby
+ous = Dhis2.client.organisation_units.find(super_long_array)
+#=> would raise an exception because the generated url would be too long
+
+# instead do
+ous = Dhis2.client.organisation_units.find_paginated(super_long_array)
+```
+
 If you have an equality condition or set of equality conditions that should return a single element, you can use `find_by` instead of the longer list option:
 
 ```ruby
