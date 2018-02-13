@@ -73,45 +73,53 @@ RSpec.shared_examples "a DHIS2 listable resource" do |version:, query: {}|
   end
 
   describe ".fetch_paginated_data" do
-    def action(query)
-      described_class.fetch_paginated_data(client, query)
+    def action(query, options = {})
+      stub_request(:get, "https://play.dhis2.org/demo/api/#{resource_name}#{query_string(query.merge(page: 1))}")
+        .to_return(status: 200, body: page1.to_json)
+      stub_request(:get, "https://play.dhis2.org/demo/api/#{resource_name}#{query_string(query.merge(page: 2))}")
+        .to_return(status: 200, body: page2.to_json)
+
+      described_class.fetch_paginated_data(client, query, options)
     end
 
-    context "successful request" do
-      # we provide bogus pagination stuff here to force http requests
-      let(:page1) { json_response.clone.tap {|json|
-        json["pager"] =  {
-          "page": 1,
-          "pageCount": 2,
-          "total": 10,
-          "pageSize": 6
-        }
-      }}
-      let(:page2) { json_response.clone.tap {|json|
-        json["pager"] =  {
-          "page": 2,
-          "pageCount": 2,
-          "total": 10,
-          "pageSize": 6
-        }
-      }}
+    # we provide bogus pagination stuff here to force http requests
+    let(:page1) { json_response.clone.tap {|json|
+      json["pager"] =  {
+        "page": 1,
+        "pageCount": 2,
+        "total": 10,
+        "pageSize": 6
+      }
+    }}
+    let(:page2) { json_response.clone.tap {|json|
+      json["pager"] =  {
+        "page": 2,
+        "pageCount": 2,
+        "total": 10,
+        "pageSize": 6
+      }
+    }}
 
-      before do
-        stub_request(:get, "https://play.dhis2.org/demo/api/#{resource_name}#{query_string(query.merge(page: 1))}")
-          .to_return(status: 200, body: page1.to_json)
-        stub_request(:get, "https://play.dhis2.org/demo/api/#{resource_name}#{query_string(query.merge(page: 2))}")
-          .to_return(status: 200, body: page2.to_json)
-      end
-
-      it "returns expected content" do
-        if described_class.paginated
-          max = 0
-          action(query).each do |elt, pager|
-            max += 1
-            expect(pager).to be_a ::Dhis2::Pager
-          end
-          expect(max).to eq(json_response[camelized_resource_key].count * 2)
+    it "with pager" do
+      if described_class.paginated
+        max = 0
+        action(query.clone, { with_pager: true }).each do |elt, pager|
+          max += 1
+          expect(elt).to be_a described_class
+          expect(pager).to be_a ::Dhis2::Pager
         end
+        expect(max).to eq(json_response[camelized_resource_key].count * 2)
+      end
+    end
+
+    it "without pager" do
+      if described_class.paginated
+        max = 0
+        action(query.clone).each do |elt|
+          max += 1
+          expect(elt).to be_a described_class
+        end
+        expect(max).to eq(json_response[camelized_resource_key].count * 2)
       end
     end
   end

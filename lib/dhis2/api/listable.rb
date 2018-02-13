@@ -30,15 +30,20 @@ module Dhis2
           end
         end
 
-        def fetch_paginated_data(client, options = {}, raw = false)
+        def fetch_paginated_data(client, params = {}, options = {})
           raise InvalidMethodError, "this collection is not paginated" unless paginated
+          options = { raw: false, with_pager: false }.merge(options)
           Enumerator.new do |yielder|
-            options[:page] ||= 1
+            params[:page] ||= 1
             loop do
-              results = list(client, options, raw)
-              results.map { |item| yielder << [item, results.pager] }
+              results = list(client, params, options[:raw])
+              if options[:with_pager]
+                results.map { |item| yielder << [item, results.pager] }
+              else
+                results.map { |item| yielder << item }
+              end
               raise StopIteration if results.pager.last_page?
-              options[:page] += 1
+              params[:page] += 1
             end
           end
         end

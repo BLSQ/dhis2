@@ -143,9 +143,18 @@ Dhis2.client.organisation_units.fetch_paginated_data(
   # do what you need here
 end
 
-# Because Dhis2.client.organisation_units.fetch_paginated_data is an Enumerable, you can do:
-Dhis2.client.organisation_units.fetch_paginated_data.map(&:first) # to get objects only, without pager
-```
+# If you want pagination info in the loop:
+Dhis2.client.organisation_units.fetch_paginated_data({
+  filter: "level:eq:2",
+  fields: %w(id level displayName parent)
+},
+{ with_pager: true}
+).each do |organisation_unit, pager|
+  # do what you need here
+end
+
+# Dhis2.client.organisation_units.fetch_paginated_data is an Enumerable. If you want all objects in an array, without pager:
+Dhis2.client.organisation_units.fetch_paginated_data.to_a
 
 ### Retrieve a single element
 
@@ -309,7 +318,7 @@ client.data_elements.list({}, true)
 #returns a PaginatedArray which elements look like:
 {"id"=>"FTRrcoaog83", "displayName"=>"Accute Flaccid Paralysis (Deaths < 5 yrs)"}
 
-client.data_elements.fetch_paginated_data({}, true) do |data_element, pager|
+client.data_elements.fetch_paginated_data({}, { raw: true }) do |data_element|
   # use data_element as hash
 end
 ```
