@@ -31,6 +31,10 @@ module Dhis2
         import_count["ignored"]
       end
 
+      def raw_status
+        hash
+      end
+
       private
 
       attr_reader :hash
