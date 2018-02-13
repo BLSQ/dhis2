@@ -21,7 +21,7 @@ describe Dhis2::Api::Version226::DataValueSet do
         period:             "201601",
         data_element_group: "UJabOSRvwHI"
       )
-      expect(result["data_values"]).to be_an Array
+      expect(result).to be_an Array
     end
   end
 end
