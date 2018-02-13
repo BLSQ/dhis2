@@ -139,12 +139,12 @@ It can be tedious to iterate over a paginated collection. Thus you can use `fetc
 Dhis2.client.organisation_units.fetch_paginated_data(
   filter: "level:eq:2",
   fields: %w(id level displayName parent)
-).each do |organisation_unit|
+).each do |organisation_unit, pager|
   # do what you need here
 end
 
 # Because Dhis2.client.organisation_units.fetch_paginated_data is an Enumerable, you can do:
-Dhis2.client.organisation_units.fetch_paginated_data.to_a
+Dhis2.client.organisation_units.fetch_paginated_data.map(&:first) # to get objects only, without pager
 ```
 
 ### Retrieve a single element
@@ -309,7 +309,7 @@ client.data_elements.list({}, true)
 #returns a PaginatedArray which elements look like:
 {"id"=>"FTRrcoaog83", "displayName"=>"Accute Flaccid Paralysis (Deaths < 5 yrs)"}
 
-client.data_elements.fetch_paginated_data({}, true) do |data_element|
+client.data_elements.fetch_paginated_data({}, true) do |data_element, pager|
   # use data_element as hash
 end
 ```
