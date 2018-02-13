@@ -3,7 +3,7 @@
 module Dhis2
   class CollectionWrapper
     def initialize(resource_name, client)
-      @klass  = get_resource_klass(resource_name, client.version)
+      @klass  = get_resource_klass(resource_name)[client.version]
       @client = client
     end
 
@@ -18,16 +18,8 @@ module Dhis2
 
     private
 
-    def get_resource_klass(resource_name, version)
-      Object.const_get "Dhis2::Api::#{MAPPING[version]}::#{resource_name}"
+    def get_resource_klass(resource_name)
+      Object.const_get "Dhis2::#{resource_name}"
     end
-
-    MAPPING = {
-      "2.24" => "Version224",
-      "2.25" => "Version225",
-      "2.26" => "Version226",
-      "2.27" => "Version227",
-      "2.28" => "Version228"
-    }.freeze
   end
 end

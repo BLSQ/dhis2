@@ -314,6 +314,17 @@ client.data_elements.fetch_paginated_data({}, true) do |data_element|
 end
 ```
 
+## Instantiating objects
+
+It can be tedious to manually type `Dhis2::Api::Version228::DataElement` (or any other class) and adapt it for each version number.
+
+There is a convenient method to get it directly:
+
+```ruby
+Dhis2::DataElement["2.28"]
+#=> Dhis2::Api::Version228::DataElement
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rake test` and `bundle exec rspec` to run the tests. Note that the tests are using the DHIS2 demo server, which is reset every day but can be updated by anyone - so if someone change the password of the default user, the tests are going to fail.
