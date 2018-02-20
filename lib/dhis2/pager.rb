@@ -6,10 +6,10 @@ module Dhis2
 
     def initialize(hash)
       @page       = hash["page"]
-      @page_count = hash["page_count"]
+      @page_count = hash["page_count"] || hash["pageCount"]
       @total      = hash["total"]
-      @next_page  = hash["next_page"]
-      @page_size  = hash["page_size"]
+      @next_page  = hash["next_page"] || hash["nextPage"]
+      @page_size  = hash["page_size"] || hash["pageSize"]
     end
 
     def last_page?
