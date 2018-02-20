@@ -41,9 +41,9 @@ RSpec.shared_examples "a DHIS2 listable resource" do |version:, query: {}|
         response = action(query, true)
         if json_response.key?("pager")
           expect(response.pager.page).to       eq json_response["pager"]["page"]
-          expect(response.pager.page_count).to eq json_response["pager"]["page_count"]
+          expect(response.pager.page_count).to eq json_response["pager"]["pageCount"]
           expect(response.pager.total).to      eq json_response["pager"]["total"]
-          expect(response.pager.next_page).to  eq json_response["pager"]["next_page"]
+          expect(response.pager.next_page).to  eq json_response["pager"]["nextPage"]
         end
         json_response.fetch(resource_key, []).each_with_index do |elt, index|
           elt.each do |k, v|
