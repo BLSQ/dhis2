@@ -13,9 +13,13 @@ module Dhis2
           raise Dhis2::PrimaryKeyMissingError if id.nil?
 
           if id.is_a? Array
-            list(client, filter: "id:in:[#{id.join(',')}]", fields: fields, page_size: id.size, raw: raw)
+            list(client, { filter: "id:in:[#{id.join(',')}]", fields: fields, page_size: id.size }, raw)
           else
-            new(client, client.get(path: "#{resource_name}/#{id}", raw: raw))
+            if raw
+              client.get(path: "#{resource_name}/#{id}", raw: true)
+            else
+              new(client, client.get(path: "#{resource_name}/#{id}"))
+            end
           end
         end
 
