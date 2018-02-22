@@ -11,6 +11,6 @@ module Dhis2
   class InvalidMethodError < Error; end
   class DataElementAdditionError < Error; end
   class RequestError < Error
-    attr_accessor :response
+    attr_accessor :response, :http_code, :http_body
   end
 end
