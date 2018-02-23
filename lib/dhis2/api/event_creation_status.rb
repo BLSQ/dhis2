@@ -3,8 +3,8 @@
 module Dhis2
   module Api
     class EventCreationStatus
-      def initialize(response)
-        @response = response
+      def initialize(hash)
+        @hash = hash
       end
 
       def creation_success?
@@ -39,7 +39,11 @@ module Dhis2
 
       private
 
-      attr_reader :response
+      attr_reader :hash
+
+      def response
+        hash["response"]
+      end
 
       def only_updates_and_imports?
         ignored_count == 0 && (updated_count > 0 || imported_count > 0)
