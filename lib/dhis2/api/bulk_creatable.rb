@@ -13,7 +13,7 @@ module Dhis2
           response = client.post(path: "metadata", payload: args, raw_input: raw_input)
           ::Dhis2::Api::ImportSummary.new(response).tap do |summary|
             unless summary.bulk_success?
-              exception = Dhis2::CreationError.new("Didnt create bulk of data properly.\n Response: #{response.to_json}")
+              exception = Dhis2::BulkCreationError.new("Didnt create bulk of data properly.\n Response: #{response.to_json}")
               exception.import_summary = summary
               raise exception
             end
