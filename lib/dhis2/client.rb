@@ -161,9 +161,9 @@ module Dhis2
       end
     rescue RestClient::RequestFailed => e
       exception = ::Dhis2::RequestError.new(e.message)
-      exception.response  = e.response if e.responds_to?(:response)
-      exception.http_code = e.http_code
-      exception.http_body = e.http_body
+      exception.response  = e.response  if e.respond_to?(:response)
+      exception.http_code = e.http_code if e.respond_to?(:http_code)
+      exception.http_body = e.http_body if e.respond_to?(:http_body)
       raise exception
     end
 
