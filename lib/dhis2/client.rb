@@ -159,9 +159,9 @@ module Dhis2
       else
         Dhis2::Case.deep_change(response, :underscore)
       end
-    rescue RestClient::Exception => e
+    rescue RestClient::RequestFailed => e
       exception = ::Dhis2::RequestError.new(e.message)
-      exception.response  = e.response
+      exception.response  = e.response if e.responds_to?(:response)
       exception.http_code = e.http_code
       exception.http_body = e.http_body
       raise exception
