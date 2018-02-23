@@ -291,7 +291,7 @@ elements = [
   { name: "TesTesT2", short_name: "TTT2" }
 ]
 summary = Dhis2.client.data_elements.bulk_create(elements)
-# would raise Dhis2::CreationError on error
+# would raise Dhis2::BulkCreationError on error
 summary.imported_count # => 1
 summary.updated_count  # => 1
 summary.ignored_count  # => 0
