@@ -7,6 +7,10 @@ module Dhis2
         @hash = hash
       end
 
+      def reference
+        hash["reference"]
+      end
+
       def creation_success?
         base_success? && only_updates_and_imports?
       end
