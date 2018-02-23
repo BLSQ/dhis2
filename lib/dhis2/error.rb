@@ -2,6 +2,9 @@
 
 module Dhis2
   class Error < StandardError; end
+  class BulkCreationError < Error
+    attr_accessor :import_summary
+  end
   class CreationError < Error; end
   class UpdateError   < Error; end
   class PrimaryKeyMissingError < Error; end
