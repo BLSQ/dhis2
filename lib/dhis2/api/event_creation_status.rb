@@ -46,7 +46,7 @@ module Dhis2
       end
 
       def base_success?
-        response["response_type"] == "ImportSummary" &&
+        response["response_type"] == "ImportSummaries" &&
           response["status"] == "SUCCESS"
       end
     end
