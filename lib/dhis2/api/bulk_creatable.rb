@@ -8,10 +8,13 @@ module Dhis2
       end
 
       module ClassMethods
+
+        BulkCreationStatusClass = ::Dhis2::Api::ImportSummary
+
         # args is a hash like: { data_element_groups: [{ name: "foo" }, { name: "bar" }] }
         def bulk_create(client, args, raw_input = false)
           response = client.post(path: "metadata", payload: args, raw_input: raw_input)
-          ::Dhis2::Api::ImportSummary.new(response).tap do |summary|
+          BulkCreationStatusClass.new(response).tap do |summary|
             unless summary.bulk_success?
               exception = Dhis2::BulkCreationError.new("Didnt create bulk of data properly.\n Response: #{response.to_json}")
               exception.import_summary = summary

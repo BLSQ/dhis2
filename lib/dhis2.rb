@@ -20,6 +20,7 @@ require_relative "dhis2/client"
 
 require_relative "dhis2/api/base"
 require_relative "dhis2/api/import_summary"
+require_relative "dhis2/api/event_creation_status"
 require_relative "dhis2/api/constants"
 require_relative "dhis2/api/bulk_creatable"
 require_relative "dhis2/api/creatable"
