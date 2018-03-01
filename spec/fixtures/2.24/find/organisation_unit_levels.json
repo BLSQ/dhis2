@@ -1,0 +1,21 @@
+{
+    "level": 12,
+    "created": "2017-10-17T08:12:39.709",
+    "lastUpdated": "2017-10-17T08:12:39.718",
+    "name": "oul",
+    "href": "http://127.0.0.1:8080/api/organisationUnitLevels/EeMRqphcyKz",
+    "id": "EeMRqphcyKz",
+    "displayName": "oul",
+    "externalAccess": false,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": false
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "translations": []
+}

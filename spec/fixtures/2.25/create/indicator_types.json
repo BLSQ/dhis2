@@ -1,0 +1,15 @@
+{
+  "request": {
+    "name": "idttp"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "DvAYhH5cjb1",
+      "klass": "org.hisp.dhis.indicator.IndicatorType"
+    }
+  }
+}

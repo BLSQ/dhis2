@@ -1,0 +1,21 @@
+{
+  "request": {
+    "name": "idctp",
+    "shortName": "please short",
+    "numerator": 12,
+    "denominator": 90,
+    "indicatorType": {
+      "id": "bSKbFgZGzDA"
+    }
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "bP35ZYlWeeK",
+      "klass": "org.hisp.dhis.indicator.Indicator"
+    }
+  }
+}

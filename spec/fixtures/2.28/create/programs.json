@@ -1,0 +1,17 @@
+{
+  "request": {
+    "shortName": "pg",
+    "name": "pg api test",
+    "programType": "WITHOUT_REGISTRATION"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "VsFtAhHho0J",
+      "klass": "org.hisp.dhis.program.Program"
+    }
+  }
+}

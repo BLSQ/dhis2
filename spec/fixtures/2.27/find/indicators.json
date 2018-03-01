@@ -1,0 +1,41 @@
+{
+    "lastUpdated": "2017-10-17T13:27:28.003",
+    "id": "bP35ZYlWeeK",
+    "href": "http://127.0.0.1:8080/api/indicators/bP35ZYlWeeK",
+    "created": "2017-10-17T13:27:28.003",
+    "name": "idctp",
+    "shortName": "please short",
+    "displayName": "idctp",
+    "publicAccess": "rw------",
+    "displayShortName": "please short",
+    "externalAccess": false,
+    "dimensionItem": "bP35ZYlWeeK",
+    "numerator": "12",
+    "denominator": "90",
+    "annualized": false,
+    "dimensionItemType": "INDICATOR",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": true,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "indicatorType": {
+        "id": "bSKbFgZGzDA"
+    },
+    "lastUpdatedBy": {
+        "id": "M5zQapPyTZI"
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "translations": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "indicatorGroups": [],
+    "userAccesses": [],
+    "dataSets": [],
+    "legendSets": []
+}

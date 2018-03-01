@@ -1,0 +1,15 @@
+{
+  "request": {
+    "name": "deg"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "ZidvXRp7zLh",
+      "klass": "org.hisp.dhis.dataelement.DataElementGroup"
+    }
+  }
+}

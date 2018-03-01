@@ -1,0 +1,40 @@
+{
+    "lastUpdated": "2017-10-16T19:39:47.830",
+    "id": "kNCv2FSHCRo",
+    "href": "http://127.0.0.1:8080/api/dataElements/kNCv2FSHCRo",
+    "created": "2017-10-16T19:39:47.807",
+    "name": "name",
+    "shortName": "short",
+    "aggregationType": "DEFAULT",
+    "domainType": "AGGREGATE",
+    "displayName": "name",
+    "publicAccess": "rw------",
+    "displayShortName": "short",
+    "externalAccess": false,
+    "valueType": "TEXT",
+    "dimensionItem": "kNCv2FSHCRo",
+    "displayFormName": "name",
+    "zeroIsSignificant": false,
+    "optionSetValue": false,
+    "dimensionItemType": "DATA_ELEMENT",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "categoryCombo": {
+        "id": "D2i7GJrtCHb"
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "translations": [],
+    "userGroupAccesses": [],
+    "dataElementGroups": [],
+    "attributeValues": [],
+    "dataSets": [],
+    "aggregationLevels": []
+}

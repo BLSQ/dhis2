@@ -1,0 +1,38 @@
+{
+    "lastUpdated": "2017-10-17T12:32:11.916",
+    "id": "FIiSaFDxh0i",
+    "href": "http://127.0.0.1:8080/api/indicators/FIiSaFDxh0i",
+    "created": "2017-10-17T12:32:11.916",
+    "name": "idct",
+    "shortName": "loulou",
+    "displayName": "idct",
+    "publicAccess": "rw------",
+    "displayShortName": "loulou",
+    "externalAccess": false,
+    "dimensionItem": "FIiSaFDxh0i",
+    "numerator": "2",
+    "denominator": "2",
+    "annualized": false,
+    "dimensionItemType": "INDICATOR",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "indicatorType": {
+        "id": "nBg9L3sZCLh"
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "translations": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "indicatorGroups": [],
+    "userAccesses": [],
+    "dataSets": [],
+    "legendSets": []
+}

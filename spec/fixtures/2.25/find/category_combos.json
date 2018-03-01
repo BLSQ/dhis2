@@ -1,0 +1,33 @@
+{
+    "created": "2017-10-17T10:35:59.949",
+    "lastUpdated": "2017-10-17T10:35:59.949",
+    "name": "cc",
+    "href": "http://127.0.0.1:8080/api/categoryCombos/YU6hmd5U9Z2",
+    "id": "YU6hmd5U9Z2",
+    "dataDimensionType": "ATTRIBUTE",
+    "displayName": "cc",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "isDefault": false,
+    "skipTotal": false,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "categoryOptionCombos": [
+        {
+            "id": "VmICnU5WSvY"
+        }
+    ],
+    "translations": [],
+    "categories": []
+}

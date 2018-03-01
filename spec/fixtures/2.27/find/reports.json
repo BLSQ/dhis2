@@ -1,0 +1,29 @@
+{
+    "created": "2017-10-17T13:21:03.798",
+    "lastUpdated": "2017-10-17T13:21:03.798",
+    "name": "ougs",
+    "href": "http://127.0.0.1:8080/api/reports/CIY5O4vd1iI",
+    "id": "CIY5O4vd1iI",
+    "displayName": "ougs",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "cacheStrategy": "RESPECT_SYSTEM_SETTING",
+    "lastUpdatedBy": {
+        "id": "M5zQapPyTZI"
+    },
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": true,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "translations": [],
+    "userAccesses": []
+}

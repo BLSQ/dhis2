@@ -1,0 +1,16 @@
+{
+  "request": {
+    "dataDimensionType": "ATTRIBUTE",
+    "name": "cat name"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "C30hsQFnESx",
+      "klass": "org.hisp.dhis.dataelement.DataElementCategoryCombo"
+    }
+  }
+}

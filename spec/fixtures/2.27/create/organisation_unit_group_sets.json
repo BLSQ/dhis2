@@ -1,0 +1,15 @@
+{
+  "request": {
+    "name": "ougs"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "NuXoyUBkN8h",
+      "klass": "org.hisp.dhis.organisationunit.OrganisationUnitGroupSet"
+    }
+  }
+}

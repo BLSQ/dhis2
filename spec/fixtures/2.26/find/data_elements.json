@@ -1,0 +1,42 @@
+{
+    "lastUpdated": "2017-10-17T12:28:03.359",
+    "id": "QNFmPeMEoFg",
+    "href": "http://127.0.0.1:8080/api/dataElements/QNFmPeMEoFg",
+    "created": "2017-10-17T12:28:03.359",
+    "name": "data element",
+    "shortName": "dtlm",
+    "aggregationType": "DEFAULT",
+    "domainType": "AGGREGATE",
+    "displayName": "data element",
+    "publicAccess": "rw------",
+    "displayShortName": "dtlm",
+    "externalAccess": false,
+    "valueType": "TEXT",
+    "dimensionItem": "QNFmPeMEoFg",
+    "displayFormName": "data element",
+    "zeroIsSignificant": false,
+    "optionSetValue": false,
+    "dimensionItemType": "DATA_ELEMENT",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "dataSetElements": [],
+    "translations": [],
+    "userGroupAccesses": [],
+    "dataElementGroups": [],
+    "attributeValues": [],
+    "userAccesses": [],
+    "legendSets": [],
+    "aggregationLevels": []
+}

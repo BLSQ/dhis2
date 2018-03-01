@@ -1,0 +1,15 @@
+{
+  "request": {
+    "name": "idctrgrpe"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "jNSxV0GbCJS",
+      "klass": "org.hisp.dhis.indicator.IndicatorGroup"
+    }
+  }
+}

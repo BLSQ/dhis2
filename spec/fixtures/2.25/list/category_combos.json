@@ -1,0 +1,18 @@
+{
+    "pager": {
+        "page": 1,
+        "pageCount": 1,
+        "total": 2,
+        "pageSize": 50
+    },
+    "categoryCombos": [
+        {
+            "id": "YU6hmd5U9Z2",
+            "displayName": "cc"
+        },
+        {
+            "id": "bjDvmb4bfuf",
+            "displayName": "default"
+        }
+    ]
+}

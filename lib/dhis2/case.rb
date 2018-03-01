@@ -5,7 +5,7 @@ module Dhis2
     SUPPORTER_CASE_CHANGES = %i(underscore camelize).freeze
 
     def self.deep_change(obj, type)
-      raise deep_change_error(type) unless SUPPORTER_CASE_CHANGES.include?(type)
+      raise CaseError, deep_change_error(type) unless SUPPORTER_CASE_CHANGES.include?(type)
       case obj
       when Array then obj.map { |v| deep_change(v, type) }
       when Hash

@@ -1,0 +1,45 @@
+{
+    "lastUpdated": "2017-10-17T13:24:41.031",
+    "id": "zvW5WYzd26u",
+    "href": "http://127.0.0.1:8080/api/dataElements/zvW5WYzd26u",
+    "created": "2017-10-17T13:24:41.031",
+    "name": "de",
+    "shortName": "daaaataaaaa",
+    "aggregationType": "DEFAULT",
+    "domainType": "AGGREGATE",
+    "displayName": "de",
+    "publicAccess": "rw------",
+    "displayShortName": "daaaataaaaa",
+    "externalAccess": false,
+    "valueType": "UNIT_INTERVAL",
+    "dimensionItem": "zvW5WYzd26u",
+    "displayFormName": "de",
+    "zeroIsSignificant": false,
+    "optionSetValue": false,
+    "dimensionItemType": "DATA_ELEMENT",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": true,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+    },
+    "lastUpdatedBy": {
+        "id": "M5zQapPyTZI"
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "dataSetElements": [],
+    "translations": [],
+    "userGroupAccesses": [],
+    "dataElementGroups": [],
+    "attributeValues": [],
+    "userAccesses": [],
+    "legendSets": [],
+    "aggregationLevels": []
+}

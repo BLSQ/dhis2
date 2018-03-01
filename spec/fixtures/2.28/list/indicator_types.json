@@ -1,0 +1,30 @@
+{
+    "pager": {
+        "page": 1,
+        "pageCount": 1,
+        "total": 5,
+        "pageSize": 50
+    },
+    "indicatorTypes": [
+        {
+            "id": "JkWynlWMjJR",
+            "displayName": "Number (Factor 1)"
+        },
+        {
+            "id": "bWuNrMHEoZ0",
+            "displayName": "Per cent"
+        },
+        {
+            "id": "vQ0dGV9EDrw",
+            "displayName": "Per hundred thousand"
+        },
+        {
+            "id": "wB7vTGTafMI",
+            "displayName": "Per ten thousand"
+        },
+        {
+            "id": "mmey8xSvORj",
+            "displayName": "Per thousand"
+        }
+    ]
+}

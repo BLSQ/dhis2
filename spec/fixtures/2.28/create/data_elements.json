@@ -1,0 +1,22 @@
+{
+  "request": {
+    "aggregationType": "CUSTOM",
+    "code": "Do not be long, it is supposed to be short",
+    "domainType": "TRACKER",
+    "type": "int",
+    "valueType": "LETTER",
+    "zeroIsSignificant": true,
+    "name": "delmt",
+    "shortName": "Do not be long, it is supposed to be short"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "d1fjk7mrtl4",
+      "klass": "org.hisp.dhis.dataelement.DataElement"
+    }
+  }
+}

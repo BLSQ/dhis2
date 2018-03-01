@@ -1,0 +1,25 @@
+{
+    "created": "2017-10-17T11:43:05.376",
+    "lastUpdated": "2017-10-17T11:43:05.376",
+    "name": "rt",
+    "href": "http://127.0.0.1:8080/api/reports/FC9go9A5TJB",
+    "id": "FC9go9A5TJB",
+    "displayName": "rt",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "cacheStrategy": "RESPECT_SYSTEM_SETTING",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": true,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "translations": []
+}

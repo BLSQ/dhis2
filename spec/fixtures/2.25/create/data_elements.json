@@ -1,0 +1,25 @@
+{
+  "request": {
+    "aggregationType": "SUM",
+    "code": "desn",
+    "domainType": "AGGREGATE",
+    "type": "int",
+    "valueType": "NUMBER",
+    "zeroIsSignificant": true,
+    "name": "deg",
+    "categoryCombo": {
+      "id": "YU6hmd5U9Z2"
+    },
+    "shortName": "desn"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "jjhfyJ0q5np",
+      "klass": "org.hisp.dhis.dataelement.DataElement"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+    "lastUpdated": "2017-10-17T12:41:33.444",
+    "id": "osE1rsTAbns",
+    "href": "http://127.0.0.1:8080/api/organisationUnitGroupSets/osE1rsTAbns",
+    "created": "2017-10-17T12:41:33.444",
+    "name": "ougs",
+    "shortName": "ougs",
+    "dimensionType": "ORGANISATION_UNIT_GROUP_SET",
+    "displayName": "ougs",
+    "publicAccess": "rw------",
+    "displayShortName": "ougs",
+    "externalAccess": false,
+    "dimension": "osE1rsTAbns",
+    "allItems": false,
+    "compulsory": false,
+    "includeSubhierarchyInAnalytics": false,
+    "dataDimension": true,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "translations": [],
+    "organisationUnitGroups": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "userAccesses": [],
+    "items": []
+}

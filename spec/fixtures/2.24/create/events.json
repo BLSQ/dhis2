@@ -1,0 +1,41 @@
+{
+  "request": {
+    "program": "wPesF1Izc46",
+    "orgUnit": "LxXSSlg9u5l",
+    "eventDate": "2017-04-10",
+    "dataValues": [
+      {
+        "dataElement": "UV92YUGobwL",
+        "value": "12"
+      }
+    ]
+  },
+  "response": {
+    "httpStatus": "OK",
+    "httpStatusCode": 200,
+    "status": "OK",
+    "message": "Import was successful.",
+    "response": {
+      "responseType": "ImportSummaries",
+      "status": "SUCCESS",
+      "imported": 1,
+      "updated": 0,
+      "deleted": 0,
+      "ignored": 0,
+      "importSummaries": [
+        {
+          "responseType": "ImportSummary",
+          "status": "SUCCESS",
+          "importCount": {
+            "imported": 1,
+            "updated": 0,
+            "ignored": 0,
+            "deleted": 0
+          },
+          "reference": "ZSYErdiseHU",
+          "href": "http://127.0.0.1:8080/api/events/ZSYErdiseHU"
+        }
+      ]
+    }
+  }
+}

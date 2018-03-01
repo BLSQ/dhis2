@@ -1,0 +1,16 @@
+{
+  "request": {
+    "periodType": "Yearly",
+    "name": "data sets"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "KKyx4iezDsU",
+      "klass": "org.hisp.dhis.dataset.DataSet"
+    }
+  }
+}

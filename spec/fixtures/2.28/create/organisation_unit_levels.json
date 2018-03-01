@@ -1,0 +1,16 @@
+{
+  "request": {
+    "name": "oul",
+    "level": "42"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "Mu3G4Dned4A",
+      "klass": "org.hisp.dhis.organisationunit.OrganisationUnitLevel"
+    }
+  }
+}

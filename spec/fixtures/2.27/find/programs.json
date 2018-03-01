@@ -1,0 +1,58 @@
+{
+    "lastUpdated": "2017-10-17T13:31:19.216",
+    "id": "zEC9uTm5zjm",
+    "href": "http://127.0.0.1:8080/api/programs/zEC9uTm5zjm",
+    "created": "2017-10-17T13:31:19.216",
+    "name": "program",
+    "shortName": "prgrm",
+    "publicAccess": "rw------",
+    "ignoreOverdueEvents": false,
+    "skipOffline": false,
+    "captureCoordinates": false,
+    "onlyEnrollOnce": false,
+    "version": 0,
+    "selectIncidentDatesInFuture": false,
+    "selectEnrollmentDatesInFuture": false,
+    "registration": true,
+    "useFirstStageDuringRegistration": false,
+    "displayName": "program",
+    "completeEventsExpiryDays": 0,
+    "displayShortName": "prgrm",
+    "externalAccess": false,
+    "withoutRegistration": false,
+    "displayFrontPageList": false,
+    "programType": "WITH_REGISTRATION",
+    "relationshipFromA": false,
+    "displayIncidentDate": true,
+    "expiryDays": 0,
+    "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+    },
+    "lastUpdatedBy": {
+        "id": "M5zQapPyTZI"
+    },
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": true,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "programIndicators": [],
+    "translations": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "validationCriterias": [],
+    "userRoles": [],
+    "userAccesses": [],
+    "programRuleVariables": [],
+    "programTrackedEntityAttributes": [],
+    "notificationTemplates": [],
+    "organisationUnits": [],
+    "programStages": [],
+    "programRules": []
+}

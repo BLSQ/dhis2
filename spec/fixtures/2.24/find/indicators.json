@@ -1,0 +1,36 @@
+{
+    "lastUpdated": "2017-10-16T20:02:41.073",
+    "id": "YMUcUFojkOv",
+    "href": "http://127.0.0.1:8080/api/indicators/YMUcUFojkOv",
+    "created": "2017-10-16T20:02:41.067",
+    "name": "indicator name",
+    "shortName": "indic",
+    "displayName": "indicator name",
+    "publicAccess": "rw------",
+    "displayShortName": "indic",
+    "externalAccess": false,
+    "dimensionItem": "YMUcUFojkOv",
+    "numerator": "da",
+    "denominator": "de",
+    "annualized": false,
+    "dimensionItemType": "INDICATOR",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "indicatorType": {
+        "id": "KfS1BheyyM7"
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "translations": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "indicatorGroups": [],
+    "dataSets": []
+}

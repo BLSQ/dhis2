@@ -1,0 +1,15 @@
+{
+  "request": {
+    "name": "data element group"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "hlpAamDgTRB",
+      "klass": "org.hisp.dhis.dataelement.DataElementGroup"
+    }
+  }
+}

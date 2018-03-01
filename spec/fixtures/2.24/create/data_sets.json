@@ -1,0 +1,30 @@
+{
+  "request": {
+    "periodType": "Monthly",
+    "name": "ds2"
+  },
+  "response": {
+    "httpStatus": "OK",
+    "httpStatusCode": 200,
+    "status": "OK",
+    "message": "Import was successful.",
+    "response": {
+      "responseType": "ImportTypeSummary",
+      "status": "SUCCESS",
+      "importCount": {
+        "imported": 1,
+        "updated": 0,
+        "ignored": 0,
+        "deleted": 0
+      },
+      "type": "DataSet",
+      "importConflicts": [
+        {
+          "object": "ds2",
+          "value": "Empty shortName for object {\"class\":\"class org.hisp.dhis.dataset.DataSet\", \"id\":\"0\", \"uid\":\"null\", \"code\":\"null\", \"name\":\"ds2\", \"created\":\"null\", \"lastUpdated\":\"null\" }"
+        }
+      ],
+      "lastImported": "Gt0iBkYpAOl"
+    }
+  }
+}

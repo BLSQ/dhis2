@@ -1,0 +1,25 @@
+{
+    "created": "2017-10-23T12:05:24.020",
+    "lastUpdated": "2017-10-23T12:05:24.026",
+    "name": "idctrgrpe",
+    "href": "http://127.0.0.1:8080/api/indicatorGroups/KjolQgfx8PB",
+    "id": "KjolQgfx8PB",
+    "displayName": "idctrgrpe",
+    "publicAccess": "rw------",
+    "externalAccess": false,
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "indicators": [],
+    "translations": []
+}

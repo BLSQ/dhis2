@@ -1,0 +1,47 @@
+{
+    "lastUpdated": "2017-10-17T12:37:24.272",
+    "id": "mEXmnhA0ejC",
+    "href": "http://127.0.0.1:8080/api/organisationUnits/mEXmnhA0ejC",
+    "level": 2,
+    "created": "2017-10-17T12:37:24.175",
+    "leaf": true,
+    "name": "child",
+    "shortName": "child!",
+    "displayName": "child",
+    "displayShortName": "child!",
+    "externalAccess": false,
+    "path": "/BPI80vYzDQB/mEXmnhA0ejC",
+    "featureType": "NONE",
+    "openingDate": "2014-12-13T00:00:00.000",
+    "dimensionItem": "mEXmnhA0ejC",
+    "dimensionItemType": "ORGANISATION_UNIT",
+    "parent": {
+        "id": "BPI80vYzDQB"
+    },
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": false
+    },
+    "user": {
+        "id": "M5zQapPyTZI"
+    },
+    "children": [],
+    "translations": [],
+    "ancestors": [
+        {
+            "id": "BPI80vYzDQB"
+        }
+    ],
+    "organisationUnitGroups": [],
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "users": [],
+    "userAccesses": [],
+    "dataSets": [],
+    "legendSets": [],
+    "programs": []
+}

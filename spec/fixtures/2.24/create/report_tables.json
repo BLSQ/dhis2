@@ -1,0 +1,11 @@
+{
+  "request": {
+    "name": "rprttbl"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "message": "Report table created"
+  }
+}

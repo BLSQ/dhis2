@@ -4,16 +4,20 @@ require "spec_helper"
 
 describe Dhis2::Case do
   describe ".deep_change" do
-    let(:camelized) {[
-      {
-        "fooBar" => ['bar_baz barBaz']
-      }
-    ]}
-    let(:underscored) {[
-      {
-        "foo_bar" => ['bar_baz barBaz']
-      }
-    ]}
+    let(:camelized) do
+      [
+        {
+          "fooBar" => ["bar_baz barBaz"]
+        }
+      ]
+    end
+    let(:underscored) do
+      [
+        {
+          "foo_bar" => ["bar_baz barBaz"]
+        }
+      ]
+    end
     it "converts underscore to camelcase" do
       expect(described_class.deep_change(underscored, :camelize)).to eq camelized
     end

@@ -1,0 +1,21 @@
+{
+  "request": {
+    "name": "idct",
+    "numerator": 2,
+    "denominator": 2,
+    "shortName": "loulou",
+    "indicatorType": {
+      "id": "nBg9L3sZCLh"
+    }
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "FIiSaFDxh0i",
+      "klass": "org.hisp.dhis.indicator.Indicator"
+    }
+  }
+}

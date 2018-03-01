@@ -1,0 +1,24 @@
+{
+  "request": {
+    "dataValues": [
+      {
+        "value": "36",
+        "period": "201601",
+        "orgUnit": "eYcb2MlHGhk",
+        "dataElement": "UV92YUGobwL"
+      }
+    ]
+  },
+  "response": {
+    "responseType": "ImportSummary",
+    "status": "SUCCESS",
+    "description": "Import process completed successfully",
+    "importCount": {
+      "imported": 1,
+      "updated": 0,
+      "ignored": 0,
+      "deleted": 0
+    },
+    "dataSetComplete": "false"
+  }
+}

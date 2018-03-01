@@ -2,70 +2,179 @@
 
 module Dhis2
   class Client
-    def self.register_resource(resource_class)
-      define_method(resource_class.resource_key) do
-        CollectionWrapper.new(resource_class, self)
-      end
-    end
+    attr_reader :version
 
     def initialize(options)
-      if options.is_a?(String)
-        @base_url = options
-        connection_options
-      else
-        raise "Missing :url attribute"      unless options[:url]
-        raise "Missing :user attribute"     unless options[:user]
-        raise "Missing :password attribute" unless options[:password]
-        url          = URI.parse(options[:url])
-        url.user     = CGI.escape(options[:user])
-        url.password = CGI.escape(options[:password])
-        @base_url    = url.to_s
-        connection_options(options)
-      end
+      @base_url   = options.fetch(:url)
+      @version    = options.fetch(:version)
+      @verify_ssl = options.fetch(:verify_ssl, OpenSSL::SSL::VERIFY_PEER)
+      @timeout    = options.fetch(:timeout, 120)
+      @debug      = options.fetch(:debug, false)
     end
 
-    def post(path, payload = nil, query_params = {})
-      execute(:post, uri(path), query_params, payload)
+    def post(path:, payload: nil, query_params: {}, raw: false, raw_input: false)
+      execute(method_name: :post, url: uri(path), query_params: query_params, payload: payload, raw: raw, raw_input: raw_input)
     end
 
-    def get(path, query_params = {})
-      execute(:get, uri(path), query_params)
+    def get(path:, query_params: {}, raw: false)
+      execute(method_name: :get, url: uri(path), query_params: query_params, raw: raw)
     end
 
-    def delete(path, query_params = {})
-      execute(:delete, uri(path), query_params)
+    def delete(path:, query_params: {}, raw: false)
+      execute(method_name: :delete, url: uri(path), query_params: query_params, raw: raw)
     end
 
-    def put(path, payload, query_params = {})
-      execute(:put, uri(path), query_params, payload)
+    def put(path:, payload:, query_params: {}, raw: false)
+      execute(method_name: :put, url: uri(path), query_params: query_params, payload: payload, raw: raw)
     end
 
-    def patch(path, payload, query_params = {})
-      execute(:patch, uri(path), query_params, payload)
+    def patch(path:, payload:, query_params: {}, raw: false)
+      execute(method_name: :patch, url: uri(path), query_params: query_params, payload: payload, raw: raw)
+    end
+
+    def analytics
+      @analytics ||= CollectionWrapper.new("Analytic", self)
+    end
+
+    def attributes
+      @attributes ||= CollectionWrapper.new("Attribute", self)
+    end
+
+    def category_combos
+      @category_combos ||= CollectionWrapper.new("CategoryCombo", self)
+    end
+
+    def category_option_combos
+      @category_option_combos ||= CollectionWrapper.new("CategoryOptionCombo", self)
+    end
+
+    def data_elements
+      @data_elements ||= CollectionWrapper.new("DataElement", self)
+    end
+
+    def data_element_groups
+      @data_element_groups ||= CollectionWrapper.new("DataElementGroup", self)
+    end
+
+    def data_sets
+      @data_sets ||= CollectionWrapper.new("DataSet", self)
+    end
+
+    def data_values
+      @data_values ||= CollectionWrapper.new("DataValue", self)
+    end
+
+    def data_value_sets
+      @data_value_sets ||= CollectionWrapper.new("DataValueSet", self)
+    end
+
+    def events
+      @events ||= CollectionWrapper.new("Event", self)
+    end
+
+    def indicators
+      @indicators ||= CollectionWrapper.new("Indicator", self)
+    end
+
+    def indicator_groups
+      @indicator_groups ||= CollectionWrapper.new("IndicatorGroup", self)
+    end
+
+    def indicator_types
+      @indicator_types ||= CollectionWrapper.new("IndicatorType", self)
+    end
+
+    def organisation_units
+      @organisation_units ||= CollectionWrapper.new("OrganisationUnit", self)
+    end
+
+    def organisation_unit_groups
+      @organisation_unit_groups ||= CollectionWrapper.new("OrganisationUnitGroup", self)
+    end
+
+    def organisation_unit_group_sets
+      @organisation_unit_group_sets ||= CollectionWrapper.new("OrganisationUnitGroupSet", self)
+    end
+
+    def organisation_unit_levels
+      @organisation_unit_levels ||= CollectionWrapper.new("OrganisationUnitLevel", self)
+    end
+
+    def programs
+      @programs ||= CollectionWrapper.new("Program", self)
+    end
+
+    def reports
+      @reports ||= CollectionWrapper.new("Report", self)
+    end
+
+    def report_tables
+      @report_tables ||= CollectionWrapper.new("ReportTable", self)
+    end
+
+    def resource_tables
+      @resource_tables ||= CollectionWrapper.new("ResourceTable", self)
+    end
+
+    def system_infos
+      @system_infos ||= CollectionWrapper.new("SystemInfo", self)
+    end
+
+    def users
+      @users ||= CollectionWrapper.new("User", self)
+    end
+
+    def can_connect?
+      system_infos.get
+      true
+    rescue ::Dhis2::Error
+      false
+    rescue StandardError
+      false
+    end
+
+    def self.uri(base_url, path)
+      File.join(base_url, API, path)
     end
 
     private
 
-    def execute(method_name, url, query_params = {}, payload = nil)
+    EMPTY_RESPONSES = [nil, ""]
+    API =  "api"
+    TAB = "\t"
+
+    def execute(method_name:, url:, query_params: {}, payload: nil, raw: false, raw_input: false)
       raw_response = RestClient::Request.execute(
         method:     method_name,
         url:        url,
         headers:    headers(method_name, query_params),
-        payload:    payload ? Dhis2::Case.deep_change(payload, :camelize).to_json : nil,
+        payload:    compute_payload(payload, raw_input),
         verify_ssl: @verify_ssl,
         timeout:    @timeout
       )
-      response = [nil, ""].include?(raw_response) ? {} : JSON.parse(raw_response)
+      response = EMPTY_RESPONSES.include?(raw_response) ? {} : JSON.parse(raw_response)
       log(raw_response.request, response)
-      Dhis2::Case.deep_change(response, :underscore).tap do |underscore_response|
-        if any_conflict?(underscore_response)
-          raise Dhis2::ImportError, extract_conflict_message(underscore_response)
-        end
+      if raw
+        response
+      else
+        Dhis2::Case.deep_change(response, :underscore)
       end
+    rescue RestClient::RequestFailed => e
+      exception = ::Dhis2::RequestError.new(e.message)
+      exception.response  = e.response  if e.respond_to?(:response)
+      exception.http_code = e.http_code if e.respond_to?(:http_code)
+      exception.http_body = e.http_body if e.respond_to?(:http_body)
+      raise exception
+    end
+
+    def compute_payload(payload, raw_input)
+      return nil unless payload
+      return payload.to_json if raw_input
+      Dhis2::Case.deep_change(payload, :camelize).to_json
     end
 
     def uri(path)
-      File.join(@base_url, "api", path)
+      self.class.uri(@base_url, path)
     end
 
     def headers(method_name, query_params)
@@ -74,29 +183,8 @@ module Dhis2
       end
     end
 
-    def any_conflict?(hash)
-      hash.class == Hash && hash["import_type_summaries"] &&
-        hash["import_type_summaries"][0] &&
-        hash["import_type_summaries"][0]["import_conflicts"] &&
-        !hash["import_type_summaries"].first["import_conflicts"].empty?
-    end
-
-    def extract_conflict_message(hash)
-      hash["import_type_summaries"].first["import_conflicts"].first["value"].inspect
-    end
-
-    def connection_options(options = {})
-      @verify_ssl = if options[:no_ssl_verification]
-                      OpenSSL::SSL::VERIFY_NONE
-                    else
-                      OpenSSL::SSL::VERIFY_PEER
-                    end
-      @timeout    = options[:timeout] ? options[:timeout].to_i : 120
-      @debug      = options.fetch(:debug, true)
-    end
-
     def log(request, response)
-      puts [request.url, request.args[:payload], response].join("\t") if @debug
+      puts [request.url, request.args[:payload], response].join(TAB) if @debug
     end
   end
 end
