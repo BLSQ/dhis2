@@ -40,6 +40,14 @@ module Dhis2
       @attributes ||= CollectionWrapper.new("Attribute", self)
     end
 
+    def categories
+      @categories ||= CollectionWrapper.new("Category", self)
+    end
+
+    def category_options
+      @category_options ||= CollectionWrapper.new("CategoryOption", self)
+    end
+
     def category_combos
       @category_combos ||= CollectionWrapper.new("CategoryCombo", self)
     end
@@ -144,11 +152,13 @@ module Dhis2
     TAB = "\t"
 
     def execute(method_name:, url:, query_params: {}, payload: nil, raw: false, raw_input: false)
+      computed_payload = compute_payload(payload, raw_input)
+
       raw_response = RestClient::Request.execute(
         method:     method_name,
         url:        url,
         headers:    headers(method_name, query_params),
-        payload:    compute_payload(payload, raw_input),
+        payload:    computed_payload,
         verify_ssl: @verify_ssl,
         timeout:    @timeout
       )
@@ -164,6 +174,7 @@ module Dhis2
       exception.response  = e.response  if e.respond_to?(:response)
       exception.http_code = e.http_code if e.respond_to?(:http_code)
       exception.http_body = e.http_body if e.respond_to?(:http_body)
+      log(exception.response.request, exception.response)
       raise exception
     end
 
@@ -184,7 +195,7 @@ module Dhis2
     end
 
     def log(request, response)
-      puts [request.url, request.args[:payload], response].join(TAB) if @debug
+      puts [request.url, request.args[:payload].to_json, response.to_json].join(TAB) if @debug
     end
   end
 end

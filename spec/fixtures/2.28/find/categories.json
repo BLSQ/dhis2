@@ -1,0 +1,67 @@
+{
+  "code": "BIRTHS_ATTENDED",
+  "lastUpdated": "2017-10-09T16:03:48.729",
+  "id": "KfdsGBcoiCa",
+  "href": "https://play.dhis2.org/2.28/api/categories/KfdsGBcoiCa",
+  "created": "2011-12-24T12:24:25.155",
+  "name": "Births attended by",
+  "shortName": "Births attended by",
+  "dataDimensionType": "DISAGGREGATION",
+  "dimensionType": "CATEGORY",
+  "displayName": "Births attended by",
+  "publicAccess": "rw------",
+  "displayShortName": "Births attended by",
+  "externalAccess": false,
+  "dimension": "KfdsGBcoiCa",
+  "allItems": false,
+  "dataDimension": false,
+  "favorite": false,
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "user": { "id": "GOLswS44mh8" },
+  "favorites": [],
+  "translations": [
+    { "property": "SHORT_NAME", "locale": "fr", "value": "French" },
+    { "property": "NAME", "locale": "fr", "value": "French" }
+  ],
+  "categoryCombos": [{ "id": "m2jTvAj5kkm" }],
+  "categoryOptions": [
+    { "id": "TNYQzTHdoxL" },
+    { "id": "TXGfLxZlInA" },
+    { "id": "QgULqw9YDu2" },
+    { "id": "OjIOxG7vgna" },
+    { "id": "uZUnebiT5DI" },
+    { "id": "HTHvCohKoXt" }
+  ],
+  "userGroupAccesses": [
+    {
+      "access": "rwr-----",
+      "userGroupUid": "qMjBflJMOfB",
+      "displayName": "Family Planning Program",
+      "id": "qMjBflJMOfB"
+    }
+  ],
+  "attributeValues": [],
+  "userAccesses": [
+    {
+      "access": "rw------",
+      "displayName": "John Barnes",
+      "id": "DXyJmlo9rge",
+      "userUid": "DXyJmlo9rge"
+    }
+  ],
+  "items": [
+    { "id": "TNYQzTHdoxL" },
+    { "id": "TXGfLxZlInA" },
+    { "id": "QgULqw9YDu2" },
+    { "id": "OjIOxG7vgna" },
+    { "id": "uZUnebiT5DI" },
+    { "id": "HTHvCohKoXt" }
+  ]
+}

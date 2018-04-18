@@ -1,0 +1,16 @@
+{
+  "request": {
+    "dataDimensionType": "DISAGGREGATION",
+    "name": "yellow"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "hwCobbedO0m",
+      "klass": "org.hisp.dhis.dataelement.DataElementCategory"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "code": "0_11_M",
+  "lastUpdated": "2016-04-18T16:25:58.225",
+  "id": "FbLZS3ueWbQ",
+  "href": "https://play.dhis2.org/2.26/api/categoryOptions/FbLZS3ueWbQ",
+  "created": "2011-12-24T12:24:24.149",
+  "name": "0-11m",
+  "shortName": "0-11m",
+  "displayName": "0-11m",
+  "displayShortName": "0-11m",
+  "externalAccess": false,
+  "dimensionItem": "FbLZS3ueWbQ",
+  "dimensionItemType": "CATEGORY_OPTION",
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "translations": [
+    { "property": "NAME", "locale": "en_GB", "value": "0-11m" },
+    { "property": "NAME", "locale": "fr", "value": "French" },
+    { "property": "SHORT_NAME", "locale": "fr", "value": "French" },
+    { "property": "NAME", "locale": "en_GB", "value": "0-11m" }
+  ],
+  "categories": [{ "id": "fkAkrdC7eJF" }],
+  "organisationUnits": [],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "categoryOptionCombos": [{ "id": "sqGRzCziswD" }, { "id": "S34ULMcHMca" }],
+  "categoryOptionGroups": [],
+  "userAccesses": [],
+  "legendSets": []
+}

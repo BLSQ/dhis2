@@ -21,6 +21,8 @@ module Dhis2
 
   class Analytic < Versioned; end
   class Attribute < Versioned; end
+  class Category < Versioned; end
+  class CategoryOption < Versioned; end
   class CategoryCombo < Versioned; end
   class CategoryOptionCombo < Versioned; end
   class DataElement < Versioned; end

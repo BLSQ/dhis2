@@ -1,0 +1,70 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 2,
+    "total": 87,
+    "pageSize": 50,
+    "nextPage": "https://play.dhis2.org/2.27/api/categoryOptions?page=2"
+  },
+  "categoryOptions": [
+    { "id": "FbLZS3ueWbQ", "displayName": "0-11m" },
+    { "id": "K4gwuiVvW3z", "displayName": "0-4y" },
+    { "id": "dPSWsKeAZNw", "displayName": "12-18m" },
+    { "id": "rEq3Hkd3XXH", "displayName": "12-59m" },
+    { "id": "nuHLu6GaiWI", "displayName": "<12m" },
+    { "id": "UOqJW6HPvvL", "displayName": "15-24y" },
+    { "id": "zs2Ra6sikup", "displayName": "<15y" },
+    { "id": "ZZxYuoTCcDd", "displayName": "15y+" },
+    { "id": "dHl52Uo56Ct", "displayName": ">18m" },
+    { "id": "btOyqprQ9e8", "displayName": "<1y" },
+    { "id": "GEqzEKCHoGA", "displayName": ">1y" },
+    { "id": "WAl0OCcIYxr", "displayName": "25-49y" },
+    { "id": "IG8vRsn0HNl", "displayName": ">49y" },
+    { "id": "dUm5jaCTPBb", "displayName": "5-14y" },
+    { "id": "oaFqxkefkPs", "displayName": "5y+" },
+    { "id": "PYddIHxZRKK", "displayName": "5 years and above" },
+    { "id": "FfQkdfpvaxx", "displayName": "Abortion" },
+    {
+      "id": "C6nZpLKjEJr",
+      "displayName": "African Medical and Research Foundation"
+    },
+    { "id": "CW81uF03hvV", "displayName": "AIDSRelief Consortium" },
+    { "id": "agNsiNGcGlf", "displayName": "Anaemia" },
+    { "id": "weOIzRXoUN4", "displayName": "Ante-partum hemmorhage" },
+    { "id": "B3nxOazOO2G", "displayName": "APHIAplus" },
+    { "id": "Fp4gVHbRvEV", "displayName": "At PHU" },
+    { "id": "NW5llDt4Zp0", "displayName": "Blue" },
+    { "id": "RkbOhHwiOgW", "displayName": "CARE International" },
+    { "id": "OjIOxG7vgna", "displayName": "CHO" },
+    { "id": "AdkHQiiJBB4", "displayName": "Consumption" },
+    { "id": "mInFlpnx6TQ", "displayName": "Damages" },
+    { "id": "as6ygGvUGNg", "displayName": "default" },
+    { "id": "QVnlTt3Gs9b", "displayName": "Enable gender equality" },
+    { "id": "xp1wtEkhBmV", "displayName": "End Balance" },
+    { "id": "YHb43JqCAmI", "displayName": "Expired" },
+    { "id": "TY5rBQzlBRa", "displayName": "Family Health International" },
+    { "id": "apsOixVZlf1", "displayName": "Female" },
+    { "id": "qkPbeWaFsnU", "displayName": "Fixed" },
+    { "id": "cQYFfHX9oIT", "displayName": "Green" },
+    { "id": "hERJraxV8D9", "displayName": "Hope Worldwide" },
+    { "id": "IqVA7ElOrEw", "displayName": "Hypertension" },
+    { "id": "i4Nbp8S2G6A", "displayName": "Improve access to clean water" },
+    { "id": "yMj2MnmNI8L", "displayName": "Improve access to medicines" },
+    { "id": "wHFX72Y0KXx", "displayName": "In Community" },
+    { "id": "g3bcPGD5Q5i", "displayName": "International Rescue Committee" },
+    { "id": "yfWXlxYNbhy", "displayName": "IntraHealth International" },
+    {
+      "id": "o4K5VAp14z9",
+      "displayName": "Malaria in 1st trimester (treat with oral quinine"
+    },
+    {
+      "id": "LVVjrz1mFQt",
+      "displayName": "Malaria in 2nd or 3rd trimester (treat with ACT)"
+    },
+    { "id": "jRbMi0aBjYn", "displayName": "Male" },
+    { "id": "vGrKQ90SRZt", "displayName": "Malpresentation" },
+    { "id": "e3oqm527jBS", "displayName": "Managed at PHU" },
+    { "id": "TNYQzTHdoxL", "displayName": "MCH Aides" },
+    { "id": "QgULqw9YDu2", "displayName": "Midwives" }
+  ]
+}

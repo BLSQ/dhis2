@@ -16,11 +16,11 @@ module Dhis2
       }
     end
 
-    def play_params(with_debug)
+    def play_params(with_debug, version)
       {
-        url:     "https://admin:district@play.dhis2.org/2.28/",
+        url:     "https://admin:district@play.dhis2.org/#{version}/",
         debug:   with_debug,
-        version: "2.28"
+        version: version
       }
     end
 

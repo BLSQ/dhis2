@@ -1,0 +1,49 @@
+{
+  "lastUpdated": "2014-11-19T12:58:52.558",
+  "id": "KfdsGBcoiCa",
+  "href": "https://play.dhis2.org/2.25/api/categories/KfdsGBcoiCa",
+  "created": "2011-12-24T12:24:25.155",
+  "name": "Births attended by",
+  "shortName": "Births attended by",
+  "dataDimensionType": "DISAGGREGATION",
+  "dimensionType": "CATEGORY",
+  "displayName": "Births attended by",
+  "publicAccess": "rw------",
+  "displayShortName": "Births attended by",
+  "externalAccess": false,
+  "dimension": "KfdsGBcoiCa",
+  "allItems": false,
+  "dataDimension": false,
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "user": { "id": "GOLswS44mh8" },
+  "translations": [
+    { "property": "NAME", "locale": "fr", "value": "French" },
+    { "property": "SHORT_NAME", "locale": "fr", "value": "French" }
+  ],
+  "categoryCombos": [{ "id": "m2jTvAj5kkm" }],
+  "categoryOptions": [
+    { "id": "TNYQzTHdoxL" },
+    { "id": "TXGfLxZlInA" },
+    { "id": "QgULqw9YDu2" },
+    { "id": "OjIOxG7vgna" },
+    { "id": "uZUnebiT5DI" },
+    { "id": "HTHvCohKoXt" }
+  ],
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "items": [
+    { "id": "TNYQzTHdoxL" },
+    { "id": "TXGfLxZlInA" },
+    { "id": "QgULqw9YDu2" },
+    { "id": "OjIOxG7vgna" },
+    { "id": "uZUnebiT5DI" },
+    { "id": "HTHvCohKoXt" }
+  ]
+}

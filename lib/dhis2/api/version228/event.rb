@@ -12,7 +12,9 @@ module Dhis2
         include ::Dhis2::Api::Shared::SaveValidator
         include ::Dhis2::Api::Shared::Event
 
-        BulkCreationStatusClass = ::Dhis2::Api::EventCreationStatus
+        def bulk_creation_status_class
+          ::Dhis2::Api::EventCreationStatus
+        end
 
         # args for a program without registration
         # and a  program with a program_stage
