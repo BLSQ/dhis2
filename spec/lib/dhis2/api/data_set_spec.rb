@@ -15,7 +15,7 @@ describe Dhis2::Api::DataSet do
         .to_return(status: 200, body: fixture_content(:dhis2, "category_combos_default.json"))
 
       stub_request(:post, "https://play.dhis2.org/demo/api/metadata")
-        .with(body: "{\"dataSets\":[{\"name\":\"datasetname\",\"shortName\":\"shortname\",\"code\":\"dataset_code\",\"periodType\":\"Monthly\",\"openFuturePeriods\":0,\"dataElements\":[{\"id\":\"de_id_1\"}],\"organisationUnits\":[{\"id\":\"ou_id_1\"}],\"categoryCombo\":{\"id\":\"p0KPaWEg3cf\",\"name\":\"default\"}}]}")
+        .with(body: "{\"dataSets\":[{\"name\":\"datasetname\",\"shortName\":\"shortname\",\"code\":\"dataset_code\",\"periodType\":\"Monthly\",\"dataElements\":[{\"id\":\"de_id_1\"}],\"organisationUnits\":[{\"id\":\"ou_id_1\"}],\"categoryCombo\":{\"id\":\"p0KPaWEg3cf\",\"name\":\"default\"}}]}")
         .to_return(status: 200, body: "", headers: {})
 
       status = data_sets.create(
@@ -38,7 +38,7 @@ describe Dhis2::Api::DataSet do
         .to_return(status: 200, body: fixture_content(:dhis2, "category_combos_default.json"))
 
       stub_request(:post, "https://play.dhis2.org/demo/api/metadata")
-        .with(body: "{\"dataSets\":[{\"name\":\"datasetname\",\"shortName\":\"shortname\",\"code\":\"dataset_code\",\"periodType\":\"Quarterly\",\"openFuturePeriods\":3,\"dataElements\":[{\"id\":\"de_id_1\"}],\"organisationUnits\":[{\"id\":\"ou_id_1\"}],\"categoryCombo\":{\"id\":\"p0KPaWEg3cf\",\"name\":\"default\"}}]}")
+        .with(body: "{\"dataSets\":[{\"name\":\"datasetname\",\"shortName\":\"shortname\",\"code\":\"dataset_code\",\"periodType\":\"Quarterly\",\"dataElements\":[{\"id\":\"de_id_1\"}],\"organisationUnits\":[{\"id\":\"ou_id_1\"}],\"categoryCombo\":{\"id\":\"p0KPaWEg3cf\",\"name\":\"default\"},\"openFuturePeriods\":3}]}")
         .to_return(status: 200, body: "", headers: {})
 
       status = data_sets.create(
