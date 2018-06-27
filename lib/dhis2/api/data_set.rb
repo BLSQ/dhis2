@@ -13,7 +13,8 @@ module Dhis2
                 name:               set[:name],
                 short_name:         set[:short_name],
                 code:               set[:code],
-                period_type:        "Monthly",
+                period_type:        set[:period_type] || "Monthly",
+                open_future_periods: set[:open_future_periods] || 0,
                 data_elements:      set[:data_element_ids] ? set[:data_element_ids].map { |id| { id: id } } : [],
                 organisation_units: set[:organisation_unit_ids] ? set[:organisation_unit_ids].map { |id| { id: id } } : [],
                 category_combo:     { id: category_combo.id, name: category_combo.name }
