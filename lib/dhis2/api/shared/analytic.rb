@@ -4,7 +4,7 @@ module Dhis2
   module Api
     module Shared
       class Analytic
-        def self.list(client, periods:, organisation_units:, data_elements: nil, filter: nil)
+        def self.list(client, periods:, organisation_units:, data_elements: nil, filter: nil, raw: false)
           params = [
             [:dimension, "ou:#{organisation_units}"],
             [:dimension, "pe:#{periods}"]
@@ -12,7 +12,7 @@ module Dhis2
           params << [:dimension, "dx:#{data_elements}"] if data_elements
           params << [:filter, filter.to_s] if filter
 
-          client.get(path: "analytics", query_params: RestClient::ParamsArray.new(params))
+          client.get(path: "analytics", query_params: RestClient::ParamsArray.new(params), raw: raw)
         end
       end
     end
