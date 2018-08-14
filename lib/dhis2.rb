@@ -31,6 +31,8 @@ require_relative "dhis2/api/updatable"
 require_relative "dhis2/api/query_parameters_formatter"
 
 require_relative "dhis2/api/shared/analytic"
+require_relative "dhis2/api/shared/category"
+require_relative "dhis2/api/shared/category_option"
 require_relative "dhis2/api/shared/category_combo"
 require_relative "dhis2/api/shared/category_option_combo"
 require_relative "dhis2/api/shared/constants"
@@ -54,8 +56,8 @@ require_relative "dhis2/api/version228/index"
 
 module Dhis2
   class << self
-    def play(debug = false)
-      Dhis2::Client.new(config.play_params(debug))
+    def play(debug = false, version:  "2.28")
+      Dhis2::Client.new(config.play_params(debug, version))
     end
 
     def client

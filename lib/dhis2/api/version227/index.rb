@@ -3,6 +3,8 @@
 require_relative "constants"
 require_relative "analytic"
 require_relative "attribute"
+require_relative "category"
+require_relative "category_option"
 require_relative "category_combo"
 require_relative "category_option_combo"
 require_relative "data_element"

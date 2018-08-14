@@ -1,0 +1,26 @@
+{
+  "pager": { "page": 1, "pageCount": 1, "total": 21, "pageSize": 50 },
+  "categories": [
+    { "id": "KfdsGBcoiCa", "displayName": "Births attended by" },
+    { "id": "gtuVl6NbXQV", "displayName": "Commodities" },
+    { "id": "vGs6omsRekv", "displayName": "default" },
+    { "id": "YNZyaJHiHYq", "displayName": "EPI/nutrition age" },
+    { "id": "cX5k9anHEHd", "displayName": "Gender" },
+    { "id": "veGzholzPQm", "displayName": "HIV age" },
+    { "id": "aN4inMKVhqc", "displayName": "HIV paediatric age" },
+    { "id": "LFsZ8v5v7rq", "displayName": "Implementing Partner" },
+    { "id": "SvzFH1XEfJr", "displayName": "Labour complications" },
+    { "id": "fMZEcRHuamy", "displayName": "Location Fixed/Outreach" },
+    { "id": "x3uo8LqiTBk", "displayName": "Location PHU/Community" },
+    { "id": "fkAkrdC7eJF", "displayName": "Morbidity Age" },
+    { "id": "VPqYge5RB93", "displayName": "Outcome" },
+    { "id": "EicyMsVYG62", "displayName": "Point of service" },
+    { "id": "qzsxBXFf5yb", "displayName": "Pregnant/Non-pregnant" },
+    { "id": "yY2bQYqNt0o", "displayName": "Project" },
+    { "id": "WnouSiGrbgy", "displayName": "Referrals Age" },
+    { "id": "VVDQ8UdwUIj", "displayName": "Staffing" },
+    { "id": "Qzh0MSUx4RM", "displayName": "Stock discarded" },
+    { "id": "Pj6Pe2e5PX7", "displayName": "Under 5/5 and above of age" },
+    { "id": "XjGGslndVY7", "displayName": "yellow" }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "request": {
+    "name": "yellow"
+  },
+  "response": {
+    "httpStatus": "Created",
+    "httpStatusCode": 201,
+    "status": "OK",
+    "response": {
+      "responseType": "ObjectReport",
+      "uid": "eNGqq3b5ITE",
+      "klass": "org.hisp.dhis.dataelement.DataElementCategoryOption"
+    }
+  }
+}
