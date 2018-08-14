@@ -24,9 +24,6 @@ module Dhis2
           required(:value_type).value(
             included_in?: ::Dhis2::Api::Version225::Constants.value_types
           )
-          required(:category_combo).schema do
-            required(:id).filled
-          end
         end
 
         def self.creation_defaults(args)
