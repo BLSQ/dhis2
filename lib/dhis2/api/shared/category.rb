@@ -9,6 +9,10 @@ module Dhis2
           base.extend(ClassMethods)
         end
 
+        def default
+          self.class.default(client)
+        end        
+
         Schema = Dry::Validation.Schema do
           required(:name).filled
           required(:data_dimension_type).value(
@@ -20,6 +24,9 @@ module Dhis2
           def resource_name
             "categories"
           end
+          def default(client)
+            find_by(client, name: "default")
+          end          
           def creation_defaults(args)
             {
               data_dimension_type: "DISAGGREGATION"
