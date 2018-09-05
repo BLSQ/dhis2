@@ -12,7 +12,14 @@ module Dhis2
           base.extend(ClassMethods)
         end
 
+        def default
+          self.class.default(client)
+        end        
+
         module ClassMethods
+          def default(client)
+            find_by(client, name: "default")
+          end          
         end
       end
     end
