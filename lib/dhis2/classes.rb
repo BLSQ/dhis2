@@ -33,6 +33,7 @@ module Dhis2
   class Indicator < Versioned; end
   class IndicatorGroup < Versioned; end
   class IndicatorType < Versioned; end
+  class LegendSet < Versioned; end
   class OrganisationUnit < Versioned; end
   class OrganisationUnitGroup < Versioned; end
   class OrganisationUnitGroupSet < Versioned; end
