@@ -30,7 +30,7 @@ Or install it yourself as:
 
 The functionalities are available as a module. First thing you need to do is to connect to the instance:
 
-* Global configuration (to call a single Dhis2 instance):
+- Global configuration (to call a single Dhis2 instance):
 
 ```ruby
 Dhis2.configure do |config|
@@ -49,7 +49,7 @@ end
 ::Dhis2.clientt.data_elements.list # => Array[<DataElement>,..]
 ```
 
-* Local configuration: (in case you need to access different Dhis2 instances inside a single project):
+- Local configuration: (in case you need to access different Dhis2 instances inside a single project):
 
 ```ruby
 configuration = Dhis2::Configuration.new.tap do |config|
@@ -81,12 +81,11 @@ dangerous_configuration = Dhis2::Configuration.new.tap do |config|
 end
 ```
 
-* Not sure of your version? Check it
+- Not sure of your version? Check it
 
 ```ruby
 Dhis2.get_version({ user: 'admin', password: 'district', url: 'https://play.dhis2.org/demo'})
 ```
-
 
 ### Search for meta elements
 
@@ -135,7 +134,7 @@ org_units.pager.total      # number of records
 
 It can be tedious to iterate over a paginated collection. Thus you can use `fetch_paginated_data` which will get all pages for you and yield each element automatically.
 
-```ruby
+````ruby
 Dhis2.client.organisation_units.fetch_paginated_data(
   filter: "level:eq:2",
   fields: %w(id level displayName parent)
@@ -162,7 +161,7 @@ You can also retreive a single element using its id with `find`(in this case, al
 
 ```ruby
 ou = Dhis2.client.organisation_units.find(id)
-```
+````
 
 `find` also accepts multiple ids - query will not be paginated and will return all fields for the given objects:
 
@@ -220,27 +219,28 @@ value_sets        = Dhis2.client.data_value_sets.list(
 
 The API is currently limited to actions on the following elements:
 
-* `OrganisationUnit`
-* `OrganisationUnitGroup`
-* `OrganisationUnitLevel`
-* `DataElement`
-* `DataSet`
-* `DataValueSet`
-* `DataValue`
-* `Analytic`
-* `CategoryCombo`
-* `CategoryOptionCombo`
-* `SystemInfo`
-* `Attribute`
-* `Indicator`
-* `IndicatorGroup`
-* `DataElementGroup`
-* `User`
-* `Report`
-* `ReportTable`
-* `Program`
-* `Events`
-* `ResourceTables`
+- `Analytic`
+- `Attribute`
+- `CategoryCombo`
+- `CategoryOptionCombo`
+- `DataElement`
+- `DataElementGroup`
+- `DataSet`
+- `DataValue`
+- `DataValueSet`
+- `Events`
+- `Indicator`
+- `IndicatorGroup`
+- `LegendSet` (Only list & find)
+- `OrganisationUnit`
+- `OrganisationUnitGroup`
+- `OrganisationUnitLevel`
+- `Program`
+- `Report`
+- `ReportTable`
+- `ResourceTables`
+- `SystemInfo`
+- `User`
 
 ## Update
 
@@ -360,7 +360,6 @@ one time setup
 gem install gem-release
 curl -u rubygemaccount https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
 chmod 0600 ~/.gem/credentials
-
 ```
 
 ```
