@@ -1,0 +1,54 @@
+{
+    "created": "2015-02-25T14:36:01.981",
+    "lastUpdated": "2016-10-05T16:59:59.886",
+    "name": "Age 10y interval",
+    "href": "https://play.dhis2.org/2.26/api/legendSets/Yf6UHoPkdS6",
+    "id": "Yf6UHoPkdS6",
+    "displayName": "Age 10y interval",
+    "externalAccess": false,
+    "symbolizer": "color",
+    "access": {
+        "read": true,
+        "update": true,
+        "externalize": false,
+        "delete": true,
+        "write": true,
+        "manage": true
+    },
+    "userGroupAccesses": [],
+    "attributeValues": [],
+    "legends": [
+        {
+            "id": "ZUUGJnvX40X"
+        },
+        {
+            "id": "OyVUzWsX8UF"
+        },
+        {
+            "id": "b7MCpzqJaR2"
+        },
+        {
+            "id": "CpP5yzbgfHo"
+        },
+        {
+            "id": "cbPqyIAFw9u"
+        },
+        {
+            "id": "Tq4NYCn9eNH"
+        },
+        {
+            "id": "pZzk1L4Blf1"
+        },
+        {
+            "id": "puI3YpLJ3fC"
+        },
+        {
+            "id": "scvmgP9F9rn"
+        },
+        {
+            "id": "TvM2MQgD7Jd"
+        }
+    ],
+    "translations": [],
+    "userAccesses": []
+}

@@ -1,0 +1,14 @@
+{
+    "pager": {
+        "page": 1,
+        "pageCount": 1,
+        "total": 21,
+        "pageSize": 50
+    },
+    "legendSets": [
+        {
+            "id": "Yf6UHoPkdS6",
+            "displayName": "Age 10y interval"
+        }
+    ]
+}
