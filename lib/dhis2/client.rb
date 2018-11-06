@@ -91,6 +91,10 @@ module Dhis2
     def indicator_types
       @indicator_types ||= CollectionWrapper.new("IndicatorType", self)
     end
+  
+    def legend_sets
+      @legend_sets ||= CollectionWrapper.new("LegendSet", self)
+    end
 
     def organisation_units
       @organisation_units ||= CollectionWrapper.new("OrganisationUnit", self)
