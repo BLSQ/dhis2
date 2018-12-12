@@ -56,6 +56,10 @@ module Dhis2
       @category_option_combos ||= CollectionWrapper.new("CategoryOptionCombo", self)
     end
 
+    def complete_data_set_registrations
+      @complete_data_set_registrations ||= CollectionWrapper.new("CompleteDataSetRegistration", self)
+    end
+
     def data_elements
       @data_elements ||= CollectionWrapper.new("DataElement", self)
     end
