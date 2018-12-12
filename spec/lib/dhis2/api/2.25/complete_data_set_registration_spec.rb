@@ -18,11 +18,11 @@ describe Dhis2::Api::Version225::CompleteDataSetRegistration do
   }
 
   it "list complete data set registrations" do
-    stub_request(:get, "https://play.dhis2.org/demo/api/completeDataSetRegistrations?dataSet=HllvX50cXC0&orgUnit%5B%5D=Tht0fnjagHi&orgUnit%5B%5D=VrDA0Hn4Xc6&period%5B%5D=201701&period%5B%5D=201702")
+    stub_request(:get, "https://play.dhis2.org/demo/api/completeDataSetRegistrations?dataSet=HllvX50cXC0&dataSet=HllvX50cXC1&orgUnit=Tht0fnjagHi&orgUnit=VrDA0Hn4Xc6&period=201701&period=201702")
       .to_return(status: 200, body: fixture_content("2.25", "list", "complete_data_set_registrations.json"))
 
-    response = described_class.list(client, periods: ["201701","201702"], organisation_units: ["Tht0fnjagHi","VrDA0Hn4Xc6"], data_sets: "HllvX50cXC0")
-    expect(a_request(:get, "https://play.dhis2.org/demo/api/completeDataSetRegistrations?dataSet=HllvX50cXC0&orgUnit%5B%5D=Tht0fnjagHi&orgUnit%5B%5D=VrDA0Hn4Xc6&period%5B%5D=201701&period%5B%5D=201702")).to have_been_made.once
+    response = described_class.list(client, periods: ["201701","201702"], organisation_units: ["Tht0fnjagHi","VrDA0Hn4Xc6"], data_sets: ["HllvX50cXC0","HllvX50cXC1"])
+    expect(a_request(:get, "https://play.dhis2.org/demo/api/completeDataSetRegistrations?dataSet=HllvX50cXC0&dataSet=HllvX50cXC1&orgUnit=Tht0fnjagHi&orgUnit=VrDA0Hn4Xc6&period=201701&period=201702")).to have_been_made.once
     expect(response).to eq get_response
   end
 

@@ -161,7 +161,6 @@ module Dhis2
 
     def execute(method_name:, url:, query_params: {}, payload: nil, raw: false, raw_input: false)
       computed_payload = compute_payload(payload, raw_input)
-
       raw_response = RestClient::Request.execute(
         method:     method_name,
         url:        url,
