@@ -5,13 +5,28 @@ require "spec_helper"
 describe Dhis2::Api::Version225::CompleteDataSetRegistration do
   let(:client) { build_client("2.25") }
   let(:get_response) {
-    {
-      "complete_data_set_registrations" => 
-      [
-        {"period"=>"201701", "data_set"=>"uayRvSKFbhu", "organisation_unit"=>"Tht0fnjagHi", "attribute_option_combo"=>"HllvX50cXC0", "date"=>"2018-12-11", "stored_by"=>"admin"},
-        {"period"=>"201701", "data_set"=>"uayRvSKFbhu", "organisation_unit"=>"VrDA0Hn4Xc6", "attribute_option_combo"=>"HllvX50cXC0", "date"=>"2018-12-11", "stored_by"=>"admin"}
-      ]
-    }
+    [Dhis2::Api::Version225::CompleteDataSetRegistration.new(
+      client,
+      {
+        period: "201701",
+        data_set: "uayRvSKFbhu",
+        organisation_unit: "Tht0fnjagHi",
+        attribute_option_combo: "HllvX50cXC0",
+        date: "2018-12-11",
+        stored_by: "admin"
+      }
+    ),
+    Dhis2::Api::Version225::CompleteDataSetRegistration.new(
+      client,
+      {
+        period: "201701",
+        data_set: "uayRvSKFbhu",
+        organisation_unit: "VrDA0Hn4Xc6",
+        attribute_option_combo: "HllvX50cXC0",
+        date: "2018-12-11",
+        stored_by: "admin"
+      }
+    )]
   }
   let(:empty_response) {
     {}
@@ -27,11 +42,12 @@ describe Dhis2::Api::Version225::CompleteDataSetRegistration do
   end
 
   it "create complete data set registration" do
-    stub_request(:post, "https://play.dhis2.org/demo/api/completeDataSetRegistrations?ds=HllvX50cXC0&ou=Tht0fnjagHi&pe=201701")
-    .to_return(status: 204)
+    stub_request(:post, "https://play.dhis2.org/demo/api/completeDataSetRegistrations")
+      .with(body: "{\"completeDataSetRegistrations\":[{\"organisationUnit\":\"Tht0fnjagHi\",\"period\":\"201701\",\"dataSet\":\"HllvX50cXC0\",\"multiOu\":false}]}")
+      .to_return(status: 204)
 
     response = described_class.create(client, period: "201701", organisation_unit: "Tht0fnjagHi", data_set: "HllvX50cXC0")
-    expect(a_request(:post, "https://play.dhis2.org/demo/api/completeDataSetRegistrations?ds=HllvX50cXC0&ou=Tht0fnjagHi&pe=201701")).to have_been_made.once
+    expect(a_request(:post, "https://play.dhis2.org/demo/api/completeDataSetRegistrations")).to have_been_made.once
     expect(response).to eq empty_response
   end
 
