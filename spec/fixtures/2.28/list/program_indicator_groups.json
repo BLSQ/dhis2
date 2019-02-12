@@ -1,0 +1,18 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 1,
+    "total": 2,
+    "pageSize": 50
+  },
+  "programIndicatorGroups": [
+    {
+      "id": "xxkcH5TCVRF",
+      "displayName": "Age"
+    },
+    {
+      "id": "E2ZBxdQLNDm",
+      "displayName": "BMI"
+    }
+  ]
+}

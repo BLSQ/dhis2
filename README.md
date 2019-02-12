@@ -237,6 +237,7 @@ The API is currently limited to actions on the following elements:
 - `OrganisationUnitLevel`
 - `Program`
 - `ProgramIndicator`
+- `ProgramIndicatorGroup`
 - `Report`
 - `ReportTable`
 - `ResourceTables`
@@ -370,6 +371,12 @@ gem bump --tag --release
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/BLSQ/dhis2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+Please use Semantic versioning when bumping versions: Mj.Mn.P
+
+- MAJOR version when you make incompatible API changes
+- MINOR version when you add functionality in a backwards-compatible manner, and
+- PATCH version when you make backwards-compatible bug fixes.
 
 ## License
 
