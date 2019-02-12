@@ -39,6 +39,7 @@ module Dhis2
   class OrganisationUnitGroupSet < Versioned; end
   class OrganisationUnitLevel < Versioned; end
   class Program < Versioned; end
+  class ProgramIndicator < Versioned; end
   class Report < Versioned; end
   class ReportTable < Versioned; end
   class ResourceTable < Versioned; end
