@@ -116,6 +116,10 @@ module Dhis2
       @programs ||= CollectionWrapper.new("Program", self)
     end
 
+    def program_indicator_groups
+      @program_indicator_groups ||= CollectionWrapper.new("ProgramIndicatorGroup", self)
+    end
+
     def reports
       @reports ||= CollectionWrapper.new("Report", self)
     end
