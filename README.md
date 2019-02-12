@@ -236,6 +236,7 @@ The API is currently limited to actions on the following elements:
 - `OrganisationUnitGroup`
 - `OrganisationUnitLevel`
 - `Program`
+- `ProgramIndicatorGroup`
 - `Report`
 - `ReportTable`
 - `ResourceTables`
