@@ -44,6 +44,9 @@ module Dhis2
       execute(:patch, uri(path), query_params, payload)
     end
 
+
+
+
     private
 
     @@cookie_jar = {}
@@ -63,9 +66,8 @@ module Dhis2
       )
       finish = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       diff = finish - start # gets time is seconds as a float
-      puts diff
       @@cookie_jar[@base_url] = raw_response.cookies
-      
+     
       response = [nil, ""].include?(raw_response) ? {} : JSON.parse(raw_response)
       
       log(raw_response.request, response, diff)
