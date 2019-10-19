@@ -46,17 +46,29 @@ module Dhis2
 
     private
 
+    @@cookie_jar = {}
+
     def execute(method_name, url, query_params = {}, payload = nil)
+      
+
+      start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       raw_response = RestClient::Request.execute(
         method:     method_name,
         url:        url,
         headers:    headers(method_name, query_params),
         payload:    payload ? Dhis2::Case.deep_change(payload, :camelize).to_json : nil,
         verify_ssl: @verify_ssl,
-        timeout:    @timeout
+        timeout:    @timeout,
+        cookies:    @@cookie_jar[@base_url]
       )
+      finish = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      diff = finish - start # gets time is seconds as a float
+      puts diff
+      @@cookie_jar[@base_url] = raw_response.cookies
+      
       response = [nil, ""].include?(raw_response) ? {} : JSON.parse(raw_response)
-      log(raw_response.request, response)
+      
+      log(raw_response.request, response, diff)
       Dhis2::Case.deep_change(response, :underscore).tap do |underscore_response|
         if any_conflict?(underscore_response)
           raise Dhis2::ImportError, extract_conflict_message(underscore_response)
@@ -95,8 +107,8 @@ module Dhis2
       @debug      = options.fetch(:debug, true)
     end
 
-    def log(request, response)
-      puts [request.url, request.args[:payload], response].join("\t") if @debug
+    def log(request, response,diff)
+      puts [request.url, request.args[:payload], response, "in #{diff}"].join("\t") if @debug
     end
   end
 end
