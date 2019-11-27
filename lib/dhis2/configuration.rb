@@ -17,9 +17,9 @@ module Dhis2
       end
     end
 
-    def play_params(with_debug)
+    def play_params(with_debug, url = "https://play.dhis2.org/demo/")
       {
-        url:      "https://play.dhis2.org/demo/",
+        url:      url,
         user:     "admin",
         password: "district",
         debug:    with_debug

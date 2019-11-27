@@ -2,6 +2,25 @@
 
 require "spec_helper"
 
+class Capture
+
+  def self.capture &block
+
+    # redirect output to StringIO objects
+    stdout, stderr = StringIO.new, StringIO.new
+    $stdout, $stderr = stdout, stderr
+
+    result = block.call
+
+    # restore normal output
+    $stdout, $stderr = STDOUT, STDERR
+
+    OpenStruct.new result: result, stdout: stdout.string, stderr: stderr.string
+  end
+end
+
+
+
 describe Dhis2::Client do
   describe "client options" do
     it "should support debug option " do
@@ -16,9 +35,8 @@ describe Dhis2::Client do
         debug:    true
       )
 
-      expect { dhis2.post("path", { sample_payload: true }, query_param: "1") }.to output(
-        "https://admin:district@play.dhis2.org/demo/api/path?query_param=1	{\"samplePayload\":true}	{}\n"
-      ).to_stdout
+      result = Capture.capture { dhis2.post("path", { sample_payload: true }, query_param: "1") }
+      expect(result.stdout).to start_with("https://admin:district@play.dhis2.org/demo/api/path?query_param=1\t{\"samplePayload\":true}\t{}\tin 0.")
     end
   end
 end
