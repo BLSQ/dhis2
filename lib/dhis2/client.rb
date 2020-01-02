@@ -91,7 +91,7 @@ module Dhis2
     def indicator_types
       @indicator_types ||= CollectionWrapper.new("IndicatorType", self)
     end
-  
+
     def legend_sets
       @legend_sets ||= CollectionWrapper.new("LegendSet", self)
     end
@@ -159,23 +159,31 @@ module Dhis2
 
     private
 
-    EMPTY_RESPONSES = [nil, ""]
-    API =  "api"
+    EMPTY_RESPONSES = [nil, ""].freeze
+    API = "api"
     TAB = "\t"
+
+    @@cookie_jar = {}
 
     def execute(method_name:, url:, query_params: {}, payload: nil, raw: false, raw_input: false)
       computed_payload = compute_payload(payload, raw_input)
-
+      start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       raw_response = RestClient::Request.execute(
-        method:     method_name,
-        url:        url,
-        headers:    headers(method_name, query_params),
-        payload:    computed_payload,
+        method: method_name,
+        url: url,
+        headers: headers(method_name, query_params),
+        payload: computed_payload,
         verify_ssl: @verify_ssl,
-        timeout:    @timeout
+        timeout: @timeout,
+        cookies: @@cookie_jar[@base_url],
       )
+      finish = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      
+      @@cookie_jar[@base_url] = raw_response.cookies
+      
       response = EMPTY_RESPONSES.include?(raw_response) ? {} : JSON.parse(raw_response)
-      log(raw_response.request, response)
+      log(raw_response.request, response,  finish - start)
+
       if raw
         response
       else
@@ -193,6 +201,7 @@ module Dhis2
     def compute_payload(payload, raw_input)
       return nil unless payload
       return payload.to_json if raw_input
+
       Dhis2::Case.deep_change(payload, :camelize).to_json
     end
 
@@ -206,8 +215,15 @@ module Dhis2
       end
     end
 
-    def log(request, response)
-      puts [request.url, request.args[:payload].to_json, response.to_json].join(TAB) if @debug
+    def log(request, response, diff=nil)
+      return unless @debug
+
+      puts [
+        request.url,
+        request.args[:payload].to_json,
+        response,
+        "in #{diff}",
+      ].join(TAB)
     end
   end
 end
