@@ -186,13 +186,13 @@ module Dhis2
       computed_payload = compute_payload(payload, raw_input)
       start_tracking = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       raw_response = RestClient::Request.execute(
-        method: method_name,
-        url: url,
-        headers: headers(method_name, query_params),
-        payload: computed_payload,
+        method:     method_name,
+        url:        url,
+        headers:    headers(method_name, query_params),
+        payload:    computed_payload,
         verify_ssl: @verify_ssl,
-        timeout: @timeout,
-        cookies: @@cookie_jar[@base_url],
+        timeout:    @timeout,
+        cookies:    @@cookie_jar[@base_url],
       )
       finish_tracking = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 

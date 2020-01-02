@@ -419,6 +419,10 @@ Layout/ParameterAlignment:
   StyleGuide: "https://github.com/bbatsov/ruby-style-guide#no-double-indent"
   Enabled: false
 
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+  Enabled: true
 Layout/ConditionPosition:
   Description: >-
     Checks for condition placed in a confusing position relative to
