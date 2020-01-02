@@ -165,9 +165,26 @@ module Dhis2
 
     @@cookie_jar = {}
 
+    def present_response(raw_response, raw, start_tracking, finish_tracking)
+      safe_response = if EMPTY_RESPONSES.include?(raw_response)
+                        {}
+                      else
+                        JSON.parse(raw_response)
+                      end
+
+      diff_tracking = finish_tracking - start_tracking
+      log(raw_response.request, safe_response, diff_tracking)
+
+      if raw
+        safe_response
+      else
+        Dhis2::Case.deep_change(safe_response, :underscore)
+      end
+    end
+
     def execute(method_name:, url:, query_params: {}, payload: nil, raw: false, raw_input: false)
       computed_payload = compute_payload(payload, raw_input)
-      start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      start_tracking = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       raw_response = RestClient::Request.execute(
         method: method_name,
         url: url,
@@ -177,18 +194,11 @@ module Dhis2
         timeout: @timeout,
         cookies: @@cookie_jar[@base_url],
       )
-      finish = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-      
-      @@cookie_jar[@base_url] = raw_response.cookies
-      
-      response = EMPTY_RESPONSES.include?(raw_response) ? {} : JSON.parse(raw_response)
-      log(raw_response.request, response,  finish - start)
+      finish_tracking = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 
-      if raw
-        response
-      else
-        Dhis2::Case.deep_change(response, :underscore)
-      end
+      @@cookie_jar[@base_url] = raw_response.cookies
+
+      present_response(raw_response, raw, start_tracking, finish_tracking)
     rescue RestClient::RequestFailed => e
       exception = ::Dhis2::RequestError.new(e.message)
       exception.response  = e.response  if e.respond_to?(:response)
@@ -215,7 +225,7 @@ module Dhis2
       end
     end
 
-    def log(request, response, diff=nil)
+    def log(request, response, diff = nil)
       return unless @debug
 
       puts [
