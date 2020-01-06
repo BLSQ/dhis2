@@ -95,7 +95,7 @@ module Dhis2
     def indicator_types
       @indicator_types ||= CollectionWrapper.new("IndicatorType", self)
     end
-  
+
     def legend_sets
       @legend_sets ||= CollectionWrapper.new("LegendSet", self)
     end
@@ -118,6 +118,14 @@ module Dhis2
 
     def programs
       @programs ||= CollectionWrapper.new("Program", self)
+    end
+
+    def program_indicators
+      @program_indicators ||= CollectionWrapper.new("ProgramIndicator", self)
+    end
+
+    def program_indicator_groups
+      @program_indicator_groups ||= CollectionWrapper.new("ProgramIndicatorGroup", self)
     end
 
     def reports
@@ -155,27 +163,47 @@ module Dhis2
 
     private
 
-    EMPTY_RESPONSES = [nil, ""]
-    API =  "api"
+    EMPTY_RESPONSES = [nil, ""].freeze
+    API = "api"
     TAB = "\t"
+
+    @@cookie_jar = {}
+
+    def present_response(raw_response, raw, start_tracking, finish_tracking)
+      safe_response = if EMPTY_RESPONSES.include?(raw_response)
+                        {}
+                      else
+                        JSON.parse(raw_response)
+                      end
+
+      diff_tracking = finish_tracking - start_tracking
+      log(raw_response.request, safe_response, diff_tracking)
+
+      if raw
+        safe_response
+      else
+        Dhis2::Case.deep_change(safe_response, :underscore)
+      end
+    end
 
     def execute(method_name:, url:, query_params: {}, payload: nil, raw: false, raw_input: false)
       computed_payload = compute_payload(payload, raw_input)
+
+      start_tracking = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       raw_response = RestClient::Request.execute(
         method:     method_name,
         url:        url,
         headers:    headers(method_name, query_params),
         payload:    computed_payload,
         verify_ssl: @verify_ssl,
-        timeout:    @timeout
+        timeout:    @timeout,
+        cookies:    @@cookie_jar[@base_url],
       )
-      response = EMPTY_RESPONSES.include?(raw_response) ? {} : JSON.parse(raw_response)
-      log(raw_response.request, response)
-      if raw
-        response
-      else
-        Dhis2::Case.deep_change(response, :underscore)
-      end
+      finish_tracking = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+
+      @@cookie_jar[@base_url] = raw_response.cookies
+
+      present_response(raw_response, raw, start_tracking, finish_tracking)
     rescue RestClient::RequestFailed => e
       exception = ::Dhis2::RequestError.new(e.message)
       exception.response  = e.response  if e.respond_to?(:response)
@@ -188,6 +216,7 @@ module Dhis2
     def compute_payload(payload, raw_input)
       return nil unless payload
       return payload.to_json if raw_input
+
       Dhis2::Case.deep_change(payload, :camelize).to_json
     end
 
@@ -201,8 +230,15 @@ module Dhis2
       end
     end
 
-    def log(request, response)
-      puts [request.url, request.args[:payload].to_json, response.to_json].join(TAB) if @debug
+    def log(request, response, diff = nil)
+      return unless @debug
+
+      puts [
+        request.url,
+        request.args[:payload].to_json,
+        response,
+        "in #{diff}",
+      ].join(TAB)
     end
   end
 end

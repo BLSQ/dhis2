@@ -14,8 +14,12 @@ module Dhis2
             if raw
               response["dataValues"]
             else
-              response["data_values"].map do |elt|
-                OpenStruct.new(elt)
+              if response["data_values"]
+                response["data_values"].map do |elt|
+                  OpenStruct.new(elt)
+                end
+              else
+                []
               end
             end
           end
@@ -46,9 +50,9 @@ module Dhis2
           end
 
           def additional_query_parameters
-            [
-              :data_set, :data_element_group, :period, :start_date, :end_date,
-              :org_unit, :children, :org_unit_group
+            %i[
+              data_set data_element_group period start_date end_date
+              org_unit children org_unit_group
             ]
           end
         end

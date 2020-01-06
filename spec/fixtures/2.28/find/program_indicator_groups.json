@@ -1,0 +1,43 @@
+{
+  "code": "Age",
+  "created": "2017-05-31T14:16:24.020",
+  "lastUpdated": "2017-05-31T14:16:24.020",
+  "name": "Age",
+  "href": "https://play.dhis2.org/2.28/api/programIndicatorGroups/xxkcH5TCVRF",
+  "id": "xxkcH5TCVRF",
+  "displayName": "Age",
+  "publicAccess": "rw------",
+  "externalAccess": false,
+  "lastUpdatedBy": {
+    "id": "GOLswS44mh8"
+  },
+  "access": {
+    "read": true,
+    "update": true,
+    "externalize": false,
+    "delete": true,
+    "write": true,
+    "manage": true
+  },
+  "user": {
+    "id": "GOLswS44mh8"
+  },
+  "userGroupAccesses": [],
+  "attributeValues": [],
+  "programIndicators": [
+    {
+      "id": "tUdBD1JDxpn"
+    },
+    {
+      "id": "GSae40Fyppf"
+    },
+    {
+      "id": "dSBYyCUjCXd"
+    },
+    {
+      "id": "sGna2pquXOO"
+    }
+  ],
+  "translations": [],
+  "userAccesses": []
+}

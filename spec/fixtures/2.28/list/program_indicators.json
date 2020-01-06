@@ -1,0 +1,162 @@
+{
+  "pager": {
+    "page": 1,
+    "pageCount": 1,
+    "total": 38,
+    "pageSize": 50
+  },
+  "programIndicators": [
+    {
+      "id": "GSae40Fyppf",
+      "displayName": "Age at visit"
+    },
+    {
+      "id": "dSBYyCUjCXd",
+      "displayName": "Age at visit - calc from days"
+    },
+    {
+      "id": "tUdBD1JDxpn",
+      "displayName": "Average age of deaths"
+    },
+    {
+      "id": "sGna2pquXOO",
+      "displayName": "Average age of female discharges"
+    },
+    {
+      "id": "Kswd1r4qWLh",
+      "displayName": "Average height of boys at 10 years old"
+    },
+    {
+      "id": "gWxh7DiRmG7",
+      "displayName": "Average height of girls at 5 years old"
+    },
+    {
+      "id": "ToQVD4irW3Q",
+      "displayName": "Average height under 5 y"
+    },
+    {
+      "id": "GxdhnY5wmHq",
+      "displayName": "Average weight"
+    },
+    {
+      "id": "ReQEl5V3z6p",
+      "displayName": "Average weight of women"
+    },
+    {
+      "id": "p2Zxg0wcPQ3",
+      "displayName": "BCG doses"
+    },
+    {
+      "id": "hCYU0G5Ti2T",
+      "displayName": "BCG doses low birth weight"
+    },
+    {
+      "id": "x7PaHGvgWY2",
+      "displayName": "BMI"
+    },
+    {
+      "id": "XCMi7Wvnplm",
+      "displayName": "BMI female"
+    },
+    {
+      "id": "hlPt8H4bUOQ",
+      "displayName": "BMI female under 5 y"
+    },
+    {
+      "id": "Thkx2BnO5Kq",
+      "displayName": "BMI male"
+    },
+    {
+      "id": "Y7hKDSuqEtH",
+      "displayName": "BMI male under 5 y"
+    },
+    {
+      "id": "rXoaHGAXWy9",
+      "displayName": "Health immunization score"
+    },
+    {
+      "id": "yFTplrY7NaL",
+      "displayName": "Height, weight and age"
+    },
+    {
+      "id": "b8hd33dWjR6",
+      "displayName": "Inpatient bed days"
+    },
+    {
+      "id": "HS8QXAJtuKV",
+      "displayName": "Inpatient bed days average"
+    },
+    {
+      "id": "luLGbE2WKGP",
+      "displayName": "Inpatient cases"
+    },
+    {
+      "id": "hAHF3BEHGjM",
+      "displayName": "Inpatient cases female"
+    },
+    {
+      "id": "ST1CDYkWY4g",
+      "displayName": "Inpatient cases female under 5 y"
+    },
+    {
+      "id": "nq5ohBSWj6E",
+      "displayName": "Inpatient cases male"
+    },
+    {
+      "id": "htr2mMY515K",
+      "displayName": "Inpatient cases male under 5 y"
+    },
+    {
+      "id": "vDdRoZYybP2",
+      "displayName": "Inpatient cases under 5 y"
+    },
+    {
+      "id": "nFICjJluo74",
+      "displayName": "Malaria case count"
+    },
+    {
+      "id": "XfYhemMQWiI",
+      "displayName": "Measles doses"
+    },
+    {
+      "id": "fM7RZGVndZE",
+      "displayName": "Measles + Yellow fever doses"
+    },
+    {
+      "id": "eo73fim1b2i",
+      "displayName": "Measles + Yellow fever doses female"
+    },
+    {
+      "id": "tt54DiKuQ9c",
+      "displayName": "Measles + Yellow fever doses low infant weight"
+    },
+    {
+      "id": "qhTkqwAJLMv",
+      "displayName": "Weight gain(in g) between birth and last postnatal"
+    },
+    {
+      "id": "TcTRasl29wo",
+      "displayName": "WHO RMNCH ANC Hemoglobin improvement"
+    },
+    {
+      "id": "tYPIZKEVh23",
+      "displayName": "WHO RMNCH Days enrolled"
+    },
+    {
+      "id": "FIVbyQyO0tV",
+      "displayName": "WHO RMNCH Number of days since last activity in active pregnancies"
+    },
+    {
+      "id": "ksBXh8hBmpv",
+      "displayName": "WHO RMNCH Number of visits anemic woman"
+    },
+    {
+      "id": "Oy1a11KynDC",
+      "displayName": "WHO RMNCH Number of women turned anemic in ANC"
+    },
+    {
+      "id": "Do41GSbf762",
+      "displayName": "Yellow fever doses"
+    }
+  ]
+}
