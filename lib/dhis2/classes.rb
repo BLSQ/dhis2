@@ -25,6 +25,7 @@ module Dhis2
   class CategoryOption < Versioned; end
   class CategoryCombo < Versioned; end
   class CategoryOptionCombo < Versioned; end
+  class CompleteDataSetRegistration < Versioned; end
   class DataElement < Versioned; end
   class DataElementGroup < Versioned; end
   class DataSet < Versioned; end

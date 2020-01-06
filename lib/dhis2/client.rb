@@ -56,6 +56,10 @@ module Dhis2
       @category_option_combos ||= CollectionWrapper.new("CategoryOptionCombo", self)
     end
 
+    def complete_data_set_registrations
+      @complete_data_set_registrations ||= CollectionWrapper.new("CompleteDataSetRegistration", self)
+    end
+
     def data_elements
       @data_elements ||= CollectionWrapper.new("DataElement", self)
     end
@@ -184,6 +188,7 @@ module Dhis2
 
     def execute(method_name:, url:, query_params: {}, payload: nil, raw: false, raw_input: false)
       computed_payload = compute_payload(payload, raw_input)
+
       start_tracking = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       raw_response = RestClient::Request.execute(
         method:     method_name,
