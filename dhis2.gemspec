@@ -32,6 +32,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "webmock", "3.1.0"
-  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "simplecov", "< 0.18.0"
   spec.add_development_dependency "rest-client-logger"
 end
