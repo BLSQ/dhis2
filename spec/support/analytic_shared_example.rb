@@ -17,6 +17,16 @@ RSpec.shared_examples "an analytic endpoint" do |version:|
     )
   end
 
+  it "list by dx only, filtering on ou, pe" do
+    stub_request(:get, "https://play.dhis2.org/demo/api/analytics?dimension=dx:%5B%22de-987%22%5D&filter=ou:123%3B456,pe:201801%3B201802")
+      .to_return(status: 200, body: "", headers: {})
+
+    client.analytics.list(
+      data_elements: ["de-987"],
+      filter:        "ou:123;456,pe:201801;201802",
+    )    
+  end
+
   context "with stubbed data" do
     let(:data_element_id) { "h0xKKjijTdI" }
     let(:organisation_unit_id) { "vWbkYPRmKyS" }
