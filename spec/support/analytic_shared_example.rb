@@ -65,5 +65,28 @@ RSpec.shared_examples "an analytic endpoint" do |version:|
       stub_request(:get, "https://play.dhis2.org/demo/api/analytics?dimension=ou%3AvWbkYPRmKyS&dimension=pe%3A2016&dimension=dx%3Ah0xKKjijTdI")
         .to_return(status: 200, body: shared_content("analytics.json"))
     end
+
+    context "with skip meta option" do
+
+      before do
+        stub_api_skip_meta_request
+      end
+
+      it "adds the skipMeta query param " do
+        expect { client.analytics.list(
+          data_elements:      data_element_id,
+          organisation_units: organisation_unit_id,
+          periods:            period,
+          skipMeta:           true,
+          raw:                true
+        )}.not_to raise_error
+      end
+    end
+
+
+    def stub_api_skip_meta_request
+      stub_request(:get, "https://play.dhis2.org/demo/api/analytics?dimension=ou%3AvWbkYPRmKyS&dimension=pe%3A2016&dimension=dx%3Ah0xKKjijTdI&skipMeta=true")
+        .to_return(status: 200)
+    end
   end
 end

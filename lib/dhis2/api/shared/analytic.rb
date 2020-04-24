@@ -4,8 +4,9 @@ module Dhis2
   module Api
     module Shared
       class Analytic
-        def self.list(client, periods: nil, organisation_units: nil, data_elements: nil, filter: nil, raw: false)
+        def self.list(client, periods: nil, organisation_units: nil, data_elements: nil, filter: nil, raw: false, skipMeta: false)
           params = []
+          params << [:skipMeta, "true"] if skipMeta
           params << [:dimension, "pe:#{periods}"] if periods
           params << [:dimension, "ou:#{organisation_units}"] if organisation_units
           params << [:dimension, "dx:#{data_elements}"] if data_elements
