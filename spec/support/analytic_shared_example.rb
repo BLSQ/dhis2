@@ -17,6 +17,16 @@ RSpec.shared_examples "an analytic endpoint" do |version:|
     )
   end
 
+  it "list by dx only, filtering on ou, pe" do
+    stub_request(:get, "https://play.dhis2.org/demo/api/analytics?dimension=dx:%5B%22de-987%22%5D&filter=ou:123%3B456,pe:201801%3B201802")
+      .to_return(status: 200, body: "", headers: {})
+
+    client.analytics.list(
+      data_elements: ["de-987"],
+      filter:        "ou:123;456,pe:201801;201802",
+    )    
+  end
+
   context "with stubbed data" do
     let(:data_element_id) { "h0xKKjijTdI" }
     let(:organisation_unit_id) { "vWbkYPRmKyS" }
@@ -54,6 +64,29 @@ RSpec.shared_examples "an analytic endpoint" do |version:|
     def stub_api_request
       stub_request(:get, "https://play.dhis2.org/demo/api/analytics?dimension=ou%3AvWbkYPRmKyS&dimension=pe%3A2016&dimension=dx%3Ah0xKKjijTdI")
         .to_return(status: 200, body: shared_content("analytics.json"))
+    end
+
+    context "with skip meta option" do
+
+      before do
+        stub_api_skip_meta_request
+      end
+
+      it "adds the skipMeta query param " do
+        expect { client.analytics.list(
+          data_elements:      data_element_id,
+          organisation_units: organisation_unit_id,
+          periods:            period,
+          skipMeta:           true,
+          raw:                true
+        )}.not_to raise_error
+      end
+    end
+
+
+    def stub_api_skip_meta_request
+      stub_request(:get, "https://play.dhis2.org/demo/api/analytics?dimension=ou%3AvWbkYPRmKyS&dimension=pe%3A2016&dimension=dx%3Ah0xKKjijTdI&skipMeta=true")
+        .to_return(status: 200)
     end
   end
 end
