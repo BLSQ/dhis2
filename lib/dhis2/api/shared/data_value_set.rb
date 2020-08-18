@@ -52,7 +52,7 @@ module Dhis2
           def additional_query_parameters
             %i[
               data_set data_element_group period start_date end_date
-              org_unit children org_unit_group
+              org_unit children org_unit_group last_updated last_updated_duration
             ]
           end
         end
