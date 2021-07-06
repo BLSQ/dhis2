@@ -7,6 +7,7 @@ module Dhis2
         include ::Dhis2::Api::Listable
         include ::Dhis2::Api::Findable
         include ::Dhis2::Api::Creatable
+        include ::Dhis2::Api::BulkCreatable
         include ::Dhis2::Api::Updatable
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Shared::SaveValidator
