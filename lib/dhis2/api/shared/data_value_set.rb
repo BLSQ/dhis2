@@ -53,6 +53,7 @@ module Dhis2
             %i[
               data_set data_element_group period start_date end_date
               org_unit children org_unit_group last_updated last_updated_duration
+              include_deleted
             ]
           end
         end
