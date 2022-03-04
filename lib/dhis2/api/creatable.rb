@@ -38,7 +38,7 @@ module Dhis2
           if validator.success?
             yield
           else
-            raise Dhis2::CreationError, "Validation Error: #{validator.messages}"
+            raise Dhis2::CreationError, "Validation Error: #{validator.errors.to_h}"
           end
         end
       end
