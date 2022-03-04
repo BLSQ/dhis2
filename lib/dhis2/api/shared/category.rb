@@ -11,9 +11,9 @@ module Dhis2
 
         def default
           self.class.default(client)
-        end        
+        end
 
-        Schema = Dry::Validation.Schema do
+        Schema = Dry::Schema.define do
           required(:name).filled
           required(:data_dimension_type).value(
             included_in?: ::Dhis2::Api::Constants::DATA_DIMENSION_TYPES
@@ -25,8 +25,8 @@ module Dhis2
             "categories"
           end
           def default(client)
-            find_by(client, name: "default")
-          end          
+            find_by(client, {name: "default"})
+          end
           def creation_defaults(args)
             {
               data_dimension_type: "DISAGGREGATION"

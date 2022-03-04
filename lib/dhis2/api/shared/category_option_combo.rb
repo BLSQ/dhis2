@@ -14,7 +14,7 @@ module Dhis2
 
         module ClassMethods
           def default(client)
-            find_by(client, name: "default")
+            find_by(client, {name: "default"})
           end
         end
       end

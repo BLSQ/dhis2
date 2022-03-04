@@ -7,9 +7,9 @@ module Dhis2
       @client = client
     end
 
-    def method_missing(method_name, *args, &block)
+    def method_missing(method_name, *args, **kwargs, &block)
       args = args.unshift(@client)
-      @klass.public_send(method_name, *args, &block)
+      @klass.public_send(method_name, *args, **kwargs, &block)
     end
 
     def respond_to_missing?(method_name)
