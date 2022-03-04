@@ -12,7 +12,7 @@ module Dhis2
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Version224::SaveValidator
 
-        Schema = Dry::Validation.Schema do
+        Schema = Dry::Schema.define do
           required(:name).filled
           required(:period_type).value(
             included_in?: ::Dhis2::Api::Version224::Constants.period_types

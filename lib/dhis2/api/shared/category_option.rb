@@ -5,7 +5,7 @@ module Dhis2
   module Api
     module Shared
       module CategoryOption
-        Schema = Dry::Validation.Schema do
+        Schema = Dry::Schema.define do
           required(:name).filled
         end
         def self.included(base)
@@ -14,12 +14,12 @@ module Dhis2
 
         def default
           self.class.default(client)
-        end        
+        end
 
         module ClassMethods
           def default(client)
-            find_by(client, name: "default")
-          end          
+            find_by(client, {name: "default"})
+          end
         end
       end
     end

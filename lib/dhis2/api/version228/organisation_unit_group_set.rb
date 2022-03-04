@@ -12,7 +12,7 @@ module Dhis2
         include ::Dhis2::Api::Deletable
         include ::Dhis2::Api::Shared::SaveValidator
 
-        Schema = Dry::Validation.Schema do
+        Schema = Dry::Schema.define do
           required(:name).filled
         end
       end
