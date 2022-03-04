@@ -9,7 +9,7 @@ module Dhis2
         include ::Dhis2::Api::Version224::SaveValidator
         include ::Dhis2::Api::Shared::DataValueSet
 
-        Schema = Dry::Validation.Schema do
+        Schema = Dry::Schema.define do
           required(:data_values).each do
             schema do
               required(:value).filled

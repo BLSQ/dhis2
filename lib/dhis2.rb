@@ -6,7 +6,7 @@ require "ostruct"
 require "uri"
 require "delegate"
 require "cgi"
-require "dry-validation"
+require "dry-schema"
 
 require_relative "dhis2/version"
 require_relative "dhis2/case"

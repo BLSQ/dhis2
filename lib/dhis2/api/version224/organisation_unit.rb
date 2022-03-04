@@ -13,7 +13,7 @@ module Dhis2
         include ::Dhis2::Api::Version224::SaveValidator
         include ::Dhis2::Api::Shared::OrganisationUnit
 
-        Schema = Dry::Validation.Schema do
+        Schema = Dry::Schema.define do
           required(:name).filled
           required(:short_name).filled
           required(:opening_date).filled

@@ -13,7 +13,7 @@ module Dhis2
         include ::Dhis2::Api::Shared::SaveValidator
         include ::Dhis2::Api::Shared::CategoryOptionCombo
 
-        Schema = Dry::Validation.Schema do
+        Schema = Dry::Schema.define do
           required(:category_combo).schema do
             required(:id).filled
           end

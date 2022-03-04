@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rest-client"
-  spec.add_dependency "dry-validation", "0.11.1"
+  spec.add_dependency "dry-schema", "~> 1.9.1"
 
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "minitest-reporters"
