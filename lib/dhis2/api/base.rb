@@ -86,8 +86,16 @@ module Dhis2
 
       def initialize(client, raw_data)
         raw_data["display_name"] ||= raw_data["name"] # for backward compatbility with v2.19
-        super(raw_data)
-        self.client = client
+        # Lazy attributes, like OpenStruct on ruby 2.x: since ruby 3.0 OpenStruct.new
+        # defines a singleton method per key, way too slow for the thousands of
+        # resources built from snapshots. Getters/setters go through method_missing.
+        super()
+        raw_data.each_pair { |key, value| @table[key.to_sym] = value }
+        @table[:client] = client
+      end
+
+      def respond_to_missing?(method_name, include_private = false)
+        @table.key?(method_name.to_s.chomp("=").to_sym) || super
       end
 
       def update_attributes(attributes)
